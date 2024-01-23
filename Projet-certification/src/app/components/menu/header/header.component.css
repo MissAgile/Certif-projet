@@ -1,0 +1,34 @@
+
+
+*{
+    color: white!important;
+  }
+ 
+  #header{
+    background-color: #ffffff !important;
+    color: #001F3F;
+    box-shadow: 2px 2px 4px gray !important;
+  }
+  #navbar {
+    margin: 0 auto;
+  }
+  #navbar li a{
+    color: #001F3F  !important;
+    font-size: 18px !important;
+    font-weight: 700;
+  }
+  #navbar li a:hover{
+    color: #2ECC71  !important;
+    border-bottom: #2ECC71 4px solid;
+    
+  }
+
+  #nav img{
+    width: 9vh !important;
+    height: auto !important;
+  }
+  #btn-log{
+    background-color: #001F3F !important;
+    color: #2ECC71;
+
+  }

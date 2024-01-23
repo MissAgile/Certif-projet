@@ -1,0 +1,67 @@
+<div class=" container w-100  d-flex justify-content-center align-items-center " id="mainForm">
+    <div class="row  w-75 bg-white py-2 " style=" margin: 0 auto "  id="row">
+      <div class="col-lg-6 h-100"  id="imageForm" style=" height: 100% "  >
+        <!-- <img src="../../../assets/imgs/customer01.jpg" alt=""> -->
+      </div>
+      <div class="col-lg-6 " *ngIf="afficherBloc1">
+        <div class="d-flex justify-content-around mt-4">
+          <h2 id="description">Connectez -vous ! </h2>
+        </div>
+        <form  class="mt-5">
+          <div class="mb-3" >
+            <label  class="form-label text-black ">Email</label>
+            <input type="email" class="form-control w-100 " name="email" id="exampleFormControlInput1 " placeholder="nom utilisateur/email" >
+          </div>
+  
+          <div class="mb-3" >
+            <label for="passwordExemple0" class="form-label text-black">Mot de passe</label>
+            <input type="password" class="form-control w-100 " name="password" id="passwordExemple0" placeholder="mot de pass" >
+          </div>
+          <div class="col-12 px-0 my-3">
+            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;"  (click)="verifierLogin();">Se connecter</button>
+            <a class="para text-black-50">Mot de pass oublier</a>
+            <a  (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je me connecte</a>
+          </div>
+        </form>
+      </div>
+  
+  
+      <div class="col-lg-6" *ngIf="!afficherBloc1"  style="border: 2px solid  ; height: 100%;">
+          <div class="d-flex justify-content-around">
+            <h2>Inscrivez vous !</h2>
+          </div>
+          <form >
+            <div class="">
+              <label for="nameInput1" class="form-label ">Nom</label>
+              <input type="text" class="form-control w-100"  name="name" id="nameInput1" placeholder="votre nom de famille">
+            </div>
+            <div class="">
+              <label for="nameInput2" class="form-label ">Prenom</label>
+              <input type="tel" class="form-control w-100" name="monChamp4" id="nameInput2" placeholder="votre prenom">
+            </div>
+            <div class="">
+              <label for="exampleFormControlInput1" class="form-label ">Email</label>
+              <input type="email" class="form-control w-100" name="email"  id="exampleFormControlInput1" >
+            </div>
+  
+            <div class="">
+              <label for="passwordExemple1" class="form-label ">Mot de pass</label>
+              <input type="password" class="form-control w-100" name="password" id="passwordExemple1">
+            </div>
+            <div class="">
+              <label for="passwordExemple2" class="form-label ">confirmer mot de passe</label>
+              <input type="password" class="form-control w-100" name="password" id="passwordExemple2" >
+            </div>
+            <div class="col-12 px-0 my-3">
+              <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;"  (click)="verifierRegister()">S'inscrire</button>
+            </div>
+          </form>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  

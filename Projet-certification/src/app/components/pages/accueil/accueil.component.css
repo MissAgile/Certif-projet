@@ -1,0 +1,328 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type:none;
+    }    
+    :root{
+        --vert:#2ECC71;
+    }
+   
+  /*header banner */
+  .carousel-item{
+    height: 100vh;
+    min-height: 300px;
+}
+
+.carousel-item img{
+    background-size: cover;
+}
+
+.carousel-caption{
+    bottom: 40%;
+}
+
+.carousel-caption h5{
+    font-size: 45px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1.7px;
+}
+
+.carousel-caption p{
+    width: 100%;
+    margin: auto;
+    font-size: 18px;
+}
+
+.navbar-light .navbar-brand{
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link{
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar-toggler{
+    background: #fff;
+    outline: none !important;
+    font-size: 18px;
+    line-height: 0.3;
+    padding: 1px 5px;
+}
+
+.navbar-nav{
+    text-align: center;
+}
+
+.nav-link{
+    padding: 5px;
+}
+
+
+
+/* image apropos  */
+.sectionAccueil{
+    margin-top: -10% !important;
+}
+#content-apropos{
+    height:auto!important;
+    margin: 0 auto !important;
+
+
+}
+#about-img{
+    height: 100% !important;
+    /* border:4px solid blueviolet !important; */
+    width: 50% !important;
+}
+#about-img img{
+    width: 100% !important;
+
+
+}
+#about-text{   
+    height: 60% !important;
+   margin-top: 30px;
+   
+
+}
+#title-apropos{
+    color:#2ECC71 !important ;
+    margin-top: 20px;
+}
+#about h5{
+    color:#2ECC71 !important;
+}
+#about-text p{   
+
+font-size: 18px !important;
+text-align: justify;
+
+}
+
+/* section objets perdus récente */
+.container-objet{
+    margin-top: 8% !important;
+    background-color: #001F3F !important;
+}
+.row-objets{
+    margin: 0 auto !important;
+    margin-left: 10rem !important;
+    gap: 10px;
+    width: 70rem !important;
+}
+
+.inner{
+    overflow: hidden;
+}
+.inner img{
+    transition: all 1.5s ease;
+    height: 15rem;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+.scroll-to-top{
+    color: #007A64;
+}
+.scroll-to-top a{
+    background-color: #007A64;
+}
+
+/* ce que vous devez savoir */
+.quote{
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+.quote h3{
+    line-height: 1;
+    margin-bottom: 3rem;
+}
+.container_quote{
+    display: grid;
+    grid-template-columns: 40% 60% !important;
+    gap: 4rem;
+}
+.quote-left{
+    margin-right: 4rem;
+    margin-top: 7rem;
+    
+}
+
+.quote-left p{
+    margin: 1rem 0 3rem !important;
+    font-size: 15px !important;
+
+}
+.quote-right{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1.2rem !important;
+width: 80% !important;
+margin-left: 11.5rem !important;
+
+}
+.card-quote{
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 2rem;
+    transition: all 400ms ease;
+    border: 2px solid #001F3F;
+    color: #001F3F;
+    width: 70% !important;
+    height: 12rem !important;
+   
+}
+.card-quote:hover{
+    box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    background-color: #001F3F;
+    color: white;
+    z-index: 1;
+}
+.card-quote h5{
+    margin: 2rem 0 1rem;
+    color: #001F3F;
+}
+.card-quote h5:hover{
+   
+    color: #ffffff;
+}
+.card-quote p{
+font-size: 0.85rem;
+}
+.quote-icone{
+    background-color: #a2a0a0;
+    padding: 0.7rem;
+    border-radius: 1rem;
+}
+
+/*section déclaration objets  trouvé */
+.declaration {
+    /* border: 2px solid rgb(21, 0, 255) !important; */
+    background-image: url('../../../../assets/images/alerteObjet.png');
+    width: 100%;
+    height: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white !important;
+}
+.declaration .container-declaration{
+    padding: 2rem;
+    margin: 0 auto;
+    gap: 5rem;
+}
+.declaration .declaration-left {
+    /* border: 2px solid green ; */
+
+}
+.declaration .declaration-right {
+    /* border: 2px solid rgb(215, 21, 186) ; */
+    background-color: #fff;
+    border-radius: 1rem;
+ 
+}
+.declaration .declaration-right form {
+    /* margin: 1rem 0 3rem !important;m0 */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.declaration .declaration-right form label {
+    color: #001F3F;
+}
+.declaration .declaration-right form input::placeholder {
+    color: #ffffff;
+    font-size: 12px;
+}
+.declaration .declaration-right form input {
+    /* background-color: #001f3f76; */
+    color: white;
+    /* padding:5%; */
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid #001F3F;
+
+
+}
+.declaration .declaration-right form  #imageObjet{
+    background-color: 0;
+}
+.declaration .declaration-right form .btn {
+    background-color: #001F3F;
+    color: white;
+
+}
+.publicite{
+    border: 2px solid ;
+    /* mediaquiries */
+    /* height:9.1rem; */
+    height:35.9rem;
+    margin: 5% auto;
+}
+@media screen and (max-width:900px){
+    .publicite{
+        /* mediaquiries */
+        height:9.1rem;
+
+    }
+}
+@media screen and (max-width: 768px){
+    .row-objets{
+        width:100% !important;
+        margin-left: 2px !important  ;
+    }
+    .col-objet{
+        width: 100% ;
+    }
+    .navbouton button{
+        font-size: 14px;
+    }
+    .quote{
+        display: grid;
+    grid-template-columns: 1fr 1fr !important;       
+     text-align: center;
+        margin: 0 auto !important;
+        height: auto;
+        border: #2ECC71 2px solid !important;
+    }
+    .quote-left{
+       margin-left: 0 ;
+        width: 25.8rem !important;
+        margin-top: 0;
+    }
+    .quote-right{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 25.8rem !important;
+        /* border: 2px solid blue !important; */
+        gap: 1.2rem !important;
+        width: 80% !important;
+        margin-left:-12rem!important;
+        margin-top: 60%;
+        align-items: center !important;
+        
+    }
+   .sectionAccueil{
+    /* border: 2px solid orangered; */
+    margin-top: -80% !important;
+   }
+   #about-text .card-text{
+        padding: 20px;
+   }
+   #about-text h5{
+        text-align: center;
+   }
+   #about-img{
+    margin-top: 20px;
+   }
+}

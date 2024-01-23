@@ -1,0 +1,56 @@
+
+
+
+.btnActive{
+    background-color: #007A64;
+    color: white;
+}
+.recherche input{
+    border: 1px solid #007A64;
+    border-right: none;
+}
+
+.recherche .btn{
+    border: 1px solid #007A64;
+    border-left: none; 
+    color: #F09E4D ;
+}
+
+/* Menu filtre des projets  */
+.menuFiltre .btn{
+    width: 26vh;
+    border-bottom: 2px solid #F09E4D;
+    border-radius: 0;
+}
+
+.menuFiltre .filtreActive{
+    background-color: #F09E4D;
+    color: white;
+}
+
+
+/* section objets perdus récente */
+.container-objet{
+    margin-top: 8% !important;
+    background-color: #001F3F !important;
+}
+.row-objets{
+    margin: 0 auto !important;
+    margin-left: 10rem !important;
+    gap: 10px;
+    width: 70rem !important;
+}
+
+.inner{
+    overflow: hidden;
+}
+.inner img{
+    transition: all 1.5s ease;
+    height: 15rem;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+
+

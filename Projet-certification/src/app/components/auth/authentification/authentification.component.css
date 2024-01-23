@@ -1,0 +1,129 @@
+:root {
+    --blue: #001F3F;
+    --white: #fff;
+    --vert:#2ECC71;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+  }
+  
+  
+  #mainForm{
+      height: 100vh;
+      margin: 0 auto !important;
+      /* border: var(--blue) 12px solid; */
+      box-shadow: 2px 2px 4px  solid gray;
+    }
+    
+    #imageForm{
+      background-image: url("../../../../assets/images/login.png");
+      background-repeat: no-repeat;
+      background-size: cover ;
+      /* border: ; */
+    
+    
+    }
+    #row{
+      height: 80%;
+      margin: 0 auto;
+      border: 3px solid var(--blue) !important;
+  
+    
+    }
+    
+    
+    #img-contain img{
+      width: 100%;
+      height: 100%;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+  
+    
+    form input{
+      width: 40%;
+      border-bottom: 2px solid #00067a;
+      border-radius: 10px;
+    
+    }
+    select{
+      border-bottom: 3px solid var(--blue);
+      border-radius: 0;
+      /*width: 50%;*/
+    }
+    
+    
+    form,#description{
+      color: var(--blue);
+    }
+    #seconde-part-contain{
+      /* border: 1px solid maroon; */
+    
+    }
+    label{
+      font-weight: 700;
+    }
+    #description{
+      text-align: center;
+    
+    }
+    #form-seconde{
+      width: 25%;
+      height: 100%;
+      margin: 0 auto;
+      background-color: white;
+      position: relative;
+      top: -500px;
+      left: 12.5%;
+      border: 2px solid var(--blue);
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    
+    }
+    #inscription{
+      margin-right: 40%;
+    }
+    #btn-btn{
+      color: var(--ve);
+    }
+    
+    .btn-submit{
+      background-color:var(--vert);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 0 ;
+      border: none;
+    }
+    
+    @media screen and (max-width: 1238px) {
+      .first-form{
+        display: flex;
+        flex-direction: column;
+      }
+      #form-seconde {
+        width: 100%;
+        left: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+    
+    }
+    
+    input:focus, select:focus{
+      box-shadow: none !important;
+      border: 1px solid gray !important;
+      border-bottom:  3px solid var(--blue) !important;
+      margin-bottom: 10px !important;
+      margin-top: 10px !important;
+    }
+    label{
+      color: black !important; ;
+      font-weight: 500 !important;
+      margin-bottom: 10px !important;
+      margin-top: 10px !important;
+    
+    }
+    
+    
+    
+    
