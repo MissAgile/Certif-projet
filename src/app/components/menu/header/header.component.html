@@ -7,12 +7,9 @@
         <i class="fa-solid fa-bars" style="color: #001F3F !important;"></i>
       </button>
       <div class="collapse navbar-collapse" id="a" >
-        <ul class="navbar-nav ml-auto text-center"id="navbar">
+        <ul class="navbar-nav  d-flex justify-content-between gap-4 text-center"id="navbar">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/']" >Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/apropos']">Apropos</a>
+            <a class="nav-link" [routerLink]="['/accueil']" >Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/annonces']" >Annonces</a>
@@ -25,8 +22,8 @@
           </li>
         </ul>
         <div class="ms-4 d-flex justify-content-between gap-2">
-          <button type="submit" class="btn" id="btn-log">S'inscrire</button>
-          <button type="submit"  class="btn  " id="btn-log">Se connecter</button>
+          <button type="submit" class="btn" id="btn-log" [routerLink]="['/authentification']">S'inscrire</button>
+          <button type="submit"  class="btn  " id="btn-log" [routerLink]="['/authentification']">Se connecter</button>
         </div> 
       </div>
     </div>

@@ -5,6 +5,8 @@ import { PubliciteComponent } from './components/pages/publicite/publicite.compo
 import { AnnoncesComponent } from './components/pages/annonces/annonces.component';
 import {ContactComponent } from './components/pages/contact/contact.component';
 import {SidenavComponent } from './components/admin/sidenav/sidenav.component';
+import { AuthentificationComponent } from './components/auth/authentification/authentification.component';
+import { ConfidentialiteComponent } from './components/pages/confidentialite/confidentialite.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,8 @@ const routes: Routes = [
   {path: "publicite", component:PubliciteComponent},
   {path: "annonces", component:AnnoncesComponent},
   {path: "contact", component:ContactComponent},
-  // {path: "apropos", component:AproposComponent},
+  {path: "authentification", component:AuthentificationComponent},
+  {path: "confidentialite", component:ConfidentialiteComponent},
 
    //route admin
    {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule)},

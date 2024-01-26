@@ -25,7 +25,7 @@ import { UtilisationComponent } from './components/pages/utilisation/utilisation
     AnnoncesComponent,
     ConfidentialiteComponent,
     UtilisationComponent,
-    
+   
 
   ],
   imports: [

@@ -1,183 +1,199 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
+ul {
+    margin: 0px;
+    padding: 0px;
 }
-
-footer{
-    width: 100%;
-  
-    background: #ffffff;
-    /* padding-bottom: 20px; */
-    border-top: 4px #00a991 solid ;
-    /* border-bottom: 4px #00a991 solid; */
-    margin: 0 !important;
-    /* border: 2px solid red !important; */
+.footer-section {
+  background: #fff;
+  position: relative;
 }
-#footer-content{
-height:100px !important;
-}
-.square{
-    width: 100%;
-    height: auto;
-    
-    /* margin-top: 48px; */
-    /* padding: 0px !important; */
-    /* padding-bottom: 20px; */
-}
-.square img{
-width: 200px !important;
-height: 200px !important;
-}
-#logo-footer {
-    /* border:2px solid red;  */
-    width:20% !important;
-}
-#logo-footer {
-   /* border: 2px solid red; */
-   height: 10rem;
-   margin-top: 1rem;
-}
-#logo-footer img{
-    width: 10rem !important;
-    height: auto !important;
-}
-
-.about{
-    width: 85%;
-    color: #001F3F;
-    margin-top: 5px;
-}
-
-.heading{
-    margin-top: 20px;
-    font-size: 20px;
-    color: #001F3F;
-    font-weight: bold;
-    text-align: left;
-}
-.headingz{
-    margin-top: 20px;
-    font-size: 20px;
-    color: #001F3F;
-    font-weight: bold;
-    text-align: center;
-}
-
-.p-list{
-    padding: 0;
-}
-.about {
-    margin: 0 60px  !important;
-    width: 50%;
-    display: flex;
-    /* justify-content: space-between; */
-    gap: 20px !important;
-}
-.about i{
-    font-size: 30px !important;
-    color: #2ECC71;
-}
-.about i:hover{
-    cursor: pointer;
-    color: #001F3F !important;
+.content-footer{
     
 }
-.p-list li{
-    display: block;
-    text-align: left;
-    margin: 5px 0px;
+
+.footer-cta {
+  border-bottom: 4px solid #2ECC71;
+  background-color: #001F3F;
+  /* width: 150rem; */
+  margin: 0 auto;
+
+
+}
+.footer-widget-heading1{
+    color: white;
+}
+.footer-widget1{
+    
+}
+.single-cta {
+    height: 1vh;
+}
+.single-cta i {
+  color: #2ECC71;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #001F3F;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #757575;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  /* margin-bottom: 30px; */
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  /* margin-bottom: 14px; */
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #001F3F;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 5px;
+}
+.footer-social-icon a {
+  color: #ffffff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon a:hover {
+  color: #001F3F;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #001F3F;
+}
+.facebook-bg:hover{
+  background: #2ECC71;
+}
+.google-bg:hover{
+  background: #2ECC71;
+}
+.twitter:hover{
+  background: #2ECC71;
+  color: #001F3F;
+}
+.link h3{
     color: #001F3F;
 }
-.p-list li a{
-   text-decoration: none;
-    color: #001F3F;
+
+.twitter-bg{
+  background:  #001F3F;
+}
+.google-bg{
+  background:  #001F3F;
+}
+.footer-widget-heading h3 {
+  color: #001F3F;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #2ECC71;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #2ECC71;
+}
+.footer-widget ul li a {
+  color: #001F3F;
+  /* text-transform: capitalize; */
+  text-decoration: none;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #fff;
+  border: 1px solid #fff;
+  color: #001F3F;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #2ECC71;
+    padding: 13px 20px;
+    border: 1px solid #2ECC71;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #001F3F;
+  font-size: 22px;
+  transform: rotate(-6deg);
 }
 
-.l-list{
-    padding: 0;
+.copyright-area{
+  background: #001F3F;
+  border-top: 4px solid #2ECC71;
+  padding: 25px 0;
+  height: 5vh !important;
 }
-
-.l-list li{
-    display: block;
-    text-align: left;
-    margin: 5px 0px;
-    color: #001F3F;
+.copyright-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #878787;
 }
-.l-list li{
-    text-decoration: none;
-    color: #001F3F;
+.copyright-text p a{
+  color: #2ECC71;
 }
-
-.contact{
-    padding: 0;
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
 }
-
-.contact li{
-    display: block;
-    text-align: left;
-    margin: 5px 0px;
-    color: #001F3F;
+.footer-menu li:hover a{
+  color: #2ECC71;
 }
-.contact li a{
-    text-decoration: none;
-    color: #001F3F;
-}
-#news{
-    width: 8vh !important; 
-    height:8vh !important;
-    border: 2px solid #001F3F !important;
-    text-align: right;
-}
-.social-media{
-    margin-top: 20px;
-    margin-left: 40% !important;
-    width:100%;
-    padding: 0;
-
-}
-
-.social-media li{
-    display: inline-flex;
-    color: #001F3F;
-    margin: 5px;
-    font-size: 20px;
-}
-
-.copy{
-    text-align: center;
-    color: #001F3F;
-    margin-top: 20px;
-}
-#bottom-footer{
-    background-color: #001F3F;
-    color: white !important;
-}
-
-@media only screen and (max-width:767px){
-    .heading{
-        text-align: center !important;
-    }
-    .square{
-        padding: 0px 30px !important;
-        margin-top: 10px!important;
-    }
-
-    .p-list li , .l-list li , .contact li{
-        text-align: center !important;
-    }
-    .social-media{
-        padding-left: 0!important;
-    }
-
-    .social-media li{
-        margin: 5px;
-    }
-    .brand{
-        text-align: center !important; 
-    }
-    #logo-footer{
-        margin-left: 15% !important;
-    }
-    #news{
-        margin-right: 20px !important; 
-    }
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
 }

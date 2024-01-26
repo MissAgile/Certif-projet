@@ -1,6 +1,144 @@
-
-<body>
 <app-header></app-header>
+<div id="carouselIndicator" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselIndicator" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselIndicator" data-slide-to="1"></li>
+        <li data-target="#carouselIndicator" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../../../../assets/images/bg-partenaire.png" class="d-block w-100">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../../../assets/images/bg-partenaire.png" class="d-block w-100">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../../../assets/images/bg-partenaire.png" class="d-block w-100">
+            <div class="carousel-caption">
+                <!-- <h5>Slide Three</h5>
+                    <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
+                        nulla, tempore.
+                        Deserunt excepturi quas
+                        vero.</p> -->
+            </div>
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#carouselIndicator" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselIndicator" role="button" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+<!--ce que vous devez savoir-->
+<section class="quote container mx-auto">
+    <div class="container mx-auto container_quote">
+        <div class="quote-left">
+            <h2 style="color: #001F3F ; font-weight: 700;">Comment bien recuperer un </h2>
+            <h2 style="color: #2ECC71 ; font-weight: 700;">un objet déclaré ?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Nunc eget
+                congue
+                ante. Vivamus ut sapien et ex volutpat tincidunt eget at felis vivamus hendrerit.
+
+                Phasellus pellentesque, quam sed tempus tempus, dui magna semper urna, placerat tristique diam augue ut
+                nunc.
+            </p>
+        </div>
+        <div class="quote-right container">
+            <article class="card-quote">
+                <span class="quote-icone"><i class="bi bi-search"></i></span>
+                <h5>Rechercher un objet </h5>
+                <p>Lorem ipsum </p>
+            </article>
+            <!-- <article class="card-quote container">
+          <span class="quote-icone"></span>
+          <h5>Contacter l’auteur </h5>
+          <p>Lorem ipsum </p>
+        </article> -->
+            <article class="card-quote">
+                <span class="quote-icone"><i class="bi bi-person-lines-fill"></i> </span>
+                <h5>Contacter le restituteur </h5>
+                <p>Lorem ipsum dolor</p>
+            </article>
+            <article class="card-quote">
+                <span class="quote-icone"><i class="bi bi-newspaper"></i></span>
+                <h5>Montrer sa véracité </h5>
+                <p>Lorem ipsum </p>
+            </article>
+            <article class="card-quote">
+                <span class="quote-icone"><i class="bi bi-box"></i> </span>
+                <h5>Recevoir l’objet </h5>
+                <p>Lorem ipsum dolor</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!--section déclaration objets trouvés-->
+<section class="declaration  mx-auto">
+    <!-- section soumettre Objet  -->
+    <div class="container row container-declaration  ">
+        <div class="declaration-left col-lg-7 col-md-4 py-5">
+            <h2>Pour visibilité? </h2>
+            <h2> Demander un partenariat </h2>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Nunc eget congue ante.
+                 Vivamus ut sapien et ex volutpat tincidunt eget at felis vivamus hendrerit.
+            </p>
+        </div>
+        <div class="declaration-right col-lg-4 col-md-3 ">
+            <form action="" class="  ">
+                <div class="mb-3">
+                    <label for="titreObjet" class="form-label">Titre Objet</label>
+                    <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet"
+                        id="titreObjet">
+                </div>
+                <div class="mb-3">
+                    <label for="descriptionObjet" class="form-label"
+                        placeholder="Description de l'objet">Description</label>
+                    <input type="text" name="descriptionObjet" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="dateObjet" class="form-label">Date</label>
+                    <input type="date" name="dateObjet" class="form-control" placeholder="Description" id="dateObjet">
+                </div>
+                <div class="mb-3">
+                    <label for="lieuObjet" class="form-label">Lieu</label>
+                    <input type="text" name="lieuObjet" class="form-control" id="lieuObjet">
+                </div>
+                <div class="mb-3">
+                    <label for="imageObjet" class="form-label">Url image</label>
+                    <input type="file" name="imageObjet" class="form-control" id="imageObjet">
+                </div>
+
+                <div class=" text-start d-flex justify-content-start">
+                    <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
+                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   ">Déclarer</button>
+                </div>
+
+            </form>
+
+            <!-- Test  -->
+            <!-- <img [src]="image" alt=""> -->
+        </div>
+
+    </div>
+    <!-- Fin Contenu  -->
+</section>
+
+<!--Section publicité-->
+<section class="publicite container">
+    <h3 class="titre text-center mt-5 titre" style="color: #2ECC71 ; font-weight: 700;" id="title-section"
+        color="#2ECC71 !important"> Nos publicités </h3>
+
     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselIndicator" data-slide-to="0" class="active"></li>
@@ -10,25 +148,25 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../../../../assets/images/banner1.png" class="d-block w-100">
+                <img src="../../../../assets/images/pub3.png" class="d-block w-100">
                 <div class="carousel-caption">
-                   
+
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../../../../assets/images/banner2.png" class="d-block w-100">
+                <img src="../../../../assets/images/pub2.png" class="d-block w-100">
                 <div class="carousel-caption">
-                   
+
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../../../../assets/images/banner1.png" class="d-block w-100">
+                <img src="../../../../assets/images/pub3.png" class="d-block w-100">
                 <div class="carousel-caption">
                     <!-- <h5>Slide Three</h5>
-                    <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
-                        nulla, tempore.
-                        Deserunt excepturi quas
-                        vero.</p> -->
+                  <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
+                      nulla, tempore.
+                      Deserunt excepturi quas
+                      vero.</p> -->
                 </div>
             </div>
         </div>
@@ -41,6 +179,91 @@
         </a>
 
     </div>
+    <!-- <div class="container cotainer-pub"></div> -->
+</section>
+<!-- section phasse -->
+<section class="phases">
+    <div class="container mt-5 mb-5">
+
+        <div class="row g-2">
+            <div class="col-md-4">
+                <div class="card p-3 text-center px-4">
+
+                    <div class="user-image">
+                        <img src="../../../../assets/images/phase1.png" class="rounded-circle" width="80">
 
 
-</body>
+                    </div>
+
+                    <div class="user-content">
+
+                        <h5 class="mb-0">Remplir le formulaire</h5>
+                        <!-- <span>Software Developer</span> -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-3 text-center px-4">
+
+                    <div class="user-image">
+
+                        <img src="../../../../assets/images/phase2.png" class="rounded-circle" width="80">
+
+
+                    </div>
+
+                    <div class="user-content">
+
+                        <h5 class="mb-0">Vpus aller recevoir un mail</h5>
+                        <!-- <span>Web Developer</span> -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-3 text-center px-4">
+
+                    <div class="user-image">
+
+                        <img src="../../../../assets/images/phase3.png" class="rounded-circle" width="80">
+
+
+                    </div>
+
+                    <div class="user-content">
+
+                        <h5 class="mb-0">Négociation sur le prix </h5>
+                        <!-- <span>Software Architect</span> -->
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<!-- section demande partenariat -->
+
+<app-footer></app-footer>

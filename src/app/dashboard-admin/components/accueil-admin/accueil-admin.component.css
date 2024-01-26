@@ -1,0 +1,89 @@
+
+tr td{
+    text-align: left !important;
+}
+.card-details {
+    width: 600px;
+    border-radius: 10px;
+
+ 
+}
+
+.set-p {
+   
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.rating {
+    background-color: #3D5AFE;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.grade {
+    font-size: 18px;
+}
+
+.line {
+    height: 1px;
+    background-color: #E0E0E0;
+}
+
+/* formulaire de mofification modal annonce */
+form {
+    /* margin: 1rem 0 3rem !important;m0 */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+ form {
+    /* margin: 1rem 0 3rem !important;m0 */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+ form label {
+    color: #001F3F;
+}
+ form input::placeholder {
+    color: #ffffff;
+    font-size: 12px;
+}
+ form input {
+    /* background-color: #001f3f76; */
+    color: #001F3F;
+    /* padding:5%; */
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid #001F3F;
+
+
+}
+ form  #imageObjet{
+    background-color: 0;
+}
+ form .btn {
+    background-color: #001F3F;
+    color: white;
+
+}
+
+
+@media screen and (max-width: 575px) {
+    .image {
+        height: auto;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+    }
+}

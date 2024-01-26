@@ -26,7 +26,7 @@
     #row{
       height: 80%;
       margin: 0 auto;
-      border: 3px solid var(--blue) !important;
+      /* border: 3px solid var(--blue) !important; */
   
     
     }
@@ -42,7 +42,7 @@
     
     form input{
       width: 40%;
-      border-bottom: 2px solid #00067a;
+      border: 2px solid #001F3F;
       border-radius: 10px;
     
     }
@@ -75,7 +75,7 @@
       position: relative;
       top: -500px;
       left: 12.5%;
-      border: 2px solid var(--blue);
+      /* border: 2px solid var(--blue); */
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
     

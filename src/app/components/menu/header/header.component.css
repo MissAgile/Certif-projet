@@ -8,10 +8,13 @@
     background-color: #ffffff !important;
     color: #001F3F;
     box-shadow: 2px 2px 4px gray !important;
+    /* position: fixed ; */
   }
   #navbar {
     margin: 0 auto;
   }
+  #navbar ul li{
+margin-left: 10px;  }
   #navbar li a{
     color: #001F3F  !important;
     font-size: 18px !important;
