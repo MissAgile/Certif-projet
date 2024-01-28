@@ -344,15 +344,12 @@ top: -0.6rem;
   color: var(--white);
 }
 
-/* ================== Order Details List ============== */
+/* ================== Listes partenariat ============== */
 .details {
   position: relative;
   width: 100%;
-  /* padding: 20px; */
   display: grid;
   grid-template-columns:  1fr;
-  /* grid-gap: 30px; */
-  /* margin-top: 10px; */
 }
 /*link rapid bouttons blue */
 .link-rapide .btn {
@@ -367,15 +364,17 @@ top: -0.6rem;
   color:#001F3F ;
   
 }
-.details .recentOrders {
+.recentOrders {
   position: relative;
   display: grid;
-  min-height: 500px;
+  /* min-height: 500px; */
   background: var(--white);
-  padding: 15px;
+  /* padding: 15px; */
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
 }
+
+
 
 .details .cardHeader {
   display: flex;
@@ -388,7 +387,7 @@ top: -0.6rem;
 }
 .cardHeader .btn {
   position: relative;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   background: #001F3F;
   text-decoration: none;
   color: var(--white);
@@ -399,7 +398,7 @@ top: -0.6rem;
 .details table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .sorting{
   background-color: #001F3F !important;
@@ -413,7 +412,6 @@ top: -0.6rem;
 }
 .details .recentOrders table tr {
   color: var(--black1);
-  background-color: #001F3F;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .details .recentOrders table tr:last-child {
@@ -481,7 +479,7 @@ top: -0.6rem;
   position: relative;
   display: grid;
   min-height: 500px;
-  padding: 20px;
+  /* padding: 20px; */
   background: var(--white);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;

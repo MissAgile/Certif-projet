@@ -10,15 +10,15 @@
         <form  class="mt-5">
           <div class="mb-3" >
             <label  class="form-label text-black ">Email</label>
-            <input type="email" class="form-control w-100 " name="email" id="exampleFormControlInput1 " placeholder="nom utilisateur/email" >
+            <input type="email" class="form-control w-100 " name="email" id="exampleFormControlInput1 " placeholder="email"  [(ngModel)] = "email">
           </div>
   
           <div class="mb-3" >
             <label for="passwordExemple0" class="form-label text-black">Mot de passe</label>
-            <input type="password" class="form-control w-100 " name="password" id="passwordExemple0" placeholder="mot de pass" >
+            <input type="password" class="form-control w-100 " name="password" id="passwordExemple0" placeholder="mot de pass"  [(ngModel)] = "password">
           </div>
           <div class="col-12 px-0 my-3">
-            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;"  (click)="verifierLogin();">Se connecter</button>
+            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;"  (click)="login()">Se connecter</button>
             <a class="para text-black-50">Mot de pass oublier</a>
             <a  (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je me connecte</a>
           </div>
@@ -32,28 +32,33 @@
           </div>
           <form >
             <div class="">
-              <label for="nameInput1" class="form-label ">Nom</label>
-              <input type="text" class="form-control w-100"  name="name" id="nameInput1" placeholder="votre nom de famille">
+              <label for="name" class="form-label ">Nom</label>
+              <input type="text" class="form-control w-100"  name="name" id="name" placeholder="votre nom de famille" [(ngModel)] = "name">
             </div>
             <div class="">
-              <label for="nameInput2" class="form-label ">Prenom</label>
-              <input type="tel" class="form-control w-100" name="monChamp4" id="nameInput2" placeholder="votre prenom">
+              <label for="firstName" class="form-label ">Prenom</label>
+              <input type="text" class="form-control w-100" name="firstName" id="firstName" placeholder="votre prenom" [(ngModel)] = "firstName">
             </div>
             <div class="">
-              <label for="exampleFormControlInput1" class="form-label ">Email</label>
-              <input type="email" class="form-control w-100" name="email"  id="exampleFormControlInput1" >
+              <label for="email" class="form-label ">Email</label>
+              <input type="email" class="form-control w-100" name="email"  id="email" [(ngModel)] = "email">
             </div>
   
             <div class="">
-              <label for="passwordExemple1" class="form-label ">Mot de pass</label>
-              <input type="password" class="form-control w-100" name="password" id="passwordExemple1">
+              <label for="password" class="form-label ">Mot de pass</label>
+              <input type="password" class="form-control w-100" name="password" id="password"  [(ngModel)] = "password">
             </div>
             <div class="">
-              <label for="passwordExemple2" class="form-label ">confirmer mot de passe</label>
-              <input type="password" class="form-control w-100" name="password" id="passwordExemple2" >
+              <label for="confirmPassword" class="form-label ">confirmer mot de passe</label>
+              <input type="password" class="form-control w-100" name="confirmPassword" id="confirmPassword"  [(ngModel)] = "confirmPassword" >
             </div>
+            <div class="">
+              <label for="phone" class="form-label ">Tel</label>
+              <input type="number" class="form-control w-100" name="phone" id="phone"  [(ngModel)] = "phone">
+            </div>
+            
             <div class="col-12 px-0 my-3">
-              <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;"  (click)="verifierRegister()">S'inscrire</button>
+              <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;" (click)="register()" >S'inscrire</button>
             </div>
           </form>
   

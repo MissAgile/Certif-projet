@@ -1,0 +1,90 @@
+
+@import url('../accueil-admin/accueil-admin.component.css');
+
+/* sction deande de partenariat publicité */
+ /*section déclaration objets  trouvé */
+ .declaration {
+    /* border: 2px solid rgb(21, 0, 255) !important; */
+    /* background-image: url('../../../../assets/images/alerteObjet.png'); */
+    width: 100%;
+
+    
+    color: #001F3F !important;
+    
+  }
+
+  .declaration .container-declaration{
+    /* padding: 2rem; */
+    margin: 0 auto;
+    gap: 8rem;
+    display: flex;
+    font-weight: 700;
+    flex-wrap: wrap;
+  }
+
+
+  .declaration .declaration-left {
+    color: #001F3F;
+    padding: 0
+    ;
+  }
+  .declaration .declaration-left img {
+    width: 80%;
+    height: 90%;
+    margin-left: 10rem;
+    /*Autres styles nécessaires pour positionner et styliser votre image */
+
+    /* Propriétés d'animation */
+    animation-name: jumpAndFall; /* Nom de l'animation */
+    animation-duration: 1.5s; /* Durée de l'animation en demi-seconde (ajustez selon vos besoins) */
+    animation-iteration-count: infinite; /* Boucle l'animation indéfiniment */
+    animation-fill-mode: both; /* L'image reste dans l'état final après l'animation */
+}
+/* Définition de l'animation jumpAndFall */
+/* Définition de l'animation jumpAndFall */
+@keyframes jumpAndFall {
+    0% {
+        transform: translateY(0); /* Position initiale (pas de saut) */
+    }
+    50% {
+        transform: translateY(-20px); /* Saut de 20px vers le haut à 50% de l'animation */
+    }
+    100% {
+        transform: translateY(0); /* Retour à la position initiale à la fin de l'animation */
+    }
+}
+  .declaration .declaration-right form {
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 5%;
+  }
+  
+  .declaration .declaration-right form label {
+    color: #001F3F;
+  }
+  .declaration .declaration-right form input::placeholder {
+    color: #ffffff;
+    font-size: 12px;
+  }
+  .declaration .declaration-right form input {
+    /* background-color: #001f3f76; */
+    color: white;
+    /* padding:5%; */
+    height: 20%;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    border-bottom: 3px solid #001F3F;
+  
+  
+  }
+  .declaration .declaration-right form  #imageObjet{
+    background-color: 0;
+  }
+  .declaration .declaration-right form .btn {
+    background-color: #2ECC71;
+    color: white;
+  
+  }
+  

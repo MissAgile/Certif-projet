@@ -12,6 +12,10 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { AnnoncesComponent } from './components/pages/annonces/annonces.component';
 import { ConfidentialiteComponent } from './components/pages/confidentialite/confidentialite.component';
 import { UtilisationComponent } from './components/pages/utilisation/utilisation.component';
+import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +29,25 @@ import { UtilisationComponent } from './components/pages/utilisation/utilisation
     AnnoncesComponent,
     ConfidentialiteComponent,
     UtilisationComponent,
+    
    
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

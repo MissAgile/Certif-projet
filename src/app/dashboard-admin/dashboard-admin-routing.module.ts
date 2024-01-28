@@ -8,7 +8,8 @@ import { GestionCategorieComponent } from './components/gestion-categorie/gestio
 import { GestionProfilComponent } from './components/gestion-profil/gestion-profil.component';
 import { GestionPubliciteComponent } from './components/gestion-publicite/gestion-publicite.component';
 import { GestionPartenariatComponent } from './components/gestion-partenariat/gestion-partenariat.component';
-import { GestionAnnoncesComponent } from './components/gestion-annonces/gestion-annonces.component';
+import { GestionAnnoncesComponent } from './components/gestion-annonces/gestion-annonces.component'; 
+import { GestionRoleComponent } from './components/gestion-role/gestion-role.component';
 
 const routes: Routes = [
   {path:'', component: MainComponent, 
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path:'gestion-publicite', component:GestionPubliciteComponent},
     {path:'gestion-partenariat', component:GestionPartenariatComponent},
     {path:'gestion-annonces', component:GestionAnnoncesComponent},
+    {path:'gestion-role', component:GestionRoleComponent},
     {path:'', redirectTo:'accueil-admin', pathMatch:'full'},
 
   ]

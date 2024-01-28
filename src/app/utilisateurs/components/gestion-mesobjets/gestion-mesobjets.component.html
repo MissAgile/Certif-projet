@@ -50,34 +50,38 @@
   <!-- ================ contenu tableau gestion users ================= -->
   <div class="details">
         <div class="link-rapide">
-          <a type="submit" [routerLink]="['../gestion-utilisateur']" class="btn ">Liste des publicités</a>
-          <a type="submit" [routerLink]="['../gestion-annonces']" class="btn ">Liste des annonces</a>
+          <a type="submit" [routerLink]="['../mes-demandes']" class="btn ">Demander un partenariat</a>
+          <a type="submit" class="btn ">Ajouter une annonce</a>
       </div>
   <div class="recentOrders">
   
         <div class="cardHeader">
-            <h2>Liste des utilisateurs</h2>
-            <a href="#" class="btn">Voir tout</a>
+            <h2>Liste de mes annonces</h2>
         </div>
   
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table">
           <thead>
             <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Tel</th>
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Lieu</th>
+                <th>Etat</th>
                 <th>Action</th>
             </tr>
         </thead>
   
         <tbody>
           <tr>
-              <td>Diop</td>
-              <td>Amadou</td>
-              <td>imagmail.com</td>
-              <td>76 159 86 79</td>
+              <td><img src="../../../../assets/images/cartable.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
+              <td>Cartable </td>
+              <td>trouvé à coté  d'un bus</td>
+              <td>Mermoz</td>
+              <td>Non-recuperer</td>
               <td><span class="status action-icon">
+                  <a  >               
+                      <i class="bi bi-pencil-square" ></i>
+                      </a>                
                       <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
                           <i class="bi bi-eye-fill"></i>
                       </a>                
@@ -85,29 +89,77 @@
                           <i class="bi bi-chat"></i>
                       </a>                
                       <a >   
-                      <i class="bi bi-archive-fill"></i>
+                              <i class="bi bi-archive-fill"></i>
                       </a>       
               </span>
               </td>
           </tr>
-            <tr>
-                  <td>Tall</td>
-                  <td>Fatoumata</td>
-                  <td>imagmail.com</td>
-                  <td>77 136 98 74</td>
-                  <td><span class="status action-icon">
-                          <a data-bs-toggle="modal" data-bs-target="#mydetails">                
-                              <i class="bi bi-eye-fill"></i>
-                          </a>                
-                          <a href="#">                
-                              <i class="bi bi-chat"></i>
-                          </a>                
-                          <a >   
-                                  <i class="bi bi-archive-fill"></i>
-                          </a>       
-                  </span>
-                  </td>
-              </tr>
+          <tr>
+              <td><img src="../../../../assets/images/iphone 8.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
+              <td>Cartable </td>
+              <td>trouvé à coté  d'un bus</td>
+              <td>Mermoz</td>
+              <td>Non-recuperer</td>
+              <td><span class="status action-icon">
+                  <a  >               
+                      <i class="bi bi-pencil-square" ></i>
+                      </a>                
+                      <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
+                          <i class="bi bi-eye-fill"></i>
+                      </a>                
+                      <a href="#">                
+                          <i class="bi bi-chat"></i>
+                      </a>                
+                      <a >   
+                              <i class="bi bi-archive-fill"></i>
+                      </a>       
+              </span>
+              </td>
+          </tr>
+          <tr>
+              <td><img src="../../../../assets/images/passport.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
+              <td>Cartable </td>
+              <td>trouvé à coté  d'un bus</td>
+              <td>Mermoz</td>
+              <td>Non-recuperer</td>
+              <td><span class="status action-icon">
+                  <a  >               
+                      <i class="bi bi-pencil-square" ></i>
+                      </a>                
+                      <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
+                          <i class="bi bi-eye-fill"></i>
+                      </a>                
+                      <a href="#">                
+                          <i class="bi bi-chat"></i>
+                      </a>                
+                      <a >   
+                              <i class="bi bi-archive-fill"></i>
+                      </a>       
+              </span>
+              </td>
+          </tr>
+          <tr>
+              <td><img src="../../../../assets/images/clé.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
+              <td>Cartable </td>
+              <td>trouvé à coté  d'un bus</td>
+              <td>Mermoz</td>
+              <td>Non-recuperer</td>
+              <td><span class="status action-icon">
+                  <a  >               
+                      <i class="bi bi-pencil-square" ></i>
+                      </a>                
+                      <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
+                          <i class="bi bi-eye-fill"></i>
+                      </a>                
+                      <a href="#">                
+                          <i class="bi bi-chat"></i>
+                      </a>                
+                      <a >   
+                              <i class="bi bi-archive-fill"></i>
+                      </a>       
+              </span>
+              </td>
+          </tr>
           
         </tbody>
           </table>

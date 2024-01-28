@@ -19,7 +19,10 @@ const routes: Routes = [
 
    //route admin
    {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule)},
-   {path: "sidenav", component:SidenavComponent}
+   {path: "sidenav", component:SidenavComponent},
+
+   //route utilisateurs
+   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule)}, //
 ];
 
 @NgModule({

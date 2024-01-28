@@ -1,1 +1,273 @@
-<p>gestion-mespartenariat works!</p>
+<!-- ======================= Carte statstique ================== -->
+<div class="cardBox">
+    <div class="card ">
+        <div class="iconBx">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">100</div>
+            <div class="cardName">Objets perdus</div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="iconBx">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">500</div>
+            <div class="cardName">Nombre visites</div>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="iconBx">
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">284</div>
+            <div class="cardName">Objets trouvés</div>
+        </div>
+
+    </div>
+
+    <div class="card ">
+        <div class="iconBx">
+            <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">100</div>
+            <div class="cardName">Annonces </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================ contenu tableau gestion users ================= -->
+<div class="details">
+    <div class="link-rapide">
+        <a type="submit" [routerLink]="['../mes-demandes']" class="btn ">Ajouter une demande</a>
+        <a type="submit" class="btn ">Demandes acceptées</a>
+        <a type="submit" class="btn ">Demandes refusées</a>
+    </div>
+    <div class="recentOrders">
+
+        <div class="cardHeader">
+            <h2>Listes demande partenariats</h2>
+        </div>
+
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Télephone</th>
+                    <th>Description</th>
+                    <th>Tel</th>
+                    <th>Etats</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>imagmail.com</td>
+                    <td>76 159 86 79</td>
+                    <td>Description</td>
+                    <td>1 mois</td>
+                    <td>acceptées</td>
+                    <td><span class="status action-icon">
+                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                            <a>
+                                <i class="bi bi-archive-fill"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>imagmail.com</td>
+                    <td>76 159 86 79</td>
+                    <td>Description</td>
+                    <td>1 mois</td>
+                    <td>acceptées</td>
+                    <td><span class="status action-icon">
+                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                            <a>
+                                <i class="bi bi-archive-fill"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>imagmail.com</td>
+                    <td>76 159 86 79</td>
+                    <td>Description</td>
+                    <td>1 mois</td>
+                    <td>acceptées</td>
+                    <td><span class="status action-icon">
+                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                            <a>
+                                <i class="bi bi-archive-fill"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>imagmail.com</td>
+                    <td>76 159 86 79</td>
+                    <td>Description</td>
+                    <td>1 mois</td>
+                    <td>acceptées</td>
+                    <td><span class="status action-icon">
+                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">
+                                <i class="bi bi-eye-fill"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-chat"></i>
+                            </a>
+                            <a>
+                                <i class="bi bi-archive-fill"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<!-- Modal pour détails annonces -->
+<div class="modal" id="mydetails">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-2">
+            <div class="d-flex justify-content-between">
+                <h4 class="modal-title">Détails objet</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid  mx-auto">
+                    <div class="row d-flex justify-content-center">
+                        <div class="card card-details border-0">
+                            <div class="row set-p justify-content-center">
+                                <div class="col-sm-4 px-0">
+                                    <img class="image" src="../../../../assets/images/cartable.png">
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="row px-3">
+                                        <h5 class="font-weight-bold">Cartable en cuire marron</h5>
+                                    </div>
+                                    <div class="row px-3 mb-3">
+
+                                        <p class="text-muted mb-0">trouvé à mbao vers 10h50 avec une bouteille d'au à
+                                            coté</p>
+                                    </div>
+                                    <div class="row px-3">
+                                        <span class="status action-icon">
+                                            <a href="#">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="bi bi-chat"></i>
+                                            </a>
+                                            <!-- <a href="#">                
+                                                                  <i class="bi bi-archive"></i>
+                                                              </a>                 -->
+                                            <a href="#">
+                                                <i class="bi bi-archive-fill"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Modal pour modifier une  annonces -->
+
+
+
+<div class="modal" id="myedit">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-2">
+            <div class="d-flex justify-content-between">
+                <h4 class="modal-title">Modifier une annonce </h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid  mx-auto">
+                    <form action="" class="  ">
+                        <div class="mb-3">
+                            <label for="titreObjet" class="form-label">Titre Objet</label>
+                            <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet"
+                                id="titreObjet" value="Cartable marron">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descriptionObjet" class="form-label"
+                                placeholder="Description de l'objet">Description</label>
+                            <input type="text" name="descriptionObjet" class="form-control"
+                                value="J'ai ramassé ce cartable marron à coté d'un arret bus ">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lieuObjet" class="form-label">Lieu</label>
+                            <input type="datetime" name="lieuObjet" class="form-control" id="lieuObjet" value="16h56">
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageObjet" class="form-label">Image</label>
+                            <input type="file" name="imageObjet" class="form-control" id="imageObjet"
+                                value="lien image">
+                        </div>
+
+                        <div class=" text-start d-flex justify-content-start">
+                            <button class="btn btn-lg  btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
+                            <button class="btn  btn-lg   btnSoumettre  px-3 py-1   ">Déclarer</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+              </div> -->
+
+        </div>
+    </div>
+</div>
