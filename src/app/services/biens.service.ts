@@ -1,0 +1,47 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { url } from './apiUrl';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BiensService {
+
+  constructor(private http : HttpClient) { }
+
+  addAnnonce(data: any):Observable<any>{
+    const accessToken = localStorage.getItem('access_token');
+    // return this.http.post<any>(`${url}/biens/store`, data)
+    return accessToken ?
+    this.http.post<any>(`${url}/biens/store`, data, {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
+     
+    
+  }
+
+
+  /** fonction qui nous permet de lister les bien déclarer par  un utilisateur */
+  getAllBiens(): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+      
+      return accessToken ?
+      this.http.get<any>(`${url}/biens/bienUser`,  {
+          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+        }) : of(null);
+  }
+
+  //modifier
+updateBien(id: number, bien:any): Observable<any> {
+  
+  const accessToken = localStorage.getItem('access_token');
+    
+    return accessToken ?
+    this.http.post<any>(`${url}/biens/update/${id}`, bien, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+    }) : of(null);
+   
+}
+  
+}

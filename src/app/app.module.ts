@@ -12,7 +12,7 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { AnnoncesComponent } from './components/pages/annonces/annonces.component';
 import { ConfidentialiteComponent } from './components/pages/confidentialite/confidentialite.component';
 import { UtilisationComponent } from './components/pages/utilisation/utilisation.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
  
@@ -37,7 +37,8 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [

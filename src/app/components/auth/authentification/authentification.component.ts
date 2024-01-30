@@ -62,22 +62,31 @@ export class AuthentificationComponent implements OnInit {
         this.authenticationService.login(user).subscribe(
           (rep) => {
             response = rep;
-            console.log(response);
+
+            console.log(response.access_token);
+            localStorage.setItem("userOnline", JSON.stringify(response.utlisatur));
+            localStorage.setItem("access_token", JSON.stringify(response.access_token).replace(/['"]+/g, ''));
             if (response) {
+              if(response.utlisatur.role_id === 1){
+                this.route.navigate(['utilisateurs/accueilutilisateurs']); 
+              }else{
+                this.route.navigate(['dashboard-admin/accueil-admin']); 
+              }
               // console.log ("C'est bon");
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: '',
-                text: response.message,
-                showConfirmButton: true,
-              });
+              
+              // Swal.fire({
+              //   position: 'center',
+              //   icon: 'success',
+              //   title: '',
+              //   text: response.message,
+              //   showConfirmButton: true,
+              // });
   
-              this.route.navigate(['/accueil']); // Redirection vers le dashbord concerné
+              // this.route.navigate(['/accueil']); 
+
               // this.authenticationService.isAuthenticated = true; // Définit la variable isAuthicated à true pour la guard
   
               // On stocke les info de la requete dans notre localstorage
-              localStorage.setItem('userConnect', JSON.stringify(response));
   
               // this.iscorrectValues = true; //Les données fournies sont correctes
             } else {

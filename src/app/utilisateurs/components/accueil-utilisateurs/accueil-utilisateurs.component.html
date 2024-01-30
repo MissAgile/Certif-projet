@@ -57,27 +57,35 @@
         <div class="declaration-right col-lg-4 col-md-5 col-sm-3 ">
             <form action="" class="  ">
                 <div class="mb-3">
-                    <label for="titreObjet" class="form-label">Titre Objet</label>
-                    <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet"
-                        id="titreObjet">
+                    <label for="libelle" class="form-label">Titre Objet</label>
+                    <input type="text" name="libelle" class="form-control" placeholder="Titre de l'objet"
+                        id="libelle" [(ngModel)] = "libelle" >
                 </div>
                 <div class="mb-3">
-                    <label for="descriptionObjet" class="form-label"
+                    <label for="description" class="form-label"
                         placeholder="Description de l'objet">Description</label>
-                    <input type="text" name="descriptionObjet" class="form-control">
+                    <input type="text" name="description" class="form-control" placeholder="description"  [(ngModel)] = "description" >
                 </div>
                 <div class="mb-3">
                     <label for="lieuObjet" class="form-label">Lieu</label>
-                    <input type="text" name="lieuObjet" class="form-control" id="lieuObjet">
+                    <input type="text" name="lieu" class="form-control" placeholder="description..." id="lieu" [(ngModel)] = "lieu">
                 </div>
                 <div class="mb-3">
-                    <label for="imageObjet" class="form-label">Url image</label>
-                    <input type="file" name="imageObjet" class="form-control" id="imageObjet">
+                    <label for="dateObjet" class="form-label">Date</label>
+                    <input type="date" name="dateObjet" class="form-control"   id="date" placeholder="date..."[(ngModel)] = "date">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" name="[image]" class="form-control" placeholder="image..." id="image" multiple >
+                </div>
+                <div class="mb-3">
+                    <label for="categorie" class="form-label">categorie</label>
+                    <input type="number" name="categorie_id" class="form-control" id="categorie" [(ngModel)] = "categorie_id">
                 </div>
 
                 <div class=" text-start d-flex justify-content-start">
                     <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
-                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   ">Déclarer</button>
+                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   " (click)="ajoutBien()">Déclarer</button>
                 </div>
 
             </form>
@@ -94,3 +102,5 @@
     <!-- Fin Contenu  -->
 </section>
 </div>
+
+<!--modal ajout bien trouvée-->
