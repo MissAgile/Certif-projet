@@ -1,60 +1,130 @@
 
-<div class="container border-bottom bg-white mt-1 pt-md-3 pt-2 ">
-    <div class="d-flex flex-md-row justify-content-around align-items-center">
-        <div class="d-flex flex-md-row align-items-center">
-            <div class="p-md-2"> <img src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png" alt="" class="rounded-circle" id="profile"> </div>
-            <div class="p-md-2 p-1" id="info">
-                <h5>Robert Miller</h5>
-                <div class="text-muted">Amadou Tall</div>
-            </div>
-        </div>
-        <div class="d-flex flex-column" id="info">
-            <div class="p-md-1 text-muted"> <span class="fa fa-envelope-o bg-light p-1 rounded-circle"></span> robertmillersaviynt.com</div>
-            <div class="p-md-1 pt-sm-1 text-muted"> <span class="fa fa-phone bg-light p-1 rounded-circle"></span> +(555) 555-1234</div>
-        </div>
-        <div class="rounded p-lg-2 p-1" id="blue-background">
-            <div class="d-flex flex-md-row align-items-center">
-                <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
-                    <p class="h4">40</p>
-                    <div class="text-muted" id="count">Partenariat</div>
-                </div>
-                <div class="d-flex flex-column align-items-center px-lg-3 px-md-2 px-1" id="border-right">
-                    <p class="h4">117</p>
-                    <div class="text-muted" id="count">Objets déclarés</div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-    <div class="pl-lg-5 pt-lg-2 pt-md-1">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation"> <a href="#user" class="nav-link active" id="user-tab" data-toggle="tab" role="tab" aria-controls="user" aria-selected="true">User Profile</a> </li>
-            <li class="nav-item" role="presentation"> <a href="#user" class="nav-link text-muted" data-toggle="tab" role="tab" aria-controls="access" aria-selected="false">Access</a> </li>
-            <li class="nav-item" role="presentation"> <a href="#user" class="nav-link text-muted" data-toggle="tab" role="tab" aria-controls="settings" aria-selected="false">Settings</a> </li>
-        </ul>
-    </div>
-</div>
-<div class="tab-content w-100 pt-md-0">
-    <div class="tab-pane show active" id="user" role="tabpanel" aria-labelledby="user-tab">
-        <div class="container rounded-bottom bg-light">
-            <div class="row pl-lg-5 pt-md-0 pt-sm-2">
-                <div class="col-md-6 py-md-4">
-                    <div class="d-flex flex-row">
-                        <div class="btn border-dark mr-md-3 details">User Details</div>
-                        <div class="btn border-primary text-primary selected-tab">User Timeline</div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-start align-items-center pt-md-4 pb-md-3 pt-sm-2 border-bottom timeline">
-                        <div class="p-md-2 pl-sm-2 mt-sm-1 font-weight-bold">User Timeline</div>
-                        <div class="p-md-2 pt-sm-1 p-2 ml-auto border rounded text-muted bg-white">07 Apr-07 Jul 2019<span class="fa fa-calendar-o pl-sm-1 pl-1"></span></div>
-                        <div class="p-md-2 p-sm-1 p-2 text-muted bg-white border rounded ml-sm-1"><span class="fa fa-sliders"></span></div>
-                    </div>
-             
-                </div>
-                <div class="col-md-6 pt-md-5 mt-5">
-                   
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   <div class="main_content">
 
+    <!-- START SECTION SHOP -->
+    <div class="section">
+        <div class="container">
+            <div class="row container">
+                <div class="col-lg-12 col-md-4" >
+                    <div class="dashboard_menu">
+                        <ul class="nav nav-tabs " role="tablist">
+                          <li class="nav-item d-flex gap-5">
+                            <img class="rounded-circle w-25" src="../../../../assets/images/clé.png" alt="">
+                            <h3 class="nav-item mt-4">Amadou Tall</h3>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-4" >
+                    <div class="dashboard_menu">
+                        <ul class="nav nav-tabs d-flex gap-4 " role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active " id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="ti-location-pin"></i>Détails profil</a>
+                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link " id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="ti-id-badge"></i>Modifier profil</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="logout-tab"  href="#logout" data-bs-toggle="tab" role="tab" aria-controls="logout" aria-selected="true" ><i class="ti-lock"></i>Se déconnecter</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-8 " >
+                    <div class="tab-content dashboard_content">
+                          <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                          </div>
+                          <div class="tab-pane fade" id="logout" role="tabpanel" aria-labelledby="logout-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Logout</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>From your account dashboard. you can easily check &amp; view your <a href="javascript:void(0);" onclick="$('#orders-tab').trigger('click')">recent orders</a>, manage your <a href="javascript:void(0);" onclick="$('#address-tab').trigger('click')">shipping and billing addresses</a> and <a href="javascript:void(0);" onclick="$('#account-detail-tab').trigger('click')">edit your password and account details.</a></p>
+                                    <button type="submit" class="btn btn-fill-out py-2" name="submit" value="Submit">Logout</button>
+                                </div>
+                            </div>
+                          </div>
+                        <div class="tab-pane fade active show" id="address" role="tabpanel" aria-labelledby="address-tab">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="card mb-3 mb-lg-0">
+                                        <div class="card-header">
+                                            <h3>Billing Address</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
+                                            <p>New York</p>
+                                            <a href="#" class="btn btn-fill-out">Edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Shipping Address</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
+                                            <p>New York</p>
+                                            <a href="#" class="btn btn-fill-out">Edit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Modifier profil</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>Already have an account? <a href="#">Log in instead!</a></p>
+                                    <form method="post" name="enq">
+                                        <div class="row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>First Name <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="name" type="text">
+                                             </div>
+                                             <div class="form-group col-md-6 mb-3">
+                                                <label>Last Name <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="phone">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Display Name <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="dname" type="text">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Email Address <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="email" type="email">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Current Password <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="password" type="password">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>New Password <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="npassword" type="password">
+                                            </div>
+                                            <div class="form-group col-md-12 mb-3">
+                                                <label>Confirm Password <span class="required">*</span></label>
+                                                <input required="" class="form-control" name="cpassword" type="password">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SECTION SHOP -->
+    
+    
+    
+    </div>

@@ -9,11 +9,16 @@ body {
 .nav-tabs .nav-link,
 .nav-tabs {
     border: none;
-    color: black
+    color: black;
+}
+.nav-link{
+    background-color: #2ECC71;
+    color: white;
+    font-weight: 700;
 }
 
 .nav-tabs .nav-link:focus {
-    border-bottom: 3px solid blue;
+    border: 3px solid #2ECC71;
     font-weight: 700
 }
 

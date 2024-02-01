@@ -15,7 +15,7 @@ import { UtilisationComponent } from './components/pages/utilisation/utilisation
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
- 
+  
 @NgModule({
   declarations: [
     AppComponent,

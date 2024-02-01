@@ -62,6 +62,8 @@ export class AuthentificationComponent implements OnInit {
         this.authenticationService.login(user).subscribe(
           (rep) => {
             response = rep;
+            console.log(response);
+            
 
             console.log(response.access_token);
             localStorage.setItem("userOnline", JSON.stringify(response.utlisatur));

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-gestion-myprofil',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./gestion-myprofil.component.css']
 })
 export class GestionMyprofilComponent {
+
+  user: User[] =[
+  ]
+
+  successMsg = '';
 
 }

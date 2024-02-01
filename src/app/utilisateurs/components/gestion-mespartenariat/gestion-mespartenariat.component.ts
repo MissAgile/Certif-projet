@@ -21,7 +21,7 @@ export class GestionMespartenariatComponent implements OnInit {
   emailUpdate!: any ;
 
   listeDemandes: any[] = [];
-  demandeSelectionner: any = {};
+  demandeSelectionner: any ;
 
 
 

@@ -60,23 +60,25 @@
           <a href="#" class="btn">Voir tout</a>
       </div>
 
-      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
+      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" *ngIf="listeUsers.length>0">
         <thead>
           <tr>
               <th>Nom</th>
               <th>Prenom</th>
               <th>Email</th>
               <th>Tel</th>
+              <th>Role</th>
               <th>Action</th>
           </tr>
       </thead>
 
       <tbody>
-        <tr>
-            <td>Diop</td>
-            <td>Amadou</td>
-            <td>imagmail.com</td>
-            <td>76 159 86 79</td>
+        <tr *ngFor="let user of listeUsers">
+            <td>{{user.name}} </td>
+            <td>{{user.FirstName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.role_id}}</td>
             <td><span class="status action-icon">
                     <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
                         <i class="bi bi-eye-fill"></i>
@@ -90,27 +92,29 @@
             </span>
             </td>
         </tr>
-          <tr>
-                <td>Tall</td>
-                <td>Fatoumata</td>
-                <td>imagmail.com</td>
-                <td>77 136 98 74</td>
-                <td><span class="status action-icon">
-                        <a data-bs-toggle="modal" data-bs-target="#mydetails">                
-                            <i class="bi bi-eye-fill"></i>
-                        </a>                
-                        <a href="#">                
-                            <i class="bi bi-chat"></i>
-                        </a>                
-                        <a >   
-                                <i class="bi bi-archive-fill"></i>
-                        </a>       
-                </span>
-                </td>
-            </tr>
-        
+      
       </tbody>
         </table>
+        <table class=" table text-left" *ngIf="listeUsers.length<0" >
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Tel</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+      
+            <tbody>
+      
+              <tr>
+                <td colspan="5" class="text-center"> aucune demande est disponible</td>
+      
+              </tr>
+      
+            </tbody>
+          </table>
         
         
   </div> 

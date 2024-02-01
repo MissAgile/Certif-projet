@@ -46,3 +46,94 @@
   
     </div>
   </div>
+
+  <main class="container">
+   
+    <div class="mainBottom row container">
+      <div class="mainBottomLeft bg-white rounded-4 col-lg-7 col-md-4">
+        <div class="mainTop ">
+          <h4 class="fw-bolder pt-3">La liste des catégories</h4>
+        </div>
+        <table datatable [dtOptions]="dtCategories" class="table" *ngIf="categories.length>0"  >
+          <thead class="table-secondary rounded-top-3">
+            <tr>
+              <th>id</th>
+              <th>Nom</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let categorie of categories">
+              <td>{{categorie.id }} </td>
+              <td>{{categorie.nom }} </td>
+              <td>
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
+                (click)="deleteCategorie(categories.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <table class=" table text-left" *ngIf="categories.length<0" >
+          <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>Tel</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+    
+          <tbody>
+    
+            <tr>
+              <td colspan="5" class="text-center"> aucune demande est disponible</td>
+    
+            </tr>
+    
+          </tbody>
+        </table>
+  
+      </div>
+      <div class="mainBottomRight  container col-lg-4 col-md-4">
+        <form class="bg-white px-5">
+          <h3>Formulaire ajout categorie </h3>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom du caatégorie</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom du produit"
+              [(ngModel)]="nom">
+          </div>
+          <button type="button" class="btn btn-success" (click)="ajoutCategorie()">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modifierCatégorie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modifierCatégorieLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modifierCatégorieLabel">Modifier une categorie</h1>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nomCategoryUpdate" class="form-label">Nom du caatégorie</label>
+              <input type="text" class="form-control" id="nomCategoryUpdate" name="nomCategoryUpdate"
+                placeholder="Nom du produit" [(ngModel)]="nomCategoryUpdate">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-success"
+              data-bs-dismiss="modal">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>

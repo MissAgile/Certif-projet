@@ -15,7 +15,7 @@ export class AccueilUtilisateursComponent implements OnInit {
   lieu: string = "";
   description: string = "";
   date :any;
-  image:any;
+  image:any[]=[];
   
   categorie_id="";
 
@@ -60,7 +60,7 @@ export class AccueilUtilisateursComponent implements OnInit {
       date: this.date,
       categorie_id: this.categorie_id,
     }
-    console.log(this.image);
+    console.log(data);
     this.bienService.addAnnonce(data).subscribe((response) => {
       console.log(response);
       // console.log(this.image);
