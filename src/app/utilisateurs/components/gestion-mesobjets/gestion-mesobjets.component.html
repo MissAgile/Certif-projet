@@ -80,7 +80,7 @@
           <td>{{bi.date}}</td>
           <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
           <td>{{bi.categorie_id}}</td>
-          <td>{{bi.statut}}</td>
+          <td><button class="btn btn-success">{{bi.statut}}</button></td>
           <td><span class="status action-icon">
               <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getBienById(bi.id)">
                 <i class="bi bi-eye-fill"></i>

@@ -75,10 +75,11 @@
   <div class="product" *ngFor="let bi of listeBiens">
     <div class="product--card rounded-2 shadow-sm">
       <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" >
+        <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="">
         <span class="tags"></span>
       </a>
-      <h5 class="product--title" href="#" title="View"> {{bi.libelle}} </h5>
+      <h5 class="product--title"> {{bi.libelle}} </h5>
+      <p class="product--title"> {{bi.description}} </p>
       <div class="product--brand">
         <p href="#" title="View"></p>
       </div>
@@ -204,41 +205,45 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, adipisci! Lorem ipsum dolor sit amet. </p>
     </div>
     <div class="declaration-right col-lg-4 col-md-3 ">
-        <form action="" class="  ">
-            <div class="mb-3">
-                <label for="titreObjet" class="form-label">Titre Objet</label>
-                <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet" id="titreObjet">
-            </div>
-            <div class="mb-3">
-                <label for="descriptionObjet" class="form-label" placeholder="Description de l'objet">Description</label>
-                <input type="text" name="descriptionObjet" class="form-control" >
-            </div>
-            <div class="mb-3">
-                <label for="dateObjet" class="form-label">Date</label>
-                <input type="date" name="dateObjet" class="form-control" placeholder="Description"  id="dateObjet">
-            </div>  
-            <div class="mb-3" >
-                <label for="lieuObjet" class="form-label">Lieu</label>
-                <input type="text" name="lieuObjet" class="form-control" id="lieuObjet">
-            </div>
-            <div class="mb-3">
-                <label for="imageObjet" class="form-label">Url image</label>
-                <input type="file" name="imageObjet" class="form-control" id="imageObjet">
-            </div>
-            
-            <div class=" text-start d-flex justify-content-start">
-                <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 " >Annuler</button>
-                <button class="btn  btn-lg  btnSoumettre  px-3 py-1   " >Déclarer</button>
-            </div>
-            
-        </form>
+      <form action="" class="  ">
+        <div class="mb-3">
+          <label for="libelle" class="col-form-label">Libellé</label>
+          <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="col-form-label">description:</label>
+          <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description">
+        </div>
+        <div class="mb-3">
+          <label for="lieu" class="col-form-label">lieu</label>
+          <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
+        </div>
+        <div class="mb-3">
+          <label for="date" class="col-form-label">date</label>
+          <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
+        </div>
+        <div class="mb-3">
+          <label for="image" class="col-form-label">image</label>
+          <input type="file" class="form-control" id="image" name="[image]" (change)="getFile($event)">
+        </div>
+        <div class="mb-3">
+          <label for="categorie_id" class="col-form-label">categorie_id</label>
+          <input type="number" class="form-control" id="categorie_id" name="categorie_id" [(ngModel)]="categorie_id">
+        </div>
 
-        <!-- Test  -->
-        <!-- <img [src]="image" alt=""> -->
+        <div class=" text-start d-flex justify-content-start">
+          <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
+          <button class="btn  btn-lg  btnSoumettre  px-3 py-1 " (click)="ajoutBien()">Déclarer</button>
+        </div>
+
+      </form>
+
+      <!-- Test  -->
+      <!-- <img [src]="image" alt=""> -->
     </div>
 
-    </div>
-<!-- Fin Contenu  -->
+  </div>
+  <!-- Fin Contenu  -->
 </section>
 <!--Section publicité-->
 <section class="publicite container">
@@ -297,7 +302,7 @@
 
   <div class="container card-contenu" style="margin: 0 auto; ">
     <figure class="snip1533 ">
-      <figcaption >
+      <figcaption>
         <blockquote>
           <p>If you do the job badly enough, sometimes you don't get asked to do it again.</p>
         </blockquote>
@@ -320,9 +325,9 @@
         <h3>Fatima diop</h3>
       </figcaption>
     </figure>
-    
+
   </div>
-  
+
 
 </section>
 <app-footer></app-footer>

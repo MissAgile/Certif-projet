@@ -40,7 +40,7 @@ export class GestionMespartenariatComponent implements OnInit {
     };
 
 
-    this.getAllDemandes();
+    this.getAllDemandesUsers();
   }
 
   // fonction pour ajouter
@@ -63,11 +63,11 @@ export class GestionMespartenariatComponent implements OnInit {
 
   
 //fonction pour lister
-  getAllDemandes() {
-      this.demandesService.getAllDemandes().subscribe(
+  getAllDemandesUsers() {
+      this.demandesService.getAllDemandesUsers().subscribe(
         (data) => {
           this.listeDemandes = data.demandes;
-          // console.log(this.listeDemandes);
+          console.log(this.listeDemandes);
           
         }
       )
@@ -118,7 +118,7 @@ modifierDemande() {
   }
   );
   
-  this.getAllDemandes();
+  this.getAllDemandesUsers();
 }
 
 
