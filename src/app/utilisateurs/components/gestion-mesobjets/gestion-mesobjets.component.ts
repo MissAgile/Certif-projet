@@ -60,7 +60,7 @@ export class GestionMesobjetsComponent {
 
   }
 
-  /** fonction pour lister un bien */
+  /** fonction pour lister les bien */
   getAllBiens() {
     console.log(this.listeBiens);
     this.biensServices.getAllBiens().subscribe(
@@ -112,9 +112,6 @@ export class GestionMesobjetsComponent {
     this.biensServices.addAnnonce(formData).subscribe((response) => {
       console.log(response);
       console.log(this.image);
-
-
-
     }
     );
 
@@ -144,27 +141,38 @@ export class GestionMesobjetsComponent {
 editerBien() {
   //libelle, lieu, description , date, image, categorie_id
   
-  const data = {
-    libelle: this.libelle,
-    description: this.description,
-    lieu: this.lieu,
-    date:this.date,
-    image: this.image,
-    categorie_id: this.categorie_id,
+  // const data = {
+  //   libelle: this.libelle,
+  //   description: this.description,
+  //   lieu: this.lieu,
+  //   date:this.date,
+  //   image: this.image,
+  //   categorie_id: this.categorie_id,
    
-    
-  }
-  console.log(this.bienSelectionner);
-  console.log(data)
-  this.biensServices.updateBien(this.bienSelectionner, data).subscribe((response) => {
+  // }
 
-    console.log(response);
+  let formData = new FormData();
+    formData.append("libelle", this.libelle);
+    formData.append("description", this.description);
+    formData.append("image", this.image);
+    formData.append("date", this.date);
+    formData.append("categorie_id", this.categorie_id);
+    formData.append("lieu", this.lieu);
+    console.log(formData);
+
+
+  console.log(this.bienSelectionner);
+  console.log(formData)
+  this.biensServices.updateBien(this.bienSelectionner, formData).subscribe((response) => {
+
+console.log(response);
     
     
   }
   );
   this.ngOnInit();
   this.getAllBiens();
+  this.listeBiens;
 }
 
 }

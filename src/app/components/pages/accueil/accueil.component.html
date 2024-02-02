@@ -72,15 +72,15 @@
 <h3 class="text-center  mt-5" id="title-section">Tous les objets trouvés </h3>
 <div class="grid-row">
 
-  <div class="product">
+  <div class="product" *ngFor="let bi of listeBiens">
     <div class="product--card rounded-2 shadow-sm">
       <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
+        <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" >
         <span class="tags"></span>
       </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
+      <h5 class="product--title" href="#" title="View"> {{bi.libelle}} </h5>
       <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
+        <p href="#" title="View"></p>
       </div>
       <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
         title="View">
@@ -93,155 +93,6 @@
       </a>
     </div>
   </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221776854665=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221776854665=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="product">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
-        <img class="img-responsive" src="../../../../assets/images/passport.png">
-        <span class="tags"></span>
-      </a>
-      <h5 class="product--title" href="#" title="View">Integer tortor </h5>
-      <div class="product--brand">
-        <p href="#" title="View">Passport ramasser au bureu des passport</p>
-      </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
-        <div class="product--price-inner container d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-
 </div>
 <!-- <app-footer></app-footer> -->
 

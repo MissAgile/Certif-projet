@@ -1,106 +1,97 @@
-
 <!-- ======================= Carte statstique ================== -->
 <div class="cardBox">
     <div class="card ">
         <div class="iconBx">
-          <i class="fa fa-eye" aria-hidden="true"></i>
+            <i class="fa fa-eye" aria-hidden="true"></i>
         </div>
         <div>
             <div class="numbers">100</div>
             <div class="cardName">Objets perdus</div>
         </div>
-  
+
     </div>
-  
+
     <div class="card">
         <div class="iconBx">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         </div>
         <div>
             <div class="numbers">500</div>
             <div class="cardName">Nombre visites</div>
         </div>
-  
+
     </div>
-  
+
     <div class="card">
         <div class="iconBx">
-          <i class="fa fa-comments-o" aria-hidden="true"></i>
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
         </div>
         <div>
             <div class="numbers">284</div>
             <div class="cardName">Objets trouvés</div>
         </div>
-  
+
     </div>
-  
+
     <div class="card ">
         <div class="iconBx">
-          <i class="fa fa-money" aria-hidden="true"></i>
+            <i class="fa fa-money" aria-hidden="true"></i>
         </div>
         <div>
             <div class="numbers">100</div>
             <div class="cardName">Annonces </div>
         </div>
-  
+
     </div>
-  </div>
+</div>
 <!-- ================= New Customers ================ -->
 <div class="form-objet">
-   
 
-      <!--section déclaration objets trouvés-->
-<section class="declaration h-75 mx-auto">
-    <h1 class="text-center mt-3">Faites une déclaration ici !</h1>
-    <!-- section soumettre Objet  -->
-    <div class="container row container-declaration  ">
-        <div class="declaration-right col-lg-4 col-md-5 col-sm-3 ">
-            <form action="" class="  ">
-                <div class="mb-3">
-                    <label for="libelle" class="form-label">Titre Objet</label>
-                    <input type="text" name="libelle" class="form-control" placeholder="Titre de l'objet"
-                        id="libelle" [(ngModel)] = "libelle" >
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label"
-                        placeholder="Description de l'objet">Description</label>
-                    <input type="text" name="description" class="form-control" placeholder="description"  [(ngModel)] = "description" >
-                </div>
-                <div class="mb-3">
-                    <label for="lieuObjet" class="form-label">Lieu</label>
-                    <input type="text" name="lieu" class="form-control" placeholder="description..." id="lieu" [(ngModel)] = "lieu">
-                </div>
-                <div class="mb-3">
-                    <label for="dateObjet" class="form-label">Date</label>
-                    <input type="date" name="dateObjet" class="form-control"   id="date" placeholder="date..."[(ngModel)] = "date">
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" name="[image]" class="form-control" placeholder="image..." id="image" multiple  [(ngModel)] = "image" >
-                </div>
-                <div class="mb-3">
-                    <label for="categorie" class="form-label">categorie</label>
-                    <input type="number" name="categorie_id" class="form-control" id="categorie" [(ngModel)] = "categorie_id">
-                </div>
 
-                <div class=" text-start d-flex justify-content-start">
-                    <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
-                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   " (click)="ajoutBien()">Déclarer</button>
-                </div>
+    <!--section déclaration objets trouvés-->
+    <section class="declaration h-75 mx-auto">
+        <h1 class="text-center mt-3">Faites une déclaration ici !</h1>
+        <!-- section soumettre Objet  -->
+        <div class="container row container-declaration  ">
+            <div class="declaration-right col-lg-4 col-md-5 col-sm-3 ">
+                <form action="" class="  ">
+                    <div class="mb-3">
+                        <label for="libelle" class="col-form-label">Libellé</label>
+                        <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">description:</label>
+                        <input type="text" class="form-control" id="description" name="description"
+                            [(ngModel)]="description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lieu" class="col-form-label">lieu</label>
+                        <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="col-form-label">date</label>
+                        <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="col-form-label">image</label>
+                        <input type="file" class="form-control" id="image" name="[image]" (change)="getFile($event)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categorie_id" class="col-form-label">categorie_id</label>
+                        <input type="number" class="form-control" id="categorie_id" name="categorie_id"
+                            [(ngModel)]="categorie_id">
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="ajoutBien()">Envoyer</button>
+                </form>
+            </div>
+            <div class="declaration-left col-lg-5 col-md-4 p-0">
+                <img src="../../../../assets/images/hero.png" alt="">
+            </div>
 
-            </form>
 
-            <!-- Test  -->
-            <!-- <img [src]="image" alt=""> -->
         </div>
-        <div class="declaration-left col-lg-5 col-md-4 p-0">
-           <img src="../../../../assets/images/hero.png" alt="">
-        </div>
-       
-
-    </div>
-    <!-- Fin Contenu  -->
-</section>
+        <!-- Fin Contenu  -->
+    </section>
 </div>
 
 <!--modal ajout bien trouvée-->
