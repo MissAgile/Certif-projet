@@ -85,7 +85,7 @@ refuserDemandeUser(id: number, ): Observable<any> {
     
   console.log(accessToken);
     return accessToken ?
-    this.http.post<any>(`${url}/demandes/accept/${id}`,{},{
+    this.http.post<any>(`${url}/api/demandes/refuse${id}`,{},{
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) : of(null);
    

@@ -76,7 +76,10 @@
           <td>{{item.duree}} </td>
           <td>{{item.details}}</td>
           <td>{{item.email}}</td>
-          <td><button class="btn btn-warning" (click)="accepterDemande(item.id)">{{item.etat}}</button></td>
+          <td>
+            <button class="btn btn-warning" (click)="accepterDemande(item.id)">{{item.etat}}</button>
+            <button class="btn btn-danger " (click)="refuserDemandeUser(item.id)">{{item.etat}}</button>
+          </td>
           <td><span class="status action-icon">
               <a data-bs-toggle="modal" data-bs-target="#exampleModal2" >
                 <i class="bi bi-eye-fill"></i>

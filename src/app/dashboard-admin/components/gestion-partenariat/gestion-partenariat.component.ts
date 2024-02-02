@@ -75,4 +75,32 @@ accepterDemande(id: number){
   })
  
 }
+refuserDemandeUser(id: number){
+  let idDemande = id;
+  Swal.fire({
+    title: 'Êtes-vous sûr?',
+    text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#017D03',
+    cancelButtonColor: '#FF9C00',
+    confirmButtonText: 'Oui, refuser!',
+  }).then((result)=>{
+    console.log(result);
+    if (result.isConfirmed) {
+      this.demandeServices.refuserDemandeUser(idDemande).subscribe((response:any)=>{
+        console.log(response);
+        
+        this.demandeServices.alertMessage(
+          'success',
+          'Refuser!',
+          'Demande refuser avec succès'
+        );
+
+        this.getDemandesUsers();
+      })
+    }
+  })
+ 
+}
 }
