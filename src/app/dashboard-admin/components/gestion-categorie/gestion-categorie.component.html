@@ -68,8 +68,9 @@
               <td>{{categorie.nom }} </td>
               <td>
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
-                (click)="deleteCategorie(categories.id)"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
+                (click)="chargerInfosCategorie(categorie.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
             
@@ -123,16 +124,16 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="nomCategoryUpdate" class="form-label">Nom du caatégorie</label>
-              <input type="text" class="form-control" id="nomCategoryUpdate" name="nomCategoryUpdate"
-                placeholder="Nom du produit" [(ngModel)]="nomCategoryUpdate">
+              <label for="nom" class="form-label">Nom du catégorie</label>
+              <input type="text" class="form-control" id="nom" name="nom"
+                placeholder="Nom du produit" [(ngModel)]="nom">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
           <button type="button" class="btn btn-success"
-              data-bs-dismiss="modal">Modifier</button>
+              data-bs-dismiss="modal" (click)="modifierCategorie()">Modifier</button>
         </div>
       </div>
     </div>

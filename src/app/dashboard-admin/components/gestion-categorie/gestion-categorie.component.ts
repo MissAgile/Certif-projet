@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'src/app/services/categories.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion-categorie',
@@ -7,22 +8,22 @@ import { CategoriesService } from 'src/app/services/categories.service';
   styleUrls: ['./gestion-categorie.component.css']
 })
 export class GestionCategorieComponent implements OnInit {
-  
-//variables
-  id:number=0;
-  nom:string="";
 
-categories: any = ""; //tableau categories
-selectedCategory: any;
+  //variables
+  id: number = 0;
+  nom: string = "";
 
-nomCategory = "";
-nomCategoryUpdate = "";
+  categories: any = ""; //tableau categories
+  selectedCategory: any = {};
 
-dtCategories: DataTables.Settings = {};
+  nomUpdate: any;
+  nomCategoryUpdate = "";
 
-      dtOptions: DataTables.Settings = {};
+  dtCategories: DataTables.Settings = {};
 
-      constructor( private categoriesService:CategoriesService) { }
+  dtOptions: DataTables.Settings = {};
+
+  constructor(private categoriesService: CategoriesService) { }
 
 
   ngOnInit(): void {
@@ -39,48 +40,113 @@ dtCategories: DataTables.Settings = {};
     };
 
     this.getAllCategories();
+  }
+
+
+  getAllCategories() {
+    console.log(this.categories);
+    this.categoriesService.getAllCategories().subscribe(
+      (data) => {
+        console.log(data);
+
+        this.categories = data.categorie;
+        console.log(this.categories);
+
+      }
+    )
+  }
+
+//details catégorie
+// pour recuperer une annonce
+getCategorie(categorie: any) {
+  this.selectedCategory = categorie;
 }
 
+  /** fonction qui nous per permet d'ajouter une categorie */
+  ajoutCategorie() {
 
-getAllCategories() {
-  console.log(this.categories);
-  this.categoriesService.getAllCategories().subscribe(
-    (data) => {
-      console.log(data);
+    const data = {
+      id: this.id,
+      nom: this.nom,
+    }
+    console.log(data);
+    this.categoriesService.addCategorie(data).subscribe((response) => {
+      console.log(response);
+    }
+    );
+    (error: any) => {
+      console.error('Erreur lors de la récupération des catégories', error);
+    }
 
-      this.categories = data.$categorie;
-      console.log(this.categories);
+    this.ngOnInit();
+
+  }
+
+  //fonction pour modifier une categorie
+  chargerInfosCategorie(categorie: any) {
+    this.selectedCategory = this.categories.id;
+    console.log(categorie);
+    this.id = categorie.id;
+    this.nom = categorie.nom;
+    
+  }
+
+   // fonction pour modifier  
+   modifierCategorie() {
+    //libelle, lieu, description , date, image, categorie_id
+
+    const data = {
+      // id: this.id,
+      nom: this.nom,
+    }
+
+    // console.log(this.bienSelectionner);
+    // console.log(data)
+    this.categoriesService.updateCategorie(this.selectedCategory).subscribe((response) => {
+
+      console.log(response);
+
+
 
     }
-  )
-}
- 
-/** fonction qui nous per permet d'ajouter une categorie */
-ajoutCategorie() {
+    );
 
-  const data = {
-    id: this.id,
-    nom: this.nom,
-  }
-  console.log(data);
-  this.categoriesService.addCategorie(data).subscribe((response) => {
-    console.log(response);
-    
-
-  }
-  );
-  (error: any) => {
-    console.error('Erreur lors de la récupération des catégories', error);
+    this.getAllCategories();
   }
 
-}
 
-/**fonction qui nous permet de suppimer une categorie du tableau */
-deleteCategorie(id: number) {
-  const index = this.categories.findIndex(($categories: { id: number; }) => $categories.id === id);
-  if (index !== -1) {
-    this.categories.splice(index, 1);
+
+  SupprimerCategorie(id: number) {
+    let idCat = id;
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#017D03',
+      cancelButtonColor: '#FF9C00',
+      confirmButtonText: 'Oui, supprimer!',
+    }).then((result) => {
+      console.log(result);
+
+      if (result.isConfirmed) {
+        this.categoriesService.deleteCategorie(idCat).subscribe(
+          (data: any) => {
+            console.log(data);
+
+            this.categoriesService.alertMessage(
+              'success',
+              'Supprimé!',
+              'Categorie supprimé avec succès'
+            );
+            this.getAllCategories();
+          });
+      }
+    });
   }
-}
+
+
+
+
 }
 

@@ -11,7 +11,7 @@ export class GestionMespartenariatComponent implements OnInit {
 
   constructor(private demandesService:DemandesService){}
   //variable à initaliser et mettre au niveau du ng model
-  duree: number = 0;
+  duree: any;
   details: string = "";
   email: string = "";
 
@@ -97,10 +97,7 @@ export class GestionMespartenariatComponent implements OnInit {
     this.details = demande.details;
     
   }
-  
-
-
-
+ 
 // fonction pour modifier  
 modifierDemande() {
   //libelle, lieu, description , date, image, categorie_id

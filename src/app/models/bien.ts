@@ -1,4 +1,4 @@
-export class Bien {
+export class Data {
     libelle!: string;
     description!: string;
     lieu!: string;

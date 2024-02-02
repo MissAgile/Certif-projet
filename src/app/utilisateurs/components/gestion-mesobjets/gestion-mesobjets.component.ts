@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { BiensService } from 'src/app/services/biens.service';
-import { Bien } from 'src/app/models/bien';
+import { Data } from 'src/app/models/bien';
 import Swal from 'sweetalert2';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-gestion-mesobjets',
@@ -10,16 +11,16 @@ import Swal from 'sweetalert2';
 })
 export class GestionMesobjetsComponent {
   // bienSelectionner: Bien;
-  
+
   /** déclaration vvariable pour bien */
   libelle: string = "";
   lieu: string = "";
   description: string = "";
   date: any;
-  image: any[] = [];
-  categorie_id = "";
-  
-  
+  image: any;
+  categorie_id: any;
+
+
   //variables pour modifier
   //update demande 
   bienObjet: any;
@@ -29,11 +30,10 @@ export class GestionMesobjetsComponent {
   dateUpdate: any;
   imageUpdate: any;
   categorieUpdate: any;
-  
-  
-  
+
+
   listeBiens: any[] = [];
-  
+
   bienSelectionner: any = {};
   // bienSelectionner: any = {};
 
@@ -64,107 +64,107 @@ export class GestionMesobjetsComponent {
   getAllBiens() {
     console.log(this.listeBiens);
     this.biensServices.getAllBiens().subscribe(
-      (data) => {
-        console.log(data);
+      (responses) => {
+        console.log(responses);
 
-        this.listeBiens = data.biens;
-        console.log(this.listeBiens);
+        this.listeBiens = responses.data;
+        console.log(responses.data);
 
       }
     )
   }
 
   /**fonction pour détails bien */
-  //details demande 
   getBienById(id: number) {
     this.biensServices.getBienById(id).subscribe(
       (data) => {
-        this.bienSelectionner = data.biens;
+        this.bienSelectionner = data;
         ({
-          libelle: this.libelleUpdate,
-          description: this.descriptionUpdate,
-          lieu: this.lieuUpdate,
-          date: this.dateUpdate,
-          image: this.imageUpdate,
+          libelle: this.libelle,
+          description: this.description,
+          lieu: this.lieu,
+          date: this.date,
+          image: this.image,
           etat: data.etat,
-          categorie_id: this.categorieUpdate
+          categorie_id: this.categorie_id,
         } = this.bienSelectionner);
       }
     )
   }
 
 
+ 
 
-  
-  chargerInfosBien(bien: any) {
-    this.bienSelectionner = bien.id;
-    console.log(bien);
-    this.libelle = bien.libelle;
-    this.description = bien.description;
-    this.lieu = bien.lieu;
-    this.date = bien.date;
-    this.image = bien.image;
-    this.categorie_id = bien.categorie_id;
-  }
+ 
 
-  // fonction pour modifier  
-  modifierBien() {
+
+  /*fonction ajout bien **/
+  ajoutBien() {
     //libelle, lieu, description , date, image, categorie_id
-
-    const data = {
-      libelle: this.libelle,
-      description: this.description,
-      image: this.image,
-      lieu: this.lieu,
-      date: this.date,
-      categorie_id: this.categorie_id,
-
-    }
-
-    // console.log(this.bienSelectionner);
-    // console.log(data)
-    this.biensServices.updateBien(this.bienSelectionner, data).subscribe((response) => {
-
+    let formData = new FormData();
+    formData.append("libelle", this.libelle);
+    formData.append("description", this.description);
+    formData.append("image", this.image);
+    formData.append("date", this.date);
+    formData.append("categorie_id", this.categorie_id);
+    formData.append("lieu", this.lieu);
+    console.log(formData);
+    this.biensServices.addAnnonce(formData).subscribe((response) => {
       console.log(response);
+      console.log(this.image);
 
 
 
     }
     );
 
-    this.getAllBiens();
+  }
+  getFile(event: any) {
+    console.warn(event.target.files[0]);
+    this.image = event.target.files[0] as File;
   }
 
-/*fonction ajout bien **/
-ajoutBien() {
+
+  /**modifier objet */
+   bienObejt:any
+  chargerInfosBien(data:any){
+    this.bienSelectionner = data.id;
+    console.log(data);
+    this.libelle = data.libelle;
+    this.description = data.description;
+    this.lieu = data.lieu;
+    this.image = data.image;
+    this.date = data.date;
+    this.categorie_id=data.categorie_id;
+  
+    
+  }
+ 
+// fonction pour modifier  
+editerBien() {
   //libelle, lieu, description , date, image, categorie_id
-  // let formData=new FormData();
-  // formData.append("libelle",this.libelle);
-  // formData.append("description",this.description);
-  // formData.append("image",this.image);
-  // formData.append("date",this.date);
-  // formData.append("categorie_id",this.categorie_id);
-  // formData.append("lieu",this.lieu);
+  
   const data = {
     libelle: this.libelle,
-    lieu: this.lieu,
     description: this.description,
+    lieu: this.lieu,
+    date:this.date,
     image: this.image,
-    date: this.date,
     categorie_id: this.categorie_id,
-  }
-  console.log(data);
-  this.biensServices.addAnnonce(data).subscribe((response) => {
-    console.log(response);
-    // console.log(this.image);
+   
     
+  }
+  console.log(this.bienSelectionner);
+  console.log(data)
+  this.biensServices.updateBien(this.bienSelectionner, data).subscribe((response) => {
 
+    console.log(response);
+    
+    
   }
   );
-
+  this.ngOnInit();
+  this.getAllBiens();
 }
-
-
-
 
 }

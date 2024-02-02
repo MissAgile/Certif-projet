@@ -54,7 +54,7 @@
     <div class="recentOrders">
 
         <div class="cardHeader">
-            <h2>Liste des utilisateurs</h2>
+            <h2>Liste de tous les  annonces  </h2>
             <a href="#" class="btn">Voir tout</a>
         </div>
 
@@ -70,12 +70,12 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let bien of listeBiens">
-                    <td>{{bien.libelle}}</td>
-                    <td>{{bien.description}}</td>
-                    <td>{{bien.lieu}}</td>
-                    <td>{{bien.image }}</td>
-                    <td>{{bien.categorie_id }}</td>
+                <tr *ngFor="let bi of listeBiens">
+                    <td>{{bi.bien.libelle}}</td>
+                    <td>{{bi.bien.description}}</td>
+                    <td>{{bi.bien.lieu}}</td>
+                    <td>{{bi.bien.image }}</td>
+                    <td>{{bi.bien.categorie_id }}</td>
                     <td><span class="status action-icon">
                             <a data-bs-toggle="modal" data-bs-target="#mydetails ">
                                 <i class="bi bi-eye-fill"></i>

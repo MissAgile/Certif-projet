@@ -49,12 +49,12 @@ getBienById(id: any): Observable<any> {
  
 
   //modifier
-updateBien(id: number, bien:any): Observable<any> {
+updateBien(id: number, data:any): Observable<any> {
   
   const accessToken = localStorage.getItem('access_token');
     
     return accessToken ?
-    this.http.post<any>(`${url}/biens/update/${id}`, bien, {
+    this.http.post<any>(`${url}/biens/update/${id}`, data, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) : of(null);
    

@@ -1,99 +1,99 @@
 <!-- ======================= Carte statstique ================== -->
 <div class="cardBox">
-    <div class="card ">
-        <div class="iconBx">
-            <i class="fa fa-eye" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">100</div>
-            <div class="cardName">Objets perdus</div>
-        </div>
-
+  <div class="card ">
+    <div class="iconBx">
+      <i class="fa fa-eye" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">100</div>
+      <div class="cardName">Objets perdus</div>
     </div>
 
-    <div class="card">
-        <div class="iconBx">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">500</div>
-            <div class="cardName">Nombre visites</div>
-        </div>
+  </div>
 
+  <div class="card">
+    <div class="iconBx">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">500</div>
+      <div class="cardName">Nombre visites</div>
     </div>
 
-    <div class="card">
-        <div class="iconBx">
-            <i class="fa fa-comments-o" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">284</div>
-            <div class="cardName">Objets trouvés</div>
-        </div>
+  </div>
 
+  <div class="card">
+    <div class="iconBx">
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">284</div>
+      <div class="cardName">Objets trouvés</div>
     </div>
 
-    <div class="card ">
-        <div class="iconBx">
-            <i class="fa fa-money" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">100</div>
-            <div class="cardName">Annonces </div>
-        </div>
+  </div>
 
+  <div class="card ">
+    <div class="iconBx">
+      <i class="fa fa-money" aria-hidden="true"></i>
     </div>
+    <div>
+      <div class="numbers">100</div>
+      <div class="cardName">Annonces </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- ================ contenu tableau gestion demande ================= -->
 <div class="details">
-    <div class="link-rapide">
-        <a type="submit" [routerLink]="['../mes-demandes']" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="mdo">Ajouter une demande</a>
-        <a type="submit" class="btn ">Demandes acceptées</a>
-        <a type="submit" class="btn ">Demandes refusées</a>
+  <div class="link-rapide">
+    <a type="submit" [routerLink]="['../mes-demandes']" class="btn " data-bs-toggle="modal"
+      data-bs-target="#exampleModal1" data-bs-whatever="mdo">Ajouter une demande</a>
+    <a type="submit" class="btn ">Demandes acceptées</a>
+    <a type="submit" class="btn ">Demandes refusées</a>
+  </div>
+  <div class="recentOrders">
+
+    <div class="cardHeader">
+      <h2>Listes demande partenariats</h2>
     </div>
-    <div class="recentOrders">
 
-        <div class="cardHeader">
-            <h2>Listes demande partenariats</h2>
-        </div>
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
+      <thead>
+        <tr>
+          <th>Duree</th>
+          <th>Détails</th>
+          <th>Email</th>
+          <th>Etats</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" *ngIf="listeDemandes.length>0">
-            <thead>
-                <tr>
-                    <th>Duree</th>
-                    <th>Détails</th>
-                    <th>Email</th>
-                    <th>Etats</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
+      <tbody>
 
-            <tbody>
+        <tr *ngFor="let demande of listeDemandes">
+          <td> {{demande.duree}}</td>
+          <td>{{demande.details}}</td>
+          <td>{{demande.email}}</td>
+          <td>{{demande.etat}}</td>
+          <td><span class="status action-icon">
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getDemandeById(demande.id)">
+                <i class="bi bi-eye-fill"></i>
+              </a>
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                <i class="bi bi-archive-fill" (click)="chargerInfosTest(demande)"></i>
+              </a>
+              <a>
+                <i class="bi bi-archive-fill"></i>
+              </a>
+            </span>
+          </td>
+        </tr>
 
-                <tr *ngFor="let demande of listeDemandes">
-                    <td> {{demande.duree}}</td>
-                    <td>{{demande.details}}</td>
-                    <td>{{demande.email}}</td>
-                    <td>{{demande.etat}}</td>
-                    <td><span class="status action-icon">
-                            <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getDemandeById(demande.id)">
-                                <i class="bi bi-eye-fill"></i>
-                            </a>
-                            <a id="btn-modal-edi"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo" (click)="chargerInfosTest(demande)" >  <i class="bi bi-pencil-square"></i> </a>
-                            <!-- <a id="btn-modal-edit"  data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="mdo" (click)="getDemandeById(demande.id)" >
-                                                         
-                            </a> -->
-                            <a>
-                                <i class="bi bi-archive-fill"></i>
-                            </a>
-                        </span>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table  class=" table text-left" *ngIf="listeDemandes.length<0">
+      </tbody>
+    </table>
+    <!-- <table  class=" table text-left" *ngIf="listeDemandes.length<0">
             <thead>
                 <tr>
                     <th>Duree</th>
@@ -112,9 +112,9 @@
                 </tr>
 
             </tbody>
-        </table>
+        </table> -->
 
-    </div>
+  </div>
 </div>
 
 
@@ -134,15 +134,15 @@
         <form>
           <div class="mb-3">
             <label for="duree" class="col-form-label">Durée</label>
-            <input type="number" class="form-control" id="duree" name="duree"   [(ngModel)]="duree">
+            <input type="number" class="form-control" id="duree" name="duree" [(ngModel)]="duree">
           </div>
           <div class="mb-3">
             <label for="details" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="details" name="details" [(ngModel)] = "details">
+            <input type="text" class="form-control" id="details" name="details" [(ngModel)]="details">
           </div>
           <div class="mb-3">
             <label for="email" class="col-form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)] = "email" >
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
           </div>
         </form>
       </div>
@@ -156,52 +156,52 @@
 
 
 <!--details demande-->
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Détails demandes </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <h3>{{demandeSelectionner.duree}}</h3>
-            <h1>{{demandeSelectionner.details}}</h1>
-            <h1>{{demandeSelectionner.email}}</h1>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails demandes </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>{{demandeSelectionner.duree}}</h3>
+        <h1>{{demandeSelectionner.details}}</h1>
+        <h1>{{demandeSelectionner.email}}</h1>
       </div>
     </div>
   </div>
+</div>
 
 
 <!-- //modifier demande -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="duree" class="col-form-label">Durée</label>
-              <input type="number" class="form-control" id="dureeUpdate" name="dureeUpdate" [(ngModel)]="duree"  >
-            </div>
-            <div class="mb-3">
-              <label for="details" class="col-form-label">Details:</label>
-              <input type="text" class="form-control" id="detailsUpdate" name="dureeUpdate" [(ngModel)]="details" >
-            </div>
-            <div class="mb-3">
-              <label for="email" class="col-form-label">Email</label>
-              <input value=""  type="email" class="form-control" id="emailUpdate" name="emailUpdate" [(ngModel)]="email" >
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-          <button type="button" class="btn btn-primary" (click)="modifierDemande()">Envoyer</button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="duree" class="col-form-label">Durée</label>
+            <input type="number" class="form-control" id="dureeUpdate" name="dureeUpdate" [(ngModel)]="duree">
+          </div>
+          <div class="mb-3">
+            <label for="details" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsUpdate" name="dureeUpdate" [(ngModel)]="details">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="col-form-label">Email</label>
+            <input value="" type="email" class="form-control" id="emailUpdate" name="emailUpdate" [(ngModel)]="email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-primary" (click)="modifierDemande()">Envoyer</button>
       </div>
     </div>
   </div>
+</div>
