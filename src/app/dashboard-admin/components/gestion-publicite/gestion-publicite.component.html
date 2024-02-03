@@ -51,7 +51,7 @@
         <div class="mainTop ">
           <h4 class="fw-bolder pt-3">La liste des catégories</h4>
         </div>
-        <table datatable [dtOptions]="dtOptions" class="table col-lg-6" *ngIf="listePubs.length>0"  >
+        <table datatable [dtOptions]="dtOptions" class="table " *ngIf="listePubs.length>0"  >
           <thead class="table-secondary rounded-top-3">
             <tr>
               <th>id</th>
@@ -63,17 +63,17 @@
           <tbody>
             <tr *ngFor="let pub of listePubs">
               <td>{{pub.id }} </td>
-              <td>{{pub.media }} </td>
+              <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.media }}"  alt="" style="width: 50px; border-radius: 100%;"></td>
               <td>{{pub.demande_id }} </td>
               <td>
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
+                <!-- <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
                ><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="btn" ><i class="fa-solid fa-trash"></i></button>
-                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
-                <!-- <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
-                (click)="chargerInfosCategorie(categorie.id)"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button>
-                <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
+                <button class="btn" ><i class="fa-solid fa-trash"></i></button> -->
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
+                (click)="chargerInfosPub(pub.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <!-- <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button> -->
+                <!-- <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
               </td>
             </tr>
             
@@ -85,7 +85,7 @@
                   <th>id</th>
                   <th>Media</th>
                   <th>demande</th>
-                  <th>Action</th>
+                  <th>Action</th> 
               </tr>
           </thead>
     
@@ -121,27 +121,27 @@
   
   
   <!-- Modal -->
-  <!-- <div class="modal fade" id="modifierCatégorie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="modifierCatégorieLabel" aria-hidden="true">
+   <div class="modal fade" id="editPub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="editPubLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modifierCatégorieLabel">Modifier une categorie</h1>
+          <h1 class="modal-title fs-5" id="editPubLabel">Modifier une categorie</h1>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
               <label for="nom" class="form-label">Nom du catégorie</label>
               <input type="text" class="form-control" id="nom" name="nom"
-                placeholder="Nom du produit" [(ngModel)]="nom">
+                placeholder="demande_id du produit" [(ngModel)]="demande_id">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
           <button type="button" class="btn btn-success"
-              data-bs-dismiss="modal" (click)="modifierCategorie()">Modifier</button>
+              data-bs-dismiss="modal" (click)="editerPubs()">Modifier</button>
         </div>
       </div>
     </div>
-  </div> -->
+  </div> 

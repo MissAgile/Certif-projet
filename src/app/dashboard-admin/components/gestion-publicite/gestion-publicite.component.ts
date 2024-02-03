@@ -77,6 +77,7 @@ getAllPubs(){
     //libelle, lieu, description , date, image, categorie_id
     let formData = new FormData();
     formData.append("media", this.media);
+    formData.append("demande_id", this.demande_id);
     console.log(formData);
     this.publiciteServices.addPub(formData).subscribe((response) => {
       console.log(response);
@@ -92,4 +93,33 @@ getAllPubs(){
   }
 
 /**fonction pour accepter une demande d'un utilisateur */
+
+demandeObejt:any
+chargerInfosPub(bien:any){
+  this.pubSelctionner = bien.id;
+  console.log(bien);
+  this.media = bien.media;
+  this.demande_id = bien.demande;  
+}
+
+// fonction pour modifier  
+editerPubs() {
+
+  let formData = new FormData();
+    formData.append("media", this.media);
+    formData.append("demande_id", this.demande_id);
+    console.log(formData);
+  console.log(this.pubSelctionner);
+  console.log(formData)
+  this.pubSelctionner.updateBien(this.pubSelctionner, formData).subscribe((response: any) => {
+
+console.log(response);
+    
+    
+  }
+  );
+  this.ngOnInit();
+  this.getAllPubs();
+  this.listePubs;
+}
 }

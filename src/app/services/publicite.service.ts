@@ -27,4 +27,18 @@ export class PubliciteService {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
 }
+
+//pour supprimer 
+//modifier
+updatePub(id: number, bien:any): Observable<any> {
+  
+  const accessToken = localStorage.getItem('access_token');
+    
+    return accessToken ?
+    this.http.post<any>(`${url}/pubs/update/${id}`, bien, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+    }) : of(null);
+   
+}
+
 }
