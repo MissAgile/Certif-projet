@@ -1,1 +1,147 @@
-<p>gestion-publicite works!</p>
+<div class="cardBox">
+    <div class="card ">
+        <div class="iconBx">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">100</div>
+            <div class="cardName">Objets perdus</div>
+        </div>
+  
+    </div>
+  
+    <div class="card">
+        <div class="iconBx">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">500</div>
+            <div class="cardName">Nombre visites</div>
+        </div>
+  
+    </div>
+  
+    <div class="card">
+        <div class="iconBx">
+          <i class="fa fa-comments-o" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">284</div>
+            <div class="cardName">Objets trouvés</div>
+        </div>
+  
+    </div>
+  
+    <div class="card ">
+        <div class="iconBx">
+          <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+        <div>
+            <div class="numbers">100</div>
+            <div class="cardName">Annonces </div>
+        </div>
+  
+    </div>
+  </div>
+
+  <main class="container">
+   
+    <div class="mainBottom row container">
+      <div class="mainBottomLeft bg-white rounded-4 col-lg-7 col-md-4">
+        <div class="mainTop ">
+          <h4 class="fw-bolder pt-3">La liste des catégories</h4>
+        </div>
+        <table datatable [dtOptions]="dtOptions" class="table col-lg-6" *ngIf="listePubs.length>0"  >
+          <thead class="table-secondary rounded-top-3">
+            <tr>
+              <th>id</th>
+              <th>Media</th>
+              <th>IdDemande</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pub of listePubs">
+              <td>{{pub.id }} </td>
+              <td>{{pub.media }} </td>
+              <td>{{pub.demande_id }} </td>
+              <td>
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
+               ><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
+                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
+                <!-- <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierCatégorie"
+                (click)="chargerInfosCategorie(categorie.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button>
+                <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <table class=" table text-left">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>Media</th>
+                  <th>demande</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+    
+          <tbody>
+    
+            <tr>
+              <td colspan="5" class="text-center"> aucune pubs est disponible</td>
+    
+            </tr>
+    
+          </tbody>
+        </table>
+  
+      </div>
+      <div class="mainBottomRight  container col-lg-4 col-md-4">
+        <form class="bg-white px-5">
+          <h3>Formulaire ajout publicite </h3>
+          <div class="mb-3">
+            <label for="media" class="form-label">image de la pub </label>
+            <input type="file" class="form-control" id="media" name="media" placeholder="image de la pub"
+               (change)="getFile($event)">
+          </div>
+          <div class="mb-3">
+            <label for="demande_id" class="form-label">Demande id</label>
+            <input type="text" class="form-control" id="demande_id" name="demande_id" placeholder="image de la pub"
+              [(ngModel)]="demande_id">
+          </div>
+          <button type="button" class="btn btn-success" (click)="ajoutPub()">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="modifierCatégorie" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modifierCatégorieLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modifierCatégorieLabel">Modifier une categorie</h1>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nom" class="form-label">Nom du catégorie</label>
+              <input type="text" class="form-control" id="nom" name="nom"
+                placeholder="Nom du produit" [(ngModel)]="nom">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-success"
+              data-bs-dismiss="modal" (click)="modifierCategorie()">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
