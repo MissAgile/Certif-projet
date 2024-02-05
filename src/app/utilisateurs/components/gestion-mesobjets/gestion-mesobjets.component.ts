@@ -69,7 +69,6 @@ export class GestionMesobjetsComponent {
 
         this.listeBiens = responses.data;
         console.log(responses.data);
-
       }
     )
   }

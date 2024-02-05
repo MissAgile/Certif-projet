@@ -12,6 +12,9 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthentificationService {
+  alertMessage(arg0: string, arg1: string, arg2: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient ,
@@ -24,8 +27,8 @@ export class AuthentificationService {
   }
   login(user: any): Observable<any> {
     return this.http.post<any>(`${url}/login`, user);
-    // return this.http.post(${url}/login, user).subscribe((reponse:any) => onSuccess(reponse))
   }
+
   register(user: any) {
     return this.http.post(`${url}/register`, user);
   }
@@ -49,5 +52,15 @@ getUserById(id: any): Observable<any> {
     this.http.get<any>(`${url}/user/show/${id}`,  {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
+}
+
+logout(): Observable<any> {
+  const accessToken = localStorage.getItem('access_token');
+
+  return accessToken ?
+    this.http.post<any>(`${url}/logout`, {}, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+    }) :
+    of(null);
 }
 }

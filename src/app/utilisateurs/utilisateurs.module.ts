@@ -11,6 +11,7 @@ import { GestionMymessageComponent } from './components/gestion-mymessage/gestio
 import { GestionMyprofilComponent } from './components/gestion-myprofil/gestion-myprofil.component';
 import { GestionMespartenariatComponent } from './components/gestion-mespartenariat/gestion-mespartenariat.component';
 import { GestionDetailsProfilComponent } from './components/gestion-details-profil/gestion-details-profil.component';
+import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { GestionDetailsProfilComponent } from './components/gestion-details-prof
     CommonModule,
     UtilisateursRoutingModule,
     DataTablesModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+  
   ]
 })
 export class UtilisateursModule { }

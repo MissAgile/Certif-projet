@@ -56,7 +56,7 @@ accepterDemande(id: number){
     showCancelButton: true,
     confirmButtonColor: '#017D03',
     cancelButtonColor: '#FF9C00',
-    confirmButtonText: 'Oui, supprimer!',
+    confirmButtonText: 'Oui, accepter!',
   }).then((result)=>{
     console.log(result);
     if (result.isConfirmed) {
@@ -66,7 +66,7 @@ accepterDemande(id: number){
         this.demandeServices.alertMessage(
           'success',
           'Supprimé!',
-          'Categorie supprimé avec succès'
+          'Demande acceptée avec succès'
         );
 
         this.getDemandesUsers();

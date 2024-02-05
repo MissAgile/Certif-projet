@@ -99,7 +99,7 @@ chargerInfosPub(bien:any){
   this.pubSelctionner = bien.id;
   console.log(bien);
   this.media = bien.media;
-  this.demande_id = bien.demande;  
+  this.demande_id = bien.bien_id;  
 }
 
 // fonction pour modifier  

@@ -30,12 +30,12 @@ export class PubliciteService {
 
 //pour supprimer 
 //modifier
-updatePub(id: number, bien:any): Observable<any> {
+updatePub(id: number, publicite:any): Observable<any> {
   
   const accessToken = localStorage.getItem('access_token');
     
     return accessToken ?
-    this.http.post<any>(`${url}/pubs/update/${id}`, bien, {
+    this.http.post<any>(`${url}/pubs/update/${id}`, publicite, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) : of(null);
    

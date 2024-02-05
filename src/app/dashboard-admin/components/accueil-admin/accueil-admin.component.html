@@ -60,25 +60,29 @@
           <a href="#" class="btn">Voir tout</a>
       </div>
 
-      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="">
+      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="listeBiens.length>0">
         <thead>
           <tr>
               <th>Image</th>
               <th>Titre</th>
               <th>Description</th>
-              <th>Lieu</th>
+              <th>lieu</th>
+              <th>Date</th>
+              <th>Categorie</th>
               <th>Etat</th>
               <th>Action</th>
           </tr>
       </thead>
 
       <tbody>
-        <tr>
-            <td><img src="../../../../assets/images/cartable.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
-            <td>Cartable </td>
-            <td>trouvé à coté  d'un bus</td>
-            <td>Mermoz</td>
-            <td>Non-recuperer</td>
+        <tr *ngFor="let item of listeBiens">
+            <td><img src="http://127.0.0.1:8000/imagesBiens/{{item.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
+            <td>{{item.libelle}} </td>
+            <td>{{item.description}}</td>
+            <td>{{item.lieu}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.categorie}}</td>
+            <td>{{item.statut}}</td>
             <td><span class="status action-icon">
                 <a  >               
                     <i class="bi bi-pencil-square" ></i>
@@ -95,75 +99,33 @@
             </span>
             </td>
         </tr>
-        <tr>
-            <td><img src="../../../../assets/images/iphone 8.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
-            <td>Cartable </td>
-            <td>trouvé à coté  d'un bus</td>
-            <td>Mermoz</td>
-            <td>Non-recuperer</td>
-            <td><span class="status action-icon">
-                <a  >               
-                    <i class="bi bi-pencil-square" ></i>
-                    </a>                
-                    <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
-                        <i class="bi bi-eye-fill"></i>
-                    </a>                
-                    <a href="#">                
-                        <i class="bi bi-chat"></i>
-                    </a>                
-                    <a >   
-                            <i class="bi bi-archive-fill"></i>
-                    </a>       
-            </span>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="../../../../assets/images/passport.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
-            <td>Cartable </td>
-            <td>trouvé à coté  d'un bus</td>
-            <td>Mermoz</td>
-            <td>Non-recuperer</td>
-            <td><span class="status action-icon">
-                <a  >               
-                    <i class="bi bi-pencil-square" ></i>
-                    </a>                
-                    <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
-                        <i class="bi bi-eye-fill"></i>
-                    </a>                
-                    <a href="#">                
-                        <i class="bi bi-chat"></i>
-                    </a>                
-                    <a >   
-                            <i class="bi bi-archive-fill"></i>
-                    </a>       
-            </span>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="../../../../assets/images/clé.png" alt="" class="rounded-circle" style="width: 5vh;"></td>
-            <td>Cartable </td>
-            <td>trouvé à coté  d'un bus</td>
-            <td>Mermoz</td>
-            <td>Non-recuperer</td>
-            <td><span class="status action-icon">
-                <a  >               
-                    <i class="bi bi-pencil-square" ></i>
-                    </a>                
-                    <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
-                        <i class="bi bi-eye-fill"></i>
-                    </a>                
-                    <a href="#">                
-                        <i class="bi bi-chat"></i>
-                    </a>                
-                    <a >   
-                            <i class="bi bi-archive-fill"></i>
-                    </a>       
-            </span>
-            </td>
-        </tr>
+      
         
       </tbody>
         </table>
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="listeBiens.length<0">
+            <thead>
+              <tr>
+                  <th>Image</th>
+                  <th>Titre</th>
+                  <th>Description</th>
+                  <th>lieu</th>
+                  <th>Date</th>
+                  <th>Categorie</th>
+                  <th>Etat</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+                <td>Aucun bien trouvé ici</td>
+                
+            </tr>
+          
+            
+          </tbody>
+            </table>
         
         
   </div> 

@@ -63,13 +63,9 @@
           <tbody>
             <tr *ngFor="let pub of listePubs">
               <td>{{pub.id }} </td>
-              <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.media }}"  alt="" style="width: 50px; border-radius: 100%;"></td>
+              <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.media }}"  alt="" style="width: 50px; height: 50px; border-radius: 100%;"></td>
               <td>{{pub.demande_id }} </td>
               <td>
-                <!-- <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
-               ><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn" ><i class="fa-solid fa-trash"></i></button>
-                <button class="btn" ><i class="fa-solid fa-trash"></i></button> -->
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
                 (click)="chargerInfosPub(pub.id)"><i class="fa-solid fa-pen-to-square"></i></button>
                 <!-- <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button> -->
@@ -79,7 +75,7 @@
             
           </tbody>
         </table>
-        <table class=" table text-left">
+        <table class=" table text-left" *ngIf="listePubs.length<0">
           <thead>
               <tr>
                   <th>id</th>
@@ -100,8 +96,8 @@
         </table>
   
       </div>
-      <div class="mainBottomRight  container col-lg-4 col-md-4">
-        <form class="bg-white px-5">
+      <div class="mainBottomRight  container col-lg-4 col-md-4 rounded-3">
+        <!-- <form class="bg-white px-5">
           <h3>Formulaire ajout publicite </h3>
           <div class="mb-3">
             <label for="media" class="form-label">image de la pub </label>
@@ -114,7 +110,22 @@
               [(ngModel)]="demande_id">
           </div>
           <button type="button" class="btn btn-success" (click)="ajoutPub()">Ajouter</button>
-        </form>
+        </form> -->
+        <div class="form">
+          <div class="title">Bienvenue</div>
+          <div class="subtitle">Ajouteez une publicité !</div>
+          <div class="input-container ic1">
+            <label for="media" class="form-label">image de la pub </label>
+            <input type="file" class="form-control" id="media" name="media" placeholder="image de la pub"
+               (change)="getFile($event)"/>
+          </div>
+          <div class="input-container ic2">
+            <label for="demande_id" class="form-label">Demande id</label>
+            <input input type="text" class="form-control" id="demande_id" name="demande_id" placeholder="image de la pub"
+            [(ngModel)]="demande_id" />
+          </div>
+          <button type="button" class="submit" (click)="ajoutPub()">Publier</button>
+        </div>
       </div>
     </div>
   </main>
@@ -131,9 +142,14 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="nom" class="form-label">Nom du catégorie</label>
-              <input type="text" class="form-control" id="nom" name="nom"
-                placeholder="demande_id du produit" [(ngModel)]="demande_id">
+                <label for="media" class="form-label">image de la pub </label>
+                <input type="file" class="form-control" id="media" name="media" placeholder="image de la pub"
+                   (change)="getFile($event)">
+            </div>
+            <div class="mb-3">
+              <label for="demande_id" class="form-label">Media</label>
+              <input type="text" class="form-control" id="demande_id" name="demande_id"
+                placeholder="pub" [(ngModel)]="demande_id">
             </div>
           </form>
         </div>

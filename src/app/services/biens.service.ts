@@ -11,6 +11,16 @@ export class BiensService {
   constructor(private http : HttpClient) { }
 
 
+  /**all biens recentes */
+  getRecentsBiens(categorie_id:any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+      
+      return accessToken ?
+      this.http.get<any>(`${url}/biens/index/${categorie_id}`,  {
+          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+        }) : of(null);
+  }
+
    /** fonction qui nous permet de lister les bien déclarer par  un utilisateur */
    getAllBiens(): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
