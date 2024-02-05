@@ -9,17 +9,17 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" [routerLink]="['accueilutilisateurs']">
+            <li  (click)="handleClick()">
+                <a href="#" [routerLink]="['accueilutilisateurs']" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-microsoft" aria-hidden="true"></i>
                     </span>
                     <span class="title">Dashboard</span>
                 </a>
-            </li>
+            </li >
 
-            <li>
-                <a [routerLink]="['mes-objets']">
+            <li  (click)="handleClick()">
+                <a [routerLink]="['mes-objets']" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-people-fill" aria-hidden="true"></i>
                     </span>
@@ -27,8 +27,8 @@
                 </a>
             </li>
 
-            <li>
-                <a [routerLink]="['mes-messages']">
+            <li  (click)="handleClick()">
+                <a [routerLink]="['mes-messages']" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-envelope-plus-fill" aria-hidden="true"></i>
                     </span>
@@ -36,8 +36,8 @@
                 </a>
             </li>
 
-            <li>
-                <a [routerLink]="['mes-demandes']">
+            <li  (click)="handleClick()">
+                <a [routerLink]="['mes-demandes']" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-palette2" aria-hidden="true"></i>
                     </span>
@@ -45,8 +45,8 @@
                 </a>
             </li>
             
-            <li>
-                <a [routerLink]="['./myprofil-user']">
+            <li  (click)="handleClick()">
+                <a [routerLink]="['./myprofil-user']"  routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-file-earmark-richtext-fill" aria-hidden="true"></i>
                     </span>
@@ -55,8 +55,8 @@
             </li>
 
 
-            <li>
-                <a class="btn" (click)="logout()">
+            <li  (click)="handleClick()">
+                <a class="btn" (click)="logout()" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
                     </span>

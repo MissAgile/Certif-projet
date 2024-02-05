@@ -48,7 +48,6 @@ export class GestionCategorieComponent implements OnInit {
     this.categoriesService.getAllCategories().subscribe(
       (data) => {
         console.log(data);
-
         this.categories = data.categorie;
         console.log(this.categories);
 

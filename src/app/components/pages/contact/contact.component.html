@@ -15,26 +15,25 @@
         <div class="form_conaitner">
             <form action="" id="contact-form">
                 <div class="mb-3">
-                    <label for="">Prénom Nom</label>
-                    <input type="text" name="prénom" placeholder="Nom Complet" required>
+                    <label for="nom">Prénom et Nom</label>
+                    <input type="text" name="nom" placeholder="Nom Complet"  [(ngModel)]="nom">
                 </div>
                 <div class="mb-3">
-                    <label for="">Email</label>
-                    <input type="email" name="email" placeholder="email@gmail.com" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="email@gmail.com"  [(ngModel)]="email">
                 </div>
                 <div class="mb-3">
-                    <label for="">Téléphone</label>
-                    <input type="text" name="phone" placeholder="+221 77 777 77 77 " required>
+                    <label for="phone">Téléphone</label>
+                    <input type="number" name="phone" placeholder="+221 77 777 77 77 "  [(ngModel)]="phone">
                 </div>
                 <div class="mb-3">
-                    <label for="">Message</label>
-                    <textarea id="message" name="message" placeholder="Votre message"
-                        required> </textarea>
+                    <label for="messag">Message</label>
+                    <input id="messag" type="text" name="messag" placeholder="Votre message"
+                         [(ngModel)]="messag"> 
                 </div>
-                <button type="submit" id="submite">Envoyer</button>
+                <button type="button" id="submite" (click)="ajoutContact()">Envoyer</button>
             </form>
         </div>
     </div>
 </section>
- End section formulaire
 <app-footer></app-footer>

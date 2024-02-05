@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-main-utilisateur',
@@ -12,15 +13,29 @@ export class MainUtilisateurComponent {
 
   constructor(
     private authentificationService: AuthentificationService,
-    private route: Router
+    private route: Router,
+    private renderer: Renderer2, private el: ElementRef
   ) { }
 
-
+item:any;
   status = false;
   addToggle()
   {
     this.status = !this.status;       
   }
+
+
+/**  Cette méthode gère le clic sur le lien */
+ handleClick() {
+   // Supprime la classe 'clicked' de tous les éléments de la liste
+   const listItems = this.el.nativeElement.querySelectorAll('.navigation ul li');
+   listItems.forEach((item:any) => {
+     this.renderer.removeClass(item, 'clicked');
+   });
+
+   // Ajoute la classe 'clicked' à l'élément cliqué
+   this.renderer.addClass(this.el.nativeElement, 'clicked');
+ }
 
    /**fonction pour se déconnecter */
    logout(): void {

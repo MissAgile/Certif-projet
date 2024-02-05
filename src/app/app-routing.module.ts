@@ -7,6 +7,8 @@ import {ContactComponent } from './components/pages/contact/contact.component';
 import {SidenavComponent } from './components/admin/sidenav/sidenav.component';
 import { AuthentificationComponent } from './components/auth/authentification/authentification.component';
 import { ConfidentialiteComponent } from './components/pages/confidentialite/confidentialite.component';
+import { authGuard } from './auth.guard';
+import { userGuard } from './user.guard';
 
 
 const routes: Routes = [
@@ -18,11 +20,11 @@ const routes: Routes = [
   {path: "confidentialite", component:ConfidentialiteComponent},
 
    //route admin
-   {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule)},
+   {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule), canActivate:[authGuard]},
    {path: "sidenav", component:SidenavComponent},
 
    //route utilisateurs
-   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule)}, //
+   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule), canActivate:[userGuard]}, //
 ];
 
 @NgModule({
