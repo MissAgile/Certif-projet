@@ -15,21 +15,20 @@
                         </ul>
                     </div>
                 </div>
+                <!-- menu page profil -->
                 <div class="col-lg-12 col-md-4" >
                     <div class="dashboard_menu">
                         <ul class="nav nav-tabs d-flex gap-4 " role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active " id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="ti-location-pin"></i>Détails profil</a>
+                                <a class="nav-link active " id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true" ><i class="ti-location-pin"></i>Détails profil</a>
                             </li>
                           <li class="nav-item">
                             <a class="nav-link " id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="ti-id-badge"></i>Modifier profil</a>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="logout-tab"  href="#logout" data-bs-toggle="tab" role="tab" aria-controls="logout" aria-selected="true" ><i class="ti-lock"></i>Se déconnecter</a>
-                          </li>
                         </ul>
                     </div>
                 </div>
+                <!-- fin menu page profil -->
                 <div class="col-lg-12 col-md-8 " >
                     <div class="tab-content dashboard_content">
                           <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
@@ -45,86 +44,74 @@
                                 </div>
                             </div>
                           </div>
+                          <!--details profil utlisateur son profil-->
                         <div class="tab-pane fade active show" id="address" role="tabpanel" aria-labelledby="address-tab">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="card mb-3 mb-lg-0">
                                         <div class="card-header">
-                                            <h3>Billing Address</h3>
+                                            <h3>Tous les détails de ton profil</h3>
                                         </div>
-                                        <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
-                                            <p>New York</p>
-                                            <a href="#" class="btn btn-fill-out">Edit</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3>Shipping Address</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
-                                            <p>New York</p>
-                                            <a href="#" class="btn btn-fill-out">Edit</a>
-                                        </div>
+                                        <div class="card-body" *ngIf="userConnect">
+                                            <h5 class="mb-4 title-profil"> Nom : <span> {{userConnect.name}}</span> </h5>
+                                            <h5 class="mb-4 title-profil"> Prenom: <span>{{userConnect.firstName}}</span> </h5>
+                                            <h5 class="mb-4 title-profil"> Email: <span>{{userConnect.email}}</span>  </h5>
+                                            <h5 class="mb-4 title-profil"> Telephone: <span>{{userConnect.phone}}</span> </h5>
+                                            <a href="#" class="btn btn-fill-out btn-profil" >Modifier</a>
+                                        </div>  
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- fin details profil utlisateur son profil-->
+                        <!--modifier son profil-->
                         <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
                             <div class="card">
                                 <div class="card-header">
                                     <h3>Modifier profil</h3>
                                 </div>
                                 <div class="card-body">
-                                    <p>Already have an account? <a href="#">Log in instead!</a></p>
                                     <form method="post" name="enq">
                                         <div class="row">
                                             <div class="form-group col-md-6 mb-3">
-                                                <label>First Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="name" type="text">
+                                                <label>Prénom <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="firstName" type="text" [(ngModel)]="userConnect.name">
                                              </div>
                                              <div class="form-group col-md-6 mb-3">
-                                                <label>Last Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="phone">
+                                                <label>Nom<span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="nom" [(ngModel)]="userConnect.firstName">
                                             </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Display Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="dname" type="text">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Email<span class="required">*</span></label>
+                                                <input type="email" class="form-control" name="email" [(ngModel)]="userConnect.email">
                                             </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Email Address <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="email" type="email">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Mot de pass <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="password">
                                             </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Current Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="password" type="password">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Téléphone <span class="required">*</span></label>
+                                                <input type="tel" class="form-control" name="phone" [(ngModel)]="userConnect.phone">
                                             </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>New Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="npassword" type="password">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Adresse <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="adresse">
                                             </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Confirm Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="cpassword" type="password">
-                                            </div>
+                                            
                                             <div class="col-md-12">
-                                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Save</button>
+                                                <button type="submit" class="btn btn-fill-out btn-profil" name="submit" value="Submit" (click)="modifierUtilisateur()">Enregistrer</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
+                         <!-- fin modifier son profil-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- END SECTION SHOP -->
-    
-    
     
     </div>
+

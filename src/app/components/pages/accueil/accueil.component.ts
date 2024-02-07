@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BiensService } from 'src/app/services/biens.service';
+import { WhatshapService } from 'src/app/services/whatshap.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,6 +19,15 @@ date: any;
 image: any;
 categorie_id: any;
 
+  //variable user
+  id:number=0;
+  email:string = "";
+  password:string="";
+  name:string="";
+  phone: number = 0;
+  firstName:string="";
+  confirmPassword:string="";
+
 
 //variables pour modifier
 //update demande 
@@ -33,7 +44,8 @@ listeBiens: any[] = [];
 
 bienSelectionner: any = {};
 
-constructor(private biensServices: BiensService) { }
+
+constructor(private biensServices: BiensService, private whatshapService:WhatshapService) { }
 
 ngOnInit(): void {
   this.getAllBiens();
@@ -92,6 +104,35 @@ ajoutBien() {
 getFile(event: any) {
   console.warn(event.target.files[0]);
   this.image = event.target.files[0] as File;
+}
+
+messageWhatshap(id: number){
+  let userId=id;
+  Swal.fire({
+    title: 'Êtes-vous sûr?',
+    text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#017D03',
+    cancelButtonColor: '#FF9C00',
+    confirmButtonText: 'Oui, accepter!',
+  }).then((result)=>{
+    console.log(result);
+    if (result.isConfirmed) {
+      this.whatshapService.sendWhatsapp(userId).subscribe((response:any)=>{
+        console.log(response);
+        
+        this.whatshapService.alertMessage(
+          'success',
+          'Supprimé!',
+          'Demande acceptée avec succès'
+        );
+
+        
+      })
+    }
+  })
+ 
 }
 
 }

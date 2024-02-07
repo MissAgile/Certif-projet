@@ -53,7 +53,7 @@ getUserById(id: any): Observable<any> {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
 }
-
+/**fonction déconnexion*/
 logout(): Observable<any> {
   const accessToken = localStorage.getItem('access_token');
 
@@ -63,4 +63,28 @@ logout(): Observable<any> {
     }) :
     of(null);
 }
+
+
+/**details profil */
+detailProfil(id:number): Observable<any> {
+  
+  const accessToken = localStorage.getItem('access_token');
+    
+    return accessToken ?
+    this.http.post<any>(`${url}/me`, id,{
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
+}
+/**fonction pour modifier un profil */
+updateProfil(id: any): Observable<any> {
+  const accessToken = localStorage.getItem('access_token');
+    
+    return accessToken ?
+    this.http.post<any>(`${url}/users/update/${id}`,  {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
+}
+
+
+
 }

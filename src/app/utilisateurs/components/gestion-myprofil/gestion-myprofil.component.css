@@ -1,3 +1,7 @@
+*{
+    font-family: 'Segoe UI';
+}
+
 body {
     background-color: #eee
 }
@@ -57,6 +61,14 @@ body {
     background: rgb(21, 90, 194)
 }
 
+input{
+    border-bottom: 3px solid #001F3F;
+    border-radius: 0;
+}
+.btn-profil{
+    background-color: #2ECC71;
+    color: white;
+}
 #arrow {
     content: "";
     position: absolute;
@@ -391,3 +403,16 @@ body {
         left: -12px
     }
 }
+
+.title-profil{
+    color: #2ECC71 !important;
+}
+.title-profil{
+    color: #001F3F  !important;
+}
+
+
+
+
+
+

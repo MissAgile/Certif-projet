@@ -18,7 +18,7 @@ export class AuthentificationComponent implements OnInit {
   password:string="";
   name:string="";
   phone: number = 0;
-    firstName:string="";
+  firstName:string="";
   confirmPassword:string="";
 
  //méthodes

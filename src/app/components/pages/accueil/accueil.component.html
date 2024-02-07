@@ -42,6 +42,7 @@
 </div>
 <!-- Section apropos de eureka  -->
 <div class=" sectionAccueil">
+  <button class="btn"> whatshap</button>
   <h3 class="titre text-center mt-5" id="title-section" color="#2ECC71 !important"> Apropos de Eureka </h3>
 
   <div class="row container " id="content-apropos">
@@ -76,6 +77,7 @@
     <div class="product--card rounded-2 shadow-sm">
       <a class="product--image" href="#" title="View">
         <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="">
+        http://127.0.0.1:8000/imagesBiens/{{bi.userId}}
         <span class="tags"></span>
       </a>
       <h5 class="product--title"> {{bi.libelle}} </h5>
@@ -83,8 +85,8 @@
       <div class="product--brand">
         <p href="#" title="View"></p>
       </div>
-      <a class="product--price" href="https://api.whatsapp.com/send?phone=+221777777777&text=Bonjour" target="_blank"
-        title="View">
+      <a class="product--price" href="http://127.0.0.1:8000/api/users/whatsapp/{{bi.userId}}"  
+        title="View" >
         <div class="product--price-inner container d-flex justify-content-between">
           <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
               data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
