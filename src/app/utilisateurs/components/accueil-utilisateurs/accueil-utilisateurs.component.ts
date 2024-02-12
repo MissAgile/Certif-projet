@@ -15,7 +15,7 @@ export class AccueilUtilisateursComponent implements OnInit {
   lieu: string = "";
   description: string = "";
   date: any;
-  image: any;
+  image: any;    
   categorie_id: any;
 
 

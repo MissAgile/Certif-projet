@@ -8,7 +8,10 @@
     background-color: #ffffff !important;
     color: #001F3F;
     box-shadow: 2px 2px 4px gray !important;
-    /* position: fixed ; */
+    position: fixed ;
+    width: 100%;
+    z-index: 3;
+    top: 0;
   }
   #navbar {
     margin: 0 auto;
@@ -34,4 +37,8 @@ margin-left: 10px;  }
     background-color: #001F3F !important;
     color: #2ECC71;
 
+  }
+
+  .active{
+    color: #2ECC71 !important;
   }

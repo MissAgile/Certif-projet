@@ -8,7 +8,14 @@
                     <img class="icon " src="../../../assets/images/logoblanc.png" alt="" style="width: 100px ; height: 100px; margin:10px auto;">
                 </a>
             </li>
-
+            <li  (click)="handleClick()">
+                <a [routerLink]="['/accueil']" routerLinkActive="active-link">
+                    <span class="icon">
+                        <i class="bi bi-people-fill" aria-hidden="true"></i>
+                    </span>
+                    <span class="title"> Aller sur le site </span>
+                </a>
+            </li>
             <li  (click)="handleClick()">
                 <a href="#" [routerLink]="['accueilutilisateurs']" routerLinkActive="active-link">
                     <span class="icon">
@@ -17,7 +24,7 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li >
-
+           
             <li  (click)="handleClick()">
                 <a [routerLink]="['mes-objets']" routerLinkActive="active-link">
                     <span class="icon">
@@ -55,14 +62,20 @@
             </li>
 
 
-            <li  (click)="handleClick()">
+            <!-- <li  (click)="handleClick()">
                 <a class="btn" (click)="logout()" routerLinkActive="active-link">
                     <span class="icon">
                         <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
                     </span>
                     <span class="title">Déconnexion</span>
                 </a>
-            </li>
+            </li> -->
+            <button class="  bo btn-lg w-75" (click)="logout()">
+                <span class="icon">
+                  <i class="bi bi-box-arrow-left "  aria-hidden="true"></i>
+                </span>
+                Déconnexion
+            </button>
         </ul>
     </div>
 

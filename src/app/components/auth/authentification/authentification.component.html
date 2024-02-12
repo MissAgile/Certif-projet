@@ -19,16 +19,16 @@
           </div>
           <div class="col-12 px-0 my-3">
             <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;"  (click)="login()">Se connecter</button>
-            <a class="para text-black-50">Mot de pass oublier</a>
-            <a  (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je me connecte</a>
+            <!-- <a class="para text-black-50">Mot de pass oublier</a> -->
+            <a   (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je m'inscris</a>
           </div>
         </form>
       </div>
   
   
-      <div class="col-lg-6" *ngIf="!afficherBloc1"  style="border: 2px solid  ; height: 100%;">
+      <div class="col-lg-6" *ngIf="!afficherBloc1" >
           <div class="d-flex justify-content-around">
-            <h2>Inscrivez vous !</h2>
+            <h2 class="">Inscrivez vous !</h2>
           </div>
           <form >
             <div class="">

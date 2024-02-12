@@ -10,7 +10,14 @@
                     <span class="title">Eureka</span>
                 </a>
             </li>
-  
+            <li>
+                <a  href="#" [routerLink]="['/accueil']">
+                    <span class="icon">
+                      <i class="bi bi-house-door" aria-hidden="true"></i>
+                    </span>
+                    <span class="title">Aller sur le site</span>
+                </a>
+            </li>
             <li>
                 <a  href="#" [routerLink]="['accueil-admin']">
                     <span class="icon">
@@ -19,7 +26,7 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-  
+          
             <li>
                 <a [routerLink]="['gestion-utilisateur']">
                     <span class="icon">
@@ -73,16 +80,15 @@
                     <span class="title"> Publicite</span>
                 </a>
             </li>
+            <button class="  bo btn-lg w-75" (click)="logout()">
+                <span class="icon">
+                  <i class="bi bi-box-arrow-left "  aria-hidden="true"></i>
+                </span>
+                Déconnexion
+            </button>
 
-            <li>
-                <a class="btn " (click)="logout()">
-                    <span class="icon">
-                      <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
-                    </span>
-                    <span class="title">Déconnextion</span>
-                </a>
-            </li>
         </ul>
+        
     </div>
   
     <!-- ========================= Main ==================== -->
@@ -102,6 +108,7 @@
             <div class="user">
                 <img src="assets/imgs/customer01.jpg" alt="">
             </div>
+           
         </div>
   
         <router-outlet></router-outlet>

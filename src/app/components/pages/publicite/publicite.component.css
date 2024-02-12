@@ -173,6 +173,9 @@ margin: 0 auto;}
       height:9.1rem;
 
   }
+  .card-quote{
+    width: 100% !important;
+  }
 }
 @media screen and (max-width: 768px){
   .row-objets{
@@ -191,7 +194,7 @@ margin: 0 auto;}
    text-align: center;
       margin: 0 auto !important;
       height: auto;
-      border: #2ECC71 2px solid !important;
+      /* border: #2ECC71 2px solid !important; */
   }
   .quote-left{
      margin-left: 0 ;
@@ -200,11 +203,11 @@ margin: 0 auto;}
   }
   .quote-right{
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 2fr);
       width: 25.8rem !important;
       /* border: 2px solid blue !important; */
       gap: 1.2rem !important;
-      width: 80% !important;
+      /* width: 80% !important; */
       margin-left:-12rem!important;
       margin-top: 60%;
       align-items: center !important;
@@ -230,7 +233,7 @@ margin: 0 auto;}
   gap: 5rem;
 }
 .declaration .declaration-left {
-  border: 2px solid green ;
+  /* border: 2px solid green ; */
   color: #001F3F;
 
 }
@@ -255,7 +258,7 @@ margin: 0 auto;}
 }
 .declaration .declaration-right form input {
   /* background-color: #001f3f76; */
-  color: white;
+  color: #001F3F;
   /* padding:5%; */
   width: 100%;
   border-radius: 0;
@@ -293,4 +296,12 @@ margin: 0 auto;}
 .user-image img{
   width: 60px;
   height: 60px;
+}
+
+@media (max-width: 991px){
+  .quote-right{
+    margin-top: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+  }
 }

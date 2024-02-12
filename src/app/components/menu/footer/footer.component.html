@@ -12,8 +12,8 @@
                         <div class="subscribe-form col-lg-4 col-md-6 mt-3">
                             <form action="#">
                                 <input type="text" placeholder="adresse email" class="rounded-5" id="email" name="email" [(ngModel)]="email">
-                                <button class="btn rounded-5 w-10" style="width: 7rem;" ><i
-                                        class="fab fa-telegram-plane"></i>fjjj</button>
+                                <button class="btn rounded-5 w-10" style="width: 7rem;" (click)="subscribeNewsLetter()"><i
+                                        class="fab fa-telegram-plane"></i></button>
                             </form>
                         </div>
                     </div>
@@ -42,11 +42,11 @@
                             <h3>Liens rapides</h3>
                         </div>
                         <ul>
-                            <li><a href="#">Accueil</a></li>
-                            <li><a href="#">Partenaire</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Politique Confidentialité</a></li>
-                            <li><a href="#">Condition d'utilisatation</a></li>
+                            <li><a href="" [routerLink]="['/accueil']">Accueil</a></li>
+                            <li><a href="" [routerLink]="['/publicite']">Partenaire</a></li>
+                            <li><a href="" [routerLink]="['/contact']">Contact</a></li>
+                            <li><a href="" [routerLink]="['/confidentialite']">Politique Confidentialité</a></li>
+                            <li><a href="" [routerLink]="['/confidentialite']">Condition d'utilisatation</a></li>
 
                         </ul>
                     </div>

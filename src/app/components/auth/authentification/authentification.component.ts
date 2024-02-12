@@ -118,13 +118,13 @@ export class AuthentificationComponent implements OnInit {
     }
 //fonction inscription
 register() {
-  console.log( this.firstName, this.name, this.phone,   this.email, this.password, this.confirmPassword );
-  if ( this.name == '' ||  this.firstName== '' || this.phone== 0 ||  this.email == '' || this.password == '' || this.confirmPassword=='' ) {
+  console.log(this.firstName, this.name, this.phone, this.email, this.password, this.confirmPassword);
+  if (this.name == '' || this.firstName == '' || this.phone == 0 || this.email == '' || this.password == '' || this.confirmPassword == '') {
     Swal.fire({
       position: 'center',
       icon: 'error',
       title: '',
-      text: 'Veillez remplir les champs',
+      text: 'Veuillez remplir tous les champs',
       showConfirmButton: true,
     });
   } else if (this.email.endsWith('@') || !this.email.includes('.')) {
@@ -133,48 +133,51 @@ register() {
       position: 'center',
       icon: 'error',
       title: '',
-      text: 'Veillez saissir un email valide',
+      text: 'Veuillez saisir un email valide',
       showConfirmButton: true,
     });
   } else {
     let user = {
-      name:this.name,
-      firstName:this.firstName,
-      phone:this.phone,
+      name: this.name,
+      firstName: this.firstName,
+      phone: this.phone,
       email: this.email,
       password: this.password,
       confirmPassword: this.confirmPassword
     };
 
-    let response: any;
     this.authenticationService.register(user).subscribe(
-      (rep) => {
-        response = rep;
+      (response) => {
         console.log(response);
         if (response) {
-          // console.log ("C'est bon");
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: '',
-            text: response.message,
+            text:'Inscription reuissis' ,
             showConfirmButton: true,
           });
 
-          this.route.navigate(['/authentification']); // Redirection vers le dashbord concerné
-          // this.authenticationService.isAuthenticated = true; // Définit la variable isAuthicated à true pour la guard
+          // Réinitialiser les valeurs des champs après inscription réussie
+          this.name = '';
+          this.firstName = '';
+          this.phone = 0;
+          this.email = '';
+          this.password = '';
+          this.confirmPassword = '';
 
-          // On stocke les info de la requete dans notre localstorage
+          // Redirection vers le dashboard concerné
+          this.route.navigate(['/authentification']);
+
+          // Stocker les informations de l'utilisateur connecté dans le localStorage
           localStorage.setItem('userConnect', JSON.stringify(response));
-
-          // this.iscorrectValues = true; //Les données fournies sont correctes
         } else {
           console.log("L'adresse email est incorrecte");
           Swal.fire({
             position: 'center',
             icon: 'error',
             title: '',
-            text: 'Veillez saissir un email valide',
+            text: 'Veuillez saisir un email valide',
             showConfirmButton: true,
           });
         }
@@ -192,6 +195,7 @@ register() {
     );
   }
 }
+
 
 
 

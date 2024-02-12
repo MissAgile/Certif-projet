@@ -58,24 +58,27 @@
             <a href="#" class="btn">Voir tout</a>
         </div>
 
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" *ngIf="listeBiens.length>0">
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table "  >
             <thead>
                 <tr>
                     <th>Libelle</th>
                     <th>Description</th>
                     <th>Lieu</th>
                     <th>Image</th>
-                    <th>Categorie</th>
+                    <!-- <th>Categorie</th> -->
+                    <th>Etat</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr *ngFor="let bi of listeBiens">
-                    <td>{{bi.bien.libelle}}</td>
-                    <td>{{bi.bien.description}}</td>
-                    <td>{{bi.bien.lieu}}</td>
-                    <td>{{bi.bien.image }}</td>
-                    <td>{{bi.bien.categorie_id }}</td>
+                    <td>{{bi.libelle}}</td>
+                    <td>{{bi.description}}</td>
+                    <td>{{bi.lieu}}</td>
+                    <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>                    <td>{{bi.categorie_id }}</td>
+                    <!-- <td>{{bi.categorie_id}}</td> -->
+                    <td>{{bi.statut}}</td>
                     <td><span class="status action-icon">
                             <a data-bs-toggle="modal" data-bs-target="#mydetails ">
                                 <i class="bi bi-eye-fill"></i>
@@ -91,14 +94,16 @@
                 </tr>
             </tbody>
         </table>
-        <table  class=" table text-left" *ngIf="listeBiens.length<0">
+        <!-- <table  class=" table text-left" *ngIf="listeBiens.length<0">
             <thead>
                 <tr>
-                    <th>Duree</th>
-                    <th>Dtétails</th>
-                    <th>Email</th>
-                    <th>Etats</th>
-                    <th>Actions</th>
+                    <th>Libelle</th>
+                    <th>Description</th>
+                    <th>Lieu</th>
+                    <th>Image</th>
+                    <th>Categorie</th>
+                    <th>Etat</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -110,7 +115,7 @@
                 </tr>
 
             </tbody>
-        </table>
+        </table> -->
 
     </div>
 </div>

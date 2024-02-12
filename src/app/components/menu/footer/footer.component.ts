@@ -8,10 +8,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  email:string="";
+  email!:string;
   constructor(private newsLetterService:NewsLetterService){}
-  subscribeNewsLetter(id:number) {
-    let idUser=id;
+  subscribeNewsLetter() {
+    // let idUser=id;
     Swal.fire({
       title: 'Êtes-vous sûr?',
       text: 'Vous ne pourrez pas revenir en arrière après cette action!',
@@ -19,23 +19,33 @@ export class FooterComponent {
       showCancelButton: true,
       confirmButtonColor: '#017D03',
       cancelButtonColor: '#FF9C00',
-      confirmButtonText: 'Oui, supprimer!',
+      confirmButtonText: 'Oui, j acccepte!',
     }).then((result) => {
       console.log(result);
 
       if (result.isConfirmed) {
-        this.newsLetterService.postNewsletter(idUser).subscribe(
-          (data: any) => {
-            console.log(data);
+        let data = {
+          email: this.email
+        }
+        this.newsLetterService.postNewsletter(data).subscribe(
+          (reponse: any) => {
+            console.log(reponse);
 
             this.newsLetterService.alertMessage(
               'success',
               'Supprimé!',
-              'Categorie supprimé avec succès'
+              'Inscris   avec succès'
             );
-            // this.getAllCategories();
           });
+          this.viderChamps();
       }
     });
+
+    
+  }
+
+  viderChamps(){
+    this.email = '';
+    
   }
 }

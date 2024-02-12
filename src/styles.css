@@ -6,7 +6,7 @@
 
 /* =============== Globals ============== */
 * {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -167,12 +167,13 @@ body {
   padding: 0 10px;
   height: 60px;
   line-height: 60px;
+  font-size: 18px;
   text-align: start;
   white-space: nowrap;
 }
 
 /* --------- curve outside ---------- */
-.navigation ul li:hover a::before,
+.navigation ul li:hover a::before, 
 .navigation ul li.hovered a::before {
   content: "";
   position: absolute;
@@ -190,6 +191,7 @@ body {
   content: "";
   position: absolute;
   right: 0;
+  font-size: 22px;
   bottom: -50px;
   width: 50px;
   height: 50px;
@@ -323,6 +325,9 @@ body {
   margin-top: -2px;
   
   
+}
+.icon{
+  font-size: 18px;
 }
 
 .cardBox .card .iconBx {

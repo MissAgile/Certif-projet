@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { data } from 'jquery';
+import { url } from 'src/app/services/apiUrl';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 import { BiensService } from 'src/app/services/biens.service';
 import { WhatshapService } from 'src/app/services/whatshap.service';
 import Swal from 'sweetalert2';
@@ -18,9 +23,11 @@ description: string = "";
 date: any;
 image: any;
 categorie_id: any;
+userPhone:any;
+
 
   //variable user
-  id:number=0;
+  id:number=7;
   email:string = "";
   password:string="";
   name:string="";
@@ -29,6 +36,7 @@ categorie_id: any;
   confirmPassword:string="";
 
 
+  
 //variables pour modifier
 //update demande 
 bienObjet: any;
@@ -44,8 +52,19 @@ listeBiens: any[] = [];
 
 bienSelectionner: any = {};
 
+bi = {
+  userId: 123 // Remplacez 123 par l'identifiant réel de l'utilisateur
+}
 
-constructor(private biensServices: BiensService, private whatshapService:WhatshapService) { }
+
+constructor(
+  private biensServices: BiensService,
+   private whatshapService:WhatshapService , 
+   private authService:AuthentificationService,
+   private router:Router,
+   private http: HttpClient ,
+
+   ) { }
 
 ngOnInit(): void {
   this.getAllBiens();
@@ -76,6 +95,7 @@ getBienById(id: number) {
         lieu: this.lieu,
         date: this.date,
         image: this.image,
+       userPhone:this.userPhone,
         etat: data.etat,
         categorie_id: this.categorie_id,
       } = this.bienSelectionner);
@@ -106,33 +126,61 @@ getFile(event: any) {
   this.image = event.target.files[0] as File;
 }
 
-messageWhatshap(id: number){
-  let userId=id;
+
+messageWhatshap(userPhone:number){
+  // this. = data.user;
+  let  phoneNumber = userPhone ; 
   Swal.fire({
     title: 'Êtes-vous sûr?',
     text: 'Vous ne pourrez pas revenir en arrière après cette action!',
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#017D03',
-    cancelButtonColor: '#FF9C00',
+    confirmButtonColor: '#2ecc70',
+    cancelButtonColor: '#001F3F',
     confirmButtonText: 'Oui, accepter!',
   }).then((result)=>{
     console.log(result);
     if (result.isConfirmed) {
-      this.whatshapService.sendWhatsapp(userId).subscribe((response:any)=>{
-        console.log(response);
-        
-        this.whatshapService.alertMessage(
-          'success',
-          'Supprimé!',
-          'Demande acceptée avec succès'
-        );
-
-        
-      })
+      window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}`, '_blank');
+     
     }
   })
  
-}
+};
+
+
+
+// redirectToChatify() {
+//   // Vérifiez si l'utilisateur est connecté
+//   if (this.whatshapService.isLoggedIn()) {
+//     this.router.navigateByUrl('/http://127.0.0.1:8000/chatify/api');
+//   } else {
+//     this.router.navigateByUrl('/authentification'); 
+//   }
+// }
+sendMessage(){
+  // this. = data.user;
+  // let  phoneNumber = userPhone ; 
+  Swal.fire({
+    title: 'Êtes-vous sûr?',
+    text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#2ecc70',
+    cancelButtonColor: '#001F3F',
+    confirmButtonText: 'Oui, accepter!',
+  }).then((result)=>{
+    console.log(result);
+    if (result.isConfirmed) {
+     this.whatshapService.sendMessage().subscribe((data)=>{
+      console.log(data, 'ma reponsee');
+      
+     });
+     
+     
+    }
+  })
+ 
+};
 
 }

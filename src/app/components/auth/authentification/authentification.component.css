@@ -55,6 +55,7 @@
     
     form,#description{
       color: var(--blue);
+      margin-top: 40px;
     }
     #seconde-part-contain{
       /* border: 1px solid maroon; */
@@ -85,6 +86,11 @@
     }
     #btn-btn{
       color: var(--ve);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .register{
+      /* margin-top: 40px; */
     }
     
     .btn-submit{

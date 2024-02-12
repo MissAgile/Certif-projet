@@ -12,6 +12,8 @@ import { userGuard } from './user.guard';
 
 
 const routes: Routes = [
+  //route pae defaut du site 
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   {path: "accueil", component:AccueilComponent},
   {path: "publicite", component:PubliciteComponent},
   {path: "annonces", component:AnnoncesComponent},

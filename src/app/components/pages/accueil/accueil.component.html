@@ -42,7 +42,6 @@
 </div>
 <!-- Section apropos de eureka  -->
 <div class=" sectionAccueil">
-  <button class="btn"> whatshap</button>
   <h3 class="titre text-center mt-5" id="title-section" color="#2ECC71 !important"> Apropos de Eureka </h3>
 
   <div class="row container " id="content-apropos">
@@ -71,28 +70,31 @@
 
 <!--Section Card objets perdus-->
 <h3 class="text-center  mt-5" id="title-section">Tous les objets trouvés </h3>
-<div class="grid-row">
-
-  <div class="product" *ngFor="let bi of listeBiens">
-    <div class="product--card rounded-2 shadow-sm">
-      <a class="product--image" href="#" title="View">
+<div class="grid-row container row ">
+  <div class="product col-lg-3 col-md-6 col-sm-6" *ngFor="let bi of listeBiens">
+    <div class="product--card  rounded-2 shadow-sm">
+      <a class="product--image">
         <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="">
-        http://127.0.0.1:8000/imagesBiens/{{bi.userId}}
-        <span class="tags"></span>
       </a>
-      <h5 class="product--title"> {{bi.libelle}} </h5>
-      <p class="product--title"> {{bi.description}} </p>
+      <h5 class="product--title">{{bi.libelle}}</h5>
       <div class="product--brand">
-        <p href="#" title="View"></p>
+        <p>{{bi.description}}</p>
       </div>
-      <a class="product--price" href="http://127.0.0.1:8000/api/users/whatsapp/{{bi.userId}}"  
-        title="View" >
-        <div class="product--price-inner container d-flex justify-content-between">
+      <a class="product--price">
+        <span class="product--price-inner d-flex justify-content-between">
           <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              data-bs-toggle="modal" data-bs-target="#mydetails ">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"><i
-                class="bi bi-whatsapp"></i> </button></div>
-        </div>
+              style="background-color: #001F3F; color:#fff" data-bs-toggle="modal"
+              data-bs-target="#mydetails " (click)="getBienById(bi.id)">Détails</button></div>
+              <div class="price--sell-price gap-3">
+                <button class="btn btn-md  rounded-circle" id="btn-com" (click)=" messageWhatshap(bi.userPhone)"><i
+                    class="bi bi-whatsapp"></i>
+                </button> &nbsp;
+                <button class="btn btn-md  rounded-circle" id="btn-com">
+                  <i class="bi bi-chat-dots"
+                  (click)="sendMessage()"></i> 
+                </button>
+              </div>
+        </span>
       </a>
     </div>
   </div>
@@ -166,7 +168,8 @@
     <div class="quote-left">
       <h2 style=" font-weight: 700;">Comment bien recuperer un </h2>
       <h2 style="color: #2ECC71 ; font-weight: 700;">un objet déclaré ?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit suscipit egestas. Nunc eget congue
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> <br>
+        Vivamus hendrerit suscipit egestas. Nunc eget congue
         ante. Vivamus ut sapien et ex volutpat tincidunt eget at felis vivamus hendrerit.
 
         Phasellus pellentesque, quam sed tempus tempus, dui magna semper urna, placerat tristique diam augue ut nunc.
@@ -249,7 +252,7 @@
 </section>
 <!--Section publicité-->
 <section class="publicite container">
-  <h3 class="titre text-center mt-5" id="title-section" color="#2ECC71 !important"> Publicités </h3>
+  <h3 class="titre text-center " id="title-section" color="#2ECC71 !important"> Publicités </h3>
 
   <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">

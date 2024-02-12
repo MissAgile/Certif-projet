@@ -150,6 +150,7 @@ margin-left: 11.5rem !important;
     border-radius: 2rem;
     transition: all 400ms ease;
     border: 2px solid #2ECC71;
+    
     color: #2ECC71;
     width: 70% !important;
     height: 10rem !important;
@@ -281,6 +282,7 @@ margin: 0 auto;}
 
 #title-section{
     color: #2ECC71;
+    margin: 60px ;
 }
 
 #btn-det{
@@ -351,7 +353,7 @@ margin: 0 auto;}
   }
   
   .product {
-    width: 25%;
+    /* width: 25%; */
     margin-bottom: 30px;
     padding-left: 15px;
     padding-right: 15px;
@@ -367,7 +369,6 @@ margin: 0 auto;}
     display: flex;
     flex-direction: column;
   }
-  
   .product .product--image:hover img {
     transform: scale(1.5);
 
@@ -554,13 +555,23 @@ margin: 0 auto;}
         height:9.1rem;
 
     }
+    /* .grid-row{
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+    } */
     
+    .quote-right{
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      margin-left: -18rem;
+      margin-top: 10px;
+    }
 }
 @media screen and (max-width: 768px){
-    .row-objets{
+    /* .row-objets{
         width:100% !important;
         margin-left: 2px !important  ;
-    }
+    } */
     .col-objet{
         width: 100% ;
     }
@@ -602,17 +613,21 @@ margin: 0 auto;}
 
     .quote{
         display: grid;
-    grid-template-columns: 1fr 1fr 1fr !important;       
+    grid-template-columns: repeat(2, 2fr) !important;       
      text-align: center;
-        margin: 0 auto !important;
+        /* margin: 0 auto !important; */
+        margin-top: 10px;
         height: auto;
-        border: #2ECC71 2px solid !important;
+        /* border: #2ECC71 2px solid !important; */
     }
    .card-contenu{
     display: flex;
     flex-direction: column;
     
 } 
+.quote-right{
+  margin-top: 300px;
+}
 
 }
 
@@ -620,4 +635,26 @@ margin: 0 auto;}
 
 
   
- 
+* section objets perdus récente */
+.container-objet{
+    margin-top: 8% !important;
+    background-color: #001F3F !important;
+}
+.row-objets{
+    margin: 0 auto !important;
+    margin-left: 10rem !important;
+    gap: 10px;
+    width: 70rem !important;
+}
+
+.inner{
+    overflow: hidden;
+}
+.inner img{
+    transition: all 1.5s ease;
+    height: 15rem;
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}

@@ -12,6 +12,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthentificationService {
+ 
   alertMessage(arg0: string, arg1: string, arg2: string) {
     throw new Error('Method not implemented.');
   }

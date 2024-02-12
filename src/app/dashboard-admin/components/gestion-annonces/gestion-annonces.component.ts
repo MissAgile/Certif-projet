@@ -34,21 +34,20 @@ export class GestionAnnoncesComponent {
       }
     };
 
-    this.getAllBiens();
+    this.getAllBiens(21);
 }
 
 
 //fonction pour lister
 
-getAllBiens() {
-  this.biensServices.getAllBiens().subscribe(
+getAllBiens(id:any) {
+  console.log(this.listeBiens);
+  this.biensServices.getRecentsBiens(id).subscribe(
     (responses) => {
-      console.log(this.listeBiens);
+      console.log(responses);
+      this.listeBiens = responses.data;
+      console.log(responses.data);
 
-      this.listeBiens = responses;
-   
-      console.log(this.listeBiens);
-      
     }
   )
 }
