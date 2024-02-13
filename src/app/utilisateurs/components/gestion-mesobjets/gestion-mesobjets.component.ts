@@ -55,6 +55,8 @@ export class GestionMesobjetsComponent {
       }
     };
 
+    
+
     this.getAllBiens();
     // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
 
@@ -173,5 +175,7 @@ console.log(response);
   this.getAllBiens();
   this.listeBiens;
 }
+
+
 
 }

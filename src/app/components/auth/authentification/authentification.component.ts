@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import {  Router } from '@angular/router';
+import * as jwt_decode from 'jwt-decode'; // Assurez-vous d'installer jwt-decode
+
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.component.html',
@@ -11,7 +13,10 @@ export class AuthentificationComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthentificationService,
-    private route: Router
+    private route: Router,
+    private router: Router
+
+
   ){}
   //variable
   email:string = "";
@@ -63,8 +68,6 @@ export class AuthentificationComponent implements OnInit {
           (rep) => {
             response = rep;
             console.log(response);
-            
-
             console.log(response.access_token);
             localStorage.setItem("userOnline", JSON.stringify(response.utlisatur));
             localStorage.setItem("access_token", JSON.stringify(response.access_token).replace(/['"]+/g, ''));
@@ -73,9 +76,7 @@ export class AuthentificationComponent implements OnInit {
                 this.route.navigate(['utilisateurs/accueilutilisateurs']); 
               }else{
                 this.route.navigate(['dashboard-admin/accueil-admin']); 
-              }
-              // console.log ("C'est bon");
-              
+              }              
               // Swal.fire({
               //   position: 'center',
               //   icon: 'success',
@@ -116,6 +117,12 @@ export class AuthentificationComponent implements OnInit {
         );
       }
     }
+
+/**redirection user where token is removed in the local storage */
+
+
+    
+
 //fonction inscription
 register() {
   console.log(this.firstName, this.name, this.phone, this.email, this.password, this.confirmPassword);
@@ -184,17 +191,24 @@ register() {
       },
       (error) => {
         console.log(error);
+
+        let errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+        if (error && error.error && error.error.status_message) {
+          errorMessage = error.error.status_message;
+        }
+
         Swal.fire({
           position: 'center',
           icon: 'error',
           title: '',
-          text: 'Les informations sont incorrectes',
+          text: errorMessage,
           showConfirmButton: true,
         });
       }
     );
   }
 }
+
 
 
 

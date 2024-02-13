@@ -26,7 +26,7 @@ const routes: Routes = [
    {path: "sidenav", component:SidenavComponent},
 
    //route utilisateurs
-   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule), canActivate:[userGuard]}, //
+   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule), canActivate:[authGuard]}, //
 ];
 
 @NgModule({
