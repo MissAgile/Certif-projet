@@ -78,15 +78,13 @@
           <td>{{demande.email}}</td>
           <td>{{demande.etat}}</td>
           <td><span class="status action-icon">
-              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getDemandeById(demande.id)">
+              <a data-bs-toggle="modal" data-bs-target="#detailDemande" (click)="getDemandeById(demande.id)">
                 <i class="bi bi-eye-fill"></i>
               </a>
               <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                <i class="bi bi-archive-fill" (click)="chargerInfosTest(demande)"></i>
+                <i class="bi bi-pencil-square" (click)="chargerInfosTest(demande)"></i>
               </a>
-              <a>
-                <i class="bi bi-archive-fill"></i>
-              </a>
+              
             </span>
           </td>
         </tr>
@@ -113,7 +111,37 @@
 
             </tbody>
         </table> -->
-
+<!-- //modifier demande -->
+<div class="modal fade" id="exampleModal" tabindex="-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modifierDemande">Modifier ma demande</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="duree" class="col-form-label">Durée</label>
+            <input type="number" class="form-control" id="duree" name="duree" [(ngModel)]="duree">
+          </div>
+          <div class="mb-3">
+            <label for="details" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsUpdate" name="details" [(ngModel)]="details">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="col-form-label">Email</label>
+            <input value="" type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-primary" (click)="modifierDemande()">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </div>
 
@@ -123,7 +151,7 @@
 <!-- <button type="button" class="btn btn-primary">Modifier</button> -->
 
 <!-- //ajoutDemande -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-3" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -156,51 +184,23 @@
 
 
 <!--details demande-->
+
+
+
+
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="detailDemande" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Détails demandes </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" *ngIf="demandeSelectionner">
         <h3>{{demandeSelectionner.duree}}</h3>
         <h1>{{demandeSelectionner.details}}</h1>
         <h1>{{demandeSelectionner.email}}</h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- //modifier demande -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="duree" class="col-form-label">Durée</label>
-            <input type="number" class="form-control" id="dureeUpdate" name="dureeUpdate" [(ngModel)]="duree">
-          </div>
-          <div class="mb-3">
-            <label for="details" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsUpdate" name="dureeUpdate" [(ngModel)]="details">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="col-form-label">Email</label>
-            <input value="" type="email" class="form-control" id="emailUpdate" name="emailUpdate" [(ngModel)]="email">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-        <button type="button" class="btn btn-primary" (click)="modifierDemande()">Envoyer</button>
       </div>
     </div>
   </div>

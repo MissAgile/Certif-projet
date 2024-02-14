@@ -68,12 +68,13 @@ export class GestionMesobjetsComponent {
     this.biensServices.getAllBiens().subscribe(
       (responses) => {
         console.log(responses);
-
         this.listeBiens = responses.data;
         console.log(responses.data);
       }
     )
   }
+
+ 
 
   /**fonction pour détails bien */
   getBienById(id: number) {
@@ -115,6 +116,7 @@ export class GestionMesobjetsComponent {
       console.log(this.image);
     }
     );
+    this.viderChamps;
 
   }
   getFile(event: any) {
@@ -176,6 +178,14 @@ console.log(response);
   this.listeBiens;
 }
 
-
+viderChamps(){
+  this.libelle = '';
+  this.description='';
+  this.image ='';
+  this.date='';
+  this.categorie_id='';
+  this.lieu='';
+  
+}
 
 }

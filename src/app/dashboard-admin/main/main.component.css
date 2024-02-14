@@ -79,6 +79,18 @@
 
 
 }
+.bo{
+  margin-left: 20px;
+  margin-top: 10vh;
+  background-color: #2ecc70;
+  font-size: 18px;
+  border: 0;
+  font-weight: 700;
+  height: 50px;
+  color: #001F3F;
+
+
+}
 
 .nav {
   opacity: 0;

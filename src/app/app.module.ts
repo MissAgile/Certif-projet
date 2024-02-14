@@ -15,6 +15,7 @@ import { UtilisationComponent } from './components/pages/utilisation/utilisation
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
+import { PageErrorComponent } from './components/pages/page-error/page-error.component';
   
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
     AnnoncesComponent,
     ConfidentialiteComponent,
     UtilisationComponent,
+    PageErrorComponent,
     
    
 

@@ -1,0 +1,88 @@
+
+body {
+    background-color: white;
+    /* margin: 110px; */
+  }
+  
+  .page-404 {
+    background-image: url('../../../../assets/images/page 404.png');
+    background-repeat: no-repeat;
+    width: 40%;
+    height: 500px;
+    margin: 100px auto;
+    text-align: center;
+    color: #2ECC71;
+    font-weight: 600;
+    font-family: 'Gothic725BdBT', sans-serif;
+    text-transform: uppercase;
+    border: solid 15px white;
+    padding-bottom: 50px;
+    box-shadow: 0px 0px 70px 5px rgba(255,255,255,0.7);
+  }
+  
+  .page-404 p {
+    font-size: 20px;
+    margin-top: 350px;
+    color: #001F3F;
+  }
+  
+  .page-404 span {
+    margin-top: 350px;
+    font-size: 32px;
+  }
+  
+  @media screen and (max-width: 1500px) {
+    .page-404 {
+      padding-bottom: 30px;
+    }
+    
+    .page-404 p {
+      font-size: 200px;
+    }
+    
+    .page-404 span {
+    font-size: 22px;
+    }
+  }
+  
+  @media screen and (max-width: 1080px) {
+    .page-404 {
+      padding-bottom: 15px;
+    }
+    
+    .page-404 p {
+      font-size: 100px;
+    }
+    
+    .page-404 span {
+    font-size: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    body {
+      margin: 0;
+    }
+    
+    .page-404 {
+      border: none;
+      box-shadow: none;
+    }
+  }
+  
+  
+  @keyframes zoom {
+      0% {
+          transform: scale(1,1);
+      }
+      50% {
+          transform: scale(1.2,1.2);
+      }
+      100% {
+          transform: scale(1,1);
+      }
+  }
+  
+  .page-404 {
+      animation: zoom 5s infinite ;
+  }

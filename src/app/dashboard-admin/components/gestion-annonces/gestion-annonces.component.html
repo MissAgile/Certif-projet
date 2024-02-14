@@ -58,7 +58,7 @@
             <a href="#" class="btn">Voir tout</a>
         </div>
 
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table "  >
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table "  *ngIf="listeBiens.length>0" >
             <thead>
                 <tr>
                     <th>Libelle</th>
@@ -94,7 +94,7 @@
                 </tr>
             </tbody>
         </table>
-        <!-- <table  class=" table text-left" *ngIf="listeBiens.length<0">
+        <table  class=" table text-left" *ngIf="listeBiens.length<0">
             <thead>
                 <tr>
                     <th>Libelle</th>
@@ -115,7 +115,7 @@
                 </tr>
 
             </tbody>
-        </table> -->
+        </table>
 
     </div>
 </div>

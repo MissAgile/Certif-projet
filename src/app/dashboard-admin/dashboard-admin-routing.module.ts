@@ -24,6 +24,7 @@ const routes: Routes = [
     {path:'gestion-annonces', component:GestionAnnoncesComponent},
     {path:'gestion-role', component:GestionRoleComponent},
     {path:'', redirectTo:'accueil-admin', pathMatch:'full'},
+    
 
   ]
 },

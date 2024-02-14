@@ -59,7 +59,7 @@
       <h2>Listes demande partenariats</h2>
     </div>
 
-    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left"  >
       <thead>
         <tr>
           <th>Duree</th>
@@ -97,7 +97,7 @@
       </tbody>
     </table>
 
-    <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" *ngIf="listeDemandesUsers.length<0">
       <thead>
         <tr>
           <th>Duree</th>
@@ -116,7 +116,7 @@
 
       </tbody>
     </table>
-     -->
+    
   </div>
 </div>
 

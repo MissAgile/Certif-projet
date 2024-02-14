@@ -9,6 +9,7 @@ import { AuthentificationComponent } from './components/auth/authentification/au
 import { ConfidentialiteComponent } from './components/pages/confidentialite/confidentialite.component';
 import { authGuard } from './auth.guard';
 import { userGuard } from './user.guard';
+import { PageErrorComponent } from './components/pages/page-error/page-error.component';
 
 
 const routes: Routes = [
@@ -24,9 +25,11 @@ const routes: Routes = [
    //route admin
    {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule), canActivate:[authGuard]},
    {path: "sidenav", component:SidenavComponent},
+  //  {path: "**", component:PageErrorComponent},
+
 
    //route utilisateurs
-   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule), canActivate:[authGuard]}, //
+   {path: "utilisateurs", loadChildren:()=>import('./utilisateurs/utilisateurs.module').then(m=>m.UtilisateursModule), canActivate:[userGuard]}, //
 ];
 
 @NgModule({

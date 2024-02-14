@@ -7,6 +7,9 @@ import { url } from './apiUrl';
   providedIn: 'root'
 })
 export class ContactService {
+  alertMessage(arg0: string, arg1: string, arg2: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http:HttpClient) { }
 

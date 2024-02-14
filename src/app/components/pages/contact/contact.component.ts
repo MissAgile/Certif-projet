@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from 'src/app/models/contact';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ContactComponent implements OnInit {
 
   nom: string = "";
   email: string = "";
-  phone: number = 0;
+  phone: any;
   messag: string = "";
 
 
@@ -63,20 +64,60 @@ export class ContactComponent implements OnInit {
       phone:this.phone,
     }
     console.log(data);
-    this.contactService.addContact(data).subscribe((response) => {
-      console.log(response);
-      console.log(this.nom);
-      
-    }
-    );
-    (error: any) => {
-      console.error('Erreur lors de la récupération des contact', error);
-    }
 
-    this.ngOnInit();
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    if (
+      this.nom == '' ||
+      this.email == '' ||
+      this.messag == '' ||
+      this.phone == ''
+    ){
+      this.contactService.alertMessage(
+      'error',
+      'Attention',
+      'Renseigner tous les champs'
+     );
+    }else if (!this.email.match(emailPattern)) {
+      this.contactService.alertMessage('error', 'Attention', 'Email invalide');
+    } else {
+      let newUser: Contact = {
+        nom: this.nom,
+        email: this.email,
+        phone: this.phone,
+        messag: this.messag,
+      };
+      console.log(newUser);
+      this.contactService.addContact(newUser).subscribe((response) => {
+        console.log(response);
+        this.contactService.alertMessage(
+          'success',
+          'Bravo!',
+          'Message envoyer avec succés'
+        );
+      });
+      this.viderChamps();
+    }
+    // this.contactService.addContact(data).subscribe((response) => {
+    //   console.log(response);
+    //   console.log(this.nom);
+      
+    // }
+    // );
+    // (error: any) => {
+    //   console.error('Erreur lors de la récupération des contact', error);
+    // }
+
+    // this.ngOnInit();
 
   }
 
-
-
+  viderChamps() {
+    this.nom = "";
+    this.email = "";
+    this.phone = "";
+    this.messag = "";
+  }
 }
+
+
+
