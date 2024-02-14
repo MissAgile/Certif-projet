@@ -58,64 +58,46 @@
             <a href="#" class="btn">Voir tout</a>
         </div>
 
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table "  *ngIf="listeBiens.length>0" >
+        <!-- test -->
+        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
             <thead>
-                <tr>
-                    <th>Libelle</th>
-                    <th>Description</th>
-                    <th>Lieu</th>
-                    <th>Image</th>
-                    <!-- <th>Categorie</th> -->
-                    <th>Etat</th>
-                    <th>Action</th>
-                </tr>
+              <tr>
+                <th>Libelle</th>
+                <th>description</th>
+                <th>Lieu</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Categories</th>
+                <th>Statut</th>
+                <th>Action</th>
+              </tr>
             </thead>
-
+      
             <tbody>
-                <tr *ngFor="let bi of listeBiens">
-                    <td>{{bi.libelle}}</td>
-                    <td>{{bi.description}}</td>
-                    <td>{{bi.lieu}}</td>
-                    <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>                    <td>{{bi.categorie_id }}</td>
-                    <!-- <td>{{bi.categorie_id}}</td> -->
-                    <td>{{bi.statut}}</td>
-                    <td><span class="status action-icon">
-                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">
-                                <i class="bi bi-eye-fill"></i>
-                            </a>
-                            <a href="#">
-                                <i class="bi bi-chat"></i>
-                            </a>
-                            <a>
-                                <i class="bi bi-archive-fill"></i>
-                            </a>
-                        </span>
-                    </td>
-                </tr>
+      
+              <tr *ngFor="let bi of listeBiens">
+                <td> {{bi.libelle}}</td>
+                <td>{{bi.description}}</td>
+                <td>{{bi.lieu}}</td>
+                <td>{{bi.date}}</td>
+                <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
+                <td>{{bi.categorie_id}}</td>
+                <td><button class="btn btn-success">{{bi.statut}}</button></td>
+                <td><span class="status action-icon">
+                    <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getBienById(bi.id)">
+                      <i class="bi bi-eye-fill"></i>
+                    </a>
+                    <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"
+                      > <i class="bi bi-pencil-square" (click)="chargerInfosBien(bi)"></i> </a>
+                  </span>
+                </td>
+              </tr>
+      
             </tbody>
-        </table>
-        <table  class=" table text-left" *ngIf="listeBiens.length<0">
-            <thead>
-                <tr>
-                    <th>Libelle</th>
-                    <th>Description</th>
-                    <th>Lieu</th>
-                    <th>Image</th>
-                    <th>Categorie</th>
-                    <th>Etat</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td colspan="5" class="text-center"> aucune demande est disponible</td>
-
-                </tr>
-
-            </tbody>
-        </table>
+          </table>
+        <!-- test -->
+      
+       
 
     </div>
 </div>

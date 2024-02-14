@@ -4,19 +4,9 @@ import Swal from 'sweetalert2';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = new Router();
-
-//  const  userOnline = JSON.parse(localStorage.getItem('access_token') || "") 
-//   if (userOnline.role_id===2) {
-//     return true;
-//   }else{
-//     router.navigate(['/authentification'])
-//     return false;
-//   }
-
-
 const  userOnline = JSON.parse(localStorage.getItem('userOnline') || "") 
  /**gard pour utilisateur simple */
-  if (userOnline.role_id===2) {
+  if (userOnline.role_id===2   ) {
     return true;
   }else{
     router.navigate(['/authentification'])
@@ -38,5 +28,13 @@ const  userOnline = JSON.parse(localStorage.getItem('userOnline') || "")
 
 //     return true;
 //   }
+//  const  userOnline = JSON.parse(localStorage.getItem('access_token') || "") 
+//   if (userOnline.role_id===2) {
+//     return true;
+//   }else{
+//     router.navigate(['/authentification'])
+//     return false;
+//   }
+
 
 };

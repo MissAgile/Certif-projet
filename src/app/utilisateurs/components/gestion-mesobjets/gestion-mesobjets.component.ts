@@ -57,13 +57,13 @@ export class GestionMesobjetsComponent {
 
     
 
-    this.getAllBiens();
+    this.getBiens();
     // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
 
   }
 
   /** fonction pour lister les bien */
-  getAllBiens() {
+  getBiens() {
     console.log(this.listeBiens);
     this.biensServices.getAllBiens().subscribe(
       (responses) => {
@@ -93,12 +93,6 @@ export class GestionMesobjetsComponent {
       }
     )
   }
-
-
- 
-
- 
-
 
   /*fonction ajout bien **/
   ajoutBien() {
@@ -174,7 +168,7 @@ console.log(response);
   }
   );
   this.ngOnInit();
-  this.getAllBiens();
+  this.getBiens();
   this.listeBiens;
 }
 

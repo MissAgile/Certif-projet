@@ -26,9 +26,10 @@ lieuUpdate: any;
 dateUpdate: any;
 imageUpdate: any;
 categorieUpdate: any;
-
+filterValue: string = "";
 
 listeBiens: any[] = [];
+tabBienFilter: any[] = [];
 
 bienSelectionner: any = {};
 
@@ -92,5 +93,27 @@ getFile(event: any) {
   console.warn(event.target.files[0]);
   this.image = event.target.files[0] as File;
 }
+
+  // Methode de recherche automatique pour professeur
+  // onSearch() {
+  //   // Recherche se fait selon le libelle  ou le ou la description 
+  //   this.listeBiens = this.tabBienFilter.filter(
+  //     (elt: any) => (elt?.libelle.toLowerCase().includes(this.filterValue.toLowerCase()) || elt?.description.toLowerCase().includes(this.filterValue.toLowerCase()))
+
+  //     // (elt: any) => (elt?.libelle.toLowerCase().includes(this.filterValue.toLowerCase()))
+  //   );
+  // }
+  onSearch() {
+    // Recherche se fait selon le libelle ou la description
+    if (this.filterValue.trim() === '') {
+      // Si la valeur de recherche est vide, afficher tous les éléments
+      this.listeBiens = this.tabBienFilter;
+    } else {
+      this.listeBiens = this.tabBienFilter.filter((elt: any) =>
+        (elt?.libelle && elt?.libelle.toLowerCase().includes(this.filterValue.trim().toLowerCase())) ||
+        (elt?.description && elt?.description.toLowerCase().includes(this.filterValue.trim().toLowerCase()))
+      );
+    }
+  }
 
 }

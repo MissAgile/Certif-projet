@@ -25,7 +25,7 @@
                     <span class="title"> Utilisateur </span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a [routerLink]="['gestion-role']">
                     <span class="icon">
                       <i class="bi bi-people-fill" aria-hidden="true"></i>
@@ -34,7 +34,7 @@
                 </a>
             </li>
   
-            
+             -->
   
             <li>
                 <a [routerLink]="['gestion-annonces']">
@@ -61,20 +61,21 @@
                     <span class="title"> Partenariat</span>
                 </a>
             </li>
-            <li>
-                <a [routerLink]="['/accueil']" routerLinkActive="active-link">
-                    <span class="icon">
-                        <i class="bi bi-house-door" aria-hidden="true" style="color: #2ECC71; font-size: 20px; font-weight: 700;"></i>
-                    </span>
-                    <span class="title" style="color: #2ECC71; font-size: 20px; font-weight: 700;"> Aller sur le site </span>
-                </a>
-            </li>
+            
             <li>
                 <a  [routerLink]="['gestion-publicite']">
                     <span class="icon">
                       <i class="bi bi-megaphone-fill" aria-hidden="true"></i>
                     </span>
                     <span class="title"> Publicite</span>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/accueil']" routerLinkActive="active-link">
+                    <span class="icon">
+                        <i class="bi bi-house-door" aria-hidden="true" style="color: #2ECC71; font-size: 20px; font-weight: 700;"></i>
+                    </span>
+                    <span class="title" style="color: #2ECC71; font-size: 20px; font-weight: 700;"> Aller sur le site </span>
                 </a>
             </li>
             <button class="  bo btn-lg w-75" (click)="logout()">

@@ -12,7 +12,7 @@ import { GestionDetailsProfilComponent } from './components/gestion-details-prof
 const routes: Routes = [
   {path:'', component: MainUtilisateurComponent, 
   children: [
-    {path:'accueilutilisateurs', component:AccueilUtilisateursComponent},
+    {path:'accueilutilisateurs', component:AccueilUtilisateursComponent },
     {path:'myprofil-user', component:GestionMyprofilComponent},
     {path:'mes-messages', component:GestionMymessageComponent},
     {path:'mes-demandes', component:GestionMespartenariatComponent},

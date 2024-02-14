@@ -120,9 +120,6 @@ export class AuthentificationComponent implements OnInit {
 
 /**redirection user where token is removed in the local storage */
 
-
-    
-
 //fonction inscription
 register() {
   console.log(this.firstName, this.name, this.phone, this.email, this.password, this.confirmPassword);
