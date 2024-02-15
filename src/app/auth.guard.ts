@@ -24,11 +24,11 @@ const  userOnline = JSON.parse(localStorage.getItem('userOnline') || "")
     )
     router.navigate(['/authentification']);
     return false;
-      
+
   }else{
 
     return true;
-  }
+  } 
 // if (localStorage.getItem('access_token')==null || localStorage.getItem('access_token')==undefined) {
 //     Swal.fire({
 //       icon:'error',

@@ -136,18 +136,6 @@ export class GestionMesobjetsComponent {
  
 // fonction pour modifier  
 editerBien() {
-  //libelle, lieu, description , date, image, categorie_id
-  
-  // const data = {
-  //   libelle: this.libelle,
-  //   description: this.description,
-  //   lieu: this.lieu,
-  //   date:this.date,
-  //   image: this.image,
-  //   categorie_id: this.categorie_id,
-   
-  // }
-
   let formData = new FormData();
     formData.append("libelle", this.libelle);
     formData.append("description", this.description);

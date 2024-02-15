@@ -35,30 +35,42 @@
            <div class="row">
             <div class="col-lg-6">
               <label for="name" class="form-label ">Nom</label>
-              <input type="text" class="form-control w-100"  name="name" id="name" placeholder="votre nom de famille" [(ngModel)] = "name">
+              <input type="text" class="form-control w-100"  name="name" id="name" placeholder="votre nom de famille" [(ngModel)] = "name" (input)="verifNomFonction()">
+              <p class="text-danger" *ngIf="!exactName" style="font-size: 9px;">{{verifName}}</p>
+              <p class="text-success" *ngIf="exactName" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
             </div>
             <div class="col-lg-6">
               <label for="firstName" class="form-label ">Prenom</label>
-              <input type="text" class="form-control w-100" name="firstName" id="firstName" placeholder="votre prenom" [(ngModel)] = "firstName">
+              <input type="text" class="form-control w-100" name="firstName" id="firstName" placeholder="votre prenom" [(ngModel)] = "firstName" (input)="verifFirstNameFonction()">
+              <p class="text-danger" *ngIf="!exactFirstName" style="font-size: 9px;">{{verifFirstName}}</p>
+              <p class="text-success" *ngIf="exactFirstName" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
             </div>
            </div>
             <div class="row">
               <div class="col-lg-6">
                 <label for="email" class="form-label ">Email</label>
-                <input type="email" class="form-control w-100" name="email"  id="email"  placeholder="votre email" [(ngModel)] = "email">
+                <input type="email" class="form-control w-100" name="email"  id="email"  placeholder="votre email" [(ngModel)] = "email" (input)="verifEmailFonction()">
+                <p class="text-danger" *ngIf="!exactEmail" style="font-size: 9px;">{{verifEmail}}</p>
+                <p class="text-success" *ngIf="exactEmail" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
               </div>
               <div class="col-lg-6">
                 <label for="phone" class="form-label ">Tel</label>
-                <input type="number" class="form-control w-100" name="phone" id="phone"  placeholder="votre numero" [(ngModel)] = "phone">
+                <input type="tel" class="form-control w-100" name="phone" id="phone"  placeholder="votre numero" [(ngModel)] = "phone" (input)="verifPhoneFonction()">
+                <p class="text-danger" *ngIf="!exactPhone" style="font-size: 9px;">{{verifPhone}}</p>
+                <p class="text-success" *ngIf="exactPhone" style="font-size: 9px;" ><i class="bi bi-check2-all"></i> Exact !</p>
               </div>
             </div>
             <div class="">
               <label for="password" class="form-label ">Mot de pass</label>
-              <input type="password" class="form-control w-100" name="password" id="password"  placeholder="mot de pass" [(ngModel)] = "password">
+              <input type="password" class="form-control w-100" name="password" id="password"  placeholder="mot de pass" [(ngModel)] = "password" (input)="verifFirstNameFonction()">
+              <!-- <p class="text-danger" *ngIf="!exactName" style="font-size: 9px;">{{verifName}}</p>
+              <p class="text-success" *ngIf="exactName" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p> -->
             </div>
             <div class="">
               <label for="confirmPassword" class="form-label ">confirmer pass</label>
-              <input type="password" class="form-control w-100" name="confirmPassword" id="confirmPassword"  placeholder="confrmez votre mot de pass" [(ngModel)] = "confirmPassword" >
+              <input type="password" class="form-control w-100" name="confirmPassword" id="confirmPassword"  placeholder="confrmez votre mot de pass" [(ngModel)] = "confirmPassword"  (input)="verifFirstNameFonction()">
+              <!-- <p class="text-danger" *ngIf="!exactName" style="font-size: 9px;">{{verifName}}</p>
+              <p class="text-success" *ngIf="exactName" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p> -->
             </div>
             <div class="col-12 px-0 my-3">
               <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;" (click)="register()" >S'inscrire</button>
