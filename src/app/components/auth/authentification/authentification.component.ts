@@ -24,6 +24,7 @@ export class AuthentificationComponent implements OnInit {
   name:string="";
   phone: number = 0;
   firstName:string="";
+  // Password:string="";
   confirmPassword:string="";
 
  //méthodes
@@ -36,6 +37,10 @@ export class AuthentificationComponent implements OnInit {
   ngOnInit(): void {
 
    
+  }
+  validateEmail(email: string): boolean {
+    const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
+    return emailRegex.test(email);
   }
 //fonction conection
    login() {
@@ -121,92 +126,136 @@ export class AuthentificationComponent implements OnInit {
 /**redirection user where token is removed in the local storage */
 
 //fonction inscription
-register() {
-  console.log(this.firstName, this.name, this.phone, this.email, this.password, this.confirmPassword);
-  if (this.name == '' || this.firstName == '' || this.phone == 0 || this.email == '' || this.password == '' || this.confirmPassword == '') {
-    Swal.fire({
-      position: 'center',
-      icon: 'error',
-      title: '',
-      text: 'Veuillez remplir tous les champs',
-      showConfirmButton: true,
-    });
-  } else if (this.email.endsWith('@') || !this.email.includes('.')) {
-    // Vérifie si l'email se termine juste par @
-    Swal.fire({
-      position: 'center',
-      icon: 'error',
-      title: '',
-      text: 'Veuillez saisir un email valide',
-      showConfirmButton: true,
-    });
-  } else {
-    let user = {
-      name: this.name,
-      firstName: this.firstName,
-      phone: this.phone,
-      email: this.email,
-      password: this.password,
-      confirmPassword: this.confirmPassword
-    };
+// register() {
+//   this. validateEmail;
+//   console.log(this.firstName, this.name, this.phone, this.password, this.confirmPassword);
+//   if (this.name == '' || this.firstName == '' || this.phone == 0 || this.email == '' || this.password == '' || this.confirmPassword == '') {
+//     Swal.fire({
+//       position: 'center',
+//       icon: 'error',
+//       title: '',
+//       text: 'Veuillez remplir tous les champs',
+//       showConfirmButton: true,
+//     });
+//   } else if (this.email.endsWith('@') && !this.email.includes('.')) {
+//     // Vérifie si l'email se termine juste par @
+//     Swal.fire({
+//       position: 'center',
+//       icon: 'error',
+//       title: '',
+//       text: 'Veuillez saisir un email valide',
+//       showConfirmButton: true,
+//     });
+//   } else {
+//     let user = {
+//       name: this.name,
+//       firstName: this.firstName,
+//       phone: this.phone,
+//       email: this.email,
+//       password: this.password,
+//       confirmPassword: this.confirmPassword
+//     };
 
-    this.authenticationService.register(user).subscribe(
-      (response) => {
-        console.log(response);
-        if (response) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '',
-            text:'Inscription reuissis' ,
-            showConfirmButton: true,
-          });
+//     this.authenticationService.register(user).subscribe(
+//       (response) => {
+//         console.log(response);
+//         if (response) {
+//           Swal.fire({
+//             position: 'center',
+//             icon: 'success',
+//             title: '',
+//             text:'Inscription reuissis' ,
+//             showConfirmButton: true,
+//           });
 
-          // Réinitialiser les valeurs des champs après inscription réussie
-          this.name = '';
-          this.firstName = '';
-          this.phone = 0;
-          this.email = '';
-          this.password = '';
-          this.confirmPassword = '';
+//           // Réinitialiser les valeurs des champs après inscription réussie
+//           this.name = '';
+//           this.firstName = '';
+//           this.phone = 0;
+//           this.email = '';
+//           this.password = '';
+//           this.confirmPassword = '';
 
-          // Redirection vers le dashboard concerné
-          this.route.navigate(['/authentification']);
+//           // Redirection vers le dashboard concerné
+//           this.route.navigate(['/authentification']);
 
-          // Stocker les informations de l'utilisateur connecté dans le localStorage
-          localStorage.setItem('userConnect', JSON.stringify(response));
-        } else {
-          console.log("L'adresse email est incorrecte");
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: '',
-            text: 'Veuillez saisir un email valide',
-            showConfirmButton: true,
-          });
-        }
-      },
-      (error) => {
-        console.log(error);
+//           // Stocker les informations de l'utilisateur connecté dans le localStorage
+//           localStorage.setItem('userConnect', JSON.stringify(response));
+//         } else {
+//           console.log("L'adresse email est incorrecte");
+//           Swal.fire({
+//             position: 'center',
+//             icon: 'error',
+//             title: '',
+//             text: 'Veuillez saisir un email valide',
+//             showConfirmButton: true,
+//           });
+//         }
+//       },
+//       (error) => {
+//         console.log(error);
 
-        let errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
-        if (error && error.error && error.error.status_message) {
-          errorMessage = error.error.status_message;
-        }
+//         let errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+//         if (error && error.error && error.error.status_message) {
+//           errorMessage = error.error.status_message;
+//         }
 
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: '',
-          text: errorMessage,
-          showConfirmButton: true,
-        });
+//         Swal.fire({
+//           position: 'center',
+//           icon: 'error',
+//           title: '',
+//           text: errorMessage,
+//           showConfirmButton: true,
+//         });
+//       }
+//     );
+//   }
+// }
+
+
+register(): void {
+  // Validation des champs individuels à l'aide de fonctions de validation dédiées
+  // const erreursValidation = this.validateFields();
+
+  // if (erreursValidation.length > 0) {
+  //   // Affichage de messages d'erreur concis et conviviaux de manière appropriée
+  //   // (par exemple, notifications toast, messages de validation en ligne)
+  //   this.error(erreursValidation);
+  //   return;
+  // }
+
+  const utilisateur: {
+    name: string;
+    firstName: string;
+    phone: number;
+    email: string;
+    password: string;
+    confirmPassword: string;
+  } = {
+    name: this.name,
+    firstName: this.firstName,
+    phone: this.phone,
+    email: this.email,
+    password: this.password,
+    confirmPassword: this.confirmPassword,
+  };
+
+  this.authenticationService.register(utilisateur).subscribe(
+    (response) => {
+      if (response) {
+        // Gérer l'inscription réussie
+        // this.handleRegistrationSuccess(response);
+      } else {
+        // Gérer les réponses d'erreur spécifiques (par exemple, email invalide)
+        // this.handleSpecificRegistrationErrors(response);
       }
-    );
-  }
+    },
+    (error) => {
+      // Gérer les erreurs générales de manière appropriée
+      // this.handleGeneralRegistrationErrors(error);
+    }
+  );
 }
-
-
 
 
 

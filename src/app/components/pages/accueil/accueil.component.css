@@ -555,23 +555,15 @@ margin: 0 auto;}
         height:9.1rem;
 
     }
-    /* .grid-row{
-      display: grid;
-      grid-template-columns: repeat(2, 2fr);
-    } */
     
     .quote-right{
       display: grid;
-      grid-template-columns: repeat(2, 2fr);
-      margin-left: -18rem;
+      grid-template-columns: repeat(2, 1fr 1fr);
+      /* margin-left: -18rem; */
       margin-top: 10px;
     }
 }
 @media screen and (max-width: 768px){
-    /* .row-objets{
-        width:100% !important;
-        margin-left: 2px !important  ;
-    } */
     .col-objet{
         width: 100% ;
     }
@@ -591,7 +583,9 @@ margin: 0 auto;}
         /* border: 2px solid blue !important; */
         gap: 1.2rem !important;
         width: 80% !important;
-        margin-left:-12rem!important;
+        /* margin-left:-12rem!important; */
+        /* margin-left: -16rem!important; */
+        margin-left: -17rem!important;
         margin-top: 60%;
         align-items: center !important;
         
@@ -609,6 +603,73 @@ margin: 0 auto;}
  
 }
 
+@media (max-width: 480px) {
+  .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cardHeader h2 {
+    font-size: 20px;
+  }
+  .user {
+    min-width: 40px;
+  }
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active {
+    width: 100%;
+    left: 0;
+  }
+  .toggle {
+    z-index: 10001;
+  }
+  .main.active .toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+
+  .d-block{
+    margin-top: 80px;
+  }
+  
+  .quote-right{
+    /* margin-left: 0 !important; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+  .card-quote{
+    width: 100% !important;
+  }
+  .footer-widget{
+    text-align: center;
+  }
+  .footer-widget-heading1{
+    text-align: center;
+  }
+
+  .recherche .ligne{
+    margin: 40px !important;
+  
+
+  }
+  .product--card{
+    /* height: 50vh !important; */
+  }
+
+  .product{
+    padding: 15px 0px !important;
+ 
+   }
+
+   .grid-row{
+    width: 80%;
+   }
+}
 @media screen and (max-width: 500px){
 
     .quote{
@@ -616,7 +677,8 @@ margin: 0 auto;}
     grid-template-columns: repeat(2, 2fr) !important;       
      text-align: center;
         /* margin: 0 auto !important; */
-        margin-top: 10px;
+        /* margin-top: 10px; */
+        margin-top: 0 !important;
         height: auto;
         /* border: #2ECC71 2px solid !important; */
     }
@@ -627,6 +689,12 @@ margin: 0 auto;}
 } 
 .quote-right{
   margin-top: 300px;
+          margin-top: 100%;
+
+}
+.quote-left{
+  margin: 0 !important;
+  padding: 20px !important;
 }
 
 }

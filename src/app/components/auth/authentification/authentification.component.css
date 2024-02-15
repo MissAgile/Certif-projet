@@ -9,22 +9,16 @@
   
   
   #mainForm{
-      height: 100vh;
-      margin: 0 auto !important;
+      height: 90vh;
+      padding: 0;
+      /* margin: 12px auto; */
       /* border: var(--blue) 12px solid; */
       box-shadow: 2px 2px 4px  solid gray;
     }
     
-    #imageForm{
-      background-image: url("../../../../assets/images/login.png");
-      background-repeat: no-repeat;
-      background-size: cover ;
-      /* border: ; */
     
-    
-    }
     #row{
-      height: 80%;
+      /* height: 80%; */
       margin: 0 auto;
       /* border: 3px solid var(--blue) !important; */
   
@@ -34,7 +28,7 @@
     
     #img-contain img{
       width: 100%;
-      height: 100%;
+      /* height: 100%; */
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
     }
@@ -44,6 +38,7 @@
       width: 40%;
       border: 2px solid #001F3F;
       border-radius: 10px;
+      height: 30px;
     
     }
     select{
@@ -69,13 +64,13 @@
     
     }
     #form-seconde{
-      width: 25%;
+      width: 100%;
       height: 100%;
       margin: 0 auto;
       background-color: white;
-      position: relative;
-      top: -500px;
-      left: 12.5%;
+      /* position: relative; */
+      /* top: -500px; */
+      /* left: 12.5%; */
       /* border: 2px solid var(--blue); */
       border-bottom-right-radius: 10px;
       border-top-right-radius: 10px;
@@ -108,7 +103,6 @@
       }
       #form-seconde {
         width: 100%;
-        left: 0;
         border-bottom-right-radius: 0;
         border-top-right-radius: 0;
       }

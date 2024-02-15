@@ -547,6 +547,17 @@ top: -0.6rem;
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
+  .product--brand{
+    /* border: 2px solid #2ecc70; */
+    height: 2px;
+  }
+  .product--card{
+    height: 30vh !important;
+  }
+  .product{
+   padding: 15px 18px !important;
+
+  }
 }
 
 @media (max-width: 768px) {
@@ -559,6 +570,7 @@ top: -0.6rem;
   .status.inProgress {
     white-space: nowrap;
   }
+ 
 }
 
 @media (max-width: 480px) {
@@ -589,4 +601,29 @@ top: -0.6rem;
     right: 0;
     left: initial;
   }
+
+  .d-block{
+    margin-top: 80px;
+  }
+  
+  .footer-widget{
+    text-align: center;
+  }
+  .footer-widget-heading1{
+    text-align: center;
+  }
+
+  .recherche .ligne{
+    margin: 40px !important;
+  
+
+  }
+  .product--card{
+    height: 50vh !important;
+  }
+
+  .product{
+    padding: 15px 0px !important;
+ 
+   }
 }

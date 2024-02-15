@@ -36,13 +36,13 @@ bienSelectionner: any = {};
 constructor(private biensServices: BiensService) { }
 
 ngOnInit(): void {
-  this.getAllBiens();
+  this.getAllBiensHome(23);
 }
  
  /** fonction pour lister les bien */
- getAllBiens() {
+ getAllBiensHome(id:number) {
   console.log(this.listeBiens);
-  this.biensServices.getAllBiens().subscribe(
+  this.biensServices. getRecentsBiens(id).subscribe(
     (responses) => {
       console.log(responses);
 
@@ -52,7 +52,6 @@ ngOnInit(): void {
     }
   )
 }
-
 /**fonction pour détails bien */
 getBienById(id: number) {
   this.biensServices.getBienById(id).subscribe(

@@ -6,7 +6,8 @@
 }
 
 .recherche .ligne{
-   margin-left: 150px !important;
+   margin-left: 150px ;
+   padding: 0;
 }
 .recherche input{
     border: 2px solid #2ECC71;
