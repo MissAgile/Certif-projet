@@ -188,7 +188,7 @@ export class AuthentificationComponent implements OnInit {
           localStorage.setItem("access_token", JSON.stringify(response.access_token).replace(/['"]+/g, ''));
           if (response) {
             if (response.utlisatur.role_id === 1) {
-              this.route.navigate(['utilisateurs/accueilutilisateurs']);
+              this.route.navigate(['/accueil']);
             } else {
               this.route.navigate(['dashboard-admin/accueil-admin']);
             }

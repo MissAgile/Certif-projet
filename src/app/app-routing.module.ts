@@ -10,17 +10,20 @@ import { ConfidentialiteComponent } from './components/pages/confidentialite/con
 import { authGuard } from './auth.guard';
 import { userGuard } from './user.guard';
 import { PageErrorComponent } from './components/pages/page-error/page-error.component';
+import { AccueilVisiteurComponent } from './components/pages/accueil-visiteur/accueil-visiteur.component';
 
 
 const routes: Routes = [
   //route pae defaut du site 
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '', redirectTo: '/visiteur', pathMatch: 'full' },
   {path: "accueil", component:AccueilComponent},
   {path: "publicite", component:PubliciteComponent},
   {path: "annonces", component:AnnoncesComponent},
   {path: "contact", component:ContactComponent},
   {path: "authentification", component:AuthentificationComponent},
-  {path: "confidentialite", component:ConfidentialiteComponent},
+  {path: "apropos", component:ConfidentialiteComponent},
+  {path: "visiteur", component:AccueilVisiteurComponent},
+  // {path: "confidentialite", component:ConfidentialiteComponent},
 
    //route admin
    {path: "dashboard-admin", loadChildren:()=>import('./dashboard-admin/dashboard-admin.module').then(m=>m.DashboardAdminModule), canActivate:[authGuard]},

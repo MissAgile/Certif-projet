@@ -62,7 +62,7 @@
             </div>
             <div class="">
               <label for="password" class="form-label ">Mot de pass</label>
-              <input type="password" class="form-control w-100" name="password" id="password"  placeholder="mot de pass" [(ngModel)] = "password" (input)="verifFirstNameFonction()">
+              <input type="password" class="form-control w-100" name="password" id="password"  placeholder="mot de pass" (input)="verifFirstNameFonction()" [(ngModel)] = "password" >
               <!-- <p class="text-danger" *ngIf="!exactName" style="font-size: 9px;">{{verifName}}</p>
               <p class="text-success" *ngIf="exactName" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p> -->
             </div>

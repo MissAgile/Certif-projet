@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor/http-interceptor.service';
 import { PageErrorComponent } from './components/pages/page-error/page-error.component';
+import { AccueilVisiteurComponent } from './components/pages/accueil-visiteur/accueil-visiteur.component';
+import { InformationsProfilComponent } from './components/pages/informations-profil/informations-profil.component';
   
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PageErrorComponent } from './components/pages/page-error/page-error.com
     ConfidentialiteComponent,
     UtilisationComponent,
     PageErrorComponent,
+    AccueilVisiteurComponent,
+    InformationsProfilComponent
     
    
 
