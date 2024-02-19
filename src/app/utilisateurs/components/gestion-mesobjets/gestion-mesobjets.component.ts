@@ -3,6 +3,7 @@ import { BiensService } from 'src/app/services/biens.service';
 import { Data } from 'src/app/models/bien';
 import Swal from 'sweetalert2';
 import { data } from 'jquery';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-gestion-mesobjets',
@@ -19,6 +20,8 @@ export class GestionMesobjetsComponent {
   date: any;
   image: any;
   categorie_id: any;
+  type_bien = "";
+
 
 
   //variables pour modifier
@@ -32,14 +35,20 @@ export class GestionMesobjetsComponent {
   categorieUpdate: any;
 
 
+/** liste et tableau bien pour bien */
   listeBiens: any[] = [];
-
   bienSelectionner: any = {};
-  // bienSelectionner: any = {};
+
+  /**liste et tableau pour categorie */
+  categories: any = ""; //tableau categories
+  selectedCategory: any = {};
+  
+  /**varibale pour le stockage de la date */
+  currentDate: string = this.getCurrentDate();
 
 
-
-  constructor(private biensServices: BiensService) { }
+  
+  constructor(private biensServices: BiensService, private categoriesService: CategoriesService) { }
 
 
   dtOptions: DataTables.Settings = {};
@@ -55,13 +64,33 @@ export class GestionMesobjetsComponent {
       }
     };
 
-    
+
 
     this.getBiens();
     // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
+    this.getAllCategories();
+  }
+  
 
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    return currentDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
   }
 
+
+  /** fonction pour lister categorie à selectionner lors de l'ajout */
+  
+  getAllCategories() {
+    console.log(this.categories);
+    this.categoriesService.getAllCategories().subscribe(
+      (data) => {
+        console.log(data);
+        this.categories = data.categorie;
+        console.log(this.categories);
+
+      }
+    )
+  }
   /** fonction pour lister les bien */
   getBiens() {
     console.log(this.listeBiens);
@@ -74,7 +103,7 @@ export class GestionMesobjetsComponent {
     )
   }
 
- 
+
 
   /**fonction pour détails bien */
   getBienById(id: number) {
@@ -104,13 +133,14 @@ export class GestionMesobjetsComponent {
     formData.append("date", this.date);
     formData.append("categorie_id", this.categorie_id);
     formData.append("lieu", this.lieu);
+    formData.append("type_bien", this.type_bien);
     console.log(formData);
     this.biensServices.addAnnonce(formData).subscribe((response) => {
       console.log(response);
       console.log(this.image);
     }
     );
-    this.viderChamps;
+    this.viderChamps();
 
   }
   getFile(event: any) {
@@ -120,8 +150,8 @@ export class GestionMesobjetsComponent {
 
 
   /**modifier objet */
-   bienObejt:any
-  chargerInfosBien(data:any){
+  bienObejt: any
+  chargerInfosBien(data: any) {
     this.bienSelectionner = data.id;
     console.log(data);
     this.libelle = data.libelle;
@@ -129,45 +159,48 @@ export class GestionMesobjetsComponent {
     this.lieu = data.lieu;
     this.image = data.image;
     this.date = data.date;
-    this.categorie_id=data.categorie_id;
-  
-    
+    this.categorie_id = data.categorie_id;
+    this.type_bien = data.type_bien;
+
+
   }
- 
-// fonction pour modifier  
-editerBien() {
-  let formData = new FormData();
+
+  // fonction pour modifier  
+  editerBien() {
+    let formData = new FormData();
     formData.append("libelle", this.libelle);
     formData.append("description", this.description);
     formData.append("image", this.image);
     formData.append("date", this.date);
     formData.append("categorie_id", this.categorie_id);
     formData.append("lieu", this.lieu);
+    formData.append("type_bien", this.type_bien);
     console.log(formData);
 
 
-  console.log(this.bienSelectionner);
-  console.log(formData)
-  this.biensServices.updateBien(this.bienSelectionner, formData).subscribe((response) => {
+    console.log(this.bienSelectionner);
+    console.log(formData)
+    this.biensServices.updateBien(this.bienSelectionner, formData).subscribe((response) => {
 
-console.log(response);
-    
-    
+      console.log(response);
+
+
+    }
+    );
+    this.ngOnInit();
+    this.getBiens();
+    this.listeBiens;
   }
-  );
-  this.ngOnInit();
-  this.getBiens();
-  this.listeBiens;
-}
 
-viderChamps(){
-  this.libelle = '';
-  this.description='';
-  this.image ='';
-  this.date='';
-  this.categorie_id='';
-  this.lieu='';
-  
-}
+  viderChamps() {
+    this.libelle = '';
+    this.description = '';
+    this.image = '';
+    this.date = '';
+    this.categorie_id = '';
+    this.lieu = '';
+    this.type_bien = '';
+
+  }
 
 }

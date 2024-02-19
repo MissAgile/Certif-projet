@@ -88,11 +88,9 @@
                                 <select
                                   class="form-select"
                                   aria-label="Default select example"
-                                  name="categorie" >
-                                  <option selected>Selectionner un type de bien</option>
-                                  <option *ngFor="let bien of typeBien" [value]="bien.id">
-                                    {{ bien.type_bien }}
-                                  </option>
+                                  name="[type_bien]" [(ngModel)]="type_bien" >
+                                  <option value="bien perdu">Bien perdu</option>
+                                  <option value="bien trouve">Bien trouve</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6 mb-3">
@@ -117,13 +115,13 @@
                                 >
                                 <option selected>Selectionner une categorie</option>
                                 <option *ngFor="let categorie of categories" [value]="categorie.id">
-                                    {{ categorie.nom_categories }}
+                                    {{ categorie.nom }}
                                 </option>
                                 </select>
                             </div>
                            
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Enregistrer</button>
+                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit" (click)="ajoutBien()">Enregistrer</button>
                             </div>
                         </div>
                     </form>

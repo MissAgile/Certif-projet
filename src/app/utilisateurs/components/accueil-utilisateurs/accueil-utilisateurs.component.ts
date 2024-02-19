@@ -18,8 +18,9 @@ export class AccueilUtilisateursComponent implements OnInit {
   date: any;
   image: any;    
   categorie_id: any;
+  type_bien="";
 
-  type_bien: any;
+
 
   //variables categorie
   id: number = 0;
@@ -27,7 +28,7 @@ export class AccueilUtilisateursComponent implements OnInit {
 
   categories: any = ""; //tableau categories
   selectedCategory: any = {};
-  typeBien:any
+  // typeBien:any
 
   nomUpdate: any;
   nomCategoryUpdate = "";
@@ -36,6 +37,8 @@ export class AccueilUtilisateursComponent implements OnInit {
   listeBiens: any[] = [];
 
   bienSelectionner: any = {};
+
+
 
   constructor(
     private bienService: BiensService,
@@ -98,6 +101,7 @@ this.getAllCategories();
     formData.append("date", this.date);
     formData.append("categorie_id", this.categorie_id);
     formData.append("lieu", this.lieu);
+    formData.append("type_bien", this.type_bien);
     console.log(formData);
     this.bienService.addAnnonce(formData).subscribe((response) => {
       console.log(response);
@@ -108,10 +112,23 @@ this.getAllCategories();
     }
     );
     this.ngOnInit();
+    this.viderChamps();
+
   }
   getFile(event: any) {
     console.warn(event.target.files[0]);
     this.image = event.target.files[0] as File;
+  }
+
+  viderChamps(){
+    this.libelle = '';
+    this.description='';
+    this.image ='';
+    this.date='';
+    this.categorie_id='';
+    this.lieu='';
+    this.type_bien='';
+    
   }
 }
 

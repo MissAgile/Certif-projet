@@ -24,6 +24,7 @@ export class AccueilComponent implements OnInit {
   image: any;
   categorie_id: any;
   userPhone: any;
+  type_bien:any;
 
 
   //variable user
@@ -68,13 +69,13 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.categorie_id;
-    this.getAllBiensHome( 23);
+    this.getAllBiensHome();
   }
 
   /** fonction pour lister les bien */
-    getAllBiensHome(id:number) {
+    getAllBiensHome() {
      console.log(this.listeBiensHome);
-     this.biensServices. getRecentsBiens(id).subscribe(
+     this.biensServices. getBienAllType().subscribe(
        (responses) => {
          console.log(responses);
 
@@ -115,6 +116,7 @@ export class AccueilComponent implements OnInit {
           userPhone: this.userPhone,
           etat: data.etat,
           categorie_id: this.categorie_id,
+          type_bien: this.type_bien,
         } = this.bienSelectionner);
       }
     )
@@ -130,6 +132,7 @@ export class AccueilComponent implements OnInit {
     formData.append("date", this.date);
     formData.append("categorie_id", this.categorie_id);
     formData.append("lieu", this.lieu);
+    formData.append("type_bien", this.type_bien);
     console.log(formData);
     this.biensServices.addAnnonce(formData).subscribe((response) => {
       console.log(response);

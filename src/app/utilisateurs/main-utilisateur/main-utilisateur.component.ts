@@ -55,7 +55,7 @@ item:any;
           () => {
             localStorage.removeItem('access_token');
             // Déconnexion réussie, redirigez l'utilisateur vers la page de connexion par exemple
-            this.route.navigate(['/authentification']);
+            this.route.navigate(['/visiteur']);
             this.authentificationService.alertMessage(
               'success',
               'Déconnexion!',

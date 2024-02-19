@@ -11,7 +11,7 @@ export class BiensService {
   constructor(private http : HttpClient) { }
 
 
-  /**all biens recentes */
+  /**all biens tout  recentes */
   getRecentsBiens(id:any): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
       
@@ -20,6 +20,15 @@ export class BiensService {
           headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
         }) : of(null);
   }
+    /**liste biens tout  type */
+    getBienAllType(): Observable<any> {
+      const accessToken = localStorage.getItem('access_token');
+        
+        return accessToken ?
+        this.http.get<any>(`${url}/biens/listeBiensTousType/`, {
+            headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+          }) : of(null);
+    }
   // getRecentsBiens(id: any): Observable<any> {
   //   let headers = new HttpHeaders(); // Créer une instance vide d'en-têtes
 

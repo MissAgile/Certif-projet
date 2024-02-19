@@ -140,20 +140,40 @@
             <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description">
           </div>
           <div class="mb-3">
+            <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="[type_bien]" [(ngModel)]="type_bien" >
+              <option value="bien perdu">Bien perdu</option>
+              <option value="bien trouve">Bien trouve</option>
+            </select>
+          </div>
+          <div class="mb-3">
             <label for="lieu" class="col-form-label">lieu</label>
             <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
           </div>
           <div class="mb-3">
             <label for="date" class="col-form-label">date</label>
-            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date"   [max]="currentDate">
           </div>
           <div class="mb-3">
             <label for="image" class="col-form-label">image</label>
             <input type="file" class="form-control" id="image" name="image" (change)="getFile($event)" >
           </div>
           <div class="mb-3">
-            <label for="categorie_id" class="col-form-label">categorie_id</label>
-            <input type="number" class="form-control" id="categorie_id" name="categorie_id" [(ngModel)]="categorie_id">
+            <label for="categorie" class="form-label">Categorie <span class="required">*</span></label>
+            <select
+            class="form-select"
+            aria-label="Default select example"
+            name="categorie"
+            [(ngModel)]="categorie_id"
+            >
+            <option selected>Selectionner une categorie</option>
+            <option *ngFor="let categorie of categories" [value]="categorie.id">
+                {{ categorie.nom }}
+            </option>
+            </select>
           </div>
         </form>
       </div>
@@ -211,6 +231,16 @@
             <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
           </div>
           <div class="mb-3">
+            <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name="[type_bien]" [(ngModel)]="type_bien" >
+              <option value="bien perdu">Bien perdu</option>
+              <option value="bien trouve">Bien trouve</option>
+            </select>
+          </div>
+          <div class="mb-3">
             <label for="date" class="col-form-label">Date</label>
             <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
           </div>
@@ -219,8 +249,18 @@
             <input type="file" class="form-control" id="image" name="image" (change)="getFile($event)" >
           </div>
           <div class="mb-3">
-            <label for="categorie_id" class="col-form-label">categorie_id</label>
-            <input type="number" class="form-control" id="categorie_id" name="categorie_id" [(ngModel)]="categorie_id">
+            <label for="categorie" class="form-label">Categorie <span class="required">*</span></label>
+            <select
+            class="form-select"
+            aria-label="Default select example"
+            name="categorie"
+            [(ngModel)]="categorie_id"
+            >
+            <option selected>Selectionner une categorie</option>
+            <option *ngFor="let categorie of categories" [value]="categorie.id">
+                {{ categorie.nom }}
+            </option>
+            </select>
           </div>
         </form>
       </div>
