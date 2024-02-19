@@ -32,12 +32,16 @@ export class AuthentificationComponent implements OnInit {
   verifFirstName:string ="";
   verifEmail:string ="";
   verifPhone:string ="";
+  verifPassword:string ="";
+  verifConfirmPassword:string ="";
 
   // Variables si les champs sont exacts
   exactName: boolean = false;
   exactFirstName: boolean = false;
   exactEmail: boolean = false;
   exactPhone: boolean = false;
+  exactPassword: boolean = false;
+  exactConfirmPassword: boolean = false;
 
   //méthodes
   afficherBloc1: boolean = true;
@@ -58,6 +62,7 @@ export class AuthentificationComponent implements OnInit {
     this.firstName="";
     this.email="";
     this.phone="";
+    this.password="";
    
 
     /**  On vide les Variables qui permettent de faire la vérifications */
@@ -65,6 +70,7 @@ export class AuthentificationComponent implements OnInit {
     this.verifFirstName= "";
     this.verifEmail= "";
     this.verifPhone= "";
+    this.verifConfirmPassword= "";
     
 
     /** On vide les variables qui vérifient si les champs sont exacts */ 
@@ -72,6 +78,7 @@ export class AuthentificationComponent implements OnInit {
     this.exactFirstName = false;
     this.exactEmail = false;
     this.exactPhone = false;
+    this.exactConfirmPassword = false;
     
   }
 
@@ -132,7 +139,7 @@ export class AuthentificationComponent implements OnInit {
     }
   }
 
-  // Verification de  l'email 
+  // Verification de  téléphone 
   verifPhoneFonction(){
     this.exactPhone = false;
     if(this.phone == ""){
@@ -147,6 +154,35 @@ export class AuthentificationComponent implements OnInit {
   }
   }
 
+    
+    verifPasswordFonction(){
+      this.exactPassword = false;
+    if(this.password == ""){
+      this.verifPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.password.length < 8 ){
+      this.verifPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else{
+      this.verifPassword = "";
+      this.exactPassword = true;
+    }
+    }
+
+/** Verification confirmation  du password */ 
+    verifConfirmPasswordFonction(){
+      this.exactConfirmPassword = false;
+    if(this.confirmPassword== ""){
+      this.verifConfirmPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.confirmPassword.length < 8 ){
+      this.verifConfirmPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else{
+      this.verifConfirmPassword = "";
+      this.exactConfirmPassword = true;
+    }
+    }
 
   // validateEmail(email: string): boolean {
   //   const emailRegex = /^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
