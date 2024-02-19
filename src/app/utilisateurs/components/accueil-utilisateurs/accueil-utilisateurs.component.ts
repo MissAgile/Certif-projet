@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BiensService } from 'src/app/services/biens.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-accueil-utilisateurs',
@@ -18,12 +19,28 @@ export class AccueilUtilisateursComponent implements OnInit {
   image: any;    
   categorie_id: any;
 
+  type_bien: any;
+
+  //variables categorie
+  id: number = 0;
+  nom: string = "";
+
+  categories: any = ""; //tableau categories
+  selectedCategory: any = {};
+  typeBien:any
+
+  nomUpdate: any;
+  nomCategoryUpdate = "";
+   //fin variables categorie  
 
   listeBiens: any[] = [];
 
   bienSelectionner: any = {};
 
-  constructor(private bienService: BiensService) { }
+  constructor(
+    private bienService: BiensService,
+    private categoriesService: CategoriesService
+    ) { }
 
   // getFile(event: any) {
   //   console.warn(event.target.files[0]);
@@ -42,9 +59,21 @@ export class AccueilUtilisateursComponent implements OnInit {
     };
 
 this.getAllBiens();
+this.getAllCategories();
   }
 
-  
+  getAllCategories() {
+    console.log(this.categories);
+    this.categoriesService.getAllCategories().subscribe(
+      (data) => {
+        console.log(data);
+        this.categories = data.categorie;
+        console.log(this.categories);
+
+      }
+    )
+  }
+ 
  /** fonction pour lister un bien */
  getAllBiens() {
   console.log(this.listeBiens);

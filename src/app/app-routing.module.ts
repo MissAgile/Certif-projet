@@ -11,6 +11,7 @@ import { authGuard } from './auth.guard';
 import { userGuard } from './user.guard';
 import { PageErrorComponent } from './components/pages/page-error/page-error.component';
 import { AccueilVisiteurComponent } from './components/pages/accueil-visiteur/accueil-visiteur.component';
+import { InformationsProfilComponent } from './components/pages/informations-profil/informations-profil.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "authentification", component:AuthentificationComponent},
   {path: "apropos", component:ConfidentialiteComponent},
   {path: "visiteur", component:AccueilVisiteurComponent},
+  {path: "inforations-profil", component:InformationsProfilComponent},
   // {path: "confidentialite", component:ConfidentialiteComponent},
 
    //route admin

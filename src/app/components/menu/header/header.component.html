@@ -95,34 +95,13 @@
         </ul>
         <div class="buttons">
           <a href="#" routerLink="/login" class="paste-button">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 82 82"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="Group 1000006335">
-                <circle
-                  id="Ellipse 812"
-                  cx="41"
-                  cy="41"
-                  r="38.5"
-                  stroke="#2ECC71"
-                  stroke-width="5"
-                />
-                <path
-                  id="Vector"
-                  d="M61.7239 57.4798C59.0578 52.8605 54.8948 49.2612 49.905 47.2613C52.3864 45.4241 54.2193 42.8626 55.1441 39.9398C56.069 37.017 56.0388 33.8809 55.058 30.976C54.0771 28.071 52.1953 25.5443 49.679 23.7539C47.1628 21.9635 44.1396 21 41.0379 21C37.9362 21 34.913 21.9635 32.3968 23.7539C29.8805 25.5443 27.9987 28.071 27.0178 30.976C26.037 33.8809 26.0068 37.017 26.9317 39.9398C27.8565 42.8626 29.6894 45.4241 32.1708 47.2613C27.181 49.2612 23.018 52.8605 20.3519 57.4798C20.1867 57.742 20.0766 58.0344 20.0282 58.3395C19.9797 58.6446 19.9939 58.9561 20.0698 59.2557C20.1458 59.5553 20.282 59.8367 20.4703 60.0833C20.6586 60.3299 20.8953 60.5365 21.1661 60.691C21.437 60.8455 21.7365 60.9447 22.047 60.9826C22.3574 61.0205 22.6724 60.9964 22.9732 60.9117C23.274 60.8271 23.5545 60.6835 23.7981 60.4897C24.0416 60.2959 24.2431 60.0557 24.3907 59.7834C27.9142 53.771 34.1367 50.185 41.0379 50.185C47.939 50.185 54.1616 53.7729 57.6851 59.7834C58.005 60.2912 58.5124 60.6563 59.1 60.8015C59.6876 60.9468 60.3094 60.8607 60.8339 60.5615C61.3584 60.2623 61.7445 59.7736 61.9106 59.1985C62.0767 58.6234 62.0097 58.007 61.7239 57.4798ZM30.9263 35.5954C30.9263 33.6211 31.5194 31.6911 32.6304 30.0495C33.7415 28.4079 35.3207 27.1284 37.1684 26.3729C39.016 25.6173 41.0491 25.4196 43.0106 25.8048C44.972 26.19 46.7737 27.1407 48.1879 28.5368C49.602 29.9328 50.565 31.7115 50.9552 33.6479C51.3453 35.5843 51.1451 37.5914 50.3798 39.4155C49.6145 41.2395 48.3184 42.7985 46.6556 43.8954C44.9927 44.9923 43.0378 45.5777 41.0379 45.5777C38.3571 45.5747 35.787 44.522 33.8913 42.6506C31.9957 40.7792 30.9294 38.2419 30.9263 35.5954Z"
-                  fill="#2ECC71"
-                />
-              </g>
-            </svg>
+            <i class="bi bi-people-fill" style="font-size: 40px; color:#2ECC71;" width="40"
+             aria-hidden="true"></i>
             <ul class="dropdown-content" >
-              <a id="top" href="#" [routerLink]="['/utilisateurs/accueilutilisateurs']">Dashboard</a>
-              <a id="top" href="#" routerLink="/logout">Mes annonces </a>
-              <a id="top" href="#" routerLink="/utilisateurs/myprofil-user">Mon Profil</a>
-              <a id="middle" href="#" (click)="logout()" >Se deconnecter</a>
+              <a id="top" href="#" [routerLink]="['/utilisateurs/accueilutilisateurs']">  <i class="bi bi-microsoft" aria-hidden="true"></i>  Dashboard</a>
+              <a id="top" href="#" routerLink="/logout"><i class="bi bi-file-earmark-richtext-fill" aria-hidden="true"></i> Mes annonces </a>
+              <a id="top" href="#" routerLink="/inforations-profil"><i class="bi bi-people-fill"></i> Mon Profil</a>
+              <a id="middle" href="#" (click)="logout()" ><i class="bi bi-house-door" aria-hidden="true" style=" " ></i> Deconnexion</a>
             </ul>
             <!-- <ul class="dropdown-content" *ngIf="isUserLoggedIn()">
               <a id="top" href="#" routerLink="/information-profil">Profil</a>
