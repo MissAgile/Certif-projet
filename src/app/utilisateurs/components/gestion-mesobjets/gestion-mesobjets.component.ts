@@ -37,6 +37,7 @@ export class GestionMesobjetsComponent {
 
 /** liste et tableau bien pour bien */
   listeBiens: any[] = [];
+  listeBiensPerdu: any[] = [];
   bienSelectionner: any = {};
 
   /**liste et tableau pour categorie */
@@ -53,6 +54,19 @@ export class GestionMesobjetsComponent {
 
   dtOptions: DataTables.Settings = {};
 
+   //varibale pour cacher et afficher les tableau des bien trouvés ou perdus
+ afficherBloc1: boolean = true;
+ afficherBloc2: boolean = true;
+
+
+/**varibale pour cacher et afficher les tableau des bien trouvés ou perdus */
+ basculerBlocs() {
+   this.afficherBloc1 = !this.afficherBloc1;
+ }
+ basculerBlocs2() {
+  this.afficherBloc2 = !this.afficherBloc2;
+}
+
   ngOnInit(): void {
     this.dtOptions = {
       searching: true,
@@ -64,9 +78,9 @@ export class GestionMesobjetsComponent {
       }
     };
 
+    this.getBiensUserPerdu();
 
-
-    this.getBiens();
+    this.getBiensUser();
     // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
     this.getAllCategories();
   }
@@ -91,10 +105,10 @@ export class GestionMesobjetsComponent {
       }
     )
   }
-  /** fonction pour lister les bien */
-  getBiens() {
+  /** fonction pour lister les bien trouvé */
+  getBiensUser() {
     console.log(this.listeBiens);
-    this.biensServices.getAllBiens().subscribe(
+    this.biensServices.getBiensTrooveUser().subscribe(
       (responses) => {
         console.log(responses);
         this.listeBiens = responses.data;
@@ -103,7 +117,17 @@ export class GestionMesobjetsComponent {
     )
   }
 
-
+  /** fonction pour lister les bien trouvé */
+  getBiensUserPerdu() {
+    console.log(this.listeBiensPerdu);
+    this.biensServices.getBiensLooseUser().subscribe(
+      (responses) => {
+        console.log(responses);
+        this.listeBiensPerdu = responses.data;
+        console.log(responses.data);
+      }
+    )
+  }
 
   /**fonction pour détails bien */
   getBienById(id: number) {
@@ -188,7 +212,7 @@ export class GestionMesobjetsComponent {
     }
     );
     this.ngOnInit();
-    this.getBiens();
+    this.getBiensUser();
     this.listeBiens;
   }
 

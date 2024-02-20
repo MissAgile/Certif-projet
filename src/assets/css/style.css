@@ -25,12 +25,13 @@ body {
 .container {
   position: relative;
   width: 100%;
+  border: 2px solid red;
 }
 
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 300px;
+  width: 250px;
   height: 100%;
   background: var(--blue);
   border-left: 10px solid var(--blue);
@@ -277,6 +278,7 @@ body {
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+  /* width: 50%; */
 }
 
 .details .cardHeader {

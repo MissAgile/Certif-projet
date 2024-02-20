@@ -45,10 +45,12 @@ export class AccueilUtilisateursComponent implements OnInit {
     private categoriesService: CategoriesService
     ) { }
 
-  // getFile(event: any) {
-  //   console.warn(event.target.files[0]);
-  //   this.image = event.target.files[0] as File;
-  // }
+ //méthodes
+ afficherBloc1: boolean = true;
+
+ basculerBlocs() {
+   this.afficherBloc1 = !this.afficherBloc1;
+ }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -80,7 +82,7 @@ this.getAllCategories();
  /** fonction pour lister un bien */
  getAllBiens() {
   console.log(this.listeBiens);
-  this.bienService.getAllBiens().subscribe(
+  this.bienService.getBiensTrooveUser().subscribe(
     (responses) => {
       console.log(responses);
 

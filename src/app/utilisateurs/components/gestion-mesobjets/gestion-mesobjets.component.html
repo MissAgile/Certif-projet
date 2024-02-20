@@ -45,28 +45,32 @@
   </div>
 </div>
 
-<!-- ================ contenu tableau gestion demande ================= -->
-<div class="details">
+<!-- ================ liste des biens trouvés ================= -->
+<div class="details ">
   <div class="link-rapide">
     <a type="submit" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="mdo">Ajouter
       un bien</a>
+      <a  class="btn "  (click)="basculerBlocs2(); ">Biens perdus 
+        un bien</a>
+      <a  class="btn "  (click)="basculerBlocs2(); ">Biens trouveé 
+        un bien</a>
   </div>
-  <div class="recentOrders">
+  <div class="recentOrders"  *ngIf="!afficherBloc2">
 
     <div class="cardHeader">
-      <h2>Listes des biens déclarés</h2>
+      <h2>  liste des biens perdus</h2>
     </div>
 
-    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left"  >
       <thead>
         <tr>
           <th>Libelle</th>
-          <th>description</th>
-          <th>Lieu</th>
+          <!-- <th>description</th> -->
+          <!-- <th>Lieu</th> -->
           <th>Date</th>
           <th>Image</th>
-          <th>Categories</th>
-          <th>Statut</th>
+          <!-- <th>Categories</th> -->
+          <th>Type bien</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -75,12 +79,12 @@
 
         <tr *ngFor="let bi of listeBiens">
           <td> {{bi.libelle}}</td>
-          <td>{{bi.description}}</td>
-          <td>{{bi.lieu}}</td>
+          <!-- <td>{{bi.description}}</td> -->
+          <!-- <td>{{bi.lieu}}</td> -->
           <td>{{bi.date}}</td>
           <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
-          <td>{{bi.categorie_id}}</td>
-          <td><button class="btn btn-success">{{bi.statut}}</button></td>
+          <!-- <td>{{ bi.categorie_id}}</td> -->
+          <td><button class="btn-link  btn-success text-white text-decoration-none rounded-2 px-2" >{{bi.type_bien}}</button></td>
           <td><span class="status action-icon">
               <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getBienById(bi.id)">
                 <i class="bi bi-eye-fill"></i>
@@ -93,7 +97,7 @@
 
       </tbody>
     </table>
-    <table class=" table text-left" *ngIf="listeBiens.length<0">
+    <!-- <table class=" table text-left" *ngIf="listeBiens.length<0">
       <thead>
         <tr>
           <th>Libelle</th>
@@ -115,10 +119,82 @@
         </tr>
 
       </tbody>
+    </table> -->
+
+  </div>
+
+  <!-- liste des biens perdus -->
+   <div class="recentOrders" *ngIf="afficherBloc2" >
+
+    <div class="cardHeader">
+      <h2>  liste des biens trouvés</h2>
+    </div>
+
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
+      <thead>
+        <tr>
+          <th>Libelle</th>
+          <!-- <th>description</th> -->
+          <!-- <th>Lieu</th> -->
+          <th>Date</th>
+          <th>Image</th>
+          <!-- <th>Categories</th> -->
+          <th>Type bien</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let bi of listeBiensPerdu">
+          <td> {{bi.libelle}}</td>
+          <!-- <td>{{bi.description}}</td> -->
+          <!-- <td>{{bi.lieu}}</td> -->
+          <td>{{bi.date}}</td>
+          <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
+          <!-- <td>{{ bi.categorie_id}}</td> -->
+          <td><button class="btn-link  btn-success text-white text-decoration-none rounded-2 px-2" >{{bi.type_bien}}</button></td>
+          <td><span class="status action-icon">
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getBienById(bi.idUser)">
+                <i class="bi bi-eye-fill"></i>
+              </a>
+              <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"
+                > <i class="bi bi-pencil-square" (click)="chargerInfosBien(bi)"></i> </a>
+            </span>
+          </td>
+        </tr>
+
+      </tbody>
     </table>
+    <!-- <table class=" table text-left" *ngIf="listeBiens.length<0">
+      <thead>
+        <tr>
+          <th>Libelle</th>
+          <th>Description</th>
+          <th>Lieu</th>
+          <th>date</th>
+          <th>Image</th>
+          <th>Categorie_id</th>
+          <th>statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td colspan="5" class="text-center"> aucune demande est disponible</td>
+
+        </tr>
+
+      </tbody>
+    </table> -->
 
   </div>
 </div>
+<!-- ================ liste des biens perdus ================= -->
+
+
 <!-- <button type="button" class="btn btn-primary">Modifier</button> -->
 
 <!-- //ajoutDemande -->

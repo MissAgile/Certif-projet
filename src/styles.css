@@ -287,8 +287,8 @@ body {
   object-fit: cover;
 }
 
-/* ======================= Cards ====================== */
-/* .cardBox {
+/* ======================= Cards avec couleur vert ====================== */
+.cardBox {
   position: relative;
   width: 100%;
   padding: 20px;
@@ -350,7 +350,7 @@ top: -0.6rem;
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBx {
   color: var(--white);
-} */
+}
 
 /* ================== Listes partenariat ============== */
 .details {

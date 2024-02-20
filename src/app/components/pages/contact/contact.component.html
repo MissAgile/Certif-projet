@@ -1,6 +1,6 @@
 <app-header></app-header>
 <!-- section formulaire -->
-<section>
+<!-- <section>
     <div class="container-fluid  " id="container_contact">
         <div class="simple_text px-3" >
             <h3> Information de Contact</h3>
@@ -35,5 +35,102 @@
             </form>
         </div>
     </div>
-</section>
+</section> -->
+
+<!-- START MAIN CONTENT -->
+<div class="main_content">
+
+    <!-- START SECTION CONTACT -->
+    <div class="section pb_70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <div class="contact_wrap contact_style3">
+                        <div class="contact_icon">
+                            <i class="fa-solid fa-location-dot" ></i>
+                        </div>
+                        <div class="contact_text">
+                            <span>Adresse</span>
+                            <p>Dakar, Sénégal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="contact_wrap contact_style3">
+                        <div class="contact_icon">
+                            <i class="fa-solid fa-envelope" ></i>
+                        </div>
+                        <div class="contact_text">
+                            <span> Addresse Email</span>
+                            <a href="mailto:">contacteurekacom</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="contact_wrap contact_style3">
+                        <div class="contact_icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact_text">
+                            <span>Téléphone</span>
+                            <p>(+221) 77 135 52 00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SECTION CONTACT -->
+
+    <!-- START SECTION CONTACT -->
+    <div class="section pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading_s1">
+                        <h2>Information de Contact</h2>
+                    </div>
+                    <p class="leads">Si vous avez des suggestions ou ou que vous etes en quete d'informations. Remplissez le formulaire ci-dessous ! </p>
+                    <div class="field_form">
+                        <form method="post" name="enq">
+                            <div class="row">
+                                <div class="form-group col-md-6 mb-3">
+                                    <label for="nom">Nom</label>
+                                    <input  placeholder="Enter Nom  *" id="nom" class="form-control"
+                                        name="nom" type="text"  [(ngModel)]="nom">
+                                </div>
+                                <div class="form-group col-md-6 mb-3">
+                                    <label for="email">Email</label>
+                                    <input  placeholder="Entrer Email *" id="email" class="form-control"
+                                        name="email" type="email"  [(ngModel)]="email">
+                                </div>
+                                <div class="form-group  col-md-12 mb-3">
+                                    <label for="phone">Téléphone</label>
+                                    <input  placeholder="Entrer votre numero Phone  *" id="phone" class="form-control"
+                                    type="number" name="phone"  [(ngModel)]="phone">
+                                </div>
+                                <div class="form-group col-md-12 mb-3">
+                                    <label for="message">Message</label>
+                                    <input  placeholder="Message *" id="messag" class="form-control"
+                                        name="messag" rows="4"  [(ngModel)]="messag">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <button type="button" title="Submit Your Message!" class="btn btn-fill-out"
+                                        id="submitButton"    (click)="ajoutContact()">Envorer</button>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <div id="alert-msg" class="alert-msg text-center"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- END SECTION CONTACT -->
+
+</div>
+<!-- END MAIN CONTENT -->
 <app-footer></app-footer>

@@ -49,6 +49,7 @@ export class AuthentificationComponent implements OnInit {
   basculerBlocs() {
     this.afficherBloc1 = !this.afficherBloc1;
   }
+ 
 
   ngOnInit(): void {
 
