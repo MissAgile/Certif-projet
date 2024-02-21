@@ -34,8 +34,7 @@ import { InformationsProfilComponent } from './components/pages/informations-pro
     UtilisationComponent,
     PageErrorComponent,
     AccueilVisiteurComponent,
-    InformationsProfilComponent
-    
+    InformationsProfilComponent,
    
 
   ],

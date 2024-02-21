@@ -79,7 +79,6 @@ export class GestionMesobjetsComponent {
     };
 
     this.getBiensUserPerdu();
-
     this.getBiensUser();
     // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
     this.getAllCategories();
@@ -117,7 +116,7 @@ export class GestionMesobjetsComponent {
     )
   }
 
-  /** fonction pour lister les bien trouvé */
+  /** fonction pour lister les bien perdu d'utilisateurs */
   getBiensUserPerdu() {
     console.log(this.listeBiensPerdu);
     this.biensServices.getBiensLooseUser().subscribe(
@@ -129,23 +128,14 @@ export class GestionMesobjetsComponent {
     )
   }
 
-  /**fonction pour détails bien */
-  getBienById(id: number) {
-    this.biensServices.getBienById(id).subscribe(
-      (data) => {
-        this.bienSelectionner = data;
-        ({
-          libelle: this.libelle,
-          description: this.description,
-          lieu: this.lieu,
-          date: this.date,
-          image: this.image,
-          etat: data.etat,
-          categorie_id: this.categorie_id,
-        } = this.bienSelectionner);
-      }
-    )
-  }
+  /**fonction pour détails bien  */
+detailBien(id: number) {
+  this.biensServices.getBienById(id).subscribe((rep) => {
+    console.log(rep);
+    this.bienSelectionner = rep.data;
+    
+  });
+}
 
   /*fonction ajout bien **/
   ajoutBien() {
@@ -165,6 +155,9 @@ export class GestionMesobjetsComponent {
     }
     );
     this.viderChamps();
+    this.getBiensUser();
+    this.getBiensUserPerdu();
+    this.ngOnInit();
 
   }
   getFile(event: any) {
