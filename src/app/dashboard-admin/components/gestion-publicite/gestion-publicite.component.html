@@ -1,94 +1,100 @@
 <div class="cardBox">
-    <div class="card ">
-        <div class="iconBx">
-          <i class="fa fa-eye" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">100</div>
-            <div class="cardName">Objets perdus</div>
-        </div>
-  
+  <div class="card ">
+    <div class="iconBx">
+      <i class="fa fa-eye" aria-hidden="true"></i>
     </div>
-  
-    <div class="card">
-        <div class="iconBx">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">500</div>
-            <div class="cardName">Nombre visites</div>
-        </div>
-  
+    <div>
+      <div class="numbers">100</div>
+      <div class="cardName">Objets perdus</div>
     </div>
-  
-    <div class="card">
-        <div class="iconBx">
-          <i class="fa fa-comments-o" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">284</div>
-            <div class="cardName">Objets trouvés</div>
-        </div>
-  
-    </div>
-  
-    <div class="card ">
-        <div class="iconBx">
-          <i class="fa fa-money" aria-hidden="true"></i>
-        </div>
-        <div>
-            <div class="numbers">100</div>
-            <div class="cardName">Annonces </div>
-        </div>
-  
-    </div>
+
   </div>
 
-  <main class="container">
-   
-    <div class="mainBottom row container">
-      <div class="mainBottomLeft bg-white rounded-4 col-lg-12 col-md-4">
-        <div class="mainTop ">
-          <h4 class="fw-bolder pt-3">La liste des publicités</h4>
-        </div>
-        <table datatable [dtOptions]="dtOptions" class="table " >
-          <thead class="table-secondary rounded-top-3">
-            <tr>
-              <th>Nom</th>
-              <th>Image</th>
-              <th>Date Debut</th>
-              <th>Date Fin</th>
-              <th>Email</th>
-              <th>Etat</th>
-              <th>Action</th>
+  <div class="card">
+    <div class="iconBx">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">500</div>
+      <div class="cardName">Nombre visites</div>
+    </div>
 
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pub of listePubs">
-              <td>{{pub.nom }} </td>
-              <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.media }}"  alt="" style="width: 50px; height: 50px; border-radius: 100%;"></td>
-              <td>{{pub.date_debut}} </td>
-              <td>{{pub.date_fin}} </td>
-              <td>{{pub.email}} </td>
-              <td>{{pub.phone}} </td>
-              <td>{{pub.etat }} </td>
-              <td>
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
-                (click)="chargerInfosPub(pub.id)"><i class="fa-solid fa-pen-to-square"></i></button>
-                 <button class="btn"><i class="fa-solid fa-trash"></i></button> 
-                 <button class="btn" ><i class="fa-solid fa-trash"></i></button>
-                <!-- <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button> -->
-                <!-- <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
-              </td>
-            </tr>
-            
-          </tbody>
-        </table>
-     
-  
+  </div>
+
+  <div class="card">
+    <div class="iconBx">
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">284</div>
+      <div class="cardName">Objets trouvés</div>
+    </div>
+
+  </div>
+
+  <div class="card ">
+    <div class="iconBx">
+      <i class="fa fa-money" aria-hidden="true"></i>
+    </div>
+    <div>
+      <div class="numbers">100</div>
+      <div class="cardName">Annonces </div>
+    </div>
+
+  </div>
+</div>
+
+<main class="container">
+  <!--ajouter une publicité -->
+  <div class="link-rapide mb-2">
+    <a type="button" class="btn " data-bs-toggle="modal" data-bs-target="#ajoutPub">Ajouter une publicité </a>
+  </div>
+
+  <div class="mainBottom row container">
+    <div class="mainBottomLeft bg-white rounded-4 col-lg-12 col-md-4">
+      <div class="mainTop ">
+        <h4 class="fw-bolder pt-3">La liste des publicités</h4>
       </div>
-      <!-- <div class="mainBottomRight  container col-lg-4 col-md-4 rounded-3">
+      <table datatable [dtOptions]="dtOptions" class="table ">
+        <thead class="table-secondary rounded-top-3">
+          <tr>
+            <th>Nom</th>
+            <th>Image</th>
+            <th>Date Debut</th>
+            <th>Date Fin</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Etat</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pub of listePubs">
+            <td>{{pub.nom }} </td>
+            <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.image }}" alt=""
+                style="width: 50px; height: 50px; border-radius: 100%;"></td>
+            <td>{{pub.date_debut}} </td>
+            <td>{{pub.date_fin}} </td>
+            <td>{{pub.email}} </td>
+            <td>{{pub.phone}} </td>
+            <td> <button class="btn " style="height: 40px; width: 120px; background-color: #001F3F; color:white;"
+                (click)="accepterPub(pub.id)">{{pub.etat }}</button> </td>
+            <td>
+              <span class="status action-icon">
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub" (click)="detailPub(pub.id)"><i
+                    class="bi bi-eye-fill"></i></button>
+                <button class="btn" (click)="SupprimerPub(pub.id)"><i class="fa-solid fa-trash"></i></button>
+              </span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+    <!-- <div class="mainBottomRight  container col-lg-4 col-md-4 rounded-3">
         <div class="form">
           <div class="title">Bienvenue</div>
           <div class="subtitle">Ajouteez une publicité !</div>
@@ -105,52 +111,93 @@
           <button type="button" class="submit" (click)="ajoutPub()">Publier</button>
         </div>
       </div> -->
-    </div>
-  </main>
-  
-  
-  <!-- Modal -->
-   <div class="modal fade" id="editPub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="editPubLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editPubLabel">Modifier une categorie</h1>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-                <label for="media" class="form-label">image de la pub </label>
-                <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
-                   (change)="getFile($event)">
+  </div>
+</main>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editPub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="editPubLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails de la publicité</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0 text-center" *ngIf="pubSelctionner">
+            <div class="col-lg-12">
+              <img src="http://127.0.0.1:8000/imagesPubs/{{pubSelctionner.image }}" class="img-fluid rounded-start"
+                alt="...">
             </div>
-            <div class="mb-3">
-              <label for="nom" class="form-label">Nom</label>
-              <input type="text" class="form-control" id="nom" name="nom"
-                placeholder="pub" [(ngModel)]="nom">
+            <div class="col-lg-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{pubSelctionner.nom}}</h5>
+                <p class="card-text">{{pubSelctionner.email}}</p>
+                <p class="card-text"><small class="text-body-secondary">{{pubSelctionner.date_debut}} -
+                    {{pubSelctionner.date_fin}}</small></p>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="date_debut" class="form-label">Date de début</label>
-              <input type="date" class="form-control" id="date_debut" name="date_debut"
-                placeholder="date de fin de la pub" [(ngModel)]="date_debut">
-            </div>
-            <div class="mb-3">
-              <label for="date_fin" class="form-label">Date de début</label>
-              <input type="date" class="form-control" id="date_fin" name="date_fin"
-                placeholder="date de fin de la pub" [(ngModel)]="date_fin">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email beneficiaire</label>
-              <input type="email" class="form-control" id="email" name="email"
-                placeholder="email perso ou pro" [(ngModel)]="email">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-success"
-              data-bs-dismiss="modal" (click)="editerPubs()">Modifier</button>
+          </div>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ajoutPub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="media" class="form-label">image de la pub </label>
+            <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
+              (change)="getFile($event)">
+          </div>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="pub" [(ngModel)]="nom">
+          </div>
+          <div class="mb-3">
+            <label for="date_debut" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_debut" name="date_debut"
+              placeholder="date de fin de la pub" [(ngModel)]="date_debut">
+          </div>
+          <div class="mb-3">
+            <label for="date_fin" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_fin" name="date_fin" placeholder="date de fin de la pub"
+              [(ngModel)]="date_fin">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email beneficiaire</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email perso ou pro"
+              [(ngModel)]="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">phone beneficiaire</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="phone perso ou pro"
+              [(ngModel)]="phone">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+        <button type="button" class="btn btn-primary" (click)="ajoutPub()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
