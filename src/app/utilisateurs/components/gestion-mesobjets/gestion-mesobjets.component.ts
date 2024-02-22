@@ -4,6 +4,8 @@ import { Data } from 'src/app/models/bien';
 import Swal from 'sweetalert2';
 import { data } from 'jquery';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-gestion-mesobjets',
@@ -12,6 +14,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 })
 export class GestionMesobjetsComponent {
   // bienSelectionner: Bien;
+  dtOptions: DataTables.Settings = {};
 
   /** déclaration vvariable pour bien */
   libelle: string = "";
@@ -22,6 +25,21 @@ export class GestionMesobjetsComponent {
   categorie_id: any;
   type_bien = "";
 
+  /**Variables pour faire la vérifications*/
+  verifLibelle: string = "";
+  verifDescription: string = "";
+  verifDate: string = "";
+  verifImage: string = "";
+  verifCategorie_id: string = "";
+  verifType_bien: string = "";
+
+  /**Variables si les champs sont exacts*/
+  exactLibelle: boolean = false;
+  exactDescription: boolean = false;
+  exactDate: boolean = false;
+  exactImage: boolean = false;
+  exactCategorie_id: boolean = false;
+  exactType_bien: boolean = false;
 
 
   //variables pour modifier
@@ -35,7 +53,7 @@ export class GestionMesobjetsComponent {
   categorieUpdate: any;
 
 
-/** liste et tableau bien pour bien */
+  /** liste et tableau bien pour bien */
   listeBiens: any[] = [];
   listeBiensPerdu: any[] = [];
   bienSelectionner: any = {};
@@ -43,29 +61,25 @@ export class GestionMesobjetsComponent {
   /**liste et tableau pour categorie */
   categories: any = ""; //tableau categories
   selectedCategory: any = {};
-  
+
   /**varibale pour le stockage de la date */
   currentDate: string = this.getCurrentDate();
 
 
-  
+
   constructor(private biensServices: BiensService, private categoriesService: CategoriesService) { }
+  //varibale pour cacher et afficher les tableau des bien trouvés ou perdus
+  afficherBloc1: boolean = true;
+  afficherBloc2: boolean = true;
 
 
-  dtOptions: DataTables.Settings = {};
-
-   //varibale pour cacher et afficher les tableau des bien trouvés ou perdus
- afficherBloc1: boolean = true;
- afficherBloc2: boolean = true;
-
-
-/**varibale pour cacher et afficher les tableau des bien trouvés ou perdus */
- basculerBlocs() {
-   this.afficherBloc1 = !this.afficherBloc1;
- }
- basculerBlocs2() {
-  this.afficherBloc2 = !this.afficherBloc2;
-}
+  /**varibale pour cacher et afficher les tableau des bien trouvés ou perdus */
+  basculerBlocs() {
+    this.afficherBloc1 = !this.afficherBloc1;
+  }
+  basculerBlocs2() {
+    this.afficherBloc2 = !this.afficherBloc2;
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -80,19 +94,18 @@ export class GestionMesobjetsComponent {
 
     this.getBiensUserPerdu();
     this.getBiensUser();
-    // this.getDemandeById(id:number);  // Appelez la méthode avec l'ID approprié.
     this.getAllCategories();
   }
-  
 
+
+  /**fonction qui gere les date anterieur à selectionner et qui desacive les dates futur Format YYYY-MM-DD */
   getCurrentDate(): string {
     const currentDate = new Date();
-    return currentDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    return currentDate.toISOString().split('T')[0];
   }
 
 
   /** fonction pour lister categorie à selectionner lors de l'ajout */
-  
   getAllCategories() {
     console.log(this.categories);
     this.categoriesService.getAllCategories().subscribe(
@@ -104,6 +117,7 @@ export class GestionMesobjetsComponent {
       }
     )
   }
+
   /** fonction pour lister les bien trouvé */
   getBiensUser() {
     console.log(this.listeBiens);
@@ -129,13 +143,13 @@ export class GestionMesobjetsComponent {
   }
 
   /**fonction pour détails bien  */
-detailBien(id: number) {
-  this.biensServices.getBienById(id).subscribe((rep) => {
-    console.log(rep);
-    this.bienSelectionner = rep.data;
-    
-  });
-}
+  detailBien(id: number) {
+    this.biensServices.getBienById(id).subscribe((rep) => {
+      console.log(rep);
+      this.bienSelectionner = rep.data;
+
+    });
+  }
 
   /*fonction ajout bien **/
   ajoutBien() {
@@ -167,7 +181,7 @@ detailBien(id: number) {
 
 
   /**modifier objet */
-  bienObejt: any
+  bienObejt: any;
   chargerInfosBien(data: any) {
     this.bienSelectionner = data.id;
     console.log(data);
@@ -209,15 +223,64 @@ detailBien(id: number) {
     this.listeBiens;
   }
 
-  viderChamps() {
+/**fonction qui permet  */
+  viderChamps(){
     this.libelle = '';
-    this.description = '';
-    this.image = '';
-    this.date = '';
-    this.categorie_id = '';
-    this.lieu = '';
-    this.type_bien = '';
+    this.description='';
+    this.image ='';
+    this.date='';
+    this.categorie_id='';
+    this.lieu='';
+    this.type_bien='';
+  
+  
+     /**  On vide les Variables qui permettent de faire la vérifications */
+     this.verifLibelle = "";
+     this.verifDescription = "";
+     this.verifDate = "";
+     this.verifImage = "";
+     this.verifCategorie_id = "";
+     this.verifType_bien = "";
+     
+  
+     /** On vide les variables qui vérifient si les champs sont exacts */ 
+     this.exactLibelle= false;
+     this.exactDescription= false;
+     this.exactDate= false;
+     this.exactImage= false;
+     this.exactCategorie_id= false;
+     this.exactType_bien= false;
+    
+  }
 
+
+  verifLibelleFonction() {
+    this.exactLibelle = false;
+    if (this.libelle === '') {
+      this.verifLibelle = 'Veuillez renseigner le libellé';
+    } else if (this.libelle.length < 2) {
+      this.verifLibelle = 'Le le libelle  est trop courte';
+    } else if (!Validators.pattern(/^[a-zA-Z0-9]+$/)) {
+      this.verifLibelle = "Le libelle ne doit contenir que des lettres et des chiffres";
+    } else {
+      this.verifLibelle = '';
+      this.exactLibelle = true;
+    }
+  }
+
+  /**verification de libelle */
+  verifDescriptionFonction() {
+    this.exactDescription = false;
+    if(this.description == ""){
+      this.verifDescription = "Veuillez renseigner votre nom";
+    }
+    else if (this.description.length < 2 ){
+      this.verifDescription = "Le nom est trop court";
+    }
+    else {
+      this.verifDescription = "";
+      this.exactDescription = true;
+    }
   }
 
 }

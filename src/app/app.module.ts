@@ -18,6 +18,9 @@ import { HttpInterceptorService } from './services/http-interceptor/http-interce
 import { PageErrorComponent } from './components/pages/page-error/page-error.component';
 import { AccueilVisiteurComponent } from './components/pages/accueil-visiteur/accueil-visiteur.component';
 import { InformationsProfilComponent } from './components/pages/informations-profil/informations-profil.component';
+import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables'; // Importer DataTablesModule
+
   
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { InformationsProfilComponent } from './components/pages/informations-pro
     PageErrorComponent,
     AccueilVisiteurComponent,
     InformationsProfilComponent,
+
    
 
   ],
@@ -43,7 +47,10 @@ import { InformationsProfilComponent } from './components/pages/informations-pro
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule,
+    
+
 
   ],
   providers: [

@@ -12,11 +12,11 @@ export class BiensService {
 
 
   /**all biens tout  recentes */
-  getRecentsBiens(id:any): Observable<any> {
+  ListeBiensToutType(): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
       
       return accessToken ?
-      this.http.get<any>(`${url}/biens/index/${id}`, {
+      this.http.get<any>(`${url}/biens/listeBiensTousType/`, {
           headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
         }) : of(null);
   }

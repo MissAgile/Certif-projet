@@ -16,14 +16,6 @@ private authentificationService: AuthentificationService
 
   }
   dtOptions: DataTables.Settings = {};
-   //variable
-   email:string = "";
-   password:string="";
-   name:string="";
-   phone: number = 0;
-     firstName:string="";
-   confirmPassword:string="";
-   role_id:any;
 
 
    //variable deatails
@@ -40,6 +32,8 @@ private authentificationService: AuthentificationService
 
 listeUsers: any;
 userSelectionner: any = {};
+listeBiensPerdu: any[] = [];
+
 
   ngOnInit(): void {
     this.dtOptions = {

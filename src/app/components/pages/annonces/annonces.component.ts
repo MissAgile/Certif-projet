@@ -36,13 +36,13 @@ bienSelectionner: any = {};
 constructor(private biensServices: BiensService) { }
 
 ngOnInit(): void {
-  this.getAllBiensHome(23);
+  this.getAllBiensHome();
 }
  
  /** fonction pour lister les bien */
- getAllBiensHome(id:number) {
+ getAllBiensHome() {
   console.log(this.listeBiens);
-  this.biensServices. getRecentsBiens(id).subscribe(
+  this.biensServices. ListeBiensToutType().subscribe(
     (responses) => {
       console.log(responses);
 
@@ -114,5 +114,12 @@ getFile(event: any) {
       );
     }
   }
+ /**fonction pour détails bien  */
+ detailBien(id: number) {
+  this.biensServices.getBienById(id).subscribe((rep) => {
+    console.log(rep);
+    this.bienSelectionner = rep.data;
 
+  });
+}
 }

@@ -8,6 +8,7 @@ import { GestionMymessageComponent } from './components/gestion-mymessage/gestio
 import { GestionMespartenariatComponent } from './components/gestion-mespartenariat/gestion-mespartenariat.component';
 import { GestionMesobjetsComponent } from './components/gestion-mesobjets/gestion-mesobjets.component';
 import { GestionDetailsProfilComponent } from './components/gestion-details-profil/gestion-details-profil.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path:'', component: MainUtilisateurComponent, 
@@ -25,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), FormsModule],
   exports: [RouterModule]
 })
 export class UtilisateursRoutingModule { }

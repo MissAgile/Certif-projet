@@ -60,50 +60,46 @@
           <a href="#" class="btn">Voir tout</a>
       </div>
 
-      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="listeBiens.length>0">
+      <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
         <thead>
           <tr>
-              <th>Image</th>
-              <th>Titre</th>
-              <th>Description</th>
-              <th>lieu</th>
-              <th>Date</th>
-              <th>Categorie</th>
-              <th>Etat</th>
-              <th>Action</th>
+            <th>Libelle</th>
+            <!-- <th>description</th> -->
+            <!-- <th>Lieu</th> -->
+            <th>Date</th>
+            <th>Image</th>
+            <!-- <th>Categories</th> -->
+            <th>Type bien</th>
+            <th>Action</th>
           </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let item of listeBiens">
-            <td><img src="http://127.0.0.1:8000/imagesBiens/{{item.image}}"  alt="" style="width: 50px; border-radius: 100%;"> </td>
-            <td>{{item.libelle}} </td>
-            <td>{{item.description}}</td>
-            <td>{{item.lieu}}</td>
-            <td>{{item.date}}</td>
-            <td>{{item.categorie}}</td>
-            <td>{{item.statut}}</td>
-            <td><span class="status action-icon">
-                <a  >               
-                    <i class="bi bi-pencil-square" ></i>
-                    </a>                
-                    <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
-                        <i class="bi bi-eye-fill"></i>
-                    </a>                
-                    <a href="#">                
-                        <i class="bi bi-chat"></i>
-                    </a>                
-                    <a >   
-                            <i class="bi bi-archive-fill"></i>
-                    </a>       
-            </span>
+        </thead>
+  
+        <tbody>
+  
+          <tr *ngFor="let bi of listeBiens">
+            <td> {{bi.libelle}}</td>
+            <!-- <td>{{bi.description}}</td> -->
+            <!-- <td>{{bi.lieu}}</td> -->
+            <td>{{bi.date}}</td>
+            <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt=""
+                style="width: 50px; border-radius: 100%;"> </td>
+            <!-- <td>{{ bi.categorie_id}}</td> -->
+            <td><button
+                class="btn-link  btn-success text-white text-decoration-none rounded-2 px-2">{{bi.type_bien}}</button>
             </td>
-        </tr>
-      
-        
-      </tbody>
-        </table>
-        <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="listeBiens.length<0">
+            <td><span class="status action-icon">
+                <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  <i class="bi bi-eye-fill" (click)="detailBien(bi.id)"></i>
+                </a>
+                <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"> <i
+                    class="bi bi-pencil-square" (click)="chargerInfosBien(bi)"></i> </a>
+              </span>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+        <!-- <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" class="table" *ngIf="listeBiens.length<0">
             <thead>
               <tr>
                   <th>Image</th>
@@ -126,7 +122,7 @@
             
           </tbody>
             </table>
-        
+         -->
         
   </div> 
 </div>
@@ -191,55 +187,81 @@
           </div>
         </div>
       </div>
-      <!-- Modal pour modifier une  annonces -->
-
-
-
-      <div class="modal" id="myedit">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content p-2">
-            <div class="d-flex justify-content-between" >
-                <h4 class="modal-title">Modifier une annonce </h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                                <div class="container-fluid  mx-auto">
-                                    <form action="" class="  ">
-                                        <div class="mb-3">
-                                            <label for="titreObjet" class="form-label">Titre Objet</label>
-                                            <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet" id="titreObjet" value="Cartable marron">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="descriptionObjet" class="form-label" placeholder="Description de l'objet">Description</label>
-                                            <input type="text" name="descriptionObjet" class="form-control" value="J'ai ramassé ce cartable marron à coté d'un arret bus ">
-                                        </div>
-                                        <div class="mb-3" >
-                                            <label for="lieuObjet" class="form-label">Lieu</label>
-                                            <input type="datetime" name="lieuObjet" class="form-control" id="lieuObjet" value="16h56">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="imageObjet" class="form-label">Image</label>
-                                            <input type="file" name="imageObjet" class="form-control" id="imageObjet" value="lien image">
-                                        </div>
-                                        
-                                        <div class=" text-start d-flex justify-content-start">
-                                            <button class="btn btn-lg  btnAnnuler  px-3 py-1 mr-2 " >Annuler</button>
-                                            <button class="btn  btn-lg   btnSoumettre  px-3 py-1   " >Déclarer</button>
-                                        </div>
-                                        
-                                    </form>
-                                     
-                                </div>
-                        </div>
-                
-            <!-- Modal footer -->
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
-            </div> -->
-      
-          </div>
+     <!-- //modifier demande -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modification bien</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="libelle" class="col-form-label">Libellé</label>
+              <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="col-form-label">description:</label>
+              <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description">
+            </div>
+            <div class="mb-3">
+              <label for="lieu" class="col-form-label">lieu</label>
+              <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+              <select class="form-select" aria-label="Default select example" name="[type_bien]" [(ngModel)]="type_bien">
+                <option value="bien perdu">Bien perdu</option>
+                <option value="bien trouve">Bien trouve</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="date" class="col-form-label">Date</label>
+              <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date">
+            </div>
+            <div class="mb-3">
+              <label for="image" class="col-form-label">image</label>
+              <input type="file" class="form-control" id="image" name="image" [(ngModel)]="image">
+            </div>
+            <div class="mb-3">
+              <label for="categorie" class="form-label">Categorie <span class="required">*</span></label>
+              <select class="form-select" aria-label="Default select example" name="categorie" [(ngModel)]="categorie_id">
+                <option selected>Selectionner une categorie</option>
+                <option *ngFor="let categorie of categories" [value]="categorie.id">
+                  {{ categorie.nom }}
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+          <button type="button" class="btn btn-primary" (click)="editerBien()">Envoyer</button>
         </div>
       </div>
-     
+    </div>
+  </div>
+  
+  
+  <!--details demande-->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Détails bien </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="bienSelectionner">
+          <h3>{{bienSelectionner.libelle}}</h3>
+          <h5>{{bienSelectionner.description}}</h5>
+          <h5>{{bienSelectionner.lieu}}</h5>
+          <h5>{{bienSelectionner.type_bien}}</h5>
+          <h5>{{bienSelectionner.image}}</h5>
+          <h5>{{bienSelectionner.categorie_id}}</h5>
+          <!-- <h5>{{bienSelectionner.statutUpdate}}</h5> -->
+        </div>
+      </div>
+    </div>
+  </div>
 

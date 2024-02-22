@@ -167,7 +167,9 @@
         <form>
           <div class="mb-3">
             <label for="libelle" class="col-form-label">Libellé</label>
-            <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle">
+            <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle" (input)="verifLibelleFonction()">
+            <p class="text-danger" *ngIf="!exactLibelle" style="font-size: 9px;">{{verifLibelle}}</p>
+            <p class="text-success" *ngIf="exactLibelle" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
           <div class="mb-3">
             <label for="description" class="col-form-label">description:</label>
@@ -210,10 +212,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 <!-- //modifier demande -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -273,7 +271,6 @@
 
 
 <!--details demande-->
-
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

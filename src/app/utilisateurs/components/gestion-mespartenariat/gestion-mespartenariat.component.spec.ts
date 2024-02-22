@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GestionMespartenariatComponent } from './gestion-mespartenariat.component';
+import { DataTablesModule } from 'angular-datatables';
 
 describe('GestionMespartenariatComponent', () => {
   let component: GestionMespartenariatComponent;

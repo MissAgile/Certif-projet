@@ -29,7 +29,7 @@ getAllDemandes(): Observable<any> {
   const accessToken = localStorage.getItem('access_token');
     
     return accessToken ?
-    this.http.get<any>(`${url}/demandes/index/`,  {
+    this.http.get<any>(`${url}/pubs/index`,  {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
 }

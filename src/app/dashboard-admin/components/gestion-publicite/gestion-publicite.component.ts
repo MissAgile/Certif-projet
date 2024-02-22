@@ -16,8 +16,12 @@ export class GestionPubliciteComponent {
   constructor(private publiciteServices: PubliciteService){}
 
   //variable pour la liste des 
-  media: any;
-  demande_id:any;
+  date_debut: any;
+  date_fin:any;
+  email:any;
+  nom:any;
+  phone:any;
+  image:any;
   
 
   listePubs: any[] = [];
@@ -76,12 +80,16 @@ getAllPubs(){
   ajoutPub() {
     //libelle, lieu, description , date, image, categorie_id
     let formData = new FormData();
-    formData.append("media", this.media);
-    formData.append("demande_id", this.demande_id);
+    formData.append("date_debut", this.date_debut);
+    formData.append("date_fin", this.date_fin);
+    formData.append("email", this.email);
+    formData.append("nom", this.nom);
+    formData.append("phone", this.phone);
+    formData.append("image", this.image);
     console.log(formData);
     this.publiciteServices.addPub(formData).subscribe((response) => {
       console.log(response);
-      console.log(this.media);
+      console.log(this.image);
     }
     );
 
@@ -89,7 +97,7 @@ getAllPubs(){
 
   getFile(event: any) {
     console.warn(event.target.files[0]);
-    this.media = event.target.files[0] as File;
+    this.image = event.target.files[0] as File;
   }
 
 /**fonction pour accepter une demande d'un utilisateur */
@@ -98,16 +106,24 @@ demandeObejt:any
 chargerInfosPub(bien:any){
   this.pubSelctionner = bien.id;
   console.log(bien);
-  this.media = bien.media;
-  this.demande_id = bien.bien_id;  
+  this.date_debut = bien.date_debut;
+  this.date_fin = bien.date_fin;  
+  this.email = bien.email;  
+  this.nom = bien.nom;  
+  this.image = bien.image;  
+  this.phone = bien.phone;  
 }
 
 // fonction pour modifier  
 editerPubs() {
 
   let formData = new FormData();
-    formData.append("media", this.media);
-    formData.append("demande_id", this.demande_id);
+  formData.append("date_debut", this.date_debut);
+  formData.append("date_fin", this.date_fin);
+  formData.append("email", this.email);
+  formData.append("nom", this.nom);
+  formData.append("phone", this.phone);
+  formData.append("image", this.image);
     console.log(formData);
   console.log(this.pubSelctionner);
   console.log(formData)

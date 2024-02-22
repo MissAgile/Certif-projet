@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthentificationService } from 'src/app/services/authentification.service';
+import { TestBed } from '@angular/core/testing';
 
-import { AuthentificationComponent } from './authentification.component';
-
-describe('AuthentificationComponent', () => {
-  let component: AuthentificationComponent;
-  let fixture: ComponentFixture<AuthentificationComponent>;
-
+describe('AuthentificationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AuthentificationComponent]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        AuthentificationService,
+      ],
     });
-    fixture = TestBed.createComponent(AuthentificationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    const service: AuthentificationService = TestBed.get(AuthentificationService);
+    expect(service).toBeTruthy();
   });
 });

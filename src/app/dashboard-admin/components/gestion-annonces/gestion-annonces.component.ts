@@ -17,6 +17,7 @@ export class GestionAnnoncesComponent {
   date: any;
   image: any;
   categorie_id: any;
+  type_bien="";
 
 
   listeBiens: any[] = [];
@@ -38,15 +39,15 @@ export class GestionAnnoncesComponent {
       }
     };
 
-    this.getAllBiens(23);
+    this.getAllBiens();
 }
 
 
 //fonction pour lister
 
-getAllBiens(id:any) {
+getAllBiens() {
   console.log(this.listeBiens);
-  this.biensServices.getRecentsBiens(id).subscribe(
+  this.biensServices.ListeBiensToutType().subscribe(
     (responses) => {
       console.log(responses);
       this.listeBiens = responses.data;
@@ -72,21 +73,12 @@ chargerInfosBien(data:any){
 }
 
 
-  /**fonction pour détails bien */
-  getBienById(id: number) {
-    this.biensServices.getBienById(id).subscribe(
-      (data) => {
-        this.bienSelectionner = data;
-        ({
-          libelle: this.libelle,
-          description: this.description,
-          lieu: this.lieu,
-          date: this.date,
-          image: this.image,
-          etat: data.etat,
-          categorie_id: this.categorie_id,
-        } = this.bienSelectionner);
-      }
-    )
-  }
+    /**fonction pour détails bien  */
+    detailBien(id: number) {
+      this.biensServices.getBienById(id).subscribe((rep) => {
+        console.log(rep);
+        this.bienSelectionner = rep.data;
+  
+      });
+    }
 }

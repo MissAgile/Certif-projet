@@ -47,27 +47,37 @@
   <main class="container">
    
     <div class="mainBottom row container">
-      <div class="mainBottomLeft bg-white rounded-4 col-lg-7 col-md-4">
+      <div class="mainBottomLeft bg-white rounded-4 col-lg-12 col-md-4">
         <div class="mainTop ">
-          <h4 class="fw-bolder pt-3">La liste des catégories</h4>
+          <h4 class="fw-bolder pt-3">La liste des publicités</h4>
         </div>
-        <table datatable [dtOptions]="dtOptions" class="table " *ngIf="listePubs.length>0"  >
+        <table datatable [dtOptions]="dtOptions" class="table " >
           <thead class="table-secondary rounded-top-3">
             <tr>
-              <th>id</th>
-              <th>Media</th>
-              <th>IdDemande</th>
+              <th>Nom</th>
+              <th>Image</th>
+              <th>Date Debut</th>
+              <th>Date Fin</th>
+              <th>Email</th>
+              <th>Etat</th>
               <th>Action</th>
+
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let pub of listePubs">
-              <td>{{pub.id }} </td>
+              <td>{{pub.nom }} </td>
               <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.media }}"  alt="" style="width: 50px; height: 50px; border-radius: 100%;"></td>
-              <td>{{pub.demande_id }} </td>
+              <td>{{pub.date_debut}} </td>
+              <td>{{pub.date_fin}} </td>
+              <td>{{pub.email}} </td>
+              <td>{{pub.phone}} </td>
+              <td>{{pub.etat }} </td>
               <td>
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub"
                 (click)="chargerInfosPub(pub.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                 <button class="btn"><i class="fa-solid fa-trash"></i></button> 
+                 <button class="btn" ><i class="fa-solid fa-trash"></i></button>
                 <!-- <button class="btn" (click)="SupprimerCategorie(categorie.id)"><i class="fa-solid fa-trash"></i></button> -->
                 <!-- <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
               </td>
@@ -75,42 +85,10 @@
             
           </tbody>
         </table>
-        <table class=" table text-left" *ngIf="listePubs.length<0">
-          <thead>
-              <tr>
-                  <th>id</th>
-                  <th>Media</th>
-                  <th>demande</th>
-                  <th>Action</th> 
-              </tr>
-          </thead>
-    
-          <tbody>
-    
-            <tr>
-              <td colspan="5" class="text-center"> aucune pubs est disponible</td>
-    
-            </tr>
-    
-          </tbody>
-        </table>
+     
   
       </div>
-      <div class="mainBottomRight  container col-lg-4 col-md-4 rounded-3">
-        <!-- <form class="bg-white px-5">
-          <h3>Formulaire ajout publicite </h3>
-          <div class="mb-3">
-            <label for="media" class="form-label">image de la pub </label>
-            <input type="file" class="form-control" id="media" name="media" placeholder="image de la pub"
-               (change)="getFile($event)">
-          </div>
-          <div class="mb-3">
-            <label for="demande_id" class="form-label">Demande id</label>
-            <input type="text" class="form-control" id="demande_id" name="demande_id" placeholder="image de la pub"
-              [(ngModel)]="demande_id">
-          </div>
-          <button type="button" class="btn btn-success" (click)="ajoutPub()">Ajouter</button>
-        </form> -->
+      <!-- <div class="mainBottomRight  container col-lg-4 col-md-4 rounded-3">
         <div class="form">
           <div class="title">Bienvenue</div>
           <div class="subtitle">Ajouteez une publicité !</div>
@@ -126,7 +104,7 @@
           </div>
           <button type="button" class="submit" (click)="ajoutPub()">Publier</button>
         </div>
-      </div>
+      </div> -->
     </div>
   </main>
   
@@ -143,13 +121,28 @@
           <form>
             <div class="mb-3">
                 <label for="media" class="form-label">image de la pub </label>
-                <input type="file" class="form-control" id="media" name="media" placeholder="image de la pub"
+                <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
                    (change)="getFile($event)">
             </div>
             <div class="mb-3">
-              <label for="demande_id" class="form-label">Media</label>
-              <input type="text" class="form-control" id="demande_id" name="demande_id"
-                placeholder="pub" [(ngModel)]="demande_id">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="nom" name="nom"
+                placeholder="pub" [(ngModel)]="nom">
+            </div>
+            <div class="mb-3">
+              <label for="date_debut" class="form-label">Date de début</label>
+              <input type="date" class="form-control" id="date_debut" name="date_debut"
+                placeholder="date de fin de la pub" [(ngModel)]="date_debut">
+            </div>
+            <div class="mb-3">
+              <label for="date_fin" class="form-label">Date de début</label>
+              <input type="date" class="form-control" id="date_fin" name="date_fin"
+                placeholder="date de fin de la pub" [(ngModel)]="date_fin">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email beneficiaire</label>
+              <input type="email" class="form-control" id="email" name="email"
+                placeholder="email perso ou pro" [(ngModel)]="email">
             </div>
           </form>
         </div>

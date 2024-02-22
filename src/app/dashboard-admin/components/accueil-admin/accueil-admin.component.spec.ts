@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccueilAdminComponent } from './accueil-admin.component';
+import { DataTablesModule } from 'angular-datatables';
 
 describe('AccueilAdminComponent', () => {
   let component: AccueilAdminComponent;

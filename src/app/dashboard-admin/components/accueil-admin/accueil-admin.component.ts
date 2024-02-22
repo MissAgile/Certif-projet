@@ -7,6 +7,7 @@ import { BiensService } from 'src/app/services/biens.service';
   styleUrls: ['./accueil-admin.component.css']
 })
 export class AccueilAdminComponent implements OnInit {
+  categoriesService: any;
   // dtOptions: DataTables.Settings = {};
 
     /** déclaration vvariable pour bien */
@@ -22,13 +23,21 @@ export class AccueilAdminComponent implements OnInit {
     date: any;
     image: any;
     categorie_id: any;
+    type_bien="";
+
+    
   
   
     listeBiens: any[] = [];
   
     bienSelectionner: any = {};
   
-    // listeBiens: any[] = [];
+    /**liste et tableau pour categorie */
+    categories: any = ""; //tableau categories
+    selectedCategory: any = {};
+  
+    /**varibale pour le stockage de la date */
+    currentDate: string = this.getCurrentDate();
   
     dtOptions: DataTables.Settings = {};
   
@@ -43,15 +52,35 @@ export class AccueilAdminComponent implements OnInit {
         }
       };
   
-      this.getRecentsBiens(23);
+      this.getAllbiens();
+      this.getAllCategories();
   }
   
+  /**fonction qui gere les date anterieur à selectionner et qui desacive les dates futur Format YYYY-MM-DD */
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    return currentDate.toISOString().split('T')[0];
+  }
+
+  
+  /** fonction pour lister categorie à selectionner lors de l'ajout */
+  getAllCategories() {
+    console.log(this.categories);
+    this.categoriesService.getAllCategories().subscribe(
+      (data:any) => {
+        console.log(data);
+        this.categories = data.categorie;
+        console.log(this.categories);
+
+      }
+    )
+  }
   
   //fonction pour lister
   
-  getRecentsBiens(id:any) {
+  getAllbiens() {
     console.log(this.listeBiens);
-    this.biensServices.getRecentsBiens(id).subscribe(
+    this.biensServices.ListeBiensToutType().subscribe(
       (responses) => {
         console.log(responses);
         this.listeBiens = responses.data;
@@ -61,6 +90,15 @@ export class AccueilAdminComponent implements OnInit {
     )
   }
   
+  /**fonction pour détails bien  */
+  detailBien(id: number) {
+    this.biensServices.getBienById(id).subscribe((rep) => {
+      console.log(rep);
+      this.bienSelectionner = rep.data;
+
+    });
+  }
+
   /**modifier objet */
   bienObejt:any
   chargerInfosBien(data:any){
@@ -76,7 +114,33 @@ export class AccueilAdminComponent implements OnInit {
     
   }
   
-  
+   // fonction pour modifier  
+   editerBien() {
+    let formData = new FormData();
+    formData.append("libelle", this.libelle);
+    formData.append("description", this.description);
+    formData.append("image", this.image);
+    formData.append("date", this.date);
+    formData.append("categorie_id", this.categorie_id);
+    formData.append("lieu", this.lieu);
+    formData.append("type_bien", this.type_bien);
+    console.log(formData);
+
+
+    console.log(this.bienSelectionner);
+    console.log(formData)
+    this.biensServices.updateBien(this.bienSelectionner, formData).subscribe((response) => {
+
+      console.log(response);
+
+
+    }
+    );
+    this.ngOnInit();
+    this.getAllbiens();
+    this.listeBiens;
+  }
+
     /**fonction pour détails bien */
     getBienById(id: number) {
       this.biensServices.getBienById(id).subscribe(
