@@ -22,6 +22,8 @@ export class GestionPubliciteComponent {
   nom: any;
   phone: any;
   image: any;
+  montant=""
+
 
 
   listePubs: any[] = [];

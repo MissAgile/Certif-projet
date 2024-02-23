@@ -11,15 +11,20 @@
         <form  class="mt-5">
           <div class="mb-3" >
             <label  class="form-label text-black ">Email</label>
-            <input type="email" class="form-control w-100 " name="email" id="exampleFormControlInput1 " placeholder="email"  [(ngModel)] = "email">
+            <input type="email" class="form-control w-100 " name="email" id="exampleFormControlInput1 " placeholder="email"  [(ngModel)] = "email" (input)="verifEmailFonction()">
+            <p class="text-danger" *ngIf="!exactEmail" style="font-size: 9px;">{{verifEmail}}</p>
+            <p class="text-success" *ngIf="exactEmail" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
   
           <div class="mb-3" >
             <label for="passwordExemple0" class="form-label text-black">Mot de passe</label>
-            <input type="password" class="form-control w-100 " name="password" id="passwordExemple0" placeholder="mot de pass"  [(ngModel)] = "password">
+            <input type="password" class="form-control w-100 " name="password" id="passwordExemple0" placeholder="mot de pass"  [(ngModel)] = "password" (input)="verifPasswordFonction()" >
+            <p class="text-danger" *ngIf="!exactPassword" style="font-size: 9px;">{{verifPassword}}</p>
+            <p class="text-success" *ngIf="exactPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
           <div class="col-12 px-0 my-3">
-            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;"  (click)="login()">Se connecter</button>
+            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;" *ngIf=" exactEmail === true && exactPassword === true "  (click)="login()">Se connecter</button>
+            <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: darkgray; color: white" *ngIf=" exactEmail == false || exactPassword == false  ">Se connecter</button>
             <!-- <a class="para text-black-50">Mot de pass oublier</a> -->
             <a   (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je m'inscris</a>
           </div>
@@ -72,8 +77,16 @@
               <p class="text-danger" *ngIf="!exactConfirmPassword" style="font-size: 9px;">{{verifConfirmPassword}}</p>
               <p class="text-success" *ngIf="exactConfirmPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
             </div>
-            <div class="col-12 px-0 my-3">
+            <!-- <div class="col-12 px-0 my-3">
               <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;" (click)="register()" >S'inscrire</button>
+            </div> -->
+            
+            <div class="col-12 px-0 my-3" >
+              <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: #2ECC71;" *ngIf="exactFirstName === true && exactName === true && exactPhone === true && exactEmail === true && exactPassword === true && exactConfirmPassword === true"   (click)="register()"  >S'inscrire</button>
+            </div>
+            <div class="col-12 px-0 my-3" >
+              <button type="button"  class=" btn w-100 text-white mb-3 btn-submit" style="background-color: darkgray; color: white" *ngIf="exactFirstName == false || exactName == false || exactPhone == false || exactEmail == false || exactPassword == false || exactConfirmPassword == false "
+              disabled  >S'inscrire</button>
             </div>
             <a   (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, &nbsp;<span style="color:#2ECC71;">je me connecte</span> </a>
           </form>

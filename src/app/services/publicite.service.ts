@@ -23,6 +23,16 @@ export class PubliciteService {
         }) : of(null);
   }
 
+  // listes des pubs d'un utilisateur 
+  getAllPubsUser(): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+      
+      return accessToken ?
+      this.http.get<any>(`${url}/demandes/pubAffichable`,  {
+          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+        }) : of(null);
+  }
+
   addPub(pub: any):Observable<any>{
     const accessToken = localStorage.getItem('access_token');
 
@@ -44,18 +54,18 @@ export class PubliciteService {
 }
 
 
-//pour supprimer 
-//modifier
-// updatePub(id: number, publicite:any): Observable<any> {
+/**modifier une publicité*/ 
+ 
+updatePub(id: number): Observable<any> {
   
-//   const accessToken = localStorage.getItem('access_token');
+  const accessToken = localStorage.getItem('access_token');
     
-//     return accessToken ?
-//     this.http.post<any>(`${url}/pubs/update/${id}`, publicite, {
-//       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-//     }) : of(null);
+    return accessToken ?
+    this.http.post<any>(`${url}/demandes/update${id}`,  {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+    }) : of(null);
    
-// }
+}
 
 /**Fonction pour supprimer une pub d'un utilisateur */
 deletePub(id: number): Observable<any> {

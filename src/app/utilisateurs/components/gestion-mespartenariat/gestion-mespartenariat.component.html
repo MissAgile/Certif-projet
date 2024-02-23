@@ -50,8 +50,6 @@
   <div class="link-rapide">
     <a type="submit" [routerLink]="['../mes-demandes']" class="btn " data-bs-toggle="modal"
       data-bs-target="#exampleModal1" data-bs-whatever="mdo">Ajouter une demande</a>
-    <a type="submit" class="btn ">Demandes acceptées</a>
-    <a type="submit" class="btn ">Demandes refusées</a>
   </div>
   <div class="recentOrders">
 
@@ -62,27 +60,34 @@
     <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left" >
       <thead>
         <tr>
-          <th>Duree</th>
-          <th>Détails</th>
-          <th>Email</th>
-          <th>Etats</th>
-          <th>Actions</th>
+          <th>Nom</th>
+            <th>Image</th>
+            <th>Date Debut</th>
+            <th>Date Fin</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Etat</th>
+            <th>Action</th>
         </tr>
       </thead>
 
       <tbody>
 
-        <tr *ngFor="let demande of listeDemandes">
-          <td> {{demande.duree}}</td>
-          <td>{{demande.details}}</td>
-          <td>{{demande.email}}</td>
-          <td>{{demande.etat}}</td>
+        <tr *ngFor="let pub of listePubs">
+          <td>{{pub.nom }} </td>
+            <td> <img src="http://127.0.0.1:8000/imagesPubs/{{pub.image }}" alt=""
+                style="width: 50px; height: 50px; border-radius: 100%;"></td>
+            <td>{{pub.date_debut}} </td>
+            <td>{{pub.date_fin}} </td>
+            <td>{{pub.email}} </td>
+            <td>{{pub.phone}} </td>
+            <td>{{pub.etat}} </td>
           <td><span class="status action-icon">
-              <a data-bs-toggle="modal" data-bs-target="#detailDemande" (click)="getDemandeById(demande.id)">
+              <a data-bs-toggle="modal" data-bs-target="#detailDemande" (click)="detailPub(pub.id)">
                 <i class="bi bi-eye-fill"></i>
               </a>
               <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                <i class="bi bi-pencil-square" (click)="chargerInfosTest(demande)"></i>
+                <i class="bi bi-pencil-square" (click)="chargerInfosPub(pub)"></i>
               </a>
               
             </span>
@@ -122,22 +127,39 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="duree" class="col-form-label">Durée</label>
-            <input type="number" class="form-control" id="duree" name="duree" [(ngModel)]="duree">
+            <label for="media" class="form-label">image de la pub </label>
+            <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
+              (change)="getFile($event)">
           </div>
           <div class="mb-3">
-            <label for="details" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="detailsUpdate" name="details" [(ngModel)]="details">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="pub" [(ngModel)]="nom">
           </div>
           <div class="mb-3">
-            <label for="email" class="col-form-label">Email</label>
-            <input value="" type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+            <label for="date_debut" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_debut" name="date_debut"
+              placeholder="date de fin de la pub" [(ngModel)]="date_debut">
+          </div>
+          <div class="mb-3">
+            <label for="date_fin" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_fin" name="date_fin" placeholder="date de fin de la pub"
+              [(ngModel)]="date_fin">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email beneficiaire</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email perso ou pro"
+              [(ngModel)]="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">phone beneficiaire</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="phone perso ou pro"
+              [(ngModel)]="phone">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-        <button type="button" class="btn btn-primary" (click)="modifierDemande()">Envoyer</button>
+        <button type="button" class="btn btn-primary" (click)="editerPub()">Envoyer</button>
       </div>
     </div>
   </div>
@@ -161,22 +183,39 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="duree" class="col-form-label">Durée</label>
-            <input type="number" class="form-control" id="duree" name="duree" [(ngModel)]="duree">
+            <label for="media" class="form-label">image de la pub </label>
+            <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
+              (change)="getFile($event)">
           </div>
           <div class="mb-3">
-            <label for="details" class="col-form-label">Details:</label>
-            <input type="text" class="form-control" id="details" name="details" [(ngModel)]="details">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="pub" [(ngModel)]="nom">
           </div>
           <div class="mb-3">
-            <label for="email" class="col-form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+            <label for="date_debut" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_debut" name="date_debut"
+              placeholder="date de fin de la pub" [(ngModel)]="date_debut">
+          </div>
+          <div class="mb-3">
+            <label for="date_fin" class="form-label">Date de début</label>
+            <input type="date" class="form-control" id="date_fin" name="date_fin" placeholder="date de fin de la pub"
+              [(ngModel)]="date_fin">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email beneficiaire</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email perso ou pro"
+              [(ngModel)]="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">phone beneficiaire</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="phone perso ou pro"
+              [(ngModel)]="phone">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-        <button type="button" class="btn btn-primary" (click)="ajoutDemande()">Envoyer</button>
+        <button type="button" class="btn btn-primary" (click)="ajoutPub()">Envoyer</button>
       </div>
     </div>
   </div>
@@ -194,13 +233,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails demandes </h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails publicité </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" *ngIf="demandeSelectionner">
-        <h3>{{demandeSelectionner.duree}}</h3>
-        <h1>{{demandeSelectionner.details}}</h1>
-        <h1>{{demandeSelectionner.email}}</h1>
+      <div class="modal-body" *ngIf="pubSelctionner">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0 text-center" *ngIf="pubSelctionner">
+            <div class="col-lg-12">
+              <img src="http://127.0.0.1:8000/imagesPubs/{{pubSelctionner.image }}" class="img-fluid rounded-start"
+                alt="..."  (change)="getFile($event)">
+            </div>
+            <div class="col-lg-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{pubSelctionner.nom}}</h5>
+                <p class="card-text">{{pubSelctionner.email}}</p>
+                <p class="card-text"><small class="text-body-secondary">{{pubSelctionner.date_debut}} -
+                    {{pubSelctionner.date_fin}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

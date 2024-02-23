@@ -78,8 +78,8 @@
             <td>{{pub.date_fin}} </td>
             <td>{{pub.email}} </td>
             <td>{{pub.phone}} </td>
-            <td> <button class="btn " style="height: 40px; width: 120px; background-color: #001F3F; color:white;"
-                (click)="accepterPub(pub.id)">{{pub.etat }}</button> </td>
+            <td> <button class="btn " data-bs-toggle="modal" data-bs-target="#payement" data-bs-whatever="getbootstrap" style="height: 40px; width: 120px; background-color: #001F3F; color:white;"
+                >{{pub.etat }}</button> </td>
             <td>
               <span class="status action-icon">
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub" (click)="detailPub(pub.id)"><i
@@ -152,13 +152,13 @@
 
 
 
-<!-- Modal -->
+<!-- Modal ajouter une publicité -->
 <div class="modal fade" id="ajoutPub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajoutez une publicité</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -197,6 +197,30 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
         <button type="button" class="btn btn-primary" (click)="ajoutPub()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="payement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Accepter cette publicité</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Montant</label>
+            <input type="number" class="form-control" name="montant" id="montant">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-primary" (click)="accepterPub(pubSelctionner.payement)">Send message</button>
       </div>
     </div>
   </div>
