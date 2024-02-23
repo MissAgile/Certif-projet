@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class GestionPubliciteComponent {
   dtOptions: DataTables.Settings = {};
   dtCategories: DataTables.Settings = {};
+  val: any;
 
 
   constructor(private publiciteServices: PubliciteService) { }
@@ -22,11 +23,15 @@ export class GestionPubliciteComponent {
   nom: any;
   phone: any;
   image: any;
-  montant=""
+  
+  montant:number=0;
 
+  pubId!:number;
+  // public pubId: number="";
 
 
   listePubs: any[] = [];
+  dataPayement: any[] = [];
   pubSelctionner: any;
 
 
@@ -175,9 +180,11 @@ export class GestionPubliciteComponent {
     }).then((result) => {
       console.log(result);
       if (result.isConfirmed) {
+        alert(this.montant)
+        
         this.publiciteServices.accepterPubById(idPub).subscribe((response: any) => {
           console.log(response);
-
+          console.log(this.montant);
           this.publiciteServices.alertMessage(
             'success',
             'Supprimé!',
@@ -190,4 +197,34 @@ export class GestionPubliciteComponent {
     })
 
   }
+
+  bienObejt: any;
+  chargerInfos(data: any) {
+    this.montant = data.id;
+    // this.pubSelctionner = data.id; 
+    console.log(data);
+    this.val = data;
+    alert(this.val)
+    console.log(this.montant);
+    
+    
+
+
+  }
+
+  // accepterPub(id: number) {
+  //   let idPub = id;
+  //   this.publiciteServices.accepterPubById(idPub).subscribe((response) => {
+  //     console.log(response);
+  //   }
+  //   );
+  //   (error: any) => {
+  //     console.error('Erreur lors de la récupération des catégories', error);
+  //   }
+  //   this.ngOnInit();
+
+
+  // }
+
+  
 }

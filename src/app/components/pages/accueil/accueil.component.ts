@@ -103,24 +103,14 @@ export class AccueilComponent implements OnInit {
   // }
 
   /**fonction pour détails bien */
-  getBienById(id: number) {
-    this.biensServices.getBienById(id).subscribe(
-      (data) => {
-        this.bienSelectionner = data;
-        ({
-          libelle: this.libelle,
-          description: this.description,
-          lieu: this.lieu,
-          date: this.date,
-          image: this.image,
-          userPhone: this.userPhone,
-          etat: data.etat,
-          categorie_id: this.categorie_id,
-          type_bien: this.type_bien,
-        } = this.bienSelectionner);
-      }
-    )
-  }
+    /**fonction pour détails bien  */
+    detailBien(id: number) {
+      this.biensServices.getBienById(id).subscribe((rep) => {
+        console.log(rep);
+        this.bienSelectionner = rep.data;
+  
+      });
+    }
 
   /*fonction ajout bien **/
   ajoutBien() {

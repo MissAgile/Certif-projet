@@ -79,7 +79,7 @@
             <td>{{pub.email}} </td>
             <td>{{pub.phone}} </td>
             <td> <button class="btn " data-bs-toggle="modal" data-bs-target="#payement" data-bs-whatever="getbootstrap" style="height: 40px; width: 120px; background-color: #001F3F; color:white;"
-                >{{pub.etat }}</button> </td>
+             (click)="chargerInfos(pub.id)"   >{{pub.etat }}</button> </td>
             <td>
               <span class="status action-icon">
                 <button class="btn" data-bs-toggle="modal" data-bs-target="#editPub" (click)="detailPub(pub.id)"><i
@@ -210,17 +210,17 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Accepter cette publicité</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" ng >
         <form>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Montant</label>
-            <input type="number" class="form-control" name="montant" id="montant">
+            <input type="number" class="form-control" name="montant" id="montant" [(ngModel)]="montant">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-        <button type="button" class="btn btn-primary" (click)="accepterPub(pubSelctionner.payement)">Send message</button>
+        <button type="button" class="btn btn-primary" (click)="accepterPub(val)">Send message</button>
       </div>
     </div>
   </div>

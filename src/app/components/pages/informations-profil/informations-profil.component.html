@@ -60,28 +60,23 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Libelle</th>
-                                                    <th>Description</th>
+                                                    
                                                     <th>Image</th>
-                                                    <th>Categorie</th>
-                                                    <th>Actions</th>
+                                                    <th>Libelle</th>
+                                                    <th>Date</th>
+                                                    <th>Type bien</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Cartable</td>
-                                                    <td>ramasser dans...</td>
-                                                    <td>image</td>
-                                                    <td>Sac</td>
-                                                    <td><a href="#" class="btn btn-fill-out btn-sm">Voir</a></td>
+                                                <tr *ngFor="let bi of listeBiensHome">
+                                                    <td><img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}"  alt="" style="width: 50px; border-radius: 100%;"></td>
+                                                    <td>{{bi.libelle}}</td>
+                                                    <td>{{bi.description}}</td>
+                                                    <td>{{bi.type_bien}}</td>
+                                                    <td><a  class="btn btn-fill-out btn-sm" data-bs-toggle="modal" data-bs-target="#editBien"  (click)="detailBien(bi.id)">Voir</a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Iphone</td>
-                                                    <td>perdu dans un taxi...</td>
-                                                    <td>image</td>
-                                                    <td>Téléphone</td>
-                                                    <td><a href="#" class="btn btn-fill-out btn-sm">Voir</a></td>
-                                                </tr>
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -173,3 +168,35 @@
     </div>
     <!-- END MAIN CONTENT -->
     <app-footer></app-footer>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="editBien" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="editPubLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Détails de la publicité</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body ">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row  text-center d-flex" *ngIf="bienSelectionner.id">
+          <div class="col-lg-6">
+            <img src="http://127.0.0.1:8000/imagesBiens/{{bienSelectionner.image}}" class="w-100  rounded-start"
+              alt="...">
+          </div>
+          <div class="col-lg-6 col-md-8">
+            <div class="card-body">
+              <h3 class="card-title">{{bienSelectionner.libelle}}</h3>
+              <p class="card-text">{{bienSelectionner.description}}</p>
+              <p class="card-text"><small class="text-body-secondary">{{bienSelectionner.type_bien}}
+                 </small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
