@@ -186,36 +186,6 @@ export class GestionMespartenariatComponent implements OnInit {
     });
   }
 
-  /**fonction pour accepter une publicité */
-  accepterPub(id: number) {
-    let idPub = id;
-    Swal.fire({
-      title: 'Êtes-vous sûr?',
-      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#2ecc70',
-      cancelButtonColor: '#001F3F',
-      confirmButtonText: 'Oui, accepter!',
-    }).then((result) => {
-      console.log(result);
-      if (result.isConfirmed) {
-        this.publiciteServices.accepterPubById(idPub).subscribe((response: any) => {
-          console.log(response);
-
-          this.publiciteServices.alertMessage(
-            'success',
-            'Supprimé!',
-            'Demande acceptée avec succès'
-          );
-
-          this.getAllPubs();
-        })
-      }
-    })
-
-  }
-  
 
   // demandeObejt:any
   // chargerInfosTest(demande:any){

@@ -24,7 +24,7 @@ export class GestionPubliciteComponent {
   phone: any;
   image: any;
   
-  montant:number=0;
+  public montant:number=0;
 
   pubId!:number;
   // public pubId: number="";
@@ -182,8 +182,8 @@ export class GestionPubliciteComponent {
       if (result.isConfirmed) {
         alert(this.montant)
         
-        this.publiciteServices.accepterPubById(idPub).subscribe((response: any) => {
-          console.log(response);
+        this.publiciteServices.accepterPubById(idPub,this.montant).subscribe((response: any) => {
+          console.log(response);  
           console.log(this.montant);
           this.publiciteServices.alertMessage(
             'success',

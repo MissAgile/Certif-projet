@@ -79,13 +79,13 @@ deletePub(id: number): Observable<any> {
 }
 
 /**fonction pour accepter une publicite  */
-accepterPubById(id: number, ): Observable<any> {
+accepterPubById(id: number, montant:number): Observable<any> {
   
   const accessToken = localStorage.getItem('access_token');
     
   console.log(accessToken);
     return accessToken ?
-    this.http.post<any>(`${url}/demandes/accept/${id}`,{},{
+    this.http.post<any>(`${url}/demandes/accept/${id}`,{montant:montant},{
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) : of(null);
    

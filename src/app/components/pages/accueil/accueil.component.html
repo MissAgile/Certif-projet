@@ -46,15 +46,15 @@
     <div class="heading_s1 text-center ">
       <h3>Objets déclarés</h3>
     </div>
-    <div data-margin="20"
+    <div 
       data-responsive="{&quot;0&quot;:{&quot;items&quot;: &quot;1&quot;}, &quot;481&quot;:{&quot;items&quot;: &quot;2&quot;}, &quot;768&quot;:{&quot;items&quot;: &quot;3&quot;}, &quot;1199&quot;:{&quot;items&quot;: &quot;4&quot;}}"
       class="releted_product_slider carousel_slider owl-carousel owl-theme owl-loaded owl-drag">
-      <div class="owl-stage-outer row container mx-auto ">
-        <div class="owl-stage col-lg-3" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; "
+      <div class="owl-stage-outer row container mx-auto " >
+        <div class="owl-stage col-lg-3 " style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; "
           *ngFor="let bi of listeBiensHome">
           <div class="owl-item active" style="width: 320px; ">
 
-            <div class="item">
+           
               <div class="product "><span class="pr_flash"> {{bi.type_bien}}</span>
                 <div class="product_img">
                   <a href="shop-product-detail.html">
@@ -91,7 +91,7 @@
 
     </div>
   </div>
-</div>
+
 
   <!-- Modal pour details bien-->
   <div class="modal fade" id="editAnnonce" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

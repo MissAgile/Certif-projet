@@ -47,8 +47,7 @@
 }
 
 .owl-stage-outer{
-    /* gap: 110px; */
-    /* border: 2px solid red; */
+   border: 2px solid rgb(24, 56, 160);
   }
   
 
@@ -133,3 +132,23 @@
 .statistiques .projet p {
     font-size: 5vh;
 }
+
+@media (max-width: 500px) {
+    .product{
+      margin-left: 20% !important;
+      width: 100% !important;
+    }
+  
+  }
+@media (max-width: 900px) {
+    .owl-stage-outer{
+     width: 50%;      
+    }
+    
+    .owl-stage-outer .owl-stage{
+    border: 2px solid rgb(13, 163, 35);
+   width:500px;   
+}
+  }
+
+  
