@@ -12,18 +12,18 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthentificationService {
- 
+
   alertMessage(arg0: string, arg1: string, arg2: string) {
     throw new Error('Method not implemented.');
   }
 
   constructor(
-    private http: HttpClient ,
+    private http: HttpClient,
     private route: Router
 
 
-    
-  ) { 
+
+  ) {
 
   }
   login(user: any): Observable<any> {
@@ -36,65 +36,73 @@ export class AuthentificationService {
 
   getAllUsers(): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
-      
-      return accessToken ?
-      this.http.get<any>(`${url}/users/index`,{
-          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-        }) : of(null);
+
+    return accessToken ?
+      this.http.get<any>(`${url}/users/index`, {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
   }
 
-   /**fonction pour voir detail bien */
+  /**fonction pour voir detail bien */
   //details demandes 
-getUserById(id: any): Observable<any> {
-  
-  const accessToken = localStorage.getItem('access_token');
-    
+  getUserById(id: any): Observable<any> {
+
+    const accessToken = localStorage.getItem('access_token');
+
     return accessToken ?
-    this.http.get<any>(`${url}/user/show/${id}`,  {
+      this.http.get<any>(`${url}/user/show/${id}`, {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
-}
-/**fonction déconnexion*/
-logout(): Observable<any> {
-  const accessToken = localStorage.getItem('access_token');
+  }
+  /**fonction déconnexion*/
+  logout(): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
 
-  return accessToken ?
-    this.http.post<any>(`${url}/logout`, {}, {
-      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-    }) :
-    of(null);
-}
-
-
-/**details profil */
-detailProfil(id:number): Observable<any> {
-  
-  const accessToken = localStorage.getItem('access_token');
-    
     return accessToken ?
-    this.http.post<any>(`${url}/me`, id,{
+      this.http.post<any>(`${url}/logout`, {}, {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) :
+      of(null);
+  }
+
+
+  /**details profil */
+  detailProfil(id: number): Observable<any> {
+
+    const accessToken = localStorage.getItem('access_token');
+
+    return accessToken ?
+      this.http.post<any>(`${url}/me`, id, {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
-}
-/**fonction pour modifier un profil */
-updateProfil(id: any): Observable<any> {
-  const accessToken = localStorage.getItem('access_token');
-    
+  }
+  /**fonction pour modifier un profil */
+  updateProfil(id: any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+
     return accessToken ?
-    this.http.post<any>(`${url}/users/update/${id}`,  {
+      this.http.post<any>(`${url}/users/update/${id}`, {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
-}
-/**fonction pour modifier un profil */
-updatePassword(data: any): Observable<any> {
-  const accessToken = localStorage.getItem('access_token');
-    
+  }
+  /**fonction pour modifier un mot de pass */
+  updatePassword(data: any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+
     return accessToken ?
-    this.http.post<any>(`${url}/users/changePassword`, data ,{
+      this.http.post<any>(`${url}/users/changePassword`, data, {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
-}
+  }
 
+  /**fonction pour réinitialiser  un mot de pass */
+  resetPassword(data: any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
 
+    return accessToken ?
+      this.http.post<any>(`${url}/forget-password`, data, {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
+  }
 
 }

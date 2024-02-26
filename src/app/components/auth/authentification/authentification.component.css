@@ -125,6 +125,13 @@
     
     }
     
-    
+    .forgotPass:hover{
+
+      cursor: pointer;
+    }
+
+    .forgotPass{
+      color: #2ECC71 !important;
+    }
     
     

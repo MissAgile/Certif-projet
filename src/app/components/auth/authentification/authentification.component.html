@@ -22,10 +22,10 @@
             <p class="text-danger" *ngIf="!exactPassword" style="font-size: 9px;">{{verifPassword}}</p>
             <p class="text-success" *ngIf="exactPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
+          <a class="para forgotPass text-decoration-none"  data-bs-toggle="modal" data-bs-target="#payement" data-bs-whatever="getbootstrap">Mot de pass oublier ?</a>
           <div class="col-12 px-0 my-3">
             <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: #2ECC71;" *ngIf=" exactEmail === true && exactPassword === true "  (click)="login()">Se connecter</button>
             <button type="button" class="text-white w-100  btn-submit my-2" id="btn-submit" style="background-color: darkgray; color: white" *ngIf=" exactEmail == false || exactPassword == false  ">Se connecter</button>
-            <!-- <a class="para text-black-50">Mot de pass oublier</a> -->
             <a   (click)="basculerBlocs(); " id="btn-btn">Je n’ai pas de compte, je m'inscris</a>
           </div>
         </form>
@@ -99,5 +99,26 @@
   </div>
   
   
-  
-  
+  <!-- modal reset password -->
+  <div class="modal fade" id="payement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Accepter cette publicité</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div>
+              <label for="recipient-name" class="col-form-label text-success">Email</label>
+              <input type="email" class="form-control" name="email" id="email" [(ngModel)]="email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+          <button type="button" class="btn btn-primary" (click)="reinitialiserMotDePass()">Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>

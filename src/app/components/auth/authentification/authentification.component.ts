@@ -359,7 +359,25 @@ export class AuthentificationComponent implements OnInit {
     this.viderChamps();
   }
 
+  reinitialiserMotDePass() {
+    const data = {
+      email: this.email,
+      
+    }
 
+
+    this.authenticationService.resetPassword(data).subscribe((response) => {
+      console.log(response);
+    }
+    );
+    this.viderChamps();
+    (error: any) => {
+      console.error('Erreur lors de la récupération email user', error);
+    }
+
+    this.ngOnInit();
+
+  }
 
 }
 

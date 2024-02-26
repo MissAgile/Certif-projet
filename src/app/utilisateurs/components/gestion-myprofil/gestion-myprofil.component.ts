@@ -24,9 +24,9 @@ export class GestionMyprofilComponent implements OnInit {
   confirm_password = "";
 
 
-  verifCurentPassword:string ="";
-  verifNewPassword:string ="";
-  verifConfirmPassword:string ="";
+  verifCurentPassword: string = "";
+  verifNewPassword: string = "";
+  verifConfirmPassword: string = "";
 
   // Variables si les champs sont exacts
   exactCurentPassword: boolean = false;
@@ -80,7 +80,7 @@ export class GestionMyprofilComponent implements OnInit {
       confirm_password: this.confirm_password
     }
 
-    
+
     this.authentificationService.updatePassword(data).subscribe((response) => {
       console.log(response);
     }
@@ -95,51 +95,51 @@ export class GestionMyprofilComponent implements OnInit {
   }
 
   /**fonction qui permet  */
-  viderChamps(){
+  viderChamps() {
     this.current_password = '';
     this.new_password = '';
     this.confirm_password = '';
-}
+  }
 
-verifCurentPasswordFonction(){
-  this.exactCurentPassword = false;
-if(this.current_password == ""){
-  this.verifCurentPassword = "Veuillez renseigner votre mot de passe";
-}
-else if (this.current_password.length < 8 ){
-  this.verifCurentPassword = "Mot de passe doit être supérieur ou égal à 5";
-}
-else{
-  this.verifCurentPassword = "";
-  this.exactCurentPassword = true;
-}
-}
+  verifCurentPasswordFonction() {
+    this.exactCurentPassword = false;
+    if (this.current_password == "") {
+      this.verifCurentPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.current_password.length < 8) {
+      this.verifCurentPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else {
+      this.verifCurentPassword = "";
+      this.exactCurentPassword = true;
+    }
+  }
 
-verifNewPasswordFonction(){
-  this.exactNewPassword = false;
-if(this.new_password == ""){
-  this.verifNewPassword = "Veuillez renseigner votre mot de passe";
-}
-else if (this.new_password.length < 8 ){
-  this.verifNewPassword = "Mot de passe doit être supérieur ou égal à 5";
-}
-else{
-  this.verifNewPassword = "";
-  this.exactNewPassword = true;
-}
-}
+  verifNewPasswordFonction() {
+    this.exactNewPassword = false;
+    if (this.new_password == "") {
+      this.verifNewPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.new_password.length < 8) {
+      this.verifNewPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else {
+      this.verifNewPassword = "";
+      this.exactNewPassword = true;
+    }
+  }
 
-verifCofirmPasswordFonction(){
-  this.exactConfirmPassword = false;
-if(this.confirm_password == ""){
-  this.verifConfirmPassword = "Veuillez renseigner votre mot de passe";
-}
-else if (this.confirm_password.length < 8 ){
-  this.verifConfirmPassword = "Mot de passe doit être supérieur ou égal à 5";
-}
-else{
-  this.verifConfirmPassword = "";
-  this.exactConfirmPassword = true;
-}
-}
+  verifCofirmPasswordFonction() {
+    this.exactConfirmPassword = false;
+    if (this.confirm_password == "") {
+      this.verifConfirmPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.confirm_password.length < 8) {
+      this.verifConfirmPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else {
+      this.verifConfirmPassword = "";
+      this.exactConfirmPassword = true;
+    }
+  }
 }
