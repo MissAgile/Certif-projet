@@ -111,8 +111,7 @@
                                 class="form-select"
                                 aria-label="Default select example"
                                 name="categorie"
-                                [(ngModel)]="categorie_id"
-                                >
+                                [(ngModel)]="categorie_id">
                                 <option selected>Selectionner une categorie</option>
                                 <option *ngFor="let categorie of categories" [value]="categorie.id">
                                     {{ categorie.nom }}

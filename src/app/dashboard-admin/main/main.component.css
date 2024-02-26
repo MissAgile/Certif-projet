@@ -11,7 +11,14 @@
   padding: 0;
   text-decoration: none;
 }
+.activeg {
+  color: #2ECC71 !important;
+  background-color: #fff;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
 
+  
+}
 
 .username h3 {
   float: left;

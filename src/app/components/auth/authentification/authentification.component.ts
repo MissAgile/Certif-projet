@@ -265,6 +265,7 @@ export class AuthentificationComponent implements OnInit {
             text: 'Les informations sont incorrectes',
             showConfirmButton: true,
           });
+          this.viderChamps();
         }
       );
     }
@@ -355,6 +356,7 @@ export class AuthentificationComponent implements OnInit {
         }
       );
     }
+    this.viderChamps();
   }
 
 

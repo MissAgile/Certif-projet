@@ -85,6 +85,15 @@ updateProfil(id: any): Observable<any> {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
 }
+/**fonction pour modifier un profil */
+updatePassword(data: any): Observable<any> {
+  const accessToken = localStorage.getItem('access_token');
+    
+    return accessToken ?
+    this.http.post<any>(`${url}/users/changePassword`, data ,{
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) : of(null);
+}
 
 
 

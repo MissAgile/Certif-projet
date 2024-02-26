@@ -15,6 +15,9 @@
                           <li class="nav-item">
                             <a class="nav-link " id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="ti-id-badge"></i>Modifier profil</a>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link " id="account-detail-tab" data-bs-toggle="tab" href="#password-detail" role="tab" aria-controls="password-detail" aria-selected="true"><i class="ti-id-badge"></i>Modifier Mot de pass</a>
+                          </li>
                         </ul>
                     </div>
                 </div>
@@ -76,18 +79,9 @@
                                                 <input type="email" class="form-control" name="email" [(ngModel)]="userConnect.email">
                                             </div>
                                             <div class="form-group col-md-6 mb-3">
-                                                <label>Mot de pass <span class="required">*</span></label>
-                                                <input type="text" class="form-control" name="password">
-                                            </div>
-                                            <div class="form-group col-md-6 mb-3">
                                                 <label>Téléphone <span class="required">*</span></label>
                                                 <input type="tel" class="form-control" name="phone" [(ngModel)]="userConnect.phone">
                                             </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Adresse <span class="required">*</span></label>
-                                                <input type="text" class="form-control" name="adresse">
-                                            </div>
-                                            
                                             <div class="col-md-12">
                                                 <button type="submit" class="btn btn-fill-out btn-profil" name="submit" value="Submit" (click)="modifierUtilisateur()">Enregistrer</button>
                                             </div>
@@ -97,6 +91,43 @@
                             </div>
                         </div>
                          <!-- fin modifier son profil-->
+
+                         <!--modifier son mot de  pass-->
+                        <div class="tab-pane fade" id="password-detail" role="tabpanel" aria-labelledby="password-detail-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Modifier profil</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form method="post" name="enq">
+                                        <div class="row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Mot de pass Actuelle <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="current_password"  [(ngModel)]="current_password" (input)="verifCurentPasswordFonction()">
+                                                <p class="text-danger" *ngIf="!exactCurentPassword" style="font-size: 9px;">{{verifCurentPassword}}</p>
+                                                <p class="text-success" *ngIf="exactCurentPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Nouveau votre mot de pass <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="new_password" [(ngModel)]="new_password" (input)="verifNewPasswordFonction()">
+                                                <p class="text-danger" *ngIf="!exactNewPassword" style="font-size: 9px;">{{verifNewPassword}}</p>
+                                                <p class="text-success" *ngIf="exactNewPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Confirmer votre mot de pass <span class="required">*</span></label>
+                                                <input type="text" class="form-control" name="confirm_password" [(ngModel)]="confirm_password" (input)="verifCofirmPasswordFonction()">
+                                                <p class="text-danger" *ngIf="!exactConfirmPassword" style="font-size: 9px;">{{verifConfirmPassword}}</p>
+                                                <p class="text-success" *ngIf="exactCurentPassword" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-fill-out btn-profil" name="submit" value="Submit" (click)="modifierPassword()">Enregistrer</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- fin modifier son mot de pass-->
                     </div>
                 </div>
             </div>

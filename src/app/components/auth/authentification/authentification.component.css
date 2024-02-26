@@ -27,10 +27,12 @@
     
     
     #img-contain img{
-      width: 100%;
+      width: 33rem !important;
       /* height: 100%; */
       border-bottom-left-radius: 10px;
       border-top-left-radius: 10px;
+      height: 40rem ;
+      /* border: 2px solif maroon; */
     }
   
     
@@ -50,11 +52,10 @@
     
     form,#description{
       color: var(--blue);
-      margin-top: 40px;
+      margin-top: 60px;
     }
-    #seconde-part-contain{
-      /* border: 1px solid maroon; */
-    
+    login-right{
+      height: 80% !important;
     }
     label{
       font-weight: 700;
@@ -65,9 +66,9 @@
     }
     #form-seconde{
       width: 100%;
-      height: 100%;
+      height: 80%;
       margin: 0 auto;
-      background-color: white;
+      /* background-color: rgb(192, 25, 25); */
       /* position: relative; */
       /* top: -500px; */
       /* left: 12.5%; */

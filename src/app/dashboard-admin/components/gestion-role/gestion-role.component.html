@@ -46,102 +46,81 @@
     </div>
   </div>
 <!-- ================= New Customers ================ -->
-<div class="form-objet">
-   
-
-      <!--section déclaration objets trouvés-->
-<section class="declaration h-75 mx-auto">
-    <!-- section soumettre Objet  -->
-    <div class="container row container-declaration  ">
-        
-        <div class="declaration-left col-lg-5 col-md-4 p-0">
-            <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
-                <thead>
-                  <tr>
-                      <th>Nom</th>
-                      <th>Prenom</th>
-                      <th>Email</th>
-                      <th>Tel</th>
-                      <th>Action</th>
-                  </tr>
-              </thead>
-        
-              <tbody>
-                <tr>
-                    <td>Diop</td>
-                    <td>Amadou</td>
-                    <td>imagmail.com</td>
-                    <td>76 159 86 79</td>
-                    <td><span class="status action-icon">
-                            <a data-bs-toggle="modal" data-bs-target="#mydetails ">                
-                                <i class="bi bi-eye-fill"></i>
-                            </a>                
-                            <a href="#">                
-                                <i class="bi bi-chat"></i>
-                            </a>                
-                            <a >   
-                            <i class="bi bi-archive-fill"></i>
-                            </a>       
-                    </span>
-                    </td>
-                </tr>
-                  <tr>
-                        <td>Tall</td>
-                        <td>Fatoumata</td>
-                        <td>imagmail.com</td>
-                        <td>77 136 98 74</td>
-                        <td><span class="status action-icon">
-                                <a data-bs-toggle="modal" data-bs-target="#mydetails">                
-                                    <i class="bi bi-eye-fill"></i>
-                                </a>                
-                                <a href="#">                
-                                    <i class="bi bi-chat"></i>
-                                </a>                
-                                <a >   
-                                        <i class="bi bi-archive-fill"></i>
-                                </a>       
-                        </span>
-                        </td>
-                    </tr>
-                
-              </tbody>
-                </table>
-                
-              
-        </div>
        
-<div class="declaration-right col-lg-4 col-md-5 col-sm-3 ">
-            <form action="" class="  ">
-                <div class="mb-3">
-                    <label for="titreObjet" class="form-label">Titre Objet</label>
-                    <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet"
-                        id="titreObjet">
-                </div>
-                <div class="mb-3">
-                    <label for="descriptionObjet" class="form-label"
-                        placeholder="Description de l'objet">Description</label>
-                    <input type="text" name="descriptionObjet" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="lieuObjet" class="form-label">Lieu</label>
-                    <input type="text" name="lieuObjet" class="form-control" id="lieuObjet">
-                </div>
-                <div class="mb-3">
-                    <label for="imageObjet" class="form-label">Url image</label>
-                    <input type="file" name="imageObjet" class="form-control" id="imageObjet">
-                </div>
 
-                <div class=" text-start d-flex justify-content-start">
-                    <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
-                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   ">Déclarer</button>
-                </div>
 
-            </form>
 
-            <!-- Test  -->
-            <!-- <img [src]="image" alt=""> -->
+<main class="container">
+   
+    <div class="mainBottom row container">
+      <div class="mainBottomLeft bg-white rounded-4 col-lg-7 col-md-4">
+        <div class="mainTop ">
+          <h4 class="fw-bolder pt-3">La liste des roles</h4>
         </div>
+        <table datatable [dtOptions]="dtOptions" class="table"   *ngIf="tabRoles.length>0" >
+          <thead class="table-secondary rounded-top-3">
+            <tr>
+              <th>id</th>
+              <th>Nom</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let role of tabRoles">
+              <td>{{role.id }} </td>
+              <td>{{role.nomRole }} </td>
+              <td>
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#modifierRole"
+                (click)="chargerInfosRole(role.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn" (click)="SupprimerRole(role.id)"><i class="fa-solid fa-trash"></i></button>
+                <!-- <button class="btn" (click)="getCategorie(categorie)"><i class="fa-solid fa-trash"></i></button> -->
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+  
+      </div>
+      <div class="mainBottomRight  container col-lg-4 col-md-4">
+        <form action="" class="bg-white px-5 rounded-2">
+            <h4>Ajoutez un role ici👇🏼</h4>
+            <div class="mb-3">
+                <label for="role" class="form-label">Nom du role</label>
+                <input type="text" name="nomRole" class="form-control" placeholder="nom du role"
+                    id="role" [(ngModel)]="nomRole">
+            </div>
+            <div class=" text-start d-flex justify-content-start">
+                <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
+                <button class="btn  btn-lg  btnSoumettre  px-3 py-1  " (click)="ajoutRole()">Ajouter</button>
+            </div>
+
+        </form>
+      </div>
     </div>
-    <!-- Fin Contenu  -->
-</section>
-</div>
+  </main>
+
+   <!-- Modal -->
+   <div class="modal fade" id="modifierRole" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+   aria-labelledby="modifierCatégorieLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="modifierCatégorieLabel">Modifier un role</h1>
+       </div>
+       <div class="modal-body">
+         <form>
+           <div class="mb-3">
+             <label for="nom" class="form-label">Nom du role</label>
+             <input type="text" class="form-control" id="nomRole" name="nomRole"
+               placeholder="Nom du role" [(ngModel)]="nomRole">
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btnAnnuler" data-bs-dismiss="modal">Annuler</button>
+         <button type="button" class="btn btn-success"
+             data-bs-dismiss="modal" (click)="modifierRole()">Modifier</button>
+       </div>
+     </div>
+   </div>
+ </div>
