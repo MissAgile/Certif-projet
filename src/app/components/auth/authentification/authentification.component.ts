@@ -229,21 +229,6 @@ export class AuthentificationComponent implements OnInit {
             } else {
               this.route.navigate(['dashboard-admin/accueil-admin']);
             }
-            // Swal.fire({
-            //   position: 'center',
-            //   icon: 'success',
-            //   title: '',
-            //   text: response.message,
-            //   showConfirmButton: true,
-            // });
-
-            // this.route.navigate(['/accueil']); 
-
-            // this.authenticationService.isAuthenticated = true; // Définit la variable isAuthicated à true pour la guard
-
-            // On stocke les info de la requete dans notre localstorage
-
-            // this.iscorrectValues = true; //Les données fournies sont correctes
           } else {
             console.log("L'adresse email est incorrecte");
             Swal.fire({
@@ -379,5 +364,7 @@ export class AuthentificationComponent implements OnInit {
 
   }
 
+
+  
 }
 

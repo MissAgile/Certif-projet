@@ -5,8 +5,11 @@ import { data } from 'jquery';
 import { url } from 'src/app/services/apiUrl';
 import { AuthentificationService } from 'src/app/services/authentification.service';
 import { BiensService } from 'src/app/services/biens.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { WhatshapService } from 'src/app/services/whatshap.service';
 import Swal from 'sweetalert2';
+import { urlMess } from 'src/app/services/apiMess';
+import { Validators } from '@angular/forms';
 
 
 @Component({
@@ -24,8 +27,25 @@ export class AccueilComponent implements OnInit {
   image: any;
   categorie_id: any;
   userPhone: any;
-  type_bien:any;
+  type_bien="";
 
+  /**Variables pour faire la vérifications*/
+  verifLibelle: string = "";
+  verifDescription: string = "";
+  verifDate: string = "";
+  verifLieu: string = "";
+  verifImage: string = "";
+  verifCategorie_id: string = "";
+  verifType_bien: string = "";
+
+  /**Variables si les champs sont exacts*/
+  exactLibelle: boolean = false;
+  exactDescription: boolean = false;
+  exactDate: boolean = false;
+  exactLieu: boolean = false;
+  exactImage: boolean = false;
+  exactCategorie_id: boolean = false;
+  exactType_bien: boolean = false;
 
   //variable user
   id: number = 7;
@@ -53,10 +73,20 @@ export class AccueilComponent implements OnInit {
 
   bienSelectionner: any = {};
 
+  categories: any = ""; //tableau categories
+  selectedCategory: any = {};
+
   bi = {
     userId: 123 // Remplacez 123 par l'identifiant réel de l'utilisateur
   }
+  /**varibale pour le stockage de la date */
+  currentDate: string = this.getCurrentDate();
 
+  /**fonction qui gere les date anterieur à selectionner et qui desacive les dates futur Format YYYY-MM-DD */
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    return currentDate.toISOString().split('T')[0];
+  }
 
   constructor(
     private biensServices: BiensService,
@@ -64,27 +94,42 @@ export class AccueilComponent implements OnInit {
     private authService: AuthentificationService,
     private router: Router,
     private http: HttpClient,
+    private categoriesService: CategoriesService,
 
   ) { }
 
   ngOnInit(): void {
     const id = this.categorie_id;
     this.getAllBiensHome();
+    this.getAllCategories();
+  }
+
+
+  getAllCategories() {
+    console.log(this.categories);
+    this.categoriesService.getAllCategories().subscribe(
+      (data) => {
+        console.log(data);
+        this.categories = data.categorie;
+        console.log(this.categories);
+
+      }
+    )
   }
 
   /** fonction pour lister les bien */
-    getAllBiensHome() {
-     console.log(this.listeBiensHome);
-     this.biensServices. getBienAllType().subscribe(
-       (responses) => {
-         console.log(responses);
+  getAllBiensHome() {
+    console.log(this.listeBiensHome);
+    this.biensServices.getBienAllType().subscribe(
+      (responses) => {
+        console.log(responses);
 
-         this.listeBiensHome = responses.data;
-         console.log(responses.data);
+        this.listeBiensHome = responses.data;
+        console.log(responses.data);
 
-       }
-     )
-   }
+      }
+    )
+  }
 
   // getAllBiensHome(id: number): void {
   //   this.biensServices.getRecentsBiens(id).subscribe(
@@ -103,14 +148,14 @@ export class AccueilComponent implements OnInit {
   // }
 
   /**fonction pour détails bien */
-    /**fonction pour détails bien  */
-    detailBien(id: number) {
-      this.biensServices.getBienById(id).subscribe((rep) => {
-        console.log(rep);
-        this.bienSelectionner = rep.data;
-  
-      });
-    }
+  /**fonction pour détails bien  */
+  detailBien(id: number) {
+    this.biensServices.getBienById(id).subscribe((rep) => {
+      console.log(rep);
+      this.bienSelectionner = rep.data;
+
+    });
+  }
 
   /*fonction ajout bien **/
   ajoutBien() {
@@ -158,39 +203,135 @@ export class AccueilComponent implements OnInit {
 
   };
 
+  // sendMessage() {
+  //   const accessToken = localStorage.getItem('access_token'); 
+  //   // console.log(accessToken);
+
+  //   this.whatshapService.sendMessageChatify().subscribe(
+  //     (data) => {
+  //       console.log(data);
+
+  //     }
+  //   );
 
 
-  // redirectToChatify() {
-  //   // Vérifiez si l'utilisateur est connecté
-  //   if (this.whatshapService.isLoggedIn()) {
-  //     this.router.navigateByUrl('/http://127.0.0.1:8000/chatify/api');
-  //   } else {
-  //     this.router.navigateByUrl('/authentification'); 
-  //   }
+
   // }
+
   sendMessage() {
-    // this. = data.user;
-    // let  phoneNumber = userPhone ; 
-    Swal.fire({
-      title: 'Êtes-vous sûr?',
-      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#2ecc70',
-      cancelButtonColor: '#001F3F',
-      confirmButtonText: 'Oui, accepter!',
-    }).then((result) => {
-      console.log(result);
-      if (result.isConfirmed) {
-        this.whatshapService.sendMessage().subscribe((data) => {
-          console.log(data, 'ma reponsee');
+    const accessToken = localStorage.getItem('access_token');
+    // console.log(accessToken);
 
-        });
-
-
+    this.whatshapService.sendMessageChatify().subscribe(
+      (data) => {
+        console.log(data);
       }
-    })
+    );
+  }
 
-  };
+  /**fonction qui permet  */
+  viderChamps() {
+    this.libelle = '';
+    this.description = '';
+    this.image = '';
+    this.date = '';
+    this.categorie_id = '';
+    this.lieu = '';
+    this.type_bien = '';
 
+
+    /**  On vide les Variables qui permettent de faire la vérifications */
+    this.verifLibelle = "";
+    this.verifDescription = "";
+    this.verifDate = "";
+    this.verifImage = "";
+    this.verifCategorie_id = "";
+    this.verifType_bien = "";
+
+
+    /** On vide les variables qui vérifient si les champs sont exacts */
+    this.exactLibelle = false;
+    this.exactDescription = false;
+    this.exactDate = false;
+    this.exactImage = false;
+    this.exactCategorie_id = false;
+    this.exactType_bien = false;
+
+  }
+
+  verifLibelleFonction() {
+    this.exactLibelle = false;
+    if (this.libelle === '') {
+      this.verifLibelle = 'Veuillez renseigner le libellé';
+    } else if (this.libelle.length < 2) {
+      this.verifLibelle = 'Le le libelle  est trop courte';
+    } else if (!Validators.pattern(/^[a-zA-Z0-9]+$/)) {
+      this.verifLibelle = "Le libelle ne doit contenir que des lettres et des chiffres";
+    } else {
+      this.verifLibelle = '';
+      this.exactLibelle = true;
+    }
+  }
+
+  /**verification de libelle */
+  verifDescriptionFonction() {
+    this.exactDescription = false;
+    if (this.description == "") {
+      this.verifDescription = "Veuillez renseigner votre nom";
+    }
+    else if (this.description.length < 2) {
+      this.verifDescription = "Le nom est trop court";
+    }
+    else {
+      this.verifDescription = "";
+      this.exactDescription = true;
+    }
+  }
+
+  /**verification de libelle */
+verifLieuFonction() {
+  this.exactLieu = false;
+  if(this.lieu == ""){
+    this.verifLieu = "Veuillez renseigner votre nom";
+  }
+  else if (this.lieu.length < 2 ){
+    this.verifLieu = "Le nom est trop court";
+  }
+  else {
+    this.verifLieu = "";
+    this.exactLieu = true;
+  }
 }
+ /**verification de libelle */
+ verifCategorieFonction() {
+  this.exactDescription = false;
+  if(this.description == ""){
+    this.verifDescription = "Veuillez renseigner votre nom";
+  }
+  else if (this.description.length < 2 ){
+    this.verifDescription = "Le nom est trop court";
+  }
+  else {
+    this.verifDescription = "";
+    this.exactDescription = true;
+  }
+}
+
+ /**verification de libelle */
+ verifTypeBienFonction() {
+  this.exactDescription = false;
+  if(this.description == ""){
+    this.verifDescription = "Veuillez renseigner votre nom";
+  }
+  else if (this.description.length < 2 ){
+    this.verifDescription = "Le nom est trop court";
+  }
+  else {
+    this.verifDescription = "";
+    this.exactDescription = true;
+  }
+}
+};
+
+
+

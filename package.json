@@ -6,9 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "test": "jasmin"
-
   },
   "private": true,
   "dependencies": {
@@ -24,6 +22,7 @@
     "angular-datatables": "^17.0.0",
     "apexcharts": "^3.46.0",
     "bootstrap": "^5.3.2",
+    "cors": "^2.8.5",
     "datatables.net": "^1.13.8",
     "datatables.net-bs5": "^1.11.3",
     "jquery": "^3.7.1",

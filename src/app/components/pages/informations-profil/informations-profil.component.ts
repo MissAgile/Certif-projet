@@ -189,7 +189,7 @@ export class InformationsProfilComponent {
     }).then((result) => {
       console.log(result);
       if (result.isConfirmed) {
-        this.whatshapService.sendMessage().subscribe((data) => {
+        this.whatshapService.sendMessageChatify().subscribe((data) => {
           console.log(data, 'ma reponsee');
 
         });

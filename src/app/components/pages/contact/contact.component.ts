@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
 import { ContactService } from 'src/app/services/contact.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -59,9 +60,9 @@ export class ContactComponent implements OnInit {
 
     const data = {
       nom: this.nom,
-      email:this.email,
-      messag:this.messag,
-      phone:this.phone,
+      email: this.email,
+      messag: this.messag,
+      phone: this.phone,
     }
     console.log(data);
 
@@ -71,14 +72,19 @@ export class ContactComponent implements OnInit {
       this.email == '' ||
       this.messag == '' ||
       this.phone == ''
-    ){
-      this.contactService.alertMessage(
-      'error',
-      'Attention',
-      'Renseigner tous les champs'
-     );
-    }else if (!this.email.match(emailPattern)) {
-      this.contactService.alertMessage('error', 'Attention', 'Email invalide');
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Attention',
+        text: 'Renseigner tous les champs'
+      });
+    } else if (!this.email.match(emailPattern)) {
+      // Ou pour l'email invalide :
+      Swal.fire({
+        icon: 'error',
+        title: 'Attention',
+        text: 'Email invalide'
+      });
     } else {
       let newUser: Contact = {
         nom: this.nom,
@@ -89,25 +95,16 @@ export class ContactComponent implements OnInit {
       console.log(newUser);
       this.contactService.addContact(newUser).subscribe((response) => {
         console.log(response);
-        this.contactService.alertMessage(
-          'success',
-          'Bravo!',
-          'Message envoyer avec succés'
-        );
+        // Et pour le succès :
+        Swal.fire({
+          icon: 'success',
+          title: 'Bravo!',
+          text: 'Message envoyé avec succès'
+        });
       });
       this.viderChamps();
     }
-    // this.contactService.addContact(data).subscribe((response) => {
-    //   console.log(response);
-    //   console.log(this.nom);
-      
-    // }
-    // );
-    // (error: any) => {
-    //   console.error('Erreur lors de la récupération des contact', error);
-    // }
-
-    // this.ngOnInit();
+  
 
   }
 

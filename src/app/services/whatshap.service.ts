@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { url, urlMess } from './apiUrl';
+import { url} from './apiUrl';
+import {  urlMess } from './apiMess';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,10 @@ import { url, urlMess } from './apiUrl';
 export class WhatshapService {
   alertMessage(arg0: string, arg1: string, arg2: string) {
     throw new Error('Method not implemented.');
+
   }
 
-  private chatifyApiUrl = 'http://127.0.0.1:8000/chatify/api';
-
+private readonly baseUrl = 'http://127.0.0.1:8000/chatify';
   constructor(private http : HttpClient) { }
 
   
@@ -28,23 +29,31 @@ export class WhatshapService {
       }) : of(null);
      
   }
-  sendMessage(): Observable<any> {
-    // const userId = 7;
-    const accessToken = localStorage.getItem('access_token');
-      
-    console.log(accessToken);
-      return accessToken ?
-      
-      this.http.get<any>(`${urlMess}` ,{
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-      }) : of(null);
-     
-  }
 
-   
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('access_token'); 
+
+  // sendMessageChatify(){
+
+  //   const token = localStorage.getItem('access_token')
+
+  //   const headers = new HttpHeaders({
+  //     'authorization': 'Bearer' + `${token}`, 'Content-Type': 'application/x-www-form-urlencoded'
+  //   });
+  //   return this.http.get(this.baseUrl, { headers });
+  // }   
+  
+  
+  sendMessageChatify(): Observable<any> {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + token, 
+      'Content-Type': 'application/json' // assuming JSON content type
+    });
+    return this.http.get(this.baseUrl, { headers });
   }
+   
+  // isLoggedIn(): boolean {
+  //   return !!localStorage.getItem('access_token'); 
+  
 
   
   // sendMessage(message: string) {
@@ -63,6 +72,6 @@ export class WhatshapService {
   //   const body = { message };
 
   //   return this.http.get<any>(`${this.chatifyApiUrl}/messages`, body, { headers });
-  // }
+  }
 
-}
+

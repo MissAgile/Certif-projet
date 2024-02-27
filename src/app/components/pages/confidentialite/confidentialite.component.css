@@ -15,7 +15,7 @@ body {
     font-size: 16px;
 }
 h1,h2,h3,h4,h5,h6 {
-	color: #292b2c;
+	color: #2ecc70 ;
 	font-family: 'Roboto';
 }
 p {
@@ -453,7 +453,7 @@ button:focus:not(:focus-visible) {
 	color: #fff;
 }
 .text_dark * {
-	color: #333;
+	color: #20E076;
 }
 .text_default {
 	color: #001F3F !important;
@@ -477,7 +477,7 @@ button:focus:not(:focus-visible) {
 	background-color: #F9F5F0 !important;
 }
 .bg_redon {
-	background-color: #FFF1F1 !important;
+	background-color: #001F3F !important;
 }
 .bg_dark {
 	background-color: #1D2224 !important;

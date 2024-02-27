@@ -107,3 +107,7 @@ Consultez la documentation Angular pour plus d'informations sur les tests unitai
 https://angular.io/guide/testing
 https://jasmine.github.io/api/3.8/global.html
 https://karma-runner.github.io/latest/index.html
+
+## cors
+
+npm install cors --save

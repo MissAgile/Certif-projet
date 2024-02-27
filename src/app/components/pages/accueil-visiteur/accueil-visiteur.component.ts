@@ -174,28 +174,39 @@ export class AccueilVisiteurComponent {
  //     this.router.navigateByUrl('/authentification'); 
  //   }
  // }
- sendMessage() {
-   // this. = data.user;
-   // let  phoneNumber = userPhone ; 
-   Swal.fire({
-     title: 'Êtes-vous sûr?',
-     text: 'Vous ne pourrez pas revenir en arrière après cette action!',
-     icon: 'warning',
-     showCancelButton: true,
-     confirmButtonColor: '#2ecc70',
-     cancelButtonColor: '#001F3F',
-     confirmButtonText: 'Oui, accepter!',
-   }).then((result) => {
-     console.log(result);
-     if (result.isConfirmed) {
-       this.whatshapService.sendMessage().subscribe((data) => {
-         console.log(data, 'ma reponsee');
+//  sendMessage() {
+//    // this. = data.user;
+//    // let  phoneNumber = userPhone ; 
+//    Swal.fire({
+//      title: 'Êtes-vous sûr?',
+//      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+//      icon: 'warning',
+//      showCancelButton: true,
+//      confirmButtonColor: '#2ecc70',
+//      cancelButtonColor: '#001F3F',
+//      confirmButtonText: 'Oui, accepter!',
+//    }).then((result) => {
+//      console.log(result);
+//      if (result.isConfirmed) {
+//        this.whatshapService.sendMessageChatify().subscribe((data) => {
+//          console.log(data, 'ma reponsee');
 
-       });
+//        });
 
 
-     }
-   })
+//      }
+//    })
 
- };
+//  };
+
+
+  /** fonction pour lister les bien */
+  sendMessage() {
+    this.whatshapService.sendMessageChatify().subscribe(
+      (responses) => {
+        console.log(responses);
+
+      }
+    )
+  }
 }

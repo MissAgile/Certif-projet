@@ -50,12 +50,12 @@
       data-responsive="{&quot;0&quot;:{&quot;items&quot;: &quot;1&quot;}, &quot;481&quot;:{&quot;items&quot;: &quot;2&quot;}, &quot;768&quot;:{&quot;items&quot;: &quot;3&quot;}, &quot;1199&quot;:{&quot;items&quot;: &quot;4&quot;}}"
       class="releted_product_slider carousel_slider owl-carousel owl-theme owl-loaded owl-drag">
       <div class="owl-stage-outer row container mx-auto " >
-        <div class="owl-stage col-lg-3 " style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; "
+        <div class="owl-stage col-lg-3 " style=" transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; "
           *ngFor="let bi of listeBiensHome">
-          <div class="owl-item active" style="width: 320px; ">
+          <div class="owl-item col-lg-12 col-md-6"  >
 
            
-              <div class="product "><span class="pr_flash"> {{bi.type_bien}}</span>
+              <div class="product col-lg-12"  style="" > <span class="pr_flash"> {{bi.type_bien}}</span>
                 <div class="product_img">
                   <a href="shop-product-detail.html">
                     
@@ -66,7 +66,7 @@
                       </li>
                       <li><a (click)=" messageWhatshap(bi.userPhone)"><i class="bi bi-whatsapp"></i></a>
                       </li>
-                      <li><a><i class="bi bi-chat-left-dots-fill"></i></a>
+                      <li><a (click)="sendMessage()"><i class="bi bi-chat-left-dots-fill"></i></a>
                       </li>
 
                     </ul>
@@ -181,40 +181,61 @@
 <section class="declaration  mx-auto">
   <!-- section soumettre Objet  -->
   <div class="container row container-declaration  ">
-    <div class="declaration-left col-lg-7 col-md-4 py-5">
-      <h2>Je déclare un objet trouvés </h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem, adipisci! Lorem ipsum dolor sit amet. </p>
+    <div class="declaration-left col-lg-7 col-md-4 col-sm-12 py-5 text-lg-start text-md-start text-sm-start ">
+      <h2>Déclaration d'objet trouvé ou perdu
+      </h2>
+      <p class=" text-white " >Bienvenue sur notre plateforme de déclaration d'objets trouvés <br> ou perdus. Si vous avez trouvé un objet appartenant à quelqu'un <br> <br> d'autre ou si vous avez perdu quelque chose, veuillez remplir <br> le formulaire ci-dessous pour nous aider à résoudre cette situation. </p>
     </div>
-    <div class="declaration-right col-lg-4 col-md-3 ">
+    <div class="declaration-right col-lg-4 col-md-6 col-sm-12  ">
       <form action="" class="  ">
         <div class="mb-3">
-          <label for="libelle" class="col-form-label">Libellé</label>
-          <input type="text" class="form-control" id="libelle" name="libelle">
+          <label>Libelle <span class="required">*</span></label>
+          <input type="text" class="form-control text-black" id="libelle" name="libelle" [(ngModel)]="libelle" (input)="verifLibelleFonction()">
+          <p class="text-danger" *ngIf="!exactLibelle" style="font-size: 9px;">{{verifLibelle}}</p>
+          <p class="text-success" *ngIf="exactLibelle" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>  
         </div>
         <div class="mb-3">
-          <label for="description" class="col-form-label">description:</label>
-          <input type="text" class="form-control" id="description" name="description">
+          <label>Description <span class="required">*</span></label>
+          <input type="text" class="form-control text-black" id="description" name="description" [(ngModel)]="description" (input)="verifDescriptionFonction()"> 
+          <p class="text-danger" *ngIf="!exactDescription" style="font-size: 9px;">{{verifDescription}}</p>
+          <p class="text-success" *ngIf="exactDescription" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>  
         </div>
         <div class="mb-3">
-          <label for="lieu" class="col-form-label">lieu</label>
-          <input type="text" class="form-control" id="lieu" name="lieu">
+          <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+          <select class="form-select" aria-label="Default select example" name="[type_bien]" [(ngModel)]="type_bien">
+            <option value="bien perdu">bien_perdu</option>
+            <option value="bien trouve">bien_trouve</option>
+          </select>
         </div>
         <div class="mb-3">
-          <label for="date" class="col-form-label">date</label>
-          <input type="date" class="form-control" id="date" name="date">
+          <label for="date" class="col-form-label">date <span class="required">*</span></label>
+          <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" [max]="currentDate">
         </div>
         <div class="mb-3">
-          <label for="image" class="col-form-label">image</label>
-          <input type="file" class="form-control" id="image" name="[image]">
+          <label>Lieu <span class="required">*</span></label>
+          <input type="text" class="form-control text-black" id="lieu" name="lieu" [(ngModel)]="lieu" (input)="verifLieuFonction()">
         </div>
         <div class="mb-3">
-          <label for="categorie_id" class="col-form-label">categorie_id</label>
-          <input type="number" class="form-control" id="categorie_id" name="categorie_id">
+          <label for="image" class="col-form-label">Image</label>
+          <input type="file" class="form-control text-black" id="image" name="[image]" (change)="getFile($event)" >
+        </div>
+        <div class="mb-3">
+          <label for="categorie" class="form-label">Categorie <span class="required">*</span></label>
+          <select
+          class="form-select text-black"
+          aria-label="Default select example"
+          name="categorie"
+          [(ngModel)]="categorie_id" (input)="verifCategorieFonction()">
+          <option selected>Selectionner une categorie</option>
+          <option *ngFor="let categorie of categories" [value]="categorie.id">
+              {{ categorie.nom }}
+          </option>
+          </select>
         </div>
 
         <div class=" text-start d-flex justify-content-start">
           <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
-          <button class="btn  btn-lg  btnSoumettre  px-3 py-1 ">Déclarer</button>
+          <button class="btn  btn-lg  btnSoumettre  px-3 py-1 " (click)="ajoutBien()">Déclarer</button>
         </div>
 
       </form>
@@ -251,6 +272,8 @@
     </div>
   </div>
 </div>
+
+
 <app-footer></app-footer>
 
 
