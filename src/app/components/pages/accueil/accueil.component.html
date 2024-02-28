@@ -8,37 +8,30 @@
     </div>
   </div>
 </div>
-<!-- Section propos de sama gokh  -->
-<div class="aproposEureka container mx-auto">
-  <div class="heading_s1 text-center ">
-    <h3 class="mt-3 py-4  mb-3" >Apropos de Eureka</h3>
-  </div>
-  <div class="card mb-3 border-0">
-    <div class="row g-0">
-      <div class="col-lg-6">
-        <img src="../../../../assets/images/about2-05-05.png" class="img-fluid rounded-2" alt="...">
+ <!-- STAT SECTION ABOUT -->
+ <div class="section">
+  <div class="container mx-auto">
+      <div class="row align-items-center container justify-content-between mx-auto">
+          <div class="col-lg-5">
+              <div class="about_img scene mb-4 mb-lg-0">
+                  <img src="../../../../assets/images/apropos2-01.png" alt="about_img" />
+              </div>
+          </div>
+          <div class="col-lg-5">
+              <div class="heading_s1">
+                  <h2>Qui somme nous</h2>
+              </div>
+              <p>Bienvenue sur Eureka, votre plateforme dédiée à la gestion efficace des biens trouvés et perdus. Chez Eureka, nous croyons en la puissance de la technologie pour connecter les gens et simplifier la résolution des problèmes quotidiens. Notre mission est de créer une communauté où les objets perdus peuvent retrouver leur chemin vers leurs propriétaires légitimes de manière rapide et efficace.
+
+              </p>
+              <p>Chez Eureka, nous nous engageons à promouvoir l'honnêteté, la solidarité et la communauté.  Nous mettons tout en œuvre pour garantir qu'il retrouve son chemin vers son propriétaire légitime. </p>
+
+                  
+          </div>
       </div>
-      <div class="col-lg-6">
-        <div class="card-body p-4">
-
-
-          <h5 class="card-title fw-bold " >C'est quoi EUREKA ?</h5>
-          <p class="card-text">Eureka est une plateforme en ligne qui permet à une commune d'impliquer ses habitants
-            dans sa gestion (prise de décision sur des projets à réaliser dans la ville). </p>
-          <p class="card-text">Concrètement, l'idée est de mettre à la connaissance des populations l’ensemble des
-            projets de la commune dans le but de recueillir leurs avis à travers des votes en ligne.</p>
-          <p class="card-text">Sama Gokh est la plateforme qui donne la parole aux habitants pour façonner l'avenir de
-            leur commune. </p>
-          <p class="card-text">Sama Gokh est bien plus qu'une plateforme en ligne. C'est un espace dédié à l'expression
-            collective des habitants, une vitrine où chaque voix compte dans la construction de l'avenir de notre
-            commune.</p>
-        </div>
-      </div>
-    </div>
   </div>
-
-
 </div>
+<!-- END SECTION ABOUT -->
 <div class="heading_s1 text-center">
       <h3>Objets déclarés</h3>
     </div>
@@ -63,7 +56,7 @@
                   </a>
                 </li>
                 <li>
-                  <a (click)="sendMessage()">
+                  <a  *ngIf="bienSelectionner" [href]="'mailto:' + email">
                     <i class="bi bi-chat-left-dots-fill"></i>
                   </a>
                 </li>
