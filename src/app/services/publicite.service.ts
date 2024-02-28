@@ -23,6 +23,16 @@ export class PubliciteService {
         }) : of(null);
   }
 
+  /** listes les pubs publics */
+  getAllPubsPublics(): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+      
+      return accessToken ?
+      this.http.get<any>(`${url}/demandes/pubAffichable`,  {
+          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+        }) : of(null);
+  }
+
   // listes des pubs d'un utilisateur 
   getAllPubsUser(): Observable<any> {
     const accessToken = localStorage.getItem('access_token');

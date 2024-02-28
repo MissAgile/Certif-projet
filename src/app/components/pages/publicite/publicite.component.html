@@ -97,31 +97,37 @@
         <div class="declaration-right col-lg-4 col-md-3 ">
             <form action="" class="  ">
                 <div class="mb-3">
-                    <label for="titreObjet" class="form-label">Titre Objet</label>
-                    <input type="text" name="titreObjet" class="form-control" placeholder="Titre de l'objet"
-                        id="titreObjet">
-                </div>
-                <div class="mb-3">
-                    <label for="descriptionObjet" class="form-label"
-                        placeholder="Description de l'objet">Description</label>
-                    <input type="text" name="descriptionObjet" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="dateObjet" class="form-label">Date</label>
-                    <input type="date" name="dateObjet" class="form-control" placeholder="Description" id="dateObjet">
-                </div>
-                <div class="mb-3">
-                    <label for="lieuObjet" class="form-label">Lieu</label>
-                    <input type="text" name="lieuObjet" class="form-control" id="lieuObjet">
-                </div>
-                <div class="mb-3">
-                    <label for="imageObjet" class="form-label">Url image</label>
-                    <input type="file" name="imageObjet" class="form-control" id="imageObjet">
-                </div>
-
+                    <label for="media" class="form-label">image de la pub </label>
+                    <input type="file" class="form-control" id="media" name="image" placeholder="image de la pub"
+                      (change)="getFile($event)">
+                  </div>
+                  <div class="mb-3">
+                    <label for="nom" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="pub" [(ngModel)]="nom">
+                  </div>
+                  <div class="mb-3">
+                    <label for="date_debut" class="form-label">Date de début</label>
+                    <input type="date" class="form-control" id="date_debut" name="date_debut"
+                      placeholder="date de fin de la pub" [(ngModel)]="date_debut">
+                  </div>
+                  <div class="mb-3">
+                    <label for="date_fin" class="form-label">Date de début</label>
+                    <input type="date" class="form-control" id="date_fin" name="date_fin" placeholder="date de fin de la pub"
+                      [(ngModel)]="date_fin">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email beneficiaire</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email perso ou pro"
+                      [(ngModel)]="email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">phone beneficiaire</label>
+                    <input type="phone" class="form-control" id="phone" name="phone" placeholder="phone perso ou pro"
+                      [(ngModel)]="phone">
+                  </div>
                 <div class=" text-start d-flex justify-content-start">
                     <button class="btn btn-lg btnAnnuler  px-3 py-1 mr-2 ">Annuler</button>
-                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1   ">Déclarer</button>
+                    <button class="btn  btn-lg  btnSoumettre  px-3 py-1 " (click)="ajoutPub()">Ajouter</button>
                 </div>
 
             </form>
@@ -146,22 +152,23 @@
             <li data-target="#carouselIndicator" data-slide-to="2"></li>
         </ol>
 
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../../../../assets/images/pub3.png" class="d-block w-100">
+        <div class="carousel-inner" *ngFor="let pub of listePubsPublics ">
+            <div class="carousel-item active"  >
+                <!-- <img src="../../../../assets/images/pub3.png" class="d-block w-100"> -->
+                <img src="http://127.0.0.1:8000/imagesPubs/{{pub.image }}" class="d-block w-100">
                 <div class="carousel-caption">
 
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../../../../assets/images/pub2.png" class="d-block w-100">
-                <div class="carousel-caption">
+                <img src="http://127.0.0.1:8000/imagesPubs/{{pub.image }}" class="d-block w-100">         
+                       <div class="carousel-caption">
 
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../../../../assets/images/pub3.png" class="d-block w-100">
-                <div class="carousel-caption">
+                <img src="http://127.0.0.1:8000/imagesPubs/{{pub.image }}" class="d-block w-100">
+                                <div class="carousel-caption">
                     <!-- <h5>Slide Three</h5>
                   <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime,
                       nulla, tempore.

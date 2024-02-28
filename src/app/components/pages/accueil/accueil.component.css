@@ -1,26 +1,27 @@
 @import '../../menu/header/header.component';
 @import '../../pages/confidentialite/confidentialite.component.css';
+
 /* banierre  */
-.banierre .containerBanner{
+.banierre .containerBanner {
     background-image: url('../../../../assets/images/banner1.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 500px;  
+    min-height: 500px;
 }
 
-.banierre .containerText{
+.banierre .containerText {
     color: white;
     position: relative;
     top: -340px;
     text-align: left;
 }
 
-.banierre .containerText h1{
+.banierre .containerText h1 {
     font-size: 10vh;
 }
 
-.containerText .btnAjotProjet{
+.containerText .btnAjotProjet {
     background-color: #001F3F;
     color: white;
     border: none;
@@ -30,26 +31,28 @@
 .aproposEureka {
     text-align: justify;
 }
-.aproposEureka h5{
+
+.aproposEureka h5 {
     color: #001F3F;
 }
-.aproposEureka img{
+
+.aproposEureka img {
     height: 100%;
 }
 
-.sectionAccueil{
+.sectionAccueil {
     margin-top: 10vh;
 }
 
 /* Ma commune ma fierté  */
-.commune{
+.commune {
     color: #001F3F;
 }
 
-.owl-stage-outer{
-   /* border: 2px solid rgb(24, 56, 160); */
-  }
-  
+.owl-stage-outer {
+    /* border: 2px solid rgb(24, 56, 160); */
+}
+
 
 
 /*section déclaration objets  trouvé */
@@ -63,21 +66,25 @@
     background-size: cover;
     color: white !important;
 }
-.declaration .container-declaration{
+
+.declaration .container-declaration {
     padding: 2rem;
     margin: 0 auto;
     gap: 5rem;
 }
+
 .declaration .declaration-left {
     /* border: 2px solid green ; */
 
 }
+
 .declaration .declaration-right {
     /* border: 2px solid rgb(215, 21, 186) ; */
     background-color: #fff;
     border-radius: 1rem;
- 
+
 }
+
 .declaration .declaration-right form {
     /* margin: 1rem 0 3rem !important;m0 */
     margin: 0 auto;
@@ -87,10 +94,12 @@
 .declaration .declaration-right form label {
     color: #001F3F;
 }
+
 .declaration .declaration-right form input::placeholder {
     color: #ffffff;
     font-size: 12px;
 }
+
 .declaration .declaration-right form input {
     /* background-color: #001f3f76; */
     color: white;
@@ -102,9 +111,11 @@
 
 
 }
-.declaration .declaration-right form  #imageObjet{
+
+.declaration .declaration-right form #imageObjet {
     background-color: 0;
 }
+
 .declaration .declaration-right form .btn {
     background-color: #001F3F;
     color: white;
@@ -120,35 +131,44 @@
     background-size: cover;
 } */
 
-.statistiques .projet{
+.statistiques .projet {
     background-color: #2ecc70;
     border-right: 3px solid white;
-    color:white ;
+    color: white;
 }
 
 .statistiques .projet h1 {
     font-size: 9vh;
 }
+
 .statistiques .projet p {
     font-size: 5vh;
 }
 
-@media (max-width: 500px) {
-    .product{
-      margin-left: 20% !important;
-      width: 100% !important;
-    }
-  
-  }
-@media (max-width: 900px) {
-    .owl-stage-outer{
-     width: 50%;      
-    }
-    
-    .owl-stage-outer .owl-stage{
-    /* border: 2px solid rgb(13, 163, 35); */
-   width:500px;   
-}
-  }
 
-  
+
+#grid-objet {
+    /* border: 2px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+    #grid-objet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #grid-objet {
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #grid-objet {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

@@ -76,14 +76,18 @@ export class ContactComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Attention',
-        text: 'Renseigner tous les champs'
+        text: 'Renseigner tous les champs',
+        timer: 1000,
+        showConfirmButton: false
       });
     } else if (!this.email.match(emailPattern)) {
       // Ou pour l'email invalide :
       Swal.fire({
         icon: 'error',
         title: 'Attention',
-        text: 'Email invalide'
+        text: 'Email invalide',
+        timer: 1000,
+        showConfirmButton: false
       });
     } else {
       let newUser: Contact = {
@@ -99,7 +103,9 @@ export class ContactComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Bravo!',
-          text: 'Message envoyé avec succès'
+          text: 'Message envoyé avec succès',
+          timer: 1000,
+          showConfirmButton: false
         });
       });
       this.viderChamps();

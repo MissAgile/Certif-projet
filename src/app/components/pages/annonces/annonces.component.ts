@@ -1,5 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 import { BiensService } from 'src/app/services/biens.service';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { WhatshapService } from 'src/app/services/whatshap.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-annonces',
@@ -15,6 +21,8 @@ description: string = "";
 date: any;
 image: any;
 categorie_id: any;
+userPhone: any;
+type_bien="";
 
 
 //variables pour modifier
@@ -28,30 +36,40 @@ imageUpdate: any;
 categorieUpdate: any;
 filterValue: string = "";
 
+listeBiensHome: any[] = [];
 listeBiens: any[] = [];
 tabBienFilter: any[] = [];
 
 bienSelectionner: any = {};
 
-constructor(private biensServices: BiensService) { }
+constructor(
+  private biensServices: BiensService,
+  private whatshapService: WhatshapService,
+  private authService: AuthentificationService,
+  private router: Router,
+  private http: HttpClient,
+  private categoriesService: CategoriesService,
+
+) { }
 
 ngOnInit(): void {
   this.getAllBiensHome();
 }
  
- /** fonction pour lister les bien */
- getAllBiensHome() {
-  console.log(this.listeBiens);
-  this.biensServices. ListeBiensToutType().subscribe(
+/** fonction pour lister les bien */
+getAllBiensHome() {
+  console.log(this.listeBiensHome);
+  this.biensServices.getBienAllType().subscribe(
     (responses) => {
       console.log(responses);
 
-      this.listeBiens = responses.data;
+      this.listeBiensHome = responses.data;
       console.log(responses.data);
 
     }
   )
 }
+
 /**fonction pour détails bien */
 getBienById(id: number) {
   this.biensServices.getBienById(id).subscribe(
@@ -122,4 +140,36 @@ getFile(event: any) {
 
   });
 }
+
+sendMessage() {
+  const accessToken = localStorage.getItem('access_token');
+  // console.log(accessToken);
+
+  this.whatshapService.sendMessageChatify().subscribe(
+    (data) => {
+      console.log(data);
+    }
+  );
+}
+
+messageWhatshap(userPhone: number) {
+  // this. = data.user;
+  let phoneNumber = userPhone;
+  Swal.fire({
+    title: 'Êtes-vous sûr?',
+    text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#2ecc70',
+    cancelButtonColor: '#001F3F',
+    confirmButtonText: 'Oui, accepter!',
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}`, '_blank');
+
+    }
+  })
+
+};
 }

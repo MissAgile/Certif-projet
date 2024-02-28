@@ -57,29 +57,50 @@
 
 
 <!--Section Card objets perdus-->
-<h3 class="text-center text-success mt-5">Tous les objets trouvés </h3>
-<div class="grid-row container row ">
-  <div class="product col-lg-3 col-md-6 col-sm-6" *ngFor="let bi of listeBiens">
-    <div class="product--card  rounded-2 shadow-sm">
-      <a class="product--image">
-        <img class="img-responsive" src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="">
-      </a>
-      <h5 class="product--title">{{bi.libelle}}</h5>
-      <div class="product--brand">
-        <p>{{bi.description}}</p>
+<div class="heading_s1 text-center">
+  <h3>Objets déclarés</h3>
+</div>
+<div class="grid mx-auto container gap-3  " id="grid-objet" >
+  <div class="item " *ngFor="let bi of listeBiensHome">
+    <div class="product">
+      <span class="pr_flash">{{bi.type_bien}}</span>
+      <div class="product_img">
+        <a href="shop-product-detail.html">
+          <img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="product_img3" class="w-100 image">
+        </a>
+        <div class="product_action_box">
+          <ul class="list_none pr_action_btn">
+            <li>
+              <a class="btn" data-bs-toggle="modal" data-bs-target="#editAnnonce" (click)="detailBien(bi.id)">
+                <i class="bi bi-eye"></i>
+              </a>
+            </li>
+            <li>
+              <a (click)="messageWhatshap(bi.userPhone)">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </li>
+            <li>
+              <a (click)="sendMessage()">
+                <i class="bi bi-chat-left-dots-fill"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <a class="product--price">
-        <span class="product--price-inner d-flex justify-content-between">
-          <div class="price--rrp "><button class=" btn fw-bold  bnt-link  btn-md text-center" id="btn-det"
-              style="background-color: #001F3F; color:#fff" data-bs-toggle="modal"
-              data-bs-target="#mydetails " (click)="getBienById(bi.id)">Détails</button></div>
-          <div class="price--sell-price"><button class="btn   btn-md  rounded-circle" id="btn-com"
-              style="background-color: #001F3F; color:#fff"><i class="bi bi-whatsapp"></i> </button></div>
-        </span>
-      </a>
+      <div class="product_info">
+        <h6 class="product_title">{{bi.libelle}}</h6>
+        <div class="product_price">
+          <span class="price">{{bi.description}}</span>
+        </div>
+        <div class="product_price">
+          <p class="date text-secondary">{{bi.date}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
 <!-- Modal pour détails annonces -->
 <div class="modal" id="mydetails">
