@@ -346,13 +346,13 @@ export class AuthentificationComponent implements OnInit {
 
   reinitialiserMotDePass() {
     const data = {
-      email: this.email,
-      
+      email: this.email
     }
 
-
+    console.log(data);
+    
     this.authenticationService.resetPassword(data).subscribe((response) => {
-      console.log(response);
+      console.log(response, 'changePass');
     }
     );
     this.viderChamps();

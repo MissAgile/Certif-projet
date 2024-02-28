@@ -97,12 +97,9 @@ export class AuthentificationService {
 
   /**fonction pour réinitialiser  un mot de pass */
   resetPassword(data: any): Observable<any> {
-    const accessToken = localStorage.getItem('access_token');
 
-    return accessToken ?
-      this.http.post<any>(`${url}/forget-password`, data, {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-      }) : of(null);
-  }
+    return this.http.post<any>(`${url}/forget-password`, data)
+  };
+
 
 }
