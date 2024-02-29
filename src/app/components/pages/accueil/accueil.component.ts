@@ -171,7 +171,8 @@ export class AccueilComponent implements OnInit {
     console.log(formData);
     this.biensServices.addAnnonce(formData).subscribe((response) => {
       console.log(response);
-      console.log(this.image);
+      console.log(this.type_bien);
+
     }
     );
 
@@ -197,6 +198,27 @@ export class AccueilComponent implements OnInit {
       console.log(result);
       if (result.isConfirmed) {
         window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}`, '_blank');
+
+      }
+    })
+
+  };
+
+  messageTelegram(userPhone: number) {
+    // this. = data.user;
+    let phoneNumber = userPhone;
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#2ecc70',
+      cancelButtonColor: '#001F3F',
+      confirmButtonText: 'Oui, accepter!',
+    }).then((result) => {
+      console.log(result);
+      if (result.isConfirmed) {
+        window.open(`https://t.me/${phoneNumber}`, '_blank');
 
       }
     })

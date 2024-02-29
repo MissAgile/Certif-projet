@@ -56,7 +56,7 @@
                   </a>
                 </li>
                 <li>
-                  <a  *ngIf="bienSelectionner" [href]="'mailto:' + email">
+                  <a (click)="messageTelegram(bi.userPhone)">
                     <i class="bi bi-chat-left-dots-fill"></i>
                   </a>
                 </li>
@@ -188,10 +188,10 @@
           <p class="text-success" *ngIf="exactDescription" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>  
         </div>
         <div class="mb-3">
-          <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+          <label for="description" class="col-form-label">Type Bien <span class="required">*</span></label>
           <select class="form-select" aria-label="Default select example" name="[type_bien]" [(ngModel)]="type_bien">
-            <option value="bien perdu">bien_perdu</option>
-            <option value="bien trouve">bien_trouve</option>
+            <option value="bien perdu">Bien perdu</option>
+            <option value="bien trouve">Bien_trouve</option>
           </select>
         </div>
         <div class="mb-3">
