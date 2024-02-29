@@ -17,14 +17,14 @@ private readonly baseUrl = 'http://127.0.0.1:8000/chatify';
   constructor(private http : HttpClient) { }
 
   
-  sendWhatsapp(): Observable<any> {
-    const userId = 7;
+  sendWhatsapp(id:any): Observable<any> {
+    // const userId = 7;
     const accessToken = localStorage.getItem('access_token');
       
     console.log(accessToken);
       return accessToken ?
       
-      this.http.post<any>(`${url}/users/whatsapp/`+ userId, {},{
+      this.http.post<any>(`${url}/users/whatsapp/${id}`, {},{
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) : of(null);
      

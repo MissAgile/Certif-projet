@@ -46,7 +46,7 @@
             <div class="product_action_box">
               <ul class="list_none pr_action_btn">
                 <li>
-                  <a class="btn" data-bs-toggle="modal" data-bs-target="#editAnnonce" (click)="detailBien(bi.id)">
+                  <a class="btn" data-bs-toggle="modal" data-bs-target="#editAnnonce" (click)="getObjet(bi)">
                     <i class="bi bi-eye"></i>
                   </a>
                 </li>
@@ -56,7 +56,7 @@
                   </a>
                 </li>
                 <li>
-                  <a (click)="messageTelegram(bi.userPhone)">
+                  <a  (click)="messageTelegram(bi.userPhone)">
                     <i class="bi bi-chat-left-dots-fill"></i>
                   </a>
                 </li>
@@ -81,17 +81,17 @@
 
 
   <!-- Modal pour details bien-->
-  <div class="modal fade" id="editAnnonce" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  <div class="modal  " id="editAnnonce" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="editPubLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered mo">
-    <div class="modal-content mx-auto">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content  px-4 mx-0 ">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails de la publicité</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails d'un objet</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body ">
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row  text-center d-flex" *ngIf="bienSelectionner.id">
+        <div class="card mb-3" >
+          <div class="row  text-center d-flex" *ngIf="bienSelectionner">
             <div class="col-lg-6">
               <img src="http://127.0.0.1:8000/imagesBiens/{{bienSelectionner.image}}" class="w-100  rounded-start"
                 alt="...">
@@ -102,6 +102,7 @@
                 <p class="card-text">{{bienSelectionner.description}}</p>
                 <p class="card-text"><small class="text-body-secondary">{{bienSelectionner.type_bien}}
                    </small></p>
+                   
               </div>
             </div>
           </div>

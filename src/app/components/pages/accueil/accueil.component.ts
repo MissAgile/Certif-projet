@@ -48,13 +48,13 @@ export class AccueilComponent implements OnInit {
   exactType_bien: boolean = false;
 
   //variable user
-  id: number = 7;
+  id: any;
   email: string = "";
   password: string = "";
   name: string = "";
   phone: number = 0;
   firstName: string = "";
-  confirmPassword: string = "";
+  confirmPassword: string = ""
 
 
 
@@ -126,6 +126,9 @@ export class AccueilComponent implements OnInit {
 
         this.listeBiensHome = responses.data;
         console.log(responses.data);
+        this.id = responses.userId
+        console.log('je suis id',this.id);
+        
 
       }
     )
@@ -149,12 +152,21 @@ export class AccueilComponent implements OnInit {
 
   /**fonction pour détails bien */
   /**fonction pour détails bien  */
-  detailBien(id: number) {
-    this.biensServices.getBienById(id).subscribe((rep) => {
-      console.log(rep);
-      this.bienSelectionner = rep.data;
+  bienSelectionnerId:any;
+  // detailBien(id: number) {
+  //   this.biensServices.getBienById(id).subscribe((rep) => {
+  //     console.log(rep);
+  //     this.bienSelectionner = rep.id;
+  //     this.bienSelectionnerId = rep.data.userId;
+  //     console.log('salut',this.bienSelectionnerId);
+      
 
-    });
+  //   });
+  // }
+  getObjet(objet:any){
+    this.bienSelectionner= objet
+
+
   }
 
   /*fonction ajout bien **/
@@ -188,7 +200,7 @@ export class AccueilComponent implements OnInit {
     let phoneNumber = userPhone;
     Swal.fire({
       title: 'Êtes-vous sûr?',
-      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+      text: 'Vous allez le contactacter sur whtashap!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#2ecc70',
@@ -197,13 +209,41 @@ export class AccueilComponent implements OnInit {
     }).then((result) => {
       console.log(result);
       if (result.isConfirmed) {
+
         window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}`, '_blank');
 
       }
     })
 
   };
+  userId:any;
+  //  messageWhatshap() {
+  //   // this. = data.user;
+  //    this.userId =this.bienSelectionner.userId ;
+  //   // Swal.fire({
+  //   //   title: 'Êtes-vous sûr?',
+  //   //   text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+  //   //   icon: 'warning',
+  //   //   showCancelButton: true,
+  //   //   confirmButtonColor: '#2ecc70',
+  //   //   cancelButtonColor: '#001F3F',
+  //   //   confirmButtonText: 'Oui, accepter!',
+  //   // }).then((result) => {
+  //   //   console.log(result);
+  //     // if (result.isConfirmed) {
+  //      this.whatshapService.sendWhatsapp(this.userId).subscribe((response) => {
+  //       console.log(response);
+  //       console.log(this.userPhone);
+  
+  //     }
+  //     );
 
+  //     // }
+  //   // })
+
+  // };
+
+  
   messageTelegram(userPhone: number) {
     // this. = data.user;
     let phoneNumber = userPhone;
@@ -218,10 +258,13 @@ export class AccueilComponent implements OnInit {
     }).then((result) => {
       console.log(result);
       if (result.isConfirmed) {
-        window.open(`https://t.me/${phoneNumber}`, '_blank');
+        window.open(`tg://open?userphone=${phoneNumber}`, '_blank');
+
 
       }
     })
+
+
 
   };
 

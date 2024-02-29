@@ -45,7 +45,6 @@
   </div>
 </div>
 
-<!-- ================ liste des biens trouvés ================= -->
 <div class="details ">
   <div class="link-rapide">
     <a type="submit" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="mdo">Ajouter
@@ -56,6 +55,7 @@
       un bien</a>
   </div>
   <div class="recentOrders" *ngIf="!afficherBloc2">
+<!-- ================ liste des biens trouvés ================= -->
 
     <div class="cardHeader">
       <h2> liste des biens trouvé</h2>
@@ -90,7 +90,7 @@
           </td>
           <td><span class="status action-icon">
               <a data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                <i class="bi bi-eye-fill" (click)="detailBien(bi.id)"></i>
+                <i class="bi bi-eye-fill" (click)="getObject(bi)"></i>
               </a>
               <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"> <i
                   class="bi bi-pencil-square" (click)="chargerInfosBien(bi)"></i> </a>
@@ -137,7 +137,7 @@
               class="btn-link  btn-success text-white text-decoration-none rounded-2 px-2">{{bi.type_bien}}</button>
           </td>
           <td><span class="status action-icon">
-              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="detailBien(bi.id)">
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="getObject(bi)">
                 <i class="bi bi-eye-fill"></i>
               </a>
               <a id="btn-modal-edit" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo"> <i
@@ -278,7 +278,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Détails bien </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" *ngIf="bienSelectionner">
+      <div class="modal-body" >
         <h3>{{bienSelectionner.libelle}}</h3>
         <h5>{{bienSelectionner.description}}</h5>
         <h5>{{bienSelectionner.lieu}}</h5>

@@ -222,6 +222,12 @@ export class GestionMesobjetsComponent {
     this.getBiensUser();
     this.listeBiens;
   }
+  objetSelectionner:any;
+
+  getObject(objet:any){
+    this.bienSelectionner = objet;
+
+  }
 
 /**fonction qui permet  */
   viderChamps(){
