@@ -1,65 +1,528 @@
-@import '../../menu/header/header.component';
 @import '../../pages/confidentialite/confidentialite.component.css';
-/* banierre  */
-.banierre .containerBanner{
-    background-image: url('../../../../assets/images/banner1.png');
-    background-position: center;
+@import '../../../components/pages/accueil/accueil.component.css';
+
+.produits{
+    color: white;
+}
+.banner-container {
+    width: 100%;
+    height: 110vh;
+    background-color: #070b0d2a;
+}
+
+.section-banner {
+    background-image: url("../../../../assets/images/bn2.png");
+    /* object-fit: cover; */
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 500px;  
-}
-
-.banierre .containerText{
-    color: white;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
     position: relative;
-    top: -340px;
-    text-align: left;
+    z-index: -2;
 }
 
-.banierre .containerText h1{
-    font-size: 10vh;
-}
-
-.containerText .btnAjotProjet{
-    background-color: #001F3F;
+.section-banner .titre {
+    font-size: 16px;
+    font-weight: bold;
     color: white;
-    border: none;
 }
 
-/* Section à propos de EUREKA  */
-.aproposEureka {
-    text-align: justify;
-}
-.aproposEureka h5{
-    color: #001F3F;
-}
-.aproposEureka img{
-    height: 100%;
+.titre {
+    font-size: 2em !important;
+    position: relative;
+    top: -55vh;
+    margin: 0 auto;
+
 }
 
-.sectionAccueil{
+
+/* debut de la section apropos */
+.grid-contain-apropos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.btn-produit{
+    background-color: #001F3F;
+}
+.color-text{
+    color: #017D03;
+    font-weight: bold;
+}
+.retrait{
+    margin-left: 21vh;
+    font-weight: bold;
+}
+.paragraphe-apropos{
+    margin: auto;
+}
+#section{
+    width: 95%;
+    margin: 0 auto;
+}
+/* fin de la section */
+
+/* Debut de la stylisation de produit */
+.decoration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -8px;
+}
+
+.soulignement {
+    background-color: #001F3F;
+    width: 5%;
+    height: 3px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.bi{
+    font-size: 2em;
+    color: #017D03;
+}
+.grid-produit{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* height: 420px; */
+    gap: 5vh;
+}
+.col{
+    border: 1.7px solid #cfcfcf;
+    padding-top: 3vh;
+    border-radius: 10px;
+    height: 420px;
+}
+.image-col{
+    height: 200px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.image-col img{
+    border-radius: 7px;
+}
+.titre-couleur{
+    color: #017D03;
+}
+.image-profil {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 5px;
     margin-top: 10vh;
 }
 
-/* Ma commune ma fierté  */
-.commune{
-    color: #001F3F;
+.image-profil img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+
 }
 
-.owl-stage-outer{
-    gap: 110px;
+.info-profil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info{
+    /* border: 2px solid; */
+    width: 75%;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    margin-top: 9vh;
+}
+.info span{
+    /* margin-top: 17vh; */
+    font-weight: bold; 
+    color: black;
+}
+
+/* Debut stylisation annonces */
+.grid-annonce{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* height: 450px; */
+    gap: 5vh;
+}
+.col-annonce {
+    /* border: 1px solid #B6B4B4; */
+    border-radius: 18px;
+    box-shadow: 2px 1px 6px 0px #d5d5d5;
+    /* height: 380px; */
+}
+
+.image-profil-1 {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 5px;
+    margin-top: 13px;
+}
+
+.image-profil-1 img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+
+}
+
+.info-profil-1 {
+    display: flex;
+}
+.info-1 p{
+    margin-top: 22px;
+}
+.card-img-top{
+}
+#teste{
+    height: 200px;
+    border-radius: 18px 18px 0px 0px;
+}
+
+/* Debut de la section verte */
+.section-verte{
+    height: 450px;
+    width: 100%;
+}
+
+/* debut section conseil agricole */
+.grid-conseil{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4vh;
+}
+.col-conseil{
+    border: 2px solid #ffffff;
+    padding: 10px;
+    z-index: -1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 0px #bfbfbf;
+}
+.contain-icone{
+    width: 20%;
+    height: 35%;
+    padding: 10px;
+    border-radius: 50%;
+    /* border: 1px solid; */
+    background-color: #017D03;
+    margin: 0 auto;
+    position: relative;
+    top: -42px;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contain-icone-1{
+    width: 20%;
+    height: 35%;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #FF9C00;
+    margin: 0 auto;
+    position: relative;
+    top: -42px;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-text {
+    font-size: 15px;
 }
 
 
+@media (max-width:767px){
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .grid-annonce {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .card-img-top{
+        height: 250px;
+    }
+    .section-verte {
+        height: auto;
+        width: 100%;
+    }
+    .section-banner {
+        background-image: url("../../../../assets/images/banner2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 110vh;
+        position: relative;
+        z-index: -2;
+    }
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .info {
+        width: 75%;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    /* debut section conseil agricole */
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8vh;
+    }
+    
+    .col-conseil {
+        border: 2px solid #ffffff;
+        padding: 10px;
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px 0px #bfbfbf;
+    }
+    
+    .contain-icone {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #017D03;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contain-icone-1 {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #FF9C00;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width:768px) and (max-width:990px){
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vh;
+    }
+    .grid-annonce {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vh;
+    }
+    .card-img-top {
+        height: 250px;
+    }
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .section-verte {
+        height: auto;
+        width: 100%;
+    }
+    .section-banner {
+        background-image: url("../../../../assets/images/banner2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 110vh;
+        position: relative;
+        z-index: -2;
+    }
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info {
+        width: 75%;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    .col-conseil {
+        border: 2px solid #ffffff;
+        padding: 10px;
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px 0px #bfbfbf;
+    }
+    
+    .contain-icone {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #017D03;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    
+    .contain-icone-1 {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #FF9C00;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Debut de la section verte */
+    .section-verte {
+       /* height: 450px; */
+       width: 100%;
+    }
+
+   /* debut section conseil agricole */
+    .grid-conseil {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 4vh;
+    }
+}
+
+@media (min-width:900px) and (max-width:1504px) {
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5vh;
+    }
+
+
+    .card-img-top {
+        height: 250px;
+    }
+    
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    }
+
+    
 /*section déclaration objets  trouvé */
 .declaration {
     /* border: 2px solid rgb(21, 0, 255) !important; */
-    background-image: url('../../../../assets/images/alerteObjet.png');
+    /* background-image: url('../../../../assets/images/alerteObjet.png'); */
     width: 100%;
     /* height: 50%; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #001F3F;
     color: white !important;
 }
 .declaration .container-declaration{
@@ -77,38 +540,9 @@
     border-radius: 1rem;
  
 }
-.declaration .declaration-right form {
-    /* margin: 1rem 0 3rem !important;m0 */
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-.declaration .declaration-right form label {
-    color: #001F3F;
-}
-.declaration .declaration-right form input::placeholder {
-    color: #ffffff;
-    font-size: 12px;
-}
-.declaration .declaration-right form input {
-    /* background-color: #001f3f76; */
-    color: white;
-    /* padding:5%; */
-    width: 100%;
-    border-radius: 0;
-    border: none;
-    border-bottom: 3px solid #001F3F;
 
 
-}
-.declaration .declaration-right form  #imageObjet{
-    background-color: 0;
-}
-.declaration .declaration-right form .btn {
-    background-color: #001F3F;
-    color: white;
 
-}
 
 /* Les statistiques  */
 /* .statistiques{
@@ -131,6 +565,3 @@
 .statistiques .projet p {
     font-size: 5vh;
 }
-
-
-

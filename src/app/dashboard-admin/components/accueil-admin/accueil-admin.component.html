@@ -6,10 +6,11 @@
       <div class="iconBx">
         <i class="fa fa-eye" aria-hidden="true"></i>
       </div>
-      <div>
-          <div class="numbers">100</div>
-          <div class="cardName">Objets perdus</div>
+      <div *ngIf=" listeBiens">
+        <div class="numbers">{{  listeBiens.length }}</div>
+        <div class="cardName">Objets perdus</div>
       </div>
+  
 
   </div>
 
@@ -28,9 +29,9 @@
       <div class="iconBx">
         <i class="fa fa-comments-o" aria-hidden="true"></i>
       </div>
-      <div>
-          <div class="numbers">284</div>
-          <div class="cardName">Objets trouvés</div>
+      <div >
+        <div class="numbers">13</div>
+        <div class="cardName">Objets totals</div>
       </div>
 
   </div>

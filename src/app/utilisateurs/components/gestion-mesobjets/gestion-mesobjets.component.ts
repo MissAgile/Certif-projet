@@ -29,6 +29,7 @@ export class GestionMesobjetsComponent {
   verifLibelle: string = "";
   verifDescription: string = "";
   verifDate: string = "";
+  verifLieu: string = "";
   verifImage: string = "";
   verifCategorie_id: string = "";
   verifType_bien: string = "";
@@ -37,6 +38,7 @@ export class GestionMesobjetsComponent {
   exactLibelle: boolean = false;
   exactDescription: boolean = false;
   exactDate: boolean = false;
+  exactLieu: boolean = false;
   exactImage: boolean = false;
   exactCategorie_id: boolean = false;
   exactType_bien: boolean = false;
@@ -52,11 +54,21 @@ export class GestionMesobjetsComponent {
   imageUpdate: any;
   categorieUpdate: any;
 
+//variable user
+id: any;
+email: string = "";
+password: string = "";
+name: string = "";
+phone: number = 0;
+firstName: string = "";
+confirmPassword: string = ""
 
   /** liste et tableau bien pour bien */
   listeBiens: any[] = [];
   listeBiensPerdu: any[] = [];
   bienSelectionner: any = {};
+  listeBiensHome: any[] = [];
+
 
   /**liste et tableau pour categorie */
   categories: any = ""; //tableau categories
@@ -95,6 +107,7 @@ export class GestionMesobjetsComponent {
     this.getBiensUserPerdu();
     this.getBiensUser();
     this.getAllCategories();
+    this.getAllBiensHome();
   }
 
 
@@ -117,7 +130,22 @@ export class GestionMesobjetsComponent {
       }
     )
   }
+ /** fonction pour lister les bien */
+ getAllBiensHome() {
+  console.log(this.listeBiensHome);
+  this.biensServices.getBienAllType().subscribe(
+    (responses) => {
+      console.log(responses);
 
+      this.listeBiensHome = responses.data;
+      console.log(responses.data);
+      this.id = responses.userId
+      console.log('je suis id',this.id);
+      
+
+    }
+  )
+}
   /** fonction pour lister les bien trouvé */
   getBiensUser() {
     console.log(this.listeBiens);
@@ -289,4 +317,51 @@ export class GestionMesobjetsComponent {
     }
   }
 
+
+  /**verification de libelle */
+ 
+
+  /**verification de libelle */
+verifLieuFonction() {
+  this.exactLieu = false;
+  if(this.lieu == ""){
+    this.verifLieu = "Veuillez entrez le lieu ";
+  }
+  else if (this.lieu.length < 2 ){
+    this.verifLieu = "Le lieu est trop court";
+  }
+  else {
+    this.verifLieu = "";
+    this.exactLieu = true;
+  }
+}
+ /**verification de libelle */
+ verifCategorieFonction() {
+  this.exactDescription = false;
+  if(this.description == ""){
+    this.verifDescription = "Veuillez renseigner votre nom";
+  }
+  else if (this.description.length < 2 ){
+    this.verifDescription = "Le nom est trop court";
+  }
+  else {
+    this.verifDescription = "";
+    this.exactDescription = true;
+  }
+}
+
+ /**verification de libelle */
+ verifTypeBienFonction() {
+  this.exactDescription = false;
+  if(this.description == ""){
+    this.verifDescription = "Veuillez renseigner votre nom";
+  }
+  else if (this.description.length < 2 ){
+    this.verifDescription = "Le nom est trop court";
+  }
+  else {
+    this.verifDescription = "";
+    this.exactDescription = true;
+  }
+}
 }

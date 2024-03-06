@@ -4,10 +4,15 @@
     <div class="iconBx">
       <i class="fa fa-eye" aria-hidden="true"></i>
     </div>
-    <div>
+    <!-- <div>
       <div class="numbers">100</div>
       <div class="cardName">Objets perdus</div>
-    </div>
+    </div> -->
+
+    <div *ngIf="listeBiensPerdu">
+      <div class="numbers">{{ listeBiensPerdu.length }}</div>
+      <div class="cardName">Objets perdus</div>
+  </div>
 
   </div>
 
@@ -15,9 +20,9 @@
     <div class="iconBx">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </div>
-    <div>
-      <div class="numbers">500</div>
-      <div class="cardName">Nombre visites</div>
+    <div *ngIf=" listeBiens">
+      <div class="numbers">{{  listeBiens.length }}</div>
+      <div class="cardName">Objets perdus</div>
     </div>
 
   </div>
@@ -26,9 +31,9 @@
     <div class="iconBx">
       <i class="fa fa-comments-o" aria-hidden="true"></i>
     </div>
-    <div>
-      <div class="numbers">284</div>
-      <div class="cardName">Objets trouvés</div>
+    <div *ngIf=" listeBiensHome">
+      <div class="numbers">{{  listeBiensHome.length }}</div>
+      <div class="cardName">Objets totals</div>
     </div>
 
   </div>
@@ -61,7 +66,7 @@
       <h2> liste des biens trouvé</h2>
     </div>
 
-    <table datatable [dtOptions]="dtOptions" class="row-border hover table text-left">
+    <table datatable [dtOptions]="dtOptions" class="row-border hover table table-responsive">
       <thead>
         <tr>
           <th>Libelle</th>
@@ -157,23 +162,25 @@
 
 <!-- //ajoutDemande -->
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content px-3 py-3" >
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un bien</h1>
+        <h3 class="modal-title " id="exampleModalLabel">Ajouter un bien</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="libelle" class="col-form-label">Libellé</label>
+            <label for="libelle" class="col-form-label">Libellé <span class="required">*</span></label>
             <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle" (input)="verifLibelleFonction()">
-            <p class="text-danger" *ngIf="!exactLibelle" style="font-size: 9px;">{{verifLibelle}}</p>
-            <p class="text-success" *ngIf="exactLibelle" style="font-size: 9px;"><i class="bi bi-check2-all"></i> Exact !</p>
+            <p class="text-danger" *ngIf="!exactLibelle" style="font-size: 11px;">{{verifLibelle}}</p>
+            <p class="text-success" *ngIf="exactLibelle" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
           <div class="mb-3">
-            <label for="description" class="col-form-label">description:</label>
-            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description">
+            <label for="description" class="col-form-label">description <span class="required">*</span></label>
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" (input)="verifDescriptionFonction()">
+            <p class="text-danger" *ngIf="!exactDescription" style="font-size: 11px;">{{verifDescription}}</p>
+            <p class="text-success" *ngIf="exactDescription" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
           </div>
           <div class="mb-3">
             <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
@@ -182,10 +189,7 @@
               <option value="bien trouve">Bien trouve</option>
             </select>
           </div>
-          <div class="mb-3">
-            <label for="lieu" class="col-form-label">lieu</label>
-            <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu">
-          </div>
+         
           <div class="mb-3">
             <label for="date" class="col-form-label">date</label>
             <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" [max]="currentDate">
@@ -203,11 +207,18 @@
               </option>
             </select>
           </div>
+          <div class="mb-3">
+            <label for="lieu" class="col-form-label">lieu <span class="required">*</span></label>
+            <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu"(input)="verifLieuFonction()">
+            <p class="text-danger" *ngIf="!exactLieu" style="font-size: 11px;">{{verifLieu}}</p>
+            <p class="text-success" *ngIf="exactLieu" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="ajoutBien()">Envoyer</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="ajoutBien()" style="background-color:#2ECC71;" *ngIf="exactLibelle === true && exactDescription === true && exactLieu===true  ">Envoyer</button>
+        <button type="button" class="btn " data-bs-dismiss="modal" (click)="ajoutBien()" style="background-color:#c3c7c5;" *ngIf="exactLibelle == false  || exactDescription==false ||exactLieu==false "  >Envoyer</button>
       </div>
     </div>
   </div>

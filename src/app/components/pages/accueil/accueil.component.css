@@ -1,48 +1,66 @@
 @import '../../menu/header/header.component';
 @import '../../pages/confidentialite/confidentialite.component.css';
 
-/* banierre  */
-.banierre .containerBanner {
-    background-image: url('../../../../assets/images/banner1.png');
-    background-position: center;
+.produits{
+    color: white;
+}
+.banner-container {
+    width: 100%;
+    height: 110vh;
+    background-color: #070b0d2a;
+}
+
+.section-banner {
+    background-image: url("../../../../assets/images/bn2.png");
+    /* object-fit: cover; */
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 500px;
-}
-
-.banierre .containerText {
-    color: white;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
     position: relative;
-    top: -340px;
-    text-align: left;
+    z-index: -2;
 }
 
-.banierre .containerText h1 {
-    font-size: 10vh;
-}
-
-.containerText .btnAjotProjet {
-    background-color: #001F3F;
+.section-banner .titre {
+    font-size: 16px;
+    font-weight: bold;
     color: white;
-    border: none;
 }
 
-/* Section à propos de EUREKA  */
-.aproposEureka {
-    text-align: justify;
+.titre {
+    font-size: 2em !important;
+    position: relative;
+    top: -55vh;
+    margin: 0 auto;
+
 }
 
-.aproposEureka h5 {
-    color: #001F3F;
+/* debut de la section apropos */
+.grid-contain-apropos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
-
-.aproposEureka img {
-    height: 100%;
+.btn-produit{
+    background-color: #001F3F;
 }
-
-.sectionAccueil {
-    margin-top: 10vh;
+.color-text{
+    color: #017D03;
+    font-weight: bold;
 }
+.retrait{
+    margin-left: 21vh;
+    font-weight: bold;
+}
+.paragraphe-apropos{
+    margin: auto;
+}
+#section{
+    width: 95%;
+    margin: 0 auto;
+}
+/* fin de la section */
 
 /* Ma commune ma fierté  */
 .commune {
@@ -58,23 +76,32 @@
 /*section déclaration objets  trouvé */
 .declaration {
     /* border: 2px solid rgb(21, 0, 255) !important; */
-    background-image: url('../../../../assets/images/alerteObjet.png');
+    /* background-image: url('../../../../assets/images/alerteObjet.png'); */
     width: 100%;
     /* height: 50%; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #001F3F;
     color: white !important;
 }
 
 .declaration .container-declaration {
     padding: 2rem;
     margin: 0 auto;
-    gap: 5rem;
+    justify-content: space-between;
+    /* gap: 5rem; */
 }
 
 .declaration .declaration-left {
     /* border: 2px solid green ; */
+    text-align: justify !important;
+
+}
+
+.declaration .declaration-left h2{
+    /* border: 2px solid green ; */
+    text-align: justify !important;
 
 }
 
@@ -176,4 +203,368 @@
 .modal-dialog{
     /* border:2px solid red; */
     margin: 0 auto !important;
+}
+
+
+
+@media (max-width:767px){
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .grid-annonce {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .card-img-top{
+        height: 250px;
+    }
+    .section-verte {
+        height: auto;
+        width: 100%;
+    }
+    .section-banner {
+        background-image: url("../../../../assets/images/banner2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 110vh;
+        position: relative;
+        z-index: -2;
+    }
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .info {
+        width: 75%;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    /* debut section conseil agricole */
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8vh;
+    }
+    
+    .col-conseil {
+        border: 2px solid #ffffff;
+        padding: 10px;
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px 0px #bfbfbf;
+    }
+    
+    .contain-icone {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #017D03;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contain-icone-1 {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #FF9C00;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width:768px) and (max-width:990px){
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vh;
+    }
+    .grid-annonce {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5vh;
+    }
+    .card-img-top {
+        height: 250px;
+    }
+    .grid-conseil {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 4vh;
+    }
+    .section-verte {
+        height: auto;
+        width: 100%;
+    }
+    .section-banner {
+        background-image: url("../../../../assets/images/banner2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 110vh;
+        position: relative;
+        z-index: -2;
+    }
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info {
+        width: 75%;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    .col-conseil {
+        border: 2px solid #ffffff;
+        padding: 10px;
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px 0px #bfbfbf;
+    }
+    
+    .contain-icone {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #017D03;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    
+    .contain-icone-1 {
+        width: 20%;
+        height: 35%;
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #FF9C00;
+        margin: 0 auto;
+        position: relative;
+        top: -42px;
+        z-index: -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Debut de la section verte */
+    .section-verte {
+       /* height: 450px; */
+       width: 100%;
+    }
+
+   /* debut section conseil agricole */
+    .grid-conseil {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 4vh;
+    }
+}
+
+@media (min-width:900px) and (max-width:1504px) {
+    .grid-contain-apropos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .retrait {
+        margin-left: 10vh;
+        font-weight: bold;
+    }
+
+    .grid-produit {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5vh;
+    }
+
+
+    .card-img-top {
+        height: 250px;
+    }
+    
+    .image-profil {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin: 5px;
+    }
+
+    .image-profil img {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        margin-top: 2vh;
+    }
+
+    .info-profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    }
+
+
+    .btn-fill-oute {
+	background-color: transparent;
+	border: 1px solid #2ECC71;
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+.btn-fill-oute::before,
+.btn-fill-oute::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	background-color: #2ECC71;
+	z-index: -1;
+	transition: all 0.3s ease-in-out;
+	width: 51%;
+}
+.btn-fill-oute::after {
+	right: 0;
+	left: auto;
+}
+.btn-fill-oute:hover:before,
+.btn-fill-oute:hover:after {
+	width: 0;
+}
+.btn-fill-oute:hover {
+	color:#001F3F !important;
+}
+
+/* Debut de la section verte */
+.section-verte{
+    height: 450px;
+    width: 100%;
+}
+
+/* debut section conseil agricole */
+.grid-conseil{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4vh;
+}
+.col-conseil{
+    border: 2px solid #ffffff;
+    padding: 10px;
+    z-index: -1;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px 0px #bfbfbf;
+}
+.contain-icone{
+    width: 20%;
+    height: 35%;
+    padding: 10px;
+    border-radius: 50%;
+    /* border: 1px solid; */
+    background-color: #017D03;
+    margin: 0 auto;
+    position: relative;
+    top: -42px;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contain-icone-1{
+    width: 20%;
+    height: 35%;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #FF9C00;
+    margin: 0 auto;
+    position: relative;
+    top: -42px;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-text {
+    font-size: 15px;
 }

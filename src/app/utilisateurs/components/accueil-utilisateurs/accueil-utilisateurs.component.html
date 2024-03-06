@@ -4,8 +4,8 @@
         <div class="iconBx">
             <i class="fa fa-eye" aria-hidden="true"></i>
         </div>
-        <div>
-            <div class="numbers">100</div>
+        <div *ngIf="listeBiens">
+            <div class="numbers">{{ listeBiens.length }}</div>
             <div class="cardName">Objets perdus</div>
         </div>
 
@@ -49,25 +49,29 @@
 
 
     <!--section déclaration objets trouvés-->
-    <section class="declaration h-75 mx-auto">
-        <h1 class="text-center mt-3">Faites une déclaration ici !</h1>
-        <!-- section soumettre Objet  -->
-        <div class="container row container-declaration  ">
-             <div class="declaration-left col-lg-3 col-md-3 col-sm-12 p-0">
-                <img src="../../../../assets/images/hero.png" alt="">
-            </div>
-            <div class="declaration-left col-lg-7 col-md-7 col-sm-12 p-0">
-                <h3 class="fw-bolder">Attention, votre annonce sera visible pour tout le monde !
-                    Soyez vigilant dans le contenu de votre annonce et lors des échanges avec les autres utilisateurs !</h3>
-                    <p class="text-white">Ne divulguez pas d’informations personnelles et sensibles (photo de document officiel, identifiant, code, email, téléphone, adresse…).
-                        Utilisez le formulaire de contact de votre annonce (votre email sera masqué).
-                        Respectez les droits de propriété intellectuelle.
+    <section class="declaration  mx-auto">
+        <header class="welcome-banner container row container-declaration  ">
+            
+            <div class="declaration-left col-lg-7 col-md-7 col-sm-12 p-0 " style="text-align: justify;" >
+               
+                <p class="">Attention, votre annonce sera visible pour tout le monde !
+                    Soyez vigilant dans le contenu de votre annonce et lors des échanges avec les autres utilisateurs !</p>
+                    <p class="text-white">
+                       
                         Attention aux escroqueries et ne pas envoyer d’argent avant de vérifier les informations.
                         Préférez les rencontres en personne dans un lieu public et à être accompagné.
                         Nous ne sommes pas responsable des pertes, dommages ou blessures liés aux transactions.
                         Signalez les abus, arnaques ou contenus inappropriés.
                         Faites preuve de bon sens et de prudence.</p>
             </div>
+            <div class="declaration-left col-lg-3 col-md-3 col-sm-12 p-0">
+                <img src="../../../../assets/images/hero.png" alt="">
+            </div>
+        </header>
+        <!-- section soumettre Objet  -->
+        <div class="container row container-declaration mt-4 ">
+             
+            
             <div class="card mb-4">
                 <div class="card-header">
                     <h3> Qu'avez-vous trouvé ou perdu ? </h3>

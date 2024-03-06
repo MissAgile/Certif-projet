@@ -27,7 +27,17 @@ export class AccueilAdminComponent implements OnInit {
 
     
   
-  
+  //variable user
+id: any;
+email: string = "";
+password: string = "";
+name: string = "";
+phone: number = 0;
+firstName: string = "";
+confirmPassword: string = ""
+
+  /** liste et tableau bien pour bien */
+  listeBiensHome: any[] = [];
     listeBiens: any[] = [];
   
     bienSelectionner: any = {};
@@ -75,7 +85,22 @@ export class AccueilAdminComponent implements OnInit {
       }
     )
   }
-  
+  /** fonction pour lister les bien */
+ getAllBiensHome() {
+  console.log(this.listeBiensHome);
+  this.biensServices.getBienAllType().subscribe(
+    (responses) => {
+      console.log(responses);
+
+      this.listeBiensHome = responses.data;
+      console.log(responses.data);
+      this.id = responses.userId
+      console.log('je suis id',this.id);
+      
+
+    }
+  )
+}
   //fonction pour lister
   
   getAllbiens() {

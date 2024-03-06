@@ -328,9 +328,9 @@ export class AccueilComponent implements OnInit {
     this.exactLibelle = false;
     if (this.libelle === '') {
       this.verifLibelle = 'Veuillez renseigner le libellé';
-    } else if (this.libelle.length < 2) {
+    } else if (this.libelle.length < 4) {
       this.verifLibelle = 'Le le libelle  est trop courte';
-    } else if (!Validators.pattern(/^[a-zA-Z0-9]+$/)) {
+    } else if (!Validators.pattern(/^[a-zA-Z]+$/)) {
       this.verifLibelle = "Le libelle ne doit contenir que des lettres et des chiffres";
     } else {
       this.verifLibelle = '';
@@ -342,10 +342,10 @@ export class AccueilComponent implements OnInit {
   verifDescriptionFonction() {
     this.exactDescription = false;
     if (this.description == "") {
-      this.verifDescription = "Veuillez renseigner votre nom";
+      this.verifDescription = "Veuillez entrez une description";
     }
-    else if (this.description.length < 2) {
-      this.verifDescription = "Le nom est trop court";
+    else if (this.description.length < 5) {
+      this.verifDescription = "La description est trop courte";
     }
     else {
       this.verifDescription = "";
@@ -357,10 +357,10 @@ export class AccueilComponent implements OnInit {
 verifLieuFonction() {
   this.exactLieu = false;
   if(this.lieu == ""){
-    this.verifLieu = "Veuillez renseigner votre nom";
+    this.verifLieu = "Veuillez entrez le lieu ";
   }
   else if (this.lieu.length < 2 ){
-    this.verifLieu = "Le nom est trop court";
+    this.verifLieu = "Le lieu est trop court";
   }
   else {
     this.verifLieu = "";

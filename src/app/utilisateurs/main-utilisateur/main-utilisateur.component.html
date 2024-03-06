@@ -82,17 +82,17 @@
 
     
 
-    <!-- ========================= Main ==================== -->
+    <!-- ================== Main =============== -->
     <div [ngClass]="status ? 'active' : ''" class="main">
         <div class="topbar">
             <div class="toggle" (click)="addToggle()">
                 <i class="bi bi-list text-white" aria-hidden="true"></i>
             </div>
             <div class="user">
-                <img src="assets/imgs/customer01.jpg" alt="">
-            </div>
-            
-        </div>
+            <a  [routerLink]="['./myprofil-user']">  <img src="assets/imgs/customer01.jpg" alt="">
+            </a>       
+     </div>
+    </div>
 
         <router-outlet></router-outlet>
     </div>

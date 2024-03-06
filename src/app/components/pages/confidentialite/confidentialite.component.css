@@ -8,6 +8,7 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 	font-smoothing: antialiased;
 }
+
 body {
 	background: #ffffff none repeat scroll 0 0;
     color: #687188;
@@ -15,7 +16,7 @@ body {
     font-size: 16px;
 }
 h1,h2,h3,h4,h5,h6 {
-	color: #2ecc70 ;
+	/* color: #2ecc70 ; */
 	font-family: 'Roboto';
 }
 p {
@@ -4823,6 +4824,9 @@ footer .widget_title {
 .deal_content .product_info {
 	padding: 0;
 }
+.deal_content .product_info h6{
+	color: #2ECC71;
+}
 .deal_wrap .countdown_style1 .countdown_box::before {
 	font-size: 24px;
 	font-weight: normal;
@@ -6248,6 +6252,7 @@ footer .widget_recent_post .post_img img {
 	/* font-size: 14px; */
 	margin-bottom: 5px;
 	font-weight: 600;
+
 }
 .post_content .product_price {
 	margin-bottom: 0px;
