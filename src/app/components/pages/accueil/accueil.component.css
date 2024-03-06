@@ -84,6 +84,7 @@
     background-size: cover;
     background-color: #001F3F;
     color: white !important;
+    margin-top: 20em;
 }
 
 .declaration .container-declaration {
@@ -567,4 +568,20 @@
 }
 .card-text {
     font-size: 15px;
+}
+
+/* Debut de la stylisation de produit */
+.decoration{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -8px;
+}
+
+.soulignement {
+    background-color: #001F3F;
+    width: 5%;
+    height: 3px;
+    border-radius: 10px;
+    display: inline-block;
 }

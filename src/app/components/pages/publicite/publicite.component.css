@@ -1,4 +1,5 @@
-
+@import url('../../../dashboard-admin/components/accueil-admin/accueil-admin.component.css');
+@import '../../pages/confidentialite/confidentialite.component.css';
 /* banner slide */
 .carousel-item{
   /* height: 100vh; */
