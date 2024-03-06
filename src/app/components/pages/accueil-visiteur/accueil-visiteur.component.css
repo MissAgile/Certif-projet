@@ -47,7 +47,7 @@
     background-color: #001F3F;
 }
 .color-text{
-    color: #017D03;
+    color: #001F3F;
     font-weight: bold;
 }
 .retrait{
@@ -80,7 +80,7 @@
 }
 .bi{
     font-size: 2em;
-    color: #017D03;
+    color: #001F3F;
 }
 .grid-produit{
     display: grid;
@@ -104,7 +104,7 @@
     border-radius: 7px;
 }
 .titre-couleur{
-    color: #017D03;
+    color: #001F3F;
 }
 .image-profil {
     height: 45px;
@@ -207,7 +207,7 @@
     padding: 10px;
     border-radius: 50%;
     /* border: 1px solid; */
-    background-color: #017D03;
+    background-color: #001F3F;
     margin: 0 auto;
     position: relative;
     top: -42px;
@@ -323,7 +323,7 @@
         height: 35%;
         padding: 10px;
         border-radius: 50%;
-        background-color: #017D03;
+        background-color: #001F3F;
         margin: 0 auto;
         position: relative;
         top: -42px;
@@ -430,7 +430,7 @@
         height: 35%;
         padding: 10px;
         border-radius: 50%;
-        background-color: #017D03;
+        background-color: #001F3F;
         margin: 0 auto;
         position: relative;
         top: -42px;

@@ -66,11 +66,279 @@
 <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="../../../../assets/images/banner1.png" style="margin-top: 50px !important;" class="d-block w-100">
+      <img  src="../../../../assets/images/bon.png" style="margin-top: 50px !important;" class="d-block w-100">
     </div>
   </div>
 </div>
+<!-- Debut de la section apropos -->
+<section class="mt-2 container" id="section">
+  <div class="grid-contain-apropos container">
+    <div class="img-apropos">
+      <img 
+        src="../../../../assets/images/apropos2-01.png"
+        alt=""
+        height="100%"
+        width="100%"
+      />
+    </div>
+    <div class="paragraphe-apropos">
+      <div class="heading_s1 text-center">
+        <h3  style="color:#2ECC71;">Aprpos de EUREKA</h3> 
+      
+      </div>     
+      <p class="" style="text-align: justify">
+        Bienvenue sur Eureka, votre plateforme dédiée à la gestion efficace des biens trouvés et perdus. Chez Eureka, nous croyons en la puissance de la technologie pour connecter les gens et simplifier la résolution des problèmes quotidiens. Notre mission est de créer une communauté où les objets perdus peuvent retrouver leur chemin vers leurs propriétaires légitimes de manière rapide et efficace.
+      </p>
+
+      <button class="btn text-white fw-bold btn-produit">
+        <a href="#" routerLink="/apropos" class="produits">Voir plus</a>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- END SECTION ABOUT -->
+<div class="heading_s1 text-center">
+      <h3  style="color:#2ECC71;">Objets déclarés</h3> 
+    
+    </div>
+<div class="grid mx-auto container gap-3  " id="grid-objet" >
+      <div class="item " *ngFor="let bi of listeBiensHome">
+        <div class="product">
+          <span class="pr_flash">{{bi.type_bien}}</span>
+          <div class="product_img">
+            <a href="shop-product-detail.html">
+              <img src="http://127.0.0.1:8000/imagesBiens/{{bi.image}}" alt="product_img3" class="w-100 image">
+            </a>
+            <div class="product_action_box">
+              <ul class="list_none pr_action_btn">
+                <li>
+                  <a class="btn" data-bs-toggle="modal" data-bs-target="#editAnnonce" (click)="getObjet(bi)">
+                    <i class="bi bi-eye"></i>
+                  </a>
+                </li>
+                <li>
+                  <a (click)="messageWhatshap(bi.userPhone)">
+                    <i class="bi bi-whatsapp"></i>
+                  </a>
+                </li>
+                <li>
+                  <a  (click)="messageTelegram(bi.userPhone)">
+                    <i class="bi bi-chat-left-dots-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="product_info">
+            <h6 class="product_title fw-bolder " style="color:#2ECC71; font-size: 20px;">{{bi.libelle}}</h6>
+            <div class="product_price">
+              <span class="price">{{bi.description}}</span>
+            </div>
+            <div class="product_price">
+              <p class="date text-secondary">{{bi.date}}</p>
+            </div>
+          </div>
+        </div>
+        
+      
+    </div>
 
 
+
+
+  <!-- Modal pour details bien-->
+  <div class="modal  " id="editAnnonce" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="editPubLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content  px-4 mx-0 ">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Détails d'un objet</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <div class="card mb-3" >
+          <div class="row  text-center d-flex" *ngIf="bienSelectionner">
+            <div class="col-lg-6">
+              <img src="http://127.0.0.1:8000/imagesBiens/{{bienSelectionner.image}}" class="w-100  rounded-start"
+                alt="...">
+            </div>
+            <div class="col-lg-6 col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">{{bienSelectionner.libelle}}</h3>
+                <p class="card-text">{{bienSelectionner.description}}</p>
+                <p class="card-text"><small class="text-body-secondary">{{bienSelectionner.type_bien}}
+                   </small></p>
+                   
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
   
+  <div class="buton container mx-auto"   >
+    <button type="button" title="Submit Your Message!" class="btn btn-fill-oute bg-white "
+      id="submitButton" style="margin-left: 40%;" routerLink="/annonces"  >Déclarer un objet</button>
+    </div>
+<!-- Debut section decalaration -->
+<section class="mt-5 py-5" >
+  <h2 class="fw-bold text-center"  style="color:#2ECC71;">Déclarer un objet</h2>
+  
+ <!--section déclaration objets trouvés-->
+<section class="declaration  mx-auto mt-5 ">
+  <!-- section soumettre Objet  -->
+  <div class="container row container-declaration  ">
+    <div class="   declaration-right col-lg-5 col-md-6 col-sm-12">
+      <img class="w-100" src="../../../../assets/images/lost1.png" alt="">
+    </div>
+    <div class="declaration-left col-lg-6 col-md-4 col-sm-12 py-5 ">
+      <h2 class="pb-3" style="text-align: justify !important;">Déclaration d'objet trouvé ou perdu
+      </h2>
+      <p class=" text-white " style="text-align: justify !important;">Chaque jour des milliers
+        de personne trouver leur bien
+        grâce à notre site. En clickant sur le button utilisez le formulaire si vous voulez déclarer un 
+        objet que vous avez trouvé ou perdu.</p>
+
+      <button type="button" title="Submit Your Message!" class="btn btn-fill-oute bg-white "
+       id="submitButton" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="mdo" >Déclarer un objet</button>
+
+      <!-- Test  -->
+      <!-- <img [src]="image" alt=""> -->
+    </div>
+
+  </div>
+  <!-- Fin Contenu  -->
+</section>
+</section>
+<!-- Debut de la section verte -->
+<section class="section-verte container mx-auto py-5" >
+  <h2 class="fw-bold text-center"  style="color:#2ECC71; margin-top: 50px;">Publicités</h2>
+  
+  <p class="text-center leads">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore.</p>
+  <img src="../../../../assets/images/pub2.png" alt="" width="100%"  height="85%"/>
+</section>
+
+<!-- Debut de la derniere section -->
+<!-- START SECTION WHY CHOOSE -->
+<div class="section  " >
+  <div class="container  mx-auto pt-5" >
+    <div class="row justify-content-center ">
+      <div class="col-lg-6 col-md-8">
+        <h2 class="fw-bold text-center"  style="color:#2ECC71;">Pourquoi faire une déclaration</h2>
+  
+        <p class="text-center leads">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore.</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-sm-6">
+        <div class="icon_box icon_box_style4 box_shadow1">
+          <div class="icon">
+            <i class="bi bi-info-circle-fill"></i>
+          </div>
+          <div class="icon_box_content">
+            <h5>Retrouver vos objets perdus plus facilement</h5>
+            <p>Perdre un objet peut être stressant, mais avec notre application, vous pouvez augmenter considérablement vos chances de le retrouver</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="icon_box icon_box_style4 box_shadow1">
+          <div class="icon">
+            <i class="bi bi-box"></i>
+          </div>
+          <div class="icon_box_content">
+            <h5>Aider les autres à retrouver leurs objets perdus</h5>
+            <p>Lorsque vous trouvez un objet perdu, votre déclaration peut faire toute la différence pour la personne qui l'a perdu.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="icon_box icon_box_style4 box_shadow1">
+          <div class="icon">
+            <i class="bi bi-chat-dots"></i>
+          </div>
+          <div class="icon_box_content">
+            <h5>Contribuer à un monde plus responsable et connecté</h5>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+              suffered alteration in some form</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SECTION WHY CHOOSE -->
 <app-footer></app-footer>
+
+
+<!-- //ajoutDemande -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content px-3 py-3" >
+      <div class="modal-header">
+        <h3 class="modal-title " id="exampleModalLabel">Ajouter un bien</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="libelle" class="col-form-label">Libellé <span class="required">*</span></label>
+            <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="libelle" (input)="verifLibelleFonction()">
+            <p class="text-danger" *ngIf="!exactLibelle" style="font-size: 11px;">{{verifLibelle}}</p>
+            <p class="text-success" *ngIf="exactLibelle" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="col-form-label">description <span class="required">*</span></label>
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" (input)="verifDescriptionFonction()">
+            <p class="text-danger" *ngIf="!exactDescription" style="font-size: 11px;">{{verifDescription}}</p>
+            <p class="text-success" *ngIf="exactDescription" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="col-form-label">Categorie de bien <span class="required">*</span></label>
+            <select class="form-select" aria-label="Default select example" name="[type_bien]" [(ngModel)]="type_bien">
+              <option value="bien perdu">Bien perdu</option>
+              <option value="bien trouve">Bien trouve</option>
+            </select>
+          </div>
+         
+          <div class="mb-3">
+            <label for="date" class="col-form-label">date</label>
+            <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" [max]="currentDate">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="col-form-label">image</label>
+            <input type="file" class="form-control" id="image" name="image" (change)="getFile($event)">
+          </div>
+          <div class="mb-3">
+            <label for="categorie" class="form-label">Categorie <span class="required">*</span></label>
+            <select class="form-select" aria-label="Default select example" name="categorie" [(ngModel)]="categorie_id">
+              <option selected>Selectionner une categorie</option>
+              <option *ngFor="let categorie of categories" [value]="categorie.id">
+                {{ categorie.nom }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="lieu" class="col-form-label">lieu <span class="required">*</span></label>
+            <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="lieu"(input)="verifLieuFonction()">
+            <p class="text-danger" *ngIf="!exactLieu" style="font-size: 11px;">{{verifLieu}}</p>
+            <p class="text-success" *ngIf="exactLieu" style="font-size: 11px;"><i class="bi bi-check2-all"></i> Exact !</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="ajoutBien()" style="background-color:#2ECC71;" *ngIf="exactLibelle === true && exactDescription === true && exactLieu===true  ">Envoyer</button>
+        <button type="button" class="btn " data-bs-dismiss="modal" (click)="ajoutBien()" style="background-color:#c3c7c5;" *ngIf="exactLibelle == false  || exactDescription==false ||exactLieu==false "  >Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+<!-- <app-footer></app-footer> -->
